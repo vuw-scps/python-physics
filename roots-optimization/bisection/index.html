@@ -969,21 +969,27 @@
 <p>The bisection method does not (in general) produce an exact solution of an equation $f(x)=0$. However, we can give an estimate of the absolute error in the approxiation.</p>
 <hr />
 <p><strong>Theorem</strong>. Let $f(x)$ be a continuous function on $[a,b]$ such that $f(a)f(b) &lt; 0$. After $N$ iterations of the biection method, let $x_N$ be the midpoint in the $N$th subinterval $[a_N,b_N]$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_N = \frac{a_N + b_N}{2}
-$$</p>
+</script>
+</p>
 <p>There exists an exact solution $x_{\mathrm{true}}$ of the equation $f(x)=0$ in the subinterval $[a_N,b_N]$ and the absolute error is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left| \ x_{\text{true}} - x_N \, \right| \leq \frac{b-a}{2^{N+1}}
-$$</p>
+</script>
+</p>
 <hr />
 <p>Note that we can rearrange the error bound to see the minimum number of iterations required to guarantee absolute error less than a prescribed $\epsilon$:</p>
-<p>\begin{align}
-\frac{b-a}{2^{N+1}} &amp; &lt; \epsilon \\
-\frac{b-a}{\epsilon} &amp; &lt; 2^{N+1} \\
-\ln \left( \frac{b-a}{\epsilon} \right) &amp; &lt; (N+1)\ln(2) \\
-\frac{\ln \left( \frac{b-a}{\epsilon} \right)}{\ln(2)} - 1 &amp; &lt; N
-\end{align}</p>
+<p>
+<script type="math/tex; mode=display">\begin{align}
+\frac{b-a}{2^{N+1}} & < \epsilon \\\
+\frac{b-a}{\epsilon} & < 2^{N+1} \\\
+\ln \left( \frac{b-a}{\epsilon} \right) & < (N+1)\ln(2) \\\
+\frac{\ln \left( \frac{b-a}{\epsilon} \right)}{\ln(2)} - 1 & < N
+\end{align}</script>
+</p>
 <h2 id="implementation">Implementation</h2>
 <p>Write a function called <code>bisection</code> which takes 4 input parameters <code>f</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns the approximation of a solution of $f(x)=0$ given by $N$ iterations of the bisection method. If $f(a_n)f(b_n) \geq 0$ at any point in the iteration (caused either by a bad initial interval or rounding error in computations), then print <code>"Bisection method fails."</code> and return <code>None</code>.</p>
 <pre><code class="python">def bisection(f,a,b,N):
@@ -1043,9 +1049,11 @@ $$</p>
 <h2 id="examples">Examples</h2>
 <h3 id="golden-ratio">Golden Ratio</h3>
 <p>Let's use our function with input parameters $f(x)=x^2 - x - 1$ and $N=25$ iterations on $[1,2]$ to approximate the <a href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \phi = \frac{1 + \sqrt{5}}{2}
-$$</p>
+</script>
+</p>
 <p>The golden ratio $\phi$ is a root of the quadratic polynomial $x^2 - x - 1 = 0$.</p>
 <pre><code class="python">f = lambda x: x**2 - x - 1
 approx_phi = bisection(f,1,2,25)
@@ -1150,6 +1158,8 @@ print(error_bound)
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

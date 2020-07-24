@@ -972,21 +972,27 @@ import matplotlib.pyplot as plt
 <h2 id="definition">Definition</h2>
 <p><a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson's rule</a> uses a quadratic polynomial on each subinterval of a partition to approximate the function $f(x)$ and to compute the definite integral. This is an improvement over the trapezoid rule which approximates $f(x)$ by a straight line on each subinterval of a partition.</p>
 <p>The formula for Simpson's rule is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 S_N(f) = \frac{\Delta x}{3} \sum_{i=1}^{N/2} \left( f(x_{2i-2}) + 4 f(x_{2i-1}) + f(x_{2i}) \right)
-$$</p>
+</script>
+</p>
 <p>where $N$ is an <em>even</em> number of subintervals of $[a,b]$, $\Delta x = (b - a)/N$ and $x_i = a + i \Delta x$.</p>
 <h2 id="error-formula">Error Formula</h2>
 <p>We have seen that the error in a Riemann sum is inversely proportional to the size of the partition $N$ and the trapezoid rule is inversely proportional to $N^2$. The error formula in the theorem below shows that Simpson's rule is even better as the error is inversely proportional to $N^4$.</p>
 <hr />
 <p><strong>Theorem</strong> Let $S_N(f)$ denote Simpson's rule</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 S_N(f) = \frac{\Delta x}{3} \sum_{i=1}^{N/2} \left( f(x_{2i-2}) + 4 f(x_{2i-1}) + f(x_{2i}) \right)
-$$</p>
+</script>
+</p>
 <p>where $N$ is an <em>even</em> number of subintervals of $[a,b]$, $\Delta x = (b - a)/N$ and $x_i = a + i \Delta x$. The error bound is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{180N^4} K_4
-$$</p>
+</script>
+</p>
 <p>where $\left| \ f^{(4)}(x) \ \right| \leq K_4$ for all $x \in [a,b]$.</p>
 <hr />
 <h2 id="implementation">Implementation</h2>
@@ -1028,9 +1034,11 @@ $$</p>
 </code></pre>
 
 <p>Let's test our function on integrals for which we know the exact value. For example, we know</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_0^1 3x^2 dx = 1
-$$</p>
+</script>
+</p>
 <pre><code class="python">simps(lambda x : 3*x**2,0,1,10)
 </code></pre>
 
@@ -1038,9 +1046,11 @@ $$</p>
 </code></pre></div>
 
 <p>Test our function again with the integral</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_0^{\pi/2} \sin(x) dx = 1
-$$</p>
+</script>
+</p>
 <pre><code class="python">simps(np.sin,0,np.pi/2,100)
 </code></pre>
 
@@ -1056,20 +1066,26 @@ $$</p>
 <h2 id="examples">Examples</h2>
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
 <p>Find a value $N$ which guarantees that Simpson's rule approximation $S_N(f)$ of the integral</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_1^2 \frac{1}{x} dx
-$$</p>
+</script>
+</p>
 <p>satisfies $E_N^S(f) \leq 0.0001$.</p>
 <p>Compute</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 f^{(4)}(x) = \frac{24}{x^5}
-$$</p>
+</script>
+</p>
 <p>therefore $\left| \, f^{(4)}(x) \, \right| \leq 24$ for all $x \in [1,2]$ and so</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \frac{1}{180N^4} 24 \leq 0.0001 \ \Rightarrow \ 
 \frac{20000}{15N^4} \leq 1 \ \Rightarrow \ 
 \left( \frac{20000}{15} \right)^{1/4} \leq N
-$$</p>
+</script>
+</p>
 <p>Compute</p>
 <pre><code class="python">(20000/15)**0.25
 </code></pre>
@@ -1183,6 +1199,8 @@ print(approximation)
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

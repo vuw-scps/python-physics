@@ -1342,9 +1342,11 @@ print(sum(one_to_hundred))
 <h2 id="examples">Examples</h2>
 <h3 id="triangular-numbers">Triangular Numbers</h3>
 <p>The formula for the sum of integers from 1 to $N$ (also known as <a href="https://en.wikipedia.org/wiki/Triangular_number">triangular numbers</a>) is given by:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{k=1}^N k = \frac{N(N+1)}{2}
-$$</p>
+</script>
+</p>
 <p>Let's verify the formula for $N=1000$:</p>
 <pre><code class="python">N = 1000
 left_side = sum([k for k in range(1,N+1)])
@@ -1360,9 +1362,11 @@ print(right_side)
 <p>Notice the results agree (although the right side is a float since we used division).</p>
 <h3 id="sum-of-squares">Sum of Squares</h3>
 <p>The sum of squares (a special case of a <a href="https://en.wikipedia.org/wiki/Geometric_series">geometric series</a>) is given by the formula:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{k=1}^N k^2 = \frac{N(N+1)(2N+1)}{6}
-$$</p>
+</script>
+</p>
 <p>Let's verify the formula for $N=2000$:</p>
 <pre><code class="python">N = 2000
 left_side = sum([k**2 for k in range(1,N+1)])
@@ -1377,13 +1381,17 @@ print(right_side)
 
 <h3 id="riemann-zeta-function">Riemann Zeta Function</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite series</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
-$$</p>
+</script>
+</p>
 <p>Its <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Specific_values">values</a> are very mysterious! Let's verify the special value formula</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \zeta(4) = \sum_{n=1}^{\infty} \frac{1}{n^4} = \frac{\pi^4}{90}
-$$</p>
+</script>
+</p>
 <p>Compute the 1000th partial sum of the series:</p>
 <pre><code class="python">terms = [1/n**4 for n in range(1,1001)]
 sum(terms)
@@ -1403,20 +1411,26 @@ sum(terms)
 <ol>
 <li>
 <p>The <a href="https://en.wikipedia.org/wiki/Taylor_series#Trigonometric_functions">Maclaurin series</a> of $\arctan(x)$ is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \arctan(x) = \sum_{n = 0}^{\infty} \frac{(-1)^nx^{2n + 1}}{2n+1}
-$$</p>
+</script>
+</p>
 <p>Substituting $x = 1$ gives a series representation of $\pi/4$. Compute the 5000th partial sum of the series to approximate $\pi/4$.</p>
 </li>
 <li>
 <p>Compute the 2000th partial sum of the <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)#Alternating_harmonic_series">alternating harmonic series</a>:</p>
-<p>$$\sum_{n=1}^{\infty}\frac{(-1)^n}{n}$$</p>
+<p>
+<script type="math/tex; mode=display">\sum_{n=1}^{\infty}\frac{(-1)^n}{n}</script>
+</p>
 </li>
 <li>
 <p>Write a list comprehension to create the list of lists:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 [[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49]]
-$$</p>
+</script>
+</p>
 </li>
 </ol>
                 
@@ -1497,6 +1511,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

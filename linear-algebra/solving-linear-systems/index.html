@@ -1052,29 +1052,33 @@ import scipy.linalg as la
 
 <h2 id="linear-systems">Linear Systems</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/System_of_linear_equations">linear system of equations</a> is a collection of linear equations</p>
-<p>\begin{align}
-a_{0,0}x_0 + a_{0,1}x_2 + \cdots + a_{0,n}x_n &amp; = b_0 \\
-a_{1,0}x_0 + a_{1,1}x_2 + \cdots + a_{1,n}x_n &amp; = b_1 \\
-&amp; \vdots \\
-a_{m,0}x_0 + a_{m,1}x_2 + \cdots + a_{m,n}x_n &amp; = b_m \\
-\end{align}</p>
+<p>
+<script type="math/tex; mode=display">\begin{align}
+a_{0,0}x_0 + a_{0,1}x_2 + \cdots + a_{0,n}x_n & = b_0 \\\
+a_{1,0}x_0 + a_{1,1}x_2 + \cdots + a_{1,n}x_n & = b_1 \\\
+& \vdots \\\
+a_{m,0}x_0 + a_{m,1}x_2 + \cdots + a_{m,n}x_n & = b_m \\\
+\end{align}</script>
+</p>
 <p>In matrix notation, a linear system is $A \mathbf{x}= \mathbf{b}$ where</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 A = \begin{bmatrix}
-a_{0,0} &amp; a_{0,1} &amp; \cdots &amp; a_{0,n} \\
-a_{1,0} &amp; a_{1,1} &amp; \cdots &amp; a_{1,n} \\
-\vdots &amp; &amp; &amp; \vdots \\
-a_{m,0} &amp; a_{m,1} &amp; \cdots &amp; a_{m,n} \\
+a_{0,0} & a_{0,1} & \cdots & a_{0,n} \\\
+a_{1,0} & a_{1,1} & \cdots & a_{1,n} \\\
+\vdots & & & \vdots \\\
+a_{m,0} & a_{m,1} & \cdots & a_{m,n} \\\
 \end{bmatrix}
  \ \ , \ \
 \mathbf{x} = \begin{bmatrix}
-x_0 \\ x_1 \\ \vdots \\ x_n
+x_0 \\\ x_1 \\\ \vdots \\\ x_n
 \end{bmatrix}
  \ \ , \ \
 \mathbf{b} = \begin{bmatrix}
-b_0 \\ b_1 \\ \vdots \\ b_m
+b_0 \\\ b_1 \\\ \vdots \\\ b_m
 \end{bmatrix} 
-$$</p>
+</script>
+</p>
 <h2 id="gaussian-elimination">Gaussian elimination</h2>
 <p>The general procedure to solve a linear system of equation is called <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a>. The idea is to perform elementary row operations to reduce the system to its row echelon form and then solve.</p>
 <h3 id="elementary-row-operations">Elementary Row Operations</h3>
@@ -1086,13 +1090,15 @@ $$</p>
 </ol>
 <p>Each of the elementary row operations is the result of matrix multiplication by an elementary matrix (on the left).
 To add $k$ times row $i$ to row $j$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except the $i,j$ entry is $E_{i,j} = k$. For example, if $A$ is 3 by 3 and we want to add 3 times row 2 to row 0 (using 0 indexing) then</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 E_1 = \begin{bmatrix}
-1 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 1
+1 & 0 & 3 \\\
+0 & 1 & 0 \\\
+0 & 0 & 1
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>Let's verify the calculation:</p>
 <pre><code class="python">A = np.array([[1,1,2],[-1,3,1],[0,5,2]])
 print(A)
@@ -1121,13 +1127,15 @@ print(E1)
 </code></pre></div>
 
 <p>To multiply $k$ times row $i$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except the $,i,j$ entry is $E_{i,i} = k$. For example, if $A$ is 3 by 3 and we want to multiply row 1 by -2 then</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 E_2 = \begin{bmatrix}
-1 &amp; 0 &amp; 0 \\
-0 &amp; -2 &amp; 0 \\
-0 &amp; 0 &amp; 1
+1 & 0 & 0 \\\
+0 & -2 & 0 \\\
+0 & 0 & 1
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>Let's verify the calculation:</p>
 <pre><code class="python">E2 = np.array([[1,0,0],[0,-2,0],[0,0,1]])
 print(E2)
@@ -1147,13 +1155,15 @@ print(E2)
 </code></pre></div>
 
 <p>Finally, to switch row $i$ and row $j$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except $E_{i,i} = 0$, $E_{j,j} = 0$, $E_{i,j} = 1$ and $E_{j,i} = 1$. For example, if $A$ is 3 by 3 and we want to switch row 1 and row 2 then</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 E^3 = \begin{bmatrix}
-1 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 1 \\
-0 &amp; 1 &amp; 0
+1 & 0 & 0 \\\
+0 & 0 & 1 \\\
+0 & 1 & 0
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>Let's verify the calculation:</p>
 <pre><code class="python">E3 = np.array([[1,0,0],[0,0,1],[0,1,0]])
 print(E3)
@@ -1595,10 +1605,12 @@ print(x3)
 
 <h3 id="simple-example">Simple Example</h3>
 <p>Let's compute the solution of the system of equations</p>
-<p>\begin{align}
-2x + y &amp;= 1 \\
-x + y &amp;= 1
-\end{align}</p>
+<p>
+<script type="math/tex; mode=display">\begin{align}
+2x + y &= 1 \\\
+x + y &= 1
+\end{align}</script>
+</p>
 <p>Create the matrix of coefficients:</p>
 <pre><code class="python">A = np.array([[2,1],[1,1]])
 print(A)
@@ -1767,6 +1779,8 @@ x = la.inv(A) @ b
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

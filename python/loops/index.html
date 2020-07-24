@@ -1150,13 +1150,17 @@ print(squares)
 <h3 id="recursive-sequences">Recursive Sequences</h3>
 <p>We can only use a list comprehension to construct a sequence when the sequence values are defined by a formula. But what if we want to construct a sequence where the next value depends on previous values? This is called a <a href="https://en.wikipedia.org/wiki/Recursion">recursive sequence</a>.</p>
 <p>For example, consider the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_1 = 1, x_2 = 1, x_3 = 2, x_4 = 3, x_5 = 5, ...
-$$</p>
+</script>
+</p>
 <p>where</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_{n} = x_{n-1} + x_{n-2}
-$$</p>
+</script>
+</p>
 <p>We can't use a list comprehension to build the list of Fibonacci numbers, and so we must use a <code>for</code> loop with the <code>append</code> method instead. For example, the first 15 Fibonacci numbers are:</p>
 <pre><code class="python">fibonacci_numbers = [1,1]
 for n in range(2,15):
@@ -1244,9 +1248,11 @@ for n in range(2,15):
 </code></pre></div>
 
 <p>We can use our function to approximate $e$ using the Taylor series for $e^x$:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
-$$</p>
+</script>
+</p>
 <p>For example, let's compute the 100th partial sum of the series with $x=1$:</p>
 <pre><code class="python">sum([1/factorial(k) for k in range(0,101)])
 </code></pre>
@@ -1256,9 +1262,11 @@ $$</p>
 
 <h2 id="searching-for-solutions">Searching for Solutions</h2>
 <p>We can use <code>for</code> loops to search for integer solutions of equations. For example, suppose we would like to find all representations of a positive integer $N$ as a <a href="https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem">sum of two squares</a>. In other words, we want to find all integer solutions $(x,y)$ of the equation:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x^2 + y^2 = N
-$$</p>
+</script>
+</p>
 <p>Write a function called <code>reps_sum_squares</code> which takes an integer $N$ and finds all representations of $N$ as a sum of squares $x^2 + y^2 = N$ for $0 \leq x \leq y$. The function returns the representations as a list of tuples. For example, if $N = 50$ then $1^2 + 7^2 = 50$ and $5^2 + 5^2 = 50$ and the function returns the list <code>[(1, 7),(5, 5)]</code>.</p>
 <p>Let's outline our approach before we write any code:</p>
 <ol>
@@ -1419,9 +1427,11 @@ print(N,':',reps_sum_squares(N))
 
 <h3 id="collatz-conjecture">Collatz Conjecture</h3>
 <p>Let $a$ be a positive integer and consider the recursive sequence where $x_0 = a$ and</p>
-<p>$$
-x_{n+1} = \left\{ \begin{array}{cl} x_n/2 &amp; \text{if } x_n \text{ is even} \\ 3x_n+1 &amp; \text{if } x_n \text{ is odd}  \end{array} \right.
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+x_{n+1} = \left\\{ \begin{array}{cl} x_n/2 & \text{if } x_n \text{ is even} \\\\ 3x_n+1 & \text{if } x_n \text{ is odd}  \end{array} \\right.
+</script>
+</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a> states that this sequence will <em>always</em> reach 1. For example, if $a = 10$ then $x_0 = 10$, $x_1 = 5$, $x_2 = 16$, $x_3 = 8$, $x_4 = 4$, $x_5 = 2$ and $x_6 = 1$.</p>
 <p>Write a function called <code>collatz</code> which takes one input parameter <code>a</code> and returns the sequence of integers defined above and ending with the first occurrence $x_n=1$.</p>
 <pre><code class="python">def collatz(a):
@@ -1501,18 +1511,22 @@ print('Longest sequence begins with a =',a_max,'and has length',max_length)
 </li>
 <li>
 <p>Write a function called <code>reciprocal_recursion</code> which takes three positive integers $x_0$, $x_1$ and $N$ and returns the sequence $[x_0,x_1,x_2,\dots,x_N]$ where</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_n = \frac{1}{x_{n-1}} + \frac{1}{x_{n-2}}
-$$</p>
+</script>
+</p>
 </li>
 <li>
 <p>Write a function called <code>root_sequence</code> which takes input parameters $a$ and $N$, both positive integers, and returns the $N$th term $x_N$ in the sequence:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \begin{align}
-x_0 &amp;= a \\
-x_n &amp;= 1 + \sqrt{x_{n-1}}
+x_0 &= a \\\
+x_n &= 1 + \sqrt{x_{n-1}}
 \end{align}
-$$</p>
+</script>
+</p>
 <p>Does the sequence converge to different values for different starting values $a$?</p>
 </li>
 <li>
@@ -1523,9 +1537,11 @@ $$</p>
 </li>
 <li>
 <p>Let $w(N)$ be the number of ways $N$ can be expressed as a sum of two squares $x^2 + y^2 = N$ with $1 \leq x \leq y$. Then</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \lim_{N \to \infty} \frac{1}{N} \sum_{n=1}^{N} w(n) = \frac{\pi}{8}
-$$</p>
+</script>
+</p>
 <p>Compute the left side of the formula for $N=100$ and compare the result to $\pi / 8$.</p>
 </li>
 <li>
@@ -1610,6 +1626,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

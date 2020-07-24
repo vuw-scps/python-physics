@@ -1121,53 +1121,65 @@ import scipy.linalg as la
 <p><a href="https://en.wikipedia.org/wiki/Polynomial_interpolation">Polynomial interpolation</a> finds the unique polynomial of degree $n$ which passes through $n+1$ points in the $xy$-plane. For example, two points in the $xy$-plane determine a line and three points determine a parabola.</p>
 <h3 id="formulation">Formulation</h3>
 <p>Suppose we have $n + 1$ points in the $xy$-plane</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 (x_0,y_0),(x_1,y_1),\dots,(x_n,y_n)
-$$</p>
+</script>
+</p>
 <p>such that all the $x$ values are distinct ($x_i \not= x_j$ for $i \not= j$). The general form of a degree $n$ polynomial is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 p(x) = a_0 + a_1 x + a_2x^2 + \cdots + a_n x^n
-$$</p>
+</script>
+</p>
 <p>If $p(x)$ is the unique degree $n$ polynomial which interpolates all the points, then the coefficients $a_0$, $a_1$, $\dots$, $a_n$ satisfy the following equations:</p>
-<p>\begin{align}
-a_0 + a_1x_0 + a_2x_0^2 + \cdots + a_n x_0^n &amp;= y_0 \\
-a_0 + a_1x_1 + a_2x_1^2 + \cdots + a_n x_1^n &amp;= y_1 \\
-&amp; \ \ \vdots \\
-a_0 + a_1x_n + a_2x_n^2 + \cdots + a_n x_n^n &amp;= y_n
-\end{align}</p>
+<p>
+<script type="math/tex; mode=display">\begin{align}
+a_0 + a_1x_0 + a_2x_0^2 + \cdots + a_n x_0^n &= y_0 \\\
+a_0 + a_1x_1 + a_2x_1^2 + \cdots + a_n x_1^n &= y_1 \\\
+& \ \ \vdots \\\
+a_0 + a_1x_n + a_2x_n^2 + \cdots + a_n x_n^n &= y_n
+\end{align}</script>
+</p>
 <p>Therefore the vector of coefficients</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \mathbf{a} =
 \begin{bmatrix}
-a_0 \\
-a_1 \\
-\vdots \\
+a_0 \\\
+a_1 \\\
+\vdots \\\
 a_n
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>is the unique the solution of the linear system of equations</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 X \mathbf{a}=\mathbf{y}
-$$</p>
+</script>
+</p>
 <p>where $X$ is the <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a> and $\mathbf{y}$ is the vector of $y$ values</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 X =
 \begin{bmatrix}
-1 &amp; x_0 &amp; x_0^2 &amp; \dots &amp; x_0^n \\
-1 &amp; x_1 &amp; x_1^2 &amp; \dots &amp; x_1^n \\
- &amp; \vdots &amp; &amp; &amp; \vdots \\
-1 &amp; x_n &amp; x_n^2 &amp; \dots &amp; x_n^n \\
+1 & x_0 & x_0^2 & \dots & x_0^n \\\
+1 & x_1 & x_1^2 & \dots & x_1^n \\\
+ & \vdots & & & \vdots \\\
+1 & x_n & x_n^2 & \dots & x_n^n \\\
 \end{bmatrix}
 \ \ \mathrm{and} \ \
 \mathbf{y} =
 \begin{bmatrix}
-y_0 \\
-y_1 \\
-y_2 \\
-\vdots \\
+y_0 \\\
+y_1 \\\
+y_2 \\\
+\vdots \\\
 y_n
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <h3 id="examples">Examples</h3>
 <p><strong>Simple Parabola</strong></p>
 <p>Let's do a simple example. We know that $y=x^2$ is the unique degree 2 polynomial that interpolates the points $(-1,1)$, $(0,0)$ and $(1,1)$. Let's compute the polynomial interpolation of these points and verify the expected result $a_0=0$, $a_1=0$ and $a_2=1$.</p>
@@ -1205,11 +1217,13 @@ print(a)
 <p>Success!</p>
 <p><strong>Another Parabola</strong></p>
 <p>The polynomial interpolation of 3 points $(x_0,y_0)$, $(x_1,y_1)$ and $(x_2,y_2)$ is the parabola $p(x) = a_0 + a_1x + a_2x^2$ such that the coefficients satisfy</p>
-<p>\begin{align}
-a_0 + a_1x_0 + a_2x_0^2 = y_0 \\
-a_0 + a_1x_1 + a_2x_1^2 = y_1 \\
+<p>
+<script type="math/tex; mode=display">\begin{align}
+a_0 + a_1x_0 + a_2x_0^2 = y_0 \\\
+a_0 + a_1x_1 + a_2x_1^2 = y_1 \\\
 a_0 + a_1x_2 + a_2x_2^2 = y_2
-\end{align}</p>
+\end{align}</script>
+</p>
 <p>Let's find the polynomial interpolation of the points $(0,6)$, $(3,1)$ and $(8,2)$.</p>
 <p>Create the Vandermonde matrix $X$:</p>
 <pre><code class="python">x = np.array([0,3,8])
@@ -1300,73 +1314,95 @@ plt.show()
 <p>However real-life data is usually very noisy and interpolation is not the best tool to fit a line to data. Instead we would want to take a polynomial with smaller degree (like a line) and fit it as best we can without interpolating the points.</p>
 <h2 id="least-squares-linear-regression">Least Squares Linear Regression</h2>
 <p>Suppose we have $n+1$ points</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 (x_0,y_0) , (x_1,y_1) , \dots , (x_n,y_n)
-$$</p>
+</script>
+</p>
 <p>in the $xy$-plane and we want to fit a line</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 y=a_0 + a_1x
-$$</p>
+</script>
+</p>
 <p>that "best fits" the data. There are different ways to quantify what "best fit" means but the most common method is called <a href="https://en.wikipedia.org/wiki/Linear_regression">least squares linear regression</a>. In least squares linear regression, we want to minimize the sum of squared errors</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 SSE = \sum_i (y_i - (a_0 + a_1 x_i))^2
-$$</p>
+</script>
+</p>
 <h3 id="formulation_1">Formulation</h3>
 <p>If we form matrices</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 X =
 \begin{bmatrix}
-1 &amp; x_0 \\
-1 &amp; x_1 \\
-\vdots &amp; \vdots \\
-1 &amp; x_n
+1 & x_0 \\\
+1 & x_1 \\\
+\vdots & \vdots \\\
+1 & x_n
 \end{bmatrix}
 \ , \ \
 \mathbf{y} =
 \begin{bmatrix}
-y_0 \\
-y_1 \\
-\vdots \\
+y_0 \\\
+y_1 \\\
+\vdots \\\
 y_n
 \end{bmatrix}
 \ , \ \
 \mathbf{a} = 
 \begin{bmatrix}
-a_0 \\ a_1
+a_0 \\\ a_1
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>then the sum of squared errors can be expressed as</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 SSE = \Vert \mathbf{y} - X \mathbf{a} \Vert^2
-$$</p>
+</script>
+</p>
 <hr />
 <p><strong>Theorem.</strong> (Least Squares Linear Regression) Consider $n+1$ points</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 (x_0,y_0) , (x_1,y_1) , \dots , (x_n,y_n)
-$$</p>
+</script>
+</p>
 <p>in the $xy$-plane. The coefficients $\mathbf{a} = [a_0,a_1]^T$ which minimize the sum of squared errors</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 SSE = \sum_i (y_i - (a_0 + a_1 x_i))^2
-$$</p>
+</script>
+</p>
 <p>is the unique solution of the system</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left( X^T X \right) \mathbf{a} = X^T \mathbf{y}
-$$</p>
+</script>
+</p>
 <p><em>Sketch of Proof.</em> The product $X\mathbf{a}$ is in the column space of $X$. The line connecting $\mathbf{y}$ to the nearest point in the column space of $X$ is perpendicluar to the column space of $X$. Therefore</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 X^T \left( \mathbf{y} - X \mathbf{a} \right) = \mathbf{0}
-$$</p>
+</script>
+</p>
 <p>and so</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left( X^T X \right) \mathbf{a} = X^T \mathbf{y}
-$$</p>
+</script>
+</p>
 <hr />
 <h3 id="examples_1">Examples</h3>
 <p><strong>Fake Noisy Linear Data</strong></p>
 <p>Let's do an example with some fake data. Let's build a set of random points based on the model</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 y = a_0 + a_1x + \epsilon
-$$</p>
+</script>
+</p>
 <p>for some arbitrary choice of $a_0$ and $a_1$. The factor $\epsilon$ represents some random noise which we model using the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. We can generate random numbers sampled from the standard normal distribution using the NumPy function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html"><code>numpy.random.rand</code></a>.</p>
 <p>The goal is to demonstrate that we can use linear regression to retrieve the coefficeints $a_0$ and $a_1$ from the linear regression calculation.</p>
 <pre><code class="python">a0 = 2
@@ -1482,44 +1518,52 @@ plt.show()
 <h2 id="polynomial-regression">Polynomial Regression</h2>
 <h3 id="formulation_2">Formulation</h3>
 <p>The same idea works for fitting a degree $d$ polynomial model</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 y = a_0 + a_1x + a_2x^2 + \cdots + a_dx^d
-$$</p>
+</script>
+</p>
 <p>to a set of $n+1$ data points</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 (x_0,y_0), (x_1,y_1), \dots , (x_n,y_n)
-$$</p>
+</script>
+</p>
 <p>We form the matrices as before but now the Vandermonde matrix $X$ has $d+1$ columns</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 X =
 \begin{bmatrix}
-1 &amp; x_0 &amp; x_0^2 &amp; \cdots &amp; x_0^d \\
-1 &amp; x_1 &amp; x_1^2 &amp; \cdots &amp; x_1^d \\
- &amp; \vdots &amp; &amp; &amp; \vdots \\
-1 &amp; x_n &amp; x_n^2 &amp; \cdots &amp; x_n^d
+1 & x_0 & x_0^2 & \cdots & x_0^d \\\
+1 & x_1 & x_1^2 & \cdots & x_1^d \\\
+ & \vdots & & & \vdots \\\
+1 & x_n & x_n^2 & \cdots & x_n^d
 \end{bmatrix}
 \ , \ \
 \mathbf{y} =
 \begin{bmatrix}
-y_0 \\
-y_1 \\
-\vdots \\
+y_0 \\\
+y_1 \\\
+\vdots \\\
 y_n
 \end{bmatrix}
 \ , \ \
 \mathbf{a} =
 \begin{bmatrix}
-a_0 \\
-a_1 \\
-a_2 \\
-\vdots \\
+a_0 \\\
+a_1 \\\
+a_2 \\\
+\vdots \\\
 a_d
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>The coefficients $\mathbf{a} = [a_0,a_1,a_2,\dots,a_d]^T$ which minimize the sum of squared errors $SSE$ is the unique solution of the linear system</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left( X^T X \right) \mathbf{a} = \left( X^T \right) \mathbf{y}
-$$</p>
+</script>
+</p>
 <h3 id="example">Example</h3>
 <p><strong>Fake Noisy Quadratic Data</strong></p>
 <p>Let's build some fake data using a quadratic model $y = a_0 + a_1x + a_2x^2 + \epsilon$ and use linear regression to retrieve the coefficients $a_0$, $a_1$ and $a_2$.</p>
@@ -1636,9 +1680,11 @@ print('Length of the shortest path is',k)
 
 <h3 id="triangles-in-a-graph">Triangles in a Graph</h3>
 <p>A simple result in spectral graph theory is the number of <a href="https://en.wikipedia.org/wiki/Adjacency_matrix#Matrix_powers">triangles</a> in a graph $T(G)$ is given by:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 T(G) = \frac{1}{6} ( \lambda_1^3 + \lambda_2^3 + \cdots + \lambda_n^3)
-$$</p>
+</script>
+</p>
 <p>where $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$ are the eigenvalues of the adjacency matrix.</p>
 <p>Let's verify this for the simplest case, the complete graph on 3 vertices:</p>
 <pre><code class="python">C3 = nx.complete_graph(3)
@@ -1670,9 +1716,11 @@ int(np.round(np.sum(eigvals.real**3)/6,0))
 
 <p>There are 35 triangles in the complete graph with 7 vertices!</p>
 <p>Let's write a function called <code>triangles</code> which takes a square matrix <code>M</code> and return the sum</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \frac{1}{6} ( \lambda_1^3 + \lambda_2^3 + \cdots + \lambda_n^3)
-$$</p>
+</script>
+</p>
 <p>where $\lambda_i$ are the eigenvalues of the symmetric matrix $A = (M + M^T)/2$. Note that $M = A$ if $M$ is symmetric. The return value is the number of triangles in the graph $G$ if the input $M$ is the adjacency matrix.</p>
 <pre><code class="python">def triangles(M):
     A = (M + M.T)/2
@@ -1828,6 +1876,8 @@ print(A)
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

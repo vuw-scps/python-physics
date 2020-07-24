@@ -967,21 +967,29 @@
 <p><a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> is a root finding method that uses linear approximation. In particular, we guess a solution $x_0$ of the equation $f(x)=0$, compute the linear approximation of $f(x)$ at $x_0$ and then find the $x$-intercept of the linear approximation.</p>
 <h2 id="formula">Formula</h2>
 <p>Let $f(x)$ be a differentiable function. If $x_0$ is near a solution of $f(x)=0$ then we can approximate $f(x)$ by the tangent line at $x_0$ and compute the $x$-intercept of the tangent line. The equation of the tangent line at $x_0$ is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 y = f'(x_0)(x - x_0) + f(x_0)
-$$</p>
+</script>
+</p>
 <p>The $x$-intercept is the solution $x_1$ of the equation</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 0 = f'(x_0)(x_1 - x_0) + f(x_0)
-$$</p>
+</script>
+</p>
 <p>and we solve for $x_1$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}
-$$</p>
+</script>
+</p>
 <p>If we implement this procedure repeatedly, then we obtain a sequence given by the recursive formula</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
-$$</p>
+</script>
+</p>
 <p>which (potentially) converges to a solution of the equation $f(x)=0$.</p>
 <h2 id="advantagesdisadvantages">Advantages/Disadvantages</h2>
 <p>When it converges, Newton's method usually converges very quickly and this is its main advantage. However, Newton's method is not guaranteed to converge and this is obviously a big disadvantage especially compared to the bisection and secant methods which are guaranteed to converge to a solution (provided they start with an interval containing a root).</p>
@@ -1072,9 +1080,11 @@ approx = newton(f,Df,0.1,1e-2,100)
 <ol>
 <li>Let $p(x) = x^3 - x - 1$. The only real root of $p(x)$ is called the <a href="https://en.wikipedia.org/wiki/Plastic_number">plastic number</a> and is given by</li>
 </ol>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \frac{\sqrt[3]{108 + 12\sqrt{69}} + \sqrt[3]{108 - 12\sqrt{69}}}{6}
-$$</p>
+</script>
+</p>
 <ol>
 <li>Choose $x_0 = 1$ and implement 2 iterations of Newton's method to approximate the plastic number.</li>
 <li>Use the exact value above to compute the absolute error after 2 iterations of Newton's method.</li>
@@ -1158,6 +1168,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

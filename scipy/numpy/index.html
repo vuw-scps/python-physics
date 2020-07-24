@@ -1577,15 +1577,17 @@ print(hstacked)
 </code></pre></div>
 
 <p>Use <code>numpy.hstack</code> and <code>numpy.vstack</code> to build the matrix $T$ where</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 T = 
 \begin{bmatrix}
-1 &amp; 1 &amp; 2 &amp; 2 \ 
-1 &amp; 1 &amp; 2 &amp; 2 \ 
-3 &amp; 3 &amp; 4 &amp; 4 \ 
-3 &amp; 3 &amp; 4 &amp; 4
+1 & 1 & 2 & 2 \\ 
+1 & 1 & 2 & 2 \\ 
+3 & 3 & 4 & 4 \\ 
+3 & 3 & 4 & 4
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <pre><code class="python">A = np.ones((2,2))
 B = 2*np.ones((2,2))
 C = 3*np.ones((2,2))
@@ -1957,9 +1959,11 @@ print(x)
 </code></pre></div>
 
 <p>For example, verify the limit</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \lim_{x \to \infty} \arctan(x) = \frac{\pi}{2}
-$$</p>
+</script>
+</p>
 <p>by evaluating $\arctan(x)$ for some (arbitrary) large value $x$:</p>
 <pre><code class="python">np.arctan(10000)
 </code></pre>
@@ -2069,13 +2073,17 @@ $$</p>
 <h2 id="examples">Examples</h2>
 <h3 id="brute-force-optimization">Brute Force Optimization</h3>
 <p>Find the <a href="https://en.wikipedia.org/wiki/Maxima_and_minima">absolute maximum and minimum</a> values of the function</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 f(x) = x\sin(x)+\cos(4x)
-$$</p>
+</script>
+</p>
 <p>on the interval $[0,2\pi]$. We know that the maximum and minimum values must occur at either the endpoints $x=0,2\pi$ or at critical points where $f'(x)=0$. However, the derivative is given by</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 f'(x) = \sin(x) + x \cos(x) - 4\sin(4x)
-$$</p>
+</script>
+</p>
 <p>and the equation $f'(x) = 0$ is impossible to solve explicitly.</p>
 <p>Instead, create a 1D NumPy array of $x$ values from $0$ to $2\pi$ of length $N$ (for some arbitrarily large value $N$) and use the functions <code>numpy.min</code> and <code>numpy.max</code> to find maximum and minimum $y$ values, and the functions <code>numpy.argmin</code> and <code>numpy.argmax</code> to find the indices of the corresponding $x$ values.</p>
 <pre><code class="python">N = 10000
@@ -2095,9 +2103,11 @@ Absolute minimum value is y = -5.129752039182 at x = 5.34187001663503
 
 <h3 id="riemann-sums">Riemann Sums</h3>
 <p>Write a function called <code>exp_int</code> which takes input parameters $b$ and $N$ and returns the (left) <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_0^b e^{-x^2} dx \approx \sum_{k=0}^{N-1} e^{-x_k^2} \Delta x
-$$</p>
+</script>
+</p>
 <p>for $\Delta x = b/N$ and the partition $x_k=k \, \Delta x$, $k=0,\dots,N$.</p>
 <pre><code class="python">def exp_int(b,N):
     &quot;Compute left Riemann sum of exp(-x^2) from 0 to b with N subintervals.&quot;
@@ -2109,9 +2119,11 @@ $$</p>
 </code></pre>
 
 <p>The infinite integral satisfies the <a href="https://en.wikipedia.org/wiki/Gaussian_integral">beautiful identity</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_0^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
-$$</p>
+</script>
+</p>
 <p>Compute the integral with large values of $b$ and $N$:</p>
 <pre><code class="python">exp_int(100,100000)
 </code></pre>
@@ -2128,13 +2140,17 @@ $$</p>
 
 <h3 id="infinite-products">Infinite Products</h3>
 <p>The cosine function has the following infinite product representation</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \cos x = \prod_{k = 1}^{\infty} \left(1 - \frac{4 x^2}{\pi^2 (2k - 1)^2} \right)
-$$</p>
+</script>
+</p>
 <p>Write a function called <code>cos_product</code> which takes input parameters $x$ and $N$ and returns the $N$th partial product</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \prod_{k = 1}^{N} \left(1 - \frac{4 x^2}{\pi^2 (2k - 1)^2} \right)
-$$</p>
+</script>
+</p>
 <pre><code class="python">def cos_product(x,N):
     &quot;Compute the product \prod_{k=1}^N (1 - 4x^2/(pi^2 (2k - 1)^2).&quot;
     k = np.arange(1,N+1)
@@ -2173,24 +2189,32 @@ $$</p>
 <ol>
 <li>
 <p>The natural log satisfies the following definite integral</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_1^e \frac{\ln x \ dx}{(1 + \ln x)^2} = \frac{e}{2} - 1
-$$</p>
+</script>
+</p>
 <p>Write a function called <code>log_integral</code> which takes input parameters $c$ and $N$ and returns the value of the (right) Riemann sum</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_1^c \frac{\ln x \ dx}{(1 + \ln x)^2} \approx \sum_{k=1}^N \frac{\ln x_k \ \Delta x}{(1 + \ln x_k)^2} \ , \ \ \Delta x = \frac{c - 1}{N}
-$$</p>
+</script>
+</p>
 <p>for the partition $x_k = 1 + k \Delta x$, for $k = 0, \dots , N$.</p>
 </li>
 <li>
 <p>Write a function called <code>k_sum</code> which takes input parameters <code>k</code> and <code>N</code> and returns the partial sum</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{n=1}^{N} \frac{1}{n^k}
-$$</p>
+</script>
+</p>
 <p>Verify your function by comparing to the infinite series identity</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^2} = \frac{\pi^2}{12}
-$$</p>
+</script>
+</p>
 </li>
 <li>
 <p>Write a function called <code>dot</code> which takes 3 inputs <code>M</code>, <code>i</code> and <code>j</code> where <code>M</code> is a square NumPy array and the function returns the dot product of the $i$th row and the $j$th column of $M$.</p>
@@ -2274,6 +2298,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

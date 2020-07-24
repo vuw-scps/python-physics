@@ -1059,9 +1059,11 @@
 <h2 id="optimization">Optimization</h2>
 <h3 id="newtons-method">Newton's Method</h3>
 <p>Write a function called <code>newton</code> which takes input parameters $f$, $x_0$, $h$ (with default value 0.001), <code>tolerance</code> (with default value 0.001) and <code>max_iter</code> (with default value 100). The function implements Newton's method to approximate a solution of $f(x) = 0$. In other words, compute the values of the recursive sequence starting at $x_0$ and defined by</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
-$$</p>
+</script>
+</p>
 <p>Use the central difference formula with step size $h$ to approximate the derivative $f'(x_n)$. The desired result is that the method converges to an approximate root of $f(x)$ however there are several possibilities:</p>
 <ol>
 <li>The sequence reaches the desired tolerance $|f(x_n)| \leq \mathtt{tolerance}$ and <code>newton</code> returns the value $x_n$.</li>
@@ -1071,18 +1073,24 @@ $$</p>
 <h2 id="numerical-differentiation">Numerical Differentiation</h2>
 <h3 id="central-difference-formula">Central Difference Formula</h3>
 <p>Write a function called <code>derivatives</code> which takes input parameters $f$, $a$, $n$ and $h$ (with default value <code>h = 0.001</code>) and returns approximations of the derivatives $f'(a)$, $f''(a)$, $\dots$, $f^{(n)}(a)$ (as a NumPy array) using the formula</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 f^{(n)}(a) \approx \frac{1}{2^n h^n} \sum_{k=0}^n (-1)^k {n \choose k} f \left( a + ( n - 2k ) h \right)
-$$</p>
+</script>
+</p>
 <p>Use either <code>scipy.misc.factorial</code> or <code>scipy.misc.comb</code> to compute $n$ choose $k$:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 {n \choose k} = \frac{n!}{k!(n-k)!}
-$$</p>
+</script>
+</p>
 <h3 id="taylor-polynomials">Taylor Polynomials</h3>
 <p>Write a function called <code>taylor</code> which takes input parameters $f$, $a$, $n$ and $L$ and plots both $f(x)$ and the Taylor polynomial $T_n(x)$ of $f(x)$ at $x=a$ of degree $n$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 T_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x - a)^k
-$$</p>
+</script>
+</p>
 <p>on the interval $[a-L,a+L]$ (in the same figure).</p>
 <h2 id="numerical-integration">Numerical Integration</h2>
 <h3 id="trapezoid-rule">Trapezoid Rule</h3>
@@ -1090,9 +1098,9 @@ $$</p>
 <li>Find $f''(x)$ for $f(x) = \ln( \ln x)$.</li>
 <li>Prove $|f''(x)| \leq \displaystyle \frac{2}{e^2}$ for $x \geq e$.</li>
 <li>Write a function called <code>log_log</code> which takes input parameters <code>u</code> and <code>abs_tolerance</code> such that $u \geq e$ and <code>abs_tolerance</code> is a positive number (with default value 0.0001). The function uses the trapezoid rule to compute and return an approximation of the integral
-$$
+<script type="math/tex; mode=display">
 \int_e^u \ln( \ln x) dx
-$$
+</script>
 The number $N$ of subintervals used in the trapezoid rule must be large enough to guarantee that the approximation is within <code>abs_tolerance</code> of the true value. You may use the function <code>scipy.integrate.trapz</code>.</li>
 </ol>
 <h3 id="simpsons-rule">Simpson's Rule</h3>
@@ -1100,19 +1108,21 @@ The number $N$ of subintervals used in the trapezoid rule must be large enough t
 <li>Find $f''''(x)$ for $f(x) = e^{-x^2}$.</li>
 <li>Plot $f''''(x)$ for $x \in [0,5]$. Determine a bound $M$ such that $|f''''(x)| \leq M$ for $x \geq 0$.</li>
 <li>Write a function called <code>erf</code> which takes input parameters <code>u</code> and <code>abs_tolerance</code> (with default value 0.0001) such that both are positive numbers. The function uses Simpson's rule to compute and return an approximation of the integral
-$$
+<script type="math/tex; mode=display">
 \int_0^u e^{-x^2} dx
-$$
+</script>
 The number $N$ of subintervals used in Simpson's rule must be large enough to guarantee that the approximation is within <code>abs_tolerance</code> of the true value. You may use the function <code>scipy.integrate.simps</code>.</li>
 </ol>
 <h2 id="differential-equations">Differential Equations</h2>
 <h3 id="lorenz-equations">Lorenz Equations</h3>
 <p>The Lorenz equations are the system of nonlinear differential equations</p>
-<p>\begin{align}
-\frac{dx}{dt} &amp;= \sigma(y - x) \\
-\frac{dy}{dt} &amp;= x(\rho - z) - y \\
-\frac{dz}{dt} &amp;= xy - \beta z
-\end{align}</p>
+<p>
+<script type="math/tex; mode=display">\begin{align}
+\frac{dx}{dt} &= \sigma(y - x) \\\
+\frac{dy}{dt} &= x(\rho - z) - y \\\
+\frac{dz}{dt} &= xy - \beta z
+\end{align}</script>
+</p>
 <p>where $\sigma$, $\rho$ and $\beta$ are positive numbers. Write a function called <code>lorenz</code> which takes input parameters <code>sigma</code>, <code>rho</code>, <code>beta</code>, <code>u0</code>, <code>t0</code>, <code>tf</code>, <code>N</code> and <code>plot_vars</code> (with default value <code>[0,1]</code>). The function computes and plots a numerical approximation of the corresponding solution of the Lorenz equations using the function <code>scipy.integrate.odeint</code>. The input parameters are:</p>
 <ul>
 <li><code>sigma</code>, <code>rho</code> and <code>beta</code> define the parameters $\sigma$, $\rho$ and $\beta$</li>
@@ -1131,9 +1141,11 @@ The number $N$ of subintervals used in Simpson's rule must be large enough to gu
 </ul>
 <h3 id="damped-oscillator">Damped Oscillator</h3>
 <p>Write a function called <code>damping</code> which takes input parameters <code>m</code>, <code>b</code>, <code>k</code>, <code>F</code>, <code>u0</code>, <code>t0</code>, <code>tf</code> and <code>N</code>. The function uses <code>scipy.integrate.odeint</code> to compute a numerical approximation of the corresponding solution of the nonlinear damping equation:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 m y'' + b |y'| y' + ky = F(t)
-$$</p>
+</script>
+</p>
 <p>The input parameters are:</p>
 <ul>
 <li><code>m</code>, <code>b</code> and <code>k</code> are positive numbers in the nonlinear damping equation</li>
@@ -1226,6 +1238,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

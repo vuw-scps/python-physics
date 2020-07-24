@@ -1336,13 +1336,17 @@ print(random_zip)
 <h2 id="examples">Examples</h2>
 <h3 id="area-of-a-triangle">Area of a Triangle</h3>
 <p>Let's define a function called <code>area_triangle</code> which takes an input parameter <code>vertices</code> which is a list of tuples representing the vertices of a triangle and returns the area of the triangle using <a href="https://en.wikipedia.org/wiki/Heron%27s_formula">Heron's Formula</a>:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 A = \sqrt{s(s-a)(s-b)(s-c)}
-$$</p>
+</script>
+</p>
 <p>where $a$, $b$ and $c$ are the side lengths and $s$ is the semiperimeter</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 s = \frac{a+b+c}{2}
-$$</p>
+</script>
+</p>
 <pre><code class="python">def area_triangle(vertices):
     '''Compute the area of the triangle with given vertices.
 
@@ -1409,13 +1413,17 @@ $$</p>
 <p>The function <code>area_triangle</code> returns the expected values. Success!</p>
 <h3 id="riemann-zeta-function">Riemann Zeta Function</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite sum</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^s}
-$$</p>
+</script>
+</p>
 <p>Write a function called <code>zeta</code> which takes 2 input parameters <code>s</code> and <code>N</code> and returns the partial sum:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{n=1}^N \frac{1}{n^s}
-$$</p>
+</script>
+</p>
 <pre><code class="python">def zeta(s,N):
     &quot;Compute the Nth partial sum of the zeta function at s.&quot;
     terms = [1/n**s for n in range(1,N+1)]
@@ -1437,9 +1445,11 @@ $$</p>
 </code></pre></div>
 
 <p>Now let's use our function to approximate <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Specific_values">special values of the Riemann zeta function</a>:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \zeta(2) = \frac{\pi^2}{6} \hspace{10mm} \text{and} \hspace{10mm} \zeta(4) = \frac{\pi^4}{90}
-$$</p>
+</script>
+</p>
 <p>Compute the partial sum for $s=2$ and $N=100000$:</p>
 <pre><code class="python">zeta(2,100000)
 </code></pre>
@@ -1470,9 +1480,11 @@ $$</p>
 
 <h3 id="harmonic-mean">Harmonic Mean</h3>
 <p>Write a function called <code>harmonic_mean</code> which takes an input parameter <code>s</code>, a list of numbers $x_1, \dots, x_n$ of length $n$, and returns the <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of the sequence:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}
-$$</p>
+</script>
+</p>
 <pre><code class="python">def harmonic_mean(s):
     &quot;Compute the harmonic mean of the numbers in the sequence s.&quot;
     n = len(s)
@@ -1496,9 +1508,10 @@ $$</p>
 
 <h3 id="riemann-sums">Riemann Sums</h3>
 <p>Write a function called <code>mn_integral</code> which takes input parameters <code>m</code>, <code>n</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns the (right) <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a>:
-$$
+<script type="math/tex; mode=display">
 \int_a^b f(x) \, dx \approx \sum_{k=1}^N f(x_k) \Delta x \ \ , \ \ f(x) = \frac{x^m + 1}{x^n + 1}
-$$</p>
+</script>
+</p>
 <p>and $\Delta x = (b-a)/N$ and $x_k = a + k \Delta x$.</p>
 <pre><code class="python">def mn_integral(m,n,a,b,N):
     '''Compute the (right) Riemann sum for the function
@@ -1543,13 +1556,15 @@ $$</p>
 </code></pre>
 
 <p>Let's test our function on input for which we know the result. Let $m=0$, $n=1$, $a=0$, $b=1$ and $N=2$. Then $x_0 = 0$, $x_1 = 1/2$, $x_2 = 1$ and $\Delta x = 1/2$, and we compute:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\sum_{k=1}^N f(x_k) \Delta x &amp;= \sum_{k=1}^2 \frac{x_k^0 + 1}{x_k^1 + 1} \Delta x \\
-&amp;= \frac{2}{(1/2) + 1} \cdot \frac{1}{2} + \frac{2}{1 + 1} \cdot \frac{1}{2} \\
-&amp;= \frac{7}{6}
+\sum_{k=1}^N f(x_k) \Delta x &= \sum_{k=1}^2 \frac{x_k^0 + 1}{x_k^1 + 1} \Delta x \\\
+&= \frac{2}{(1/2) + 1} \cdot \frac{1}{2} + \frac{2}{1 + 1} \cdot \frac{1}{2} \\\
+&= \frac{7}{6}
 \end{aligned}
-$$</p>
+</script>
+</p>
 <pre><code class="python">mn_integral(0,1,0,1,2)
 </code></pre>
 
@@ -1563,13 +1578,15 @@ $$</p>
 </code></pre></div>
 
 <p>Let's test our function on another example. Let $m=1$, $n=2$, $a=0$, and $b=1$. We can solve this integral exactly:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\int_0^1 \frac{x + 1}{x^2 + 1} dx &amp;= \int_0^1 \frac{x}{x^2 + 1} dx + \int_0^1 \frac{1}{x^2 + 1} dx \\
-&amp;= \left. \left( \frac{1}{2} \ln(x^2 + 1) + \arctan x \right) \right|_0^1 \\
-&amp;= \frac{1}{2} \ln(2) + \frac{\pi}{4}
+\int_0^1 \frac{x + 1}{x^2 + 1} dx &= \int_0^1 \frac{x}{x^2 + 1} dx + \int_0^1 \frac{1}{x^2 + 1} dx \\\
+&= \left. \left( \frac{1}{2} \ln(x^2 + 1) + \arctan x \right) \right|_0^1 \\\
+&= \frac{1}{2} \ln(2) + \frac{\pi}{4}
 \end{aligned}
-$$</p>
+</script>
+</p>
 <p>Approximate this integral with a Riemann sum for $N=100000$:</p>
 <pre><code class="python">mn_integral(1,2,0,1,100000)
 </code></pre>
@@ -1589,32 +1606,42 @@ $$</p>
 <ol>
 <li>
 <p>Write a function called <code>power_mean</code> which takes input parameters <code>sequence</code> and <code>p</code> where <code>sequence</code> is a list of positive real numbers $x_1, \dots, x_n$ and <code>p</code> is a nonzero number. The function returns the <a href="https://en.wikipedia.org/wiki/Generalized_mean">power mean with exponent p</a>:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left( \frac{1}{n} \sum_{i=1}^n x_i^p \right)^{1/p}
-$$</p>
+</script>
+</p>
 <p>Plug in large positive values of $p$ and various lists of numbers to verify</p>
-<p>$$
-\lim_{p \to \infty} \left( \frac{1}{n} \sum_{i=1}^n x_i^p \right)^{1/p} = \max {x_1, \dots, x_n }
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+\lim_{p \to \infty} \left( \frac{1}{n} \sum_{i=1}^n x_i^p \right)^{1/p} = \max \{x_1, \dots, x_n \}
+</script>
+</p>
 <p>Plug in large negative values of $p$ and various lists of numbers to verify</p>
-<p>$$
-\lim_{p \to -\infty} \left( \frac{1}{n} \sum_{i=1}^n x_i^p \right)^{1/p} = \min {x_1, \dots, x_n }
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+\lim_{p \to -\infty} \left( \frac{1}{n} \sum_{i=1}^n x_i^p \right)^{1/p} = \min \{x_1, \dots, x_n \}
+</script>
+</p>
 </li>
 <li>
 <p>Write a function called <code>arctan_taylor</code> which takes input parameters <code>x</code> and <code>N</code> and return the Taylor polynomial of degree $N$ of the function $\arctan x$ evaluated at <code>x</code>:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{k=0}^N (-1)^k \frac{x^{2k + 1}}{2k + 1}
-$$</p>
+</script>
+</p>
 </li>
 <li>
 <p>Write a function called <code>zips</code> which takes input parameters <code>a</code> and <code>b</code>, where <code>a</code> and <code>b</code> are lists of the equal length, and returns the list of tuples which aggregates the sequence. (In other words, write your own version of the built-in function <code>zip()</code>... without using <code>zip()</code> of course.) For example <code>zips([-1,3,4,0],[5,7,1,-9])</code> returns the list <code>[(-1, 5), (3, 7), (4, 1), (0, -9)]</code>.</p>
 </li>
 <li>
 <p>Write a function called <code>sqrt_integral</code> which takes input parameters <code>u</code>, <code>p</code> and <code>N</code> and returns the Riemann sum (using the <em>midpoints</em> $x_k^*$ of a partition of size $N$):</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \int_0^u \frac{1}{\sqrt{1 + x^p}} dx \approx \sum_{k=1}^N \frac{1}{\sqrt{1 + (x_k^*)^p}} \Delta x
-$$</p>
+</script>
+</p>
 <p>where $\Delta x = u/N$ and $x_k^* = (x_k + x_{k-1})/2$ for endpoints $x_k = k \Delta x$.</p>
 </li>
 </ol>
@@ -1696,6 +1723,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

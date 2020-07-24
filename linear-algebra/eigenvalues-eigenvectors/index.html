@@ -971,17 +971,23 @@ import scipy.linalg as la
 
 <h2 id="definition">Definition</h2>
 <p>Let $A$ be a square matrix. A non-zero vector $\mathbf{v}$ is an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvector</a> for $A$ with <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue</a> $\lambda$ if</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 A\mathbf{v} = \lambda \mathbf{v}
-$$</p>
+</script>
+</p>
 <p>Rearranging the equation, we see that $\mathbf{v}$ is a solution of the homogeneous system of equations</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left( A - \lambda I \right) \mathbf{v} = \mathbf{0}
-$$</p>
+</script>
+</p>
 <p>where $I$ is the identity matrix of size $n$. Non-trivial solutions exist only if the matrix $A - \lambda I$ is singular which means $\mathrm{det}(A - \lambda I) = 0$. Therefore eigenvalues of $A$ are roots of the <a href="https://en.wikipedia.org/wiki/Characteristic_polynomial">characteristic polynomial</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 p(\lambda) = \mathrm{det}(A - \lambda I)
-$$</p>
+</script>
+</p>
 <h2 id="scipylinalgeig">scipy.linalg.eig</h2>
 <p>The function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html"><code>scipy.linalg.eig</code></a> computes eigenvalues and eigenvectors of a square matrix $A$.</p>
 <p>Let's consider a simple example with a diagonal matrix:</p>
@@ -1184,13 +1190,17 @@ print(evals)
 
 <h3 id="matrix-powers">Matrix Powers</h3>
 <p>Let $M$ be a square matrix. Computing powers of $M$ by matrix multiplication</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 M^k = \underbrace{M M \cdots M}_k
-$$</p>
+</script>
+</p>
 <p>is computationally expensive. Instead, let's use diagonalization to compute $M^k$ more efficiently</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 M^k = \left( P D P^{-1} \right)^k  = \underbrace{P D P^{-1} P D P^{-1} \cdots P D P^{-1}}_k = P D^k P^{-1}
-$$</p>
+</script>
+</p>
 <p>Let's compute $M^{20}$ both ways and compare execution time.</p>
 <pre><code class="python">Pinv = la.inv(P)
 </code></pre>
@@ -1296,6 +1306,8 @@ P @ D**k @ Pinv
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

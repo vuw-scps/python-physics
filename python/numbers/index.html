@@ -1253,13 +1253,17 @@ abs(z)
 <h2 id="examples">Examples</h2>
 <h3 id="taylor-approximation">Taylor Approximation</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of the exponential function $e^x$ is given by</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
-$$</p>
+</script>
+</p>
 <p>Compute the Taylor polynomial of degree 5 evaluated at $x = 1$ to find an approximation of $e$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 e \approx \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!}
-$$</p>
+</script>
+</p>
 <pre><code class="python">1 + 1 + 1/2 + 1/(3*2) + 1/(4*3*2) + 1/(5*4*3*2)
 </code></pre>
 
@@ -1268,13 +1272,17 @@ $$</p>
 
 <h3 id="ramanujans-pi-formula">Ramanujan's $\pi$ Formula</h3>
 <p><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan#Mathematical_achievements">Srinivasa Ramanujan</a> discovered the following beautiful (and very rapidly converging) series representation of $\pi$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \frac{1}{\pi} = \frac{2 \sqrt{2}}{99^2} \sum_{k = 0}^{\infty} \frac{(4k)!}{k!^4} \frac{1103 + 26390k}{396^{4k}}
-$$</p>
+</script>
+</p>
 <p>Let's find an approximation of $\pi$ by computing the <em>reciprocal</em> of the sum of the first 3 terms of the series:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \pi \approx \frac{99^2}{2 \sqrt{2}} \frac{1}{\left( 1103 + 4! \frac{1103 + 26390}{396^{4}} + \frac{8!}{2^4} \frac{1103 + 26390(2)}{396^{8}} \right)}
-$$</p>
+</script>
+</p>
 <pre><code class="python">99**2 / (2 * 2**0.5) / (1103 + 4*3*2 * (26390 + 1103) / 396**4
                        + 8*7*6*5*4*3*2 / 2**4 * (26390*2 + 1103) / 396**8)
 </code></pre>
@@ -1287,47 +1295,65 @@ $$</p>
 <ol>
 <li>
 <p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of $\cos x$ is given by</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \cos x = \sum_{k=0}^{\infty} (-1)^k \frac{x^{2k}}{(2k)!}
-$$</p>
+</script>
+</p>
 <p>Compute the Taylor polynomial of degree 6 evaluated at $x=2$:</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \cos(2) \approx 1 - \frac{2^2}{2!} + \frac{2^4}{4!} - \frac{2^6}{6!}
-$$</p>
+</script>
+</p>
 </li>
 <li>
 <p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite series</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
-$$</p>
+</script>
+</p>
 <p>and is intimately related to prime numbers by the <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Euler_product_formula">Euler product formula</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_p \left( \frac{1}{1 - p^{-s}} \right)
-$$</p>
+</script>
+</p>
 <p>where the product is over all primes $p = 2,3,5,7,11,13,\dots$</p>
 <p>Compute the 5th partial sum for $s=2$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \frac{1}{5^2}
-$$</p>
+</script>
+</p>
 <p>Compute the 5th partial product for $s=2$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \left( \frac{1}{1 - 2^{-2}} \right) \left( \frac{1}{1 - 3^{-2}} \right) \left( \frac{1}{1 - 5^{-2}} \right) \left( \frac{1}{1 - 7^{-2}} \right) \left( \frac{1}{1 - 11^{-2}} \right)
-$$</p>
+</script>
+</p>
 <p>Given <a href="https://en.wikipedia.org/wiki/Basel_problem">Euler's special value formula</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \zeta(2) = \frac{\pi^2}{6}
-$$</p>
+</script>
+</p>
 <p>which converges more quickly: the infinite series or product?</p>
 </li>
 <li>
 <p>The <a href="https://en.wikipedia.org/wiki/Continued_fraction#Square_roots">continued fraction</a> for $\sqrt{2}$ is given by</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sqrt{2} = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \ddots}}}}
-$$</p>
+</script>
+</p>
 <p>Compute the following (partial) continued fraction to approximate $\sqrt{2}$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sqrt{2} \approx 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}}
-$$</p>
+</script>
+</p>
 </li>
 </ol>
                 
@@ -1408,6 +1434,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

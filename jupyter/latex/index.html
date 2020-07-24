@@ -1000,7 +1000,9 @@
 </code></pre>
 
 <p>renders as</p>
-<p>$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$</p>
+<p>
+<script type="math/tex; mode=display">f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}</script>
+</p>
 <p>See the <a href="https://en.wikibooks.org/wiki/LaTeX">LaTeX WikiBook</a> for more information (especially the section on <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">mathematics</a>).</p>
 <h2 id="common-symbols">Common Symbols</h2>
 <p>Below we give a <em>partial list</em> of commonly used mathematical symbols. Most other symbols can be inferred from these examples. See the <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX WikiBook (Mathematics)</a> and the <a href="http://detexify.kirelabs.org/classify.html">Detexify App</a> to find any symbol you can think of!</p>
@@ -1119,51 +1121,65 @@
 <pre><code class="LaTeX">$$\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}$$
 </code></pre>
 
-<p>$$
-\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{matrix} a & b \\\ c & d \end{matrix}
+</script>
+</p>
 <p>Create a matrix with round brackets:</p>
 <pre><code class="LaTeX">$$\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}$$
 </code></pre>
 
-<p>$$
-\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{pmatrix} a & b \\\ c & d \end{pmatrix}
+</script>
+</p>
 <p>Create a matrix with square brackets:</p>
 <pre><code class="LaTeX">$$\begin{bmatrix} 1 &amp; 2 &amp; 1 \\ 3 &amp; 0 &amp; 1 \\ 0 &amp; 2 &amp; 4 \end{bmatrix}$$
 </code></pre>
 
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \begin{bmatrix}
-1 &amp; 2 &amp; 1 \\
-3 &amp; 0 &amp; 1 \\
-0 &amp; 2 &amp; 4
+1 & 2 & 1 \\\
+3 & 0 & 1 \\\
+0 & 2 & 4
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <p>Use <code>\left</code> and <code>\right</code> to enclose an arbitrary expression in brackets:</p>
 <pre><code class="LaTeX">$$\left( \frac{p}{q} \right)$$
 </code></pre>
 
-<p>$$\left( \frac{p}{q} \right)$$</p>
+<p>
+<script type="math/tex; mode=display">\left( \frac{p}{q} \right)</script>
+</p>
 <h2 id="examples">Examples</h2>
 <h3 id="derivative">Derivative</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Derivative">derivative</a> $f'(a)$ of the function $f(x)$ at the point $x=a$ is the limit</p>
 <pre><code class="LaTeX">$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
 </code></pre>
 
-<p>$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$</p>
+<p>
+<script type="math/tex; mode=display">f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}</script>
+</p>
 <h3 id="continuity">Continuity</h3>
 <p>A function $f(x)$ is <a href="https://en.wikipedia.org/wiki/Continuous_function">continuous</a> at a point $x=a$ if</p>
 <pre><code class="LaTeX">$$\lim_{x \to a^-} f(x) = f(a) = \lim_{x \to a^+} f(x)$$
 </code></pre>
 
-<p>$$\lim_{x \to a^-} f(x) = f(a) = \lim_{x \to a^+} f(x)$$</p>
+<p>
+<script type="math/tex; mode=display">\lim_{x \to a^-} f(x) = f(a) = \lim_{x \to a^+} f(x)</script>
+</p>
 <h3 id="maclaurin-series">MacLaurin Series</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">MacLaurin series</a> for $e^x$ is</p>
 <pre><code class="LaTeX">$$e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}$$
 </code></pre>
 
-<p>$$e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}$$</p>
+<p>
+<script type="math/tex; mode=display">e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}</script>
+</p>
 <h3 id="jacobian-matrix">Jacobian Matrix</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrix</a> of the function $\mathbf{f}(x_1, \dots, x_n)$ is</p>
 <pre><code class="LaTeX">$$
@@ -1184,61 +1200,85 @@ $$</p>
 $$
 </code></pre>
 
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \mathbf{J} = \frac{d \mathbf{f}}{d \mathbf{x}} =
 \left[ \frac{\partial \mathbf{f}}{\partial x_1}
 \cdots \frac{\partial \mathbf{f}}{\partial x_n} \right] =
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1} &amp; \cdots &amp; \frac{\partial f_1}{\partial x_n} \\
-\vdots &amp; \ddots &amp; \vdots \\
-\frac{\partial f_m}{\partial x_1} &amp; \cdots &amp; \frac{\partial f_m}{\partial x_n}
+\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\\
+\vdots & \ddots & \vdots \\\
+\frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>
 <p>Write LaTeX code to display the <a href="https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Angle_sum_and_difference_identities">angle sum identity</a></p>
-<p>$$\cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta$$</p>
+<p>
+<script type="math/tex; mode=display">\cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the <a href="https://en.wikipedia.org/wiki/Lists_of_integrals">indefinite integral</a></p>
-<p>$$\int \frac{1}{1 + x^2} \, dx = \arctan x + C$$</p>
+<p>
+<script type="math/tex; mode=display">\int \frac{1}{1 + x^2} \, dx = \arctan x + C</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the <a href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations">Navier-Stokes Equation for Incompressible Flow</a></p>
-<p>$$\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} - \nu \nabla^2 \mathbf{u} = - \nabla w + \mathbf{g}$$</p>
+<p>
+<script type="math/tex; mode=display">\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} - \nu \nabla^2 \mathbf{u} = - \nabla w + \mathbf{g}</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display <a href="https://en.wikipedia.org/wiki/Green%27s_theorem">Green's Theorem</a></p>
-<p>$$\oint_C (L dx + M dy) = \iint_D \left( \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y} \right) dx \, dy$$</p>
+<p>
+<script type="math/tex; mode=display">\oint_C (L dx + M dy) = \iint_D \left( \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y} \right) dx \, dy</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the <a href="https://en.wikipedia.org/wiki/Prime_number_theorem">Prime Number Theorem</a></p>
-<p>$$\lim_{x \to \infty} \frac{\pi(x)}{ \frac{x}{\log(x)}} = 1$$</p>
+<p>
+<script type="math/tex; mode=display">\lim_{x \to \infty} \frac{\pi(x)}{ \frac{x}{\log(x)}} = 1</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the general formula for <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a></p>
-<p>$$\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n$$</p>
+<p>
+<script type="math/tex; mode=display">\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display <a href="https://en.wikipedia.org/wiki/Stokes%27_theorem">Stokes' Theorem</a></p>
-<p>$$\int_{\partial \Omega} \omega = \int_{\Omega} d \omega$$</p>
+<p>
+<script type="math/tex; mode=display">\int_{\partial \Omega} \omega = \int_{\Omega} d \omega</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the adjoint property of the <a href="https://en.wikipedia.org/wiki/Tensor_product">tensor product</a></p>
-<p>$$\mathrm{Hom}(U \otimes V,W) \cong \mathrm{Hom}(U, \mathrm{Hom}(V,W))$$</p>
+<p>
+<script type="math/tex; mode=display">\mathrm{Hom}(U \otimes V,W) \cong \mathrm{Hom}(U, \mathrm{Hom}(V,W))</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the definition of the <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a></p>
-<p>$$\mathscr{L} { f(t) } = F(s) = \int_0^{\infty} f(t) e^{-st} dt$$</p>
+<p>
+<script type="math/tex; mode=display">\mathscr{L} \{ f(t) \} = F(s) = \int_0^{\infty} f(t) e^{-st} dt</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the <a href="https://en.wikipedia.org/wiki/Invertible_matrix">inverse matrix</a> formula</p>
-<p>$$\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d &amp; -b \\ -c &amp; a \end{bmatrix}$$</p>
+<p>
+<script type="math/tex; mode=display">\begin{bmatrix} a & b \\\ c & d \end{bmatrix}^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\\ -c & a \end{bmatrix}</script>
+</p>
 </li>
 <li>
 <p>Write LaTeX code to display the <a href="https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Infinite_product_formulae">infinite product formula</a></p>
-<p>$$\sin x = x \prod_{n=1}^{\infty} \left( 1 - \frac{x^2}{\pi^2 n^2} \right)$$</p>
+<p>
+<script type="math/tex; mode=display">\sin x = x \prod_{n=1}^{\infty} \left( 1 - \frac{x^2}{\pi^2 n^2} \right)</script>
+</p>
 </li>
 <li>
 <p>Pick your favourite math course and write the notes from your last class in LaTeX.</p>
@@ -1322,6 +1362,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

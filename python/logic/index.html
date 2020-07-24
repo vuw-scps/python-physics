@@ -1160,9 +1160,11 @@ Roots are complex.
 <h2 id="examples">Examples</h2>
 <h3 id="invertible-matrix">Invertible Matrix</h3>
 <p>Represent a 2 by 2 square matrix as a list of lists. For example, represent the matrix</p>
-<p>$$
-\begin{bmatrix} 2 &amp; -1 \\ 5 &amp; 7 \end{bmatrix}
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} 2 & -1 \\\ 5 & 7 \end{bmatrix}
+</script>
+</p>
 <p>as the list of lists <code>[[2,-1],[5,7]]</code>.</p>
 <p>Write a function called <code>invertible</code> which takes an input parameter <code>M</code>, a list of lists representing a 2 by 2 matrix, and returns <code>True</code> if the matrix <code>M</code> is invertible and <code>False</code> if not.</p>
 <pre><code class="python">def invertible(M):
@@ -1209,13 +1211,17 @@ $$</p>
 <h3 id="concavity-of-a-polynomial">Concavity of a Polynomial</h3>
 <p>Write a function called <code>concave_up</code> which takes input parameters <code>p</code> and <code>a</code> where <code>p</code> is a list representing a polynomial $p(x)$ and <code>a</code> is a number, and returns <code>True</code> if the function $p(x)$ is concave up at $x=a$ (ie. its second derivative is positive at $x=a$, $p''(a) &gt; 0$).</p>
 <p>We'll use the second derivative test for polynomials. In particular, if we have a polynomial of degree $n$</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 p(x) = c_0 + c_1 x + c_2 x^2 + \cdots + c_n x^n
-$$</p>
+</script>
+</p>
 <p>then the second derivative of $p(x)$ at $x=a$ is the sum</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 p''(a) = 2(1) c_2 + 3(2)c_3 a + 4(3)c_4 a^2 + \cdots + n(n-1)c_n a^{n-2}
-$$</p>
+</script>
+</p>
 <pre><code class="python">def concave_up(p,a):
     '''Determine if the polynomial p(x) is concave up at x=a.
 
@@ -1266,9 +1272,11 @@ print(concavity)
 <ol>
 <li>
 <p>The <a href="https://en.wikipedia.org/wiki/Discriminant#Cubic">discriminant</a> of a cubic polynomial $p(x) = ax^3 + bx^2 + cx + d$ is</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \Delta = b^2c^2 - 4ac^3 - 4b^3d - 27a^2d^2 + 18abcd
-$$</p>
+</script>
+</p>
 <p>The discriminant gives us information about the roots of the polynomial $p(x)$:</p>
 <ul>
 <li>if $\Delta &gt; 0$, then $p(x)$ has 3 distinct real roots</li>
@@ -1280,16 +1288,20 @@ $$</p>
 </li>
 <li>
 <p>Represent a 2 by 2 square matrix as a list of lists. For example, represent the matrix</p>
-<p>$$
-\begin{bmatrix} 2 &amp; -1 \\ 5 &amp; 7 \end{bmatrix}
-$$</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} 2 & -1 \\\ 5 & 7 \end{bmatrix}
+</script>
+</p>
 <p>as the list of lists <code>[[2,-1],[5,7]]</code>. Write a function called <code>inverse_a</code> which takes an input parameter <code>a</code> and returns a list of lists representing the <a href="https://en.wikipedia.org/wiki/Invertible_matrix">inverse of the matrix</a></p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \begin{bmatrix}
-1 &amp; a \\
-a &amp; -1
+1 & a \\\
+a & -1
 \end{bmatrix}
-$$</p>
+</script>
+</p>
 </li>
 <li>
 <p>Write a function called <code>real_eigenvalues</code> which takes an input parameter <code>M</code>, a list of lists representing a 2 by 2 matrix (as in the previous exercise), and returns <code>True</code> if the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> of the matrix <code>M</code> are real numebrs and <code>False</code> if not.</p>
@@ -1373,6 +1385,8 @@ $$</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>
