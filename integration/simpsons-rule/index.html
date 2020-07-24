@@ -970,33 +970,42 @@ import matplotlib.pyplot as plt
 </code></pre>
 
 <h2 id="definition">Definition</h2>
-<p><a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson's rule</a> uses a quadratic polynomial on each subinterval of a partition to approximate the function $f(x)$ and to compute the definite integral. This is an improvement over the trapezoid rule which approximates $f(x)$ by a straight line on each subinterval of a partition.</p>
+<p><a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson's rule</a> uses a quadratic polynomial on each subinterval of a partition to approximate the function <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> and to compute the definite integral. This is an improvement over the trapezoid rule which approximates <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> by a straight line on each subinterval of a partition.</p>
 <p>The formula for Simpson's rule is</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+S_N(f) = \frac{\Delta x}{3} \sum_{i=1}^{N/2} \left( f(x_{2i-2}) + 4 f(x_{2i-1}) + f(x_{2i}) \right)
+</div>
 <script type="math/tex; mode=display">
 S_N(f) = \frac{\Delta x}{3} \sum_{i=1}^{N/2} \left( f(x_{2i-2}) + 4 f(x_{2i-1}) + f(x_{2i}) \right)
 </script>
-</p>
-<p>where $N$ is an <em>even</em> number of subintervals of $[a,b]$, $\Delta x = (b - a)/N$ and $x_i = a + i \Delta x$.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is an <em>even</em> number of subintervals of <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span>, <span><span class="MathJax_Preview">\Delta x = (b - a)/N</span><script type="math/tex">\Delta x = (b - a)/N</script></span> and <span><span class="MathJax_Preview">x_i = a + i \Delta x</span><script type="math/tex">x_i = a + i \Delta x</script></span>.</p>
 <h2 id="error-formula">Error Formula</h2>
-<p>We have seen that the error in a Riemann sum is inversely proportional to the size of the partition $N$ and the trapezoid rule is inversely proportional to $N^2$. The error formula in the theorem below shows that Simpson's rule is even better as the error is inversely proportional to $N^4$.</p>
+<p>We have seen that the error in a Riemann sum is inversely proportional to the size of the partition <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and the trapezoid rule is inversely proportional to <span><span class="MathJax_Preview">N^2</span><script type="math/tex">N^2</script></span>. The error formula in the theorem below shows that Simpson's rule is even better as the error is inversely proportional to <span><span class="MathJax_Preview">N^4</span><script type="math/tex">N^4</script></span>.</p>
 <hr />
-<p><strong>Theorem</strong> Let $S_N(f)$ denote Simpson's rule</p>
-<p>
+<p><strong>Theorem</strong> Let <span><span class="MathJax_Preview">S_N(f)</span><script type="math/tex">S_N(f)</script></span> denote Simpson's rule</p>
+<div>
+<div class="MathJax_Preview">
+S_N(f) = \frac{\Delta x}{3} \sum_{i=1}^{N/2} \left( f(x_{2i-2}) + 4 f(x_{2i-1}) + f(x_{2i}) \right)
+</div>
 <script type="math/tex; mode=display">
 S_N(f) = \frac{\Delta x}{3} \sum_{i=1}^{N/2} \left( f(x_{2i-2}) + 4 f(x_{2i-1}) + f(x_{2i}) \right)
 </script>
-</p>
-<p>where $N$ is an <em>even</em> number of subintervals of $[a,b]$, $\Delta x = (b - a)/N$ and $x_i = a + i \Delta x$. The error bound is</p>
-<p>
+</div>
+<p>where <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is an <em>even</em> number of subintervals of <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span>, <span><span class="MathJax_Preview">\Delta x = (b - a)/N</span><script type="math/tex">\Delta x = (b - a)/N</script></span> and <span><span class="MathJax_Preview">x_i = a + i \Delta x</span><script type="math/tex">x_i = a + i \Delta x</script></span>. The error bound is</p>
+<div>
+<div class="MathJax_Preview">
+E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{180N^4} K_4
+</div>
 <script type="math/tex; mode=display">
 E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{180N^4} K_4
 </script>
-</p>
-<p>where $\left| \ f^{(4)}(x) \ \right| \leq K_4$ for all $x \in [a,b]$.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">\left| \ f^{(4)}(x) \ \right| \leq K_4</span><script type="math/tex">\left| \ f^{(4)}(x) \ \right| \leq K_4</script></span> for all <span><span class="MathJax_Preview">x \in [a,b]</span><script type="math/tex">x \in [a,b]</script></span>.</p>
 <hr />
 <h2 id="implementation">Implementation</h2>
-<p>Let's write a function called <code>simps</code> which takes input parameters $f$, $a$, $b$ and $N$ and returns the approximation $S_N(f)$. Furthermore, let's assign a default value $N=50$.</p>
+<p>Let's write a function called <code>simps</code> which takes input parameters <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>, <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> and <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the approximation <span><span class="MathJax_Preview">S_N(f)</span><script type="math/tex">S_N(f)</script></span>. Furthermore, let's assign a default value <span><span class="MathJax_Preview">N=50</span><script type="math/tex">N=50</script></span>.</p>
 <pre><code class="python">def simps(f,a,b,N=50):
     '''Approximate the integral of f(x) from a to b by Simpson's rule.
 
@@ -1034,11 +1043,14 @@ E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{1
 </code></pre>
 
 <p>Let's test our function on integrals for which we know the exact value. For example, we know</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^1 3x^2 dx = 1
+</div>
 <script type="math/tex; mode=display">
 \int_0^1 3x^2 dx = 1
 </script>
-</p>
+</div>
 <pre><code class="python">simps(lambda x : 3*x**2,0,1,10)
 </code></pre>
 
@@ -1046,11 +1058,14 @@ E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{1
 </code></pre></div>
 
 <p>Test our function again with the integral</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^{\pi/2} \sin(x) dx = 1
+</div>
 <script type="math/tex; mode=display">
 \int_0^{\pi/2} \sin(x) dx = 1
 </script>
-</p>
+</div>
 <pre><code class="python">simps(np.sin,0,np.pi/2,100)
 </code></pre>
 
@@ -1062,30 +1077,41 @@ E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{1
 <pre><code class="python">import scipy.integrate as spi
 </code></pre>
 
-<p>The function <code>scipy.integrate.simps</code> computes the approximation of a definite integral by Simpson's rule. Consulting the documentation, we see that all we need to do it supply arrays of $x$ and $y$ values for the integrand and <code>scipy.integrate.simps</code> returns the approximation of the integral using Simpson's rule.</p>
+<p>The function <code>scipy.integrate.simps</code> computes the approximation of a definite integral by Simpson's rule. Consulting the documentation, we see that all we need to do it supply arrays of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> and <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values for the integrand and <code>scipy.integrate.simps</code> returns the approximation of the integral using Simpson's rule.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
-<p>Find a value $N$ which guarantees that Simpson's rule approximation $S_N(f)$ of the integral</p>
-<p>
+<p>Find a value <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> which guarantees that Simpson's rule approximation <span><span class="MathJax_Preview">S_N(f)</span><script type="math/tex">S_N(f)</script></span> of the integral</p>
+<div>
+<div class="MathJax_Preview">
+\int_1^2 \frac{1}{x} dx
+</div>
 <script type="math/tex; mode=display">
 \int_1^2 \frac{1}{x} dx
 </script>
-</p>
-<p>satisfies $E_N^S(f) \leq 0.0001$.</p>
+</div>
+<p>satisfies <span><span class="MathJax_Preview">E_N^S(f) \leq 0.0001</span><script type="math/tex">E_N^S(f) \leq 0.0001</script></span>.</p>
 <p>Compute</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+f^{(4)}(x) = \frac{24}{x^5}
+</div>
 <script type="math/tex; mode=display">
 f^{(4)}(x) = \frac{24}{x^5}
 </script>
-</p>
-<p>therefore $\left| \, f^{(4)}(x) \, \right| \leq 24$ for all $x \in [1,2]$ and so</p>
-<p>
+</div>
+<p>therefore <span><span class="MathJax_Preview">\left| \, f^{(4)}(x) \, \right| \leq 24</span><script type="math/tex">\left| \, f^{(4)}(x) \, \right| \leq 24</script></span> for all <span><span class="MathJax_Preview">x \in [1,2]</span><script type="math/tex">x \in [1,2]</script></span> and so</p>
+<div>
+<div class="MathJax_Preview">
+\frac{1}{180N^4} 24 \leq 0.0001 \ \Rightarrow \ 
+\frac{20000}{15N^4} \leq 1 \ \Rightarrow \ 
+\left( \frac{20000}{15} \right)^{1/4} \leq N
+</div>
 <script type="math/tex; mode=display">
 \frac{1}{180N^4} 24 \leq 0.0001 \ \Rightarrow \ 
 \frac{20000}{15N^4} \leq 1 \ \Rightarrow \ 
 \left( \frac{20000}{15} \right)^{1/4} \leq N
 </script>
-</p>
+</div>
 <p>Compute</p>
 <pre><code class="python">(20000/15)**0.25
 </code></pre>
@@ -1093,7 +1119,7 @@ f^{(4)}(x) = \frac{24}{x^5}
 <div class="highlight"><pre><span></span><code>6.042750794713537
 </code></pre></div>
 
-<p>Compute Simpson's rule with $N=8$ (the smallest even integer greater than 6.04)</p>
+<p>Compute Simpson's rule with <span><span class="MathJax_Preview">N=8</span><script type="math/tex">N=8</script></span> (the smallest even integer greater than 6.04)</p>
 <pre><code class="python">approximation = simps(lambda x : 1/x,1,2,8)
 print(approximation)
 </code></pre>
@@ -1112,7 +1138,7 @@ print(approximation)
 <div class="highlight"><pre><span></span><code>0.6931545306545306
 </code></pre></div>
 
-<p>Verify that $E_N^S(f) \leq 0.0001$</p>
+<p>Verify that <span><span class="MathJax_Preview">E_N^S(f) \leq 0.0001</span><script type="math/tex">E_N^S(f) \leq 0.0001</script></span></p>
 <pre><code class="python">np.abs(np.log(2) - approximation) &lt;= 0.0001
 </code></pre>
 

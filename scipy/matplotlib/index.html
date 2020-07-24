@@ -1164,8 +1164,8 @@ import matplotlib.pyplot as plt
 <h3 id="procedure">Procedure</h3>
 <p>The general procedure to create a 2D line plot is:</p>
 <ol>
-<li>Create a sequence of $x$ values.</li>
-<li>Create a sequence of $y$ values.</li>
+<li>Create a sequence of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> values.</li>
+<li>Create a sequence of <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values.</li>
 <li>Enter <code>plt.plot(x,y,[fmt],**kwargs)</code> where <code>[fmt]</code> is a (optional) format string and <code>**kwargs</code> are (optional) keyword arguments specifying line properties of the plot.</li>
 <li>Use <code>pyplot</code> functions to add features to the figure such as a title, legend, grid lines, etc.</li>
 <li>Enter <code>plt.show()</code> to display the resulting figure.</li>
@@ -1183,7 +1183,7 @@ plt.show()
 <li>The sequences <code>x</code> and <code>y</code> define the coordinates of the points in the plot.</li>
 <li>The line in the plot is constructed by connecting the points by straight lines.</li>
 </ol>
-<p>The second observation implies that if we want to plot a smooth curve then we need to plot lots of points otherwise the plot will not be smooth. For example, we could try plotting the parabola $y = x^2$ for $x \in [-2,2]$ using only 5 points:</p>
+<p>The second observation implies that if we want to plot a smooth curve then we need to plot lots of points otherwise the plot will not be smooth. For example, we could try plotting the parabola <span><span class="MathJax_Preview">y = x^2</span><script type="math/tex">y = x^2</script></span> for <span><span class="MathJax_Preview">x \in [-2,2]</span><script type="math/tex">x \in [-2,2]</script></span> using only 5 points:</p>
 <pre><code class="python">x = [-2,-1,0,1,2]
 y = [4,1,0,1,4]
 plt.plot(x,y)
@@ -1191,7 +1191,7 @@ plt.show()
 </code></pre>
 
 <p><img alt="png" src="../../nb_img/scipy/matplotlib_5_0.png" /></p>
-<p>This is too few points to plot a smooth curve such as $y = x^2$ and so we need more points! Let's try again using the NumPy function <code>np.linspace</code> to create 100 points!</p>
+<p>This is too few points to plot a smooth curve such as <span><span class="MathJax_Preview">y = x^2</span><script type="math/tex">y = x^2</script></span> and so we need more points! Let's try again using the NumPy function <code>np.linspace</code> to create 100 points!</p>
 <pre><code class="python">x = np.linspace(-2,2,100)
 y = x**2
 plt.plot(x,y)
@@ -1199,7 +1199,7 @@ plt.show()
 </code></pre>
 
 <p><img alt="png" src="../../nb_img/scipy/matplotlib_7_0.png" /></p>
-<p>That's a better representation of the parabola $y = x^2$. Note that the number of points we use in a line plot (100 in this case) is completely arbitrary but the goal is to show a smooth graph for a smooth curve and so we just need to pick a big enough number depending on the function. But be careful not to generate too many points since a <em>very</em> large number of points will take a <em>long</em> time to plot!</p>
+<p>That's a better representation of the parabola <span><span class="MathJax_Preview">y = x^2</span><script type="math/tex">y = x^2</script></span>. Note that the number of points we use in a line plot (100 in this case) is completely arbitrary but the goal is to show a smooth graph for a smooth curve and so we just need to pick a big enough number depending on the function. But be careful not to generate too many points since a <em>very</em> large number of points will take a <em>long</em> time to plot!</p>
 <p>Now that we have the general idea, let's look at adding style and features to our plots!</p>
 <h3 id="line-properties">Line Properties</h3>
 <p>A line appearing in a plot has several properties including color, transparency, style, width and markers. We can set these properties when we call <code>plt.plot</code> using the following keyword arguments:</p>
@@ -1250,11 +1250,14 @@ plt.show()
 </tbody>
 </table>
 <p>Note that we can specify a <a href="https://matplotlib.org/api/colors_api.html">matplotlib color</a> in several different ways including by name such as <code>blue</code> or <code>red</code>, or by a <a href="https://www.w3schools.com/colors/colors_rgb.asp">RGB</a> tuple such as <code>(1,0,1)</code> for purple. For example, let's plot the function</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y = e^{-x^2}\cos(2 \pi x) \ \ , \ \ x \in [-2,2]
+</div>
 <script type="math/tex; mode=display">
 y = e^{-x^2}\cos(2 \pi x) \ \ , \ \ x \in [-2,2]
 </script>
-</p>
+</div>
 <pre><code class="python">x = np.linspace(-2,2,41)
 y = np.exp(-x**2) * np.cos(2*np.pi*x)
 plt.plot(x,y,alpha=0.4,label='Decaying Cosine',
@@ -1270,11 +1273,14 @@ plt.show()
 <p>Notice that we used the pyplot function <code>plt.legend</code> to display the figure with a legend (showing the line label) and  and <code>plt.ylim</code> to set the limits on the vertical axis to <code>[-2,2]</code>.</p>
 <h3 id="format-strings">Format Strings</h3>
 <p>A <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib-pyplot-plot">format string</a> gives us a shortcut to add color, markers and line style to a line plot. For example, if we want to plot the function</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y = \frac{1}{1 + x^2} \ , \ x \in [-5,5]
+</div>
 <script type="math/tex; mode=display">
 y = \frac{1}{1 + x^2} \ , \ x \in [-5,5]
 </script>
-</p>
+</div>
 <p>with a dashed black line and square markers, we could use keyword arguments:</p>
 <pre><code class="python">x = np.linspace(-5,5,41)
 y = 1/(1 + x**2)
@@ -1426,11 +1432,11 @@ plt.show()
 <tbody>
 <tr>
 <td align="right"><code>plt.xlim</code></td>
-<td align="left">set $x$ limits</td>
+<td align="left">set <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> limits</td>
 </tr>
 <tr>
 <td align="right"><code>plt.ylim</code></td>
-<td align="left">set $y$ limits</td>
+<td align="left">set <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> limits</td>
 </tr>
 <tr>
 <td align="right"><code>plt.grid</code></td>
@@ -1477,7 +1483,7 @@ plt.show()
 <p>See the <a href="https://matplotlib.org/api/pyplot_summary.html">pyplot documentation</a> for a full list of functions.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="taylor-polynomials">Taylor Polynomials</h3>
-<p>Plot the function $y = \cos(x)$ along with its <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor polynomials</a> of degrees 2 and 4.</p>
+<p>Plot the function <span><span class="MathJax_Preview">y = \cos(x)</span><script type="math/tex">y = \cos(x)</script></span> along with its <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor polynomials</a> of degrees 2 and 4.</p>
 <pre><code class="python">x = np.linspace(-6,6,50)
 
 # Plot y = cos(x)
@@ -1507,13 +1513,17 @@ plt.show()
 <p><img alt="png" src="../../nb_img/scipy/matplotlib_21_0.png" /></p>
 <h3 id="heart-curve">Heart Curve</h3>
 <p>Plot the heart curve:</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+x &amp;= 16 \sin^3(t) \\\
+y &amp;= 13 \cos(t) - 5 \cos(2t) - 2 \cos(3t) - \cos(4t)
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 x &= 16 \sin^3(t) \\\
 y &= 13 \cos(t) - 5 \cos(2t) - 2 \cos(3t) - \cos(4t)
 \end{align}</script>
-</p>
-<p>for $t \in [0,2\pi]$.</p>
+</div>
+<p>for <span><span class="MathJax_Preview">t \in [0,2\pi]</span><script type="math/tex">t \in [0,2\pi]</script></span>.</p>
 <pre><code class="python">t = np.linspace(0,2*np.pi,100)
 
 x = 16*np.sin(t)**3
@@ -1533,28 +1543,40 @@ plt.show()
 
 <p><img alt="png" src="../../nb_img/scipy/matplotlib_23_0.png" /></p>
 <h2 id="subplots">Subplots</h2>
-<p>The <code>plt.subplot</code> function takes at least 3 inputs $n$, $m$ and $i$ and creates a figure with a $n$ by $m$ grid of subplots and then sets the $i$th subplot (counting across the rows) as the current plot (ie. current axes object).</p>
+<p>The <code>plt.subplot</code> function takes at least 3 inputs <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>, <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> and <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and creates a figure with a <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> by <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> grid of subplots and then sets the <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>th subplot (counting across the rows) as the current plot (ie. current axes object).</p>
 <p>For example, consider the <a href="https://en.wikipedia.org/wiki/Sawtooth_wave">sawtooth wave</a></p>
-<p>
+<div>
+<div class="MathJax_Preview">
+f(t) = \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2 \pi k t)}{k}
+</div>
 <script type="math/tex; mode=display">
 f(t) = \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2 \pi k t)}{k}
 </script>
-</p>
-<p>and let $f_N(t)$ denote the $N$th partial sum of the sawtooth wave:</p>
-<p>
+</div>
+<p>and let <span><span class="MathJax_Preview">f_N(t)</span><script type="math/tex">f_N(t)</script></span> denote the <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>th partial sum of the sawtooth wave:</p>
+<div>
+<div class="MathJax_Preview">
+f_N(t) = \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{N} (-1)^k \frac{\sin(2 \pi k t)}{k}
+</div>
 <script type="math/tex; mode=display">
 f_N(t) = \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{N} (-1)^k \frac{\sin(2 \pi k t)}{k}
 </script>
-</p>
+</div>
 <p>Create a 2 by 2 grid of subplots to plot the first 4 partial sums:</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+f_1(t) &amp;= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} \\\
+f_2(t) &amp;= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} - \frac{\sin(4 \pi t)}{2\pi} \\\
+f_3(t) &amp;= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} - \frac{\sin(4 \pi t)}{2\pi} + \frac{\sin(6 \pi t)}{3\pi} \\\
+f_4(t) &amp;= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} - \frac{\sin(4 \pi t)}{2\pi} + \frac{\sin(6 \pi t)}{3\pi} - \frac{\sin(8 \pi t)}{4\pi}
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 f_1(t) &= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} \\\
 f_2(t) &= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} - \frac{\sin(4 \pi t)}{2\pi} \\\
 f_3(t) &= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} - \frac{\sin(4 \pi t)}{2\pi} + \frac{\sin(6 \pi t)}{3\pi} \\\
 f_4(t) &= \frac{1}{2} + \frac{\sin(2 \pi t)}{\pi} - \frac{\sin(4 \pi t)}{2\pi} + \frac{\sin(6 \pi t)}{3\pi} - \frac{\sin(8 \pi t)}{4\pi}
 \end{align}</script>
-</p>
+</div>
 <pre><code class="python">t = np.linspace(0,4,200)
 
 fN = 1/2
@@ -1572,7 +1594,7 @@ plt.show()
 <p>See the <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html">documentation</a> for more about subplots.</p>
 <h2 id="beyond-line-plots">Beyond Line Plots</h2>
 <h3 id="scatter-plots">Scatter plots</h3>
-<p>A <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html">scatter plot</a> has 4 dimensions: $x$ coordinate, $y$ coordinate, size and color. Let's make a random scatter plot:</p>
+<p>A <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html">scatter plot</a> has 4 dimensions: <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> coordinate, <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> coordinate, size and color. Let's make a random scatter plot:</p>
 <pre><code class="python"># Set the number of dots in the plot
 N = 2000
 
@@ -1599,11 +1621,14 @@ plt.show()
 <p><img alt="png" src="../../nb_img/scipy/matplotlib_28_0.png" /></p>
 <h3 id="histograms">Histograms</h3>
 <p>Generate an array of 10000 random numbers sampled from the normal distribution and create a <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html">histogram</a>. Let's also superimpose the normal distribution:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}
+</div>
 <script type="math/tex; mode=display">
 y = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}
 </script>
-</p>
+</div>
 <pre><code class="python">samples = np.random.randn(10000)
 plt.hist(samples,bins=20,density=True,alpha=0.5,color=(0.3,0.8,0.1))
 plt.title('Random Samples - Normal Distribution')
@@ -1640,53 +1665,69 @@ plt.show()
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Plot the following functions:<ol>
-<li>$f(x) = \sqrt{|x|}$, $x \in [-9,9]$</li>
-<li>$f(x) = \sin(x) + \sin(2x)$, $x \in [0,4\pi]$</li>
-<li>$f(x) = \arctan(x)$, $x \in [-5,5]$</li>
-<li>$f(x) = 2x\ln|x|$, $x \not=0$, $f(0)=0$, $x \in [-1,1]$</li>
-<li>$f(x) = (x+2)(x+1)(x-1)(x-2)(x - 3)$, $x \in [-2,3]$</li>
-<li>$f(x) = e^{-x^2}$, $x \in [-2,2]$</li>
+<li><span><span class="MathJax_Preview">f(x) = \sqrt{|x|}</span><script type="math/tex">f(x) = \sqrt{|x|}</script></span>, <span><span class="MathJax_Preview">x \in [-9,9]</span><script type="math/tex">x \in [-9,9]</script></span></li>
+<li><span><span class="MathJax_Preview">f(x) = \sin(x) + \sin(2x)</span><script type="math/tex">f(x) = \sin(x) + \sin(2x)</script></span>, <span><span class="MathJax_Preview">x \in [0,4\pi]</span><script type="math/tex">x \in [0,4\pi]</script></span></li>
+<li><span><span class="MathJax_Preview">f(x) = \arctan(x)</span><script type="math/tex">f(x) = \arctan(x)</script></span>, <span><span class="MathJax_Preview">x \in [-5,5]</span><script type="math/tex">x \in [-5,5]</script></span></li>
+<li><span><span class="MathJax_Preview">f(x) = 2x\ln|x|</span><script type="math/tex">f(x) = 2x\ln|x|</script></span>, <span><span class="MathJax_Preview">x \not=0</span><script type="math/tex">x \not=0</script></span>, <span><span class="MathJax_Preview">f(0)=0</span><script type="math/tex">f(0)=0</script></span>, <span><span class="MathJax_Preview">x \in [-1,1]</span><script type="math/tex">x \in [-1,1]</script></span></li>
+<li><span><span class="MathJax_Preview">f(x) = (x+2)(x+1)(x-1)(x-2)(x - 3)</span><script type="math/tex">f(x) = (x+2)(x+1)(x-1)(x-2)(x - 3)</script></span>, <span><span class="MathJax_Preview">x \in [-2,3]</span><script type="math/tex">x \in [-2,3]</script></span></li>
+<li><span><span class="MathJax_Preview">f(x) = e^{-x^2}</span><script type="math/tex">f(x) = e^{-x^2}</script></span>, <span><span class="MathJax_Preview">x \in [-2,2]</span><script type="math/tex">x \in [-2,2]</script></span></li>
 </ol>
 </li>
 <li>
 <p>Plot the <a href="https://en.wikipedia.org/wiki/Lemniscate_of_Gerono">figure eight curve</a>:</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+x &amp;= \sin(t) \\\
+y &amp;= \sin(t) \cos(t)
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 x &= \sin(t) \\\
 y &= \sin(t) \cos(t)
 \end{align}</script>
-</p>
-<p>for $t \in [0,2\pi]$.</p>
+</div>
+<p>for <span><span class="MathJax_Preview">t \in [0,2\pi]</span><script type="math/tex">t \in [0,2\pi]</script></span>.</p>
 </li>
 <li>
 <p>Plot the <a href="https://en.wikipedia.org/wiki/Trefoil_knot">trefoil knot</a>:</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+x &amp;= \sin t + 2 \sin 2t \\\
+y &amp;= \cos t - 2 \cos 2t
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 x &= \sin t + 2 \sin 2t \\\
 y &= \cos t - 2 \cos 2t
 \end{align}</script>
-</p>
-<p>for $t \in [0,2\pi]$.</p>
+</div>
+<p>for <span><span class="MathJax_Preview">t \in [0,2\pi]</span><script type="math/tex">t \in [0,2\pi]</script></span>.</p>
 </li>
 <li>
 <p>Plot the <a href="https://en.wikipedia.org/wiki/Butterfly_curve_%28transcendental%29">butterfly curve</a>:</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+x &amp;= \sin(t) \left( e^{\cos t } - 2 \cos(4t) - \sin^5(t/12) \right) \\\
+y &amp;= \cos(t) \left( e^{\cos t } - 2 \cos(4t) - \sin^5(t/12) \right)
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 x &= \sin(t) \left( e^{\cos t } - 2 \cos(4t) - \sin^5(t/12) \right) \\\
 y &= \cos(t) \left( e^{\cos t } - 2 \cos(4t) - \sin^5(t/12) \right)
 \end{align}</script>
-</p>
-<p>for $t \in [0,100]$.</p>
+</div>
+<p>for <span><span class="MathJax_Preview">t \in [0,100]</span><script type="math/tex">t \in [0,100]</script></span>.</p>
 </li>
 <li>
 <p>Write a function called <code>parametric_plots</code> which takes input parameters <code>a</code> and <code>k</code> and plots the parametric equation</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+x(t) &amp;= 2 k \cos(t) - a \cos(k t) \\\
+y(t) &amp;= 2 k \sin(t) - a \sin(k t)
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 x(t) &= 2 k \cos(t) - a \cos(k t) \\\
 y(t) &= 2 k \sin(t) - a \sin(k t)
 \end{align}</script>
-</p>
-<p>for $t \in [0,2\pi]$. Include a title for each subplot to display the values for $a$ and $k$, and use <code>plt.axis('equal')</code> to display the curve properly.</p>
+</div>
+<p>for <span><span class="MathJax_Preview">t \in [0,2\pi]</span><script type="math/tex">t \in [0,2\pi]</script></span>. Include a title for each subplot to display the values for <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> and <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>, and use <code>plt.axis('equal')</code> to display the curve properly.</p>
 </li>
 </ol>
                 

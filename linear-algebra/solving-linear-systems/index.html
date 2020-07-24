@@ -1052,16 +1052,38 @@ import scipy.linalg as la
 
 <h2 id="linear-systems">Linear Systems</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/System_of_linear_equations">linear system of equations</a> is a collection of linear equations</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+a_{0,0}x_0 + a_{0,1}x_2 + \cdots + a_{0,n}x_n &amp; = b_0 \\\
+a_{1,0}x_0 + a_{1,1}x_2 + \cdots + a_{1,n}x_n &amp; = b_1 \\\
+&amp; \vdots \\\
+a_{m,0}x_0 + a_{m,1}x_2 + \cdots + a_{m,n}x_n &amp; = b_m \\\
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 a_{0,0}x_0 + a_{0,1}x_2 + \cdots + a_{0,n}x_n & = b_0 \\\
 a_{1,0}x_0 + a_{1,1}x_2 + \cdots + a_{1,n}x_n & = b_1 \\\
 & \vdots \\\
 a_{m,0}x_0 + a_{m,1}x_2 + \cdots + a_{m,n}x_n & = b_m \\\
 \end{align}</script>
-</p>
-<p>In matrix notation, a linear system is $A \mathbf{x}= \mathbf{b}$ where</p>
-<p>
+</div>
+<p>In matrix notation, a linear system is <span><span class="MathJax_Preview">A \mathbf{x}= \mathbf{b}</span><script type="math/tex">A \mathbf{x}= \mathbf{b}</script></span> where</p>
+<div>
+<div class="MathJax_Preview">
+A = \begin{bmatrix}
+a_{0,0} &amp; a_{0,1} &amp; \cdots &amp; a_{0,n} \\\
+a_{1,0} &amp; a_{1,1} &amp; \cdots &amp; a_{1,n} \\\
+\vdots &amp; &amp; &amp; \vdots \\\
+a_{m,0} &amp; a_{m,1} &amp; \cdots &amp; a_{m,n} \\\
+\end{bmatrix}
+ \ \ , \ \
+\mathbf{x} = \begin{bmatrix}
+x_0 \\\ x_1 \\\ \vdots \\\ x_n
+\end{bmatrix}
+ \ \ , \ \
+\mathbf{b} = \begin{bmatrix}
+b_0 \\\ b_1 \\\ \vdots \\\ b_m
+\end{bmatrix} 
+</div>
 <script type="math/tex; mode=display">
 A = \begin{bmatrix}
 a_{0,0} & a_{0,1} & \cdots & a_{0,n} \\\
@@ -1078,19 +1100,26 @@ x_0 \\\ x_1 \\\ \vdots \\\ x_n
 b_0 \\\ b_1 \\\ \vdots \\\ b_m
 \end{bmatrix} 
 </script>
-</p>
+</div>
 <h2 id="gaussian-elimination">Gaussian elimination</h2>
 <p>The general procedure to solve a linear system of equation is called <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a>. The idea is to perform elementary row operations to reduce the system to its row echelon form and then solve.</p>
 <h3 id="elementary-row-operations">Elementary Row Operations</h3>
 <p><a href="https://en.wikipedia.org/wiki/Elementary_matrix#Elementary_row_operations">Elementary row operations</a> include:</p>
 <ol>
-<li>Add $k$ times row $j$ to row $i$.</li>
-<li>Multiply row $i$ by scalar $k$.</li>
-<li>Switch rows $i$ and $j$.</li>
+<li>Add <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> to row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>.</li>
+<li>Multiply row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> by scalar <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>.</li>
+<li>Switch rows <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>.</li>
 </ol>
 <p>Each of the elementary row operations is the result of matrix multiplication by an elementary matrix (on the left).
-To add $k$ times row $i$ to row $j$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except the $i,j$ entry is $E_{i,j} = k$. For example, if $A$ is 3 by 3 and we want to add 3 times row 2 to row 0 (using 0 indexing) then</p>
-<p>
+To add <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> to row <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> in a matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, we multiply <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> by the matrix <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> where <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> is equal to the identity matrix except the <span><span class="MathJax_Preview">i,j</span><script type="math/tex">i,j</script></span> entry is <span><span class="MathJax_Preview">E_{i,j} = k</span><script type="math/tex">E_{i,j} = k</script></span>. For example, if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is 3 by 3 and we want to add 3 times row 2 to row 0 (using 0 indexing) then</p>
+<div>
+<div class="MathJax_Preview">
+E_1 = \begin{bmatrix}
+1 &amp; 0 &amp; 3 \\\
+0 &amp; 1 &amp; 0 \\\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 E_1 = \begin{bmatrix}
 1 & 0 & 3 \\\
@@ -1098,7 +1127,7 @@ E_1 = \begin{bmatrix}
 0 & 0 & 1
 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>Let's verify the calculation:</p>
 <pre><code class="python">A = np.array([[1,1,2],[-1,3,1],[0,5,2]])
 print(A)
@@ -1126,8 +1155,15 @@ print(E1)
        [ 0,  5,  2]])
 </code></pre></div>
 
-<p>To multiply $k$ times row $i$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except the $,i,j$ entry is $E_{i,i} = k$. For example, if $A$ is 3 by 3 and we want to multiply row 1 by -2 then</p>
-<p>
+<p>To multiply <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in a matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, we multiply <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> by the matrix <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> where <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> is equal to the identity matrix except the <span><span class="MathJax_Preview">,i,j</span><script type="math/tex">,i,j</script></span> entry is <span><span class="MathJax_Preview">E_{i,i} = k</span><script type="math/tex">E_{i,i} = k</script></span>. For example, if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is 3 by 3 and we want to multiply row 1 by -2 then</p>
+<div>
+<div class="MathJax_Preview">
+E_2 = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\\
+0 &amp; -2 &amp; 0 \\\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 E_2 = \begin{bmatrix}
 1 & 0 & 0 \\\
@@ -1135,7 +1171,7 @@ E_2 = \begin{bmatrix}
 0 & 0 & 1
 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>Let's verify the calculation:</p>
 <pre><code class="python">E2 = np.array([[1,0,0],[0,-2,0],[0,0,1]])
 print(E2)
@@ -1154,8 +1190,15 @@ print(E2)
        [ 0,  5,  2]])
 </code></pre></div>
 
-<p>Finally, to switch row $i$ and row $j$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except $E_{i,i} = 0$, $E_{j,j} = 0$, $E_{i,j} = 1$ and $E_{j,i} = 1$. For example, if $A$ is 3 by 3 and we want to switch row 1 and row 2 then</p>
-<p>
+<p>Finally, to switch row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and row <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> in a matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, we multiply <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> by the matrix <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> where <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> is equal to the identity matrix except <span><span class="MathJax_Preview">E_{i,i} = 0</span><script type="math/tex">E_{i,i} = 0</script></span>, <span><span class="MathJax_Preview">E_{j,j} = 0</span><script type="math/tex">E_{j,j} = 0</script></span>, <span><span class="MathJax_Preview">E_{i,j} = 1</span><script type="math/tex">E_{i,j} = 1</script></span> and <span><span class="MathJax_Preview">E_{j,i} = 1</span><script type="math/tex">E_{j,i} = 1</script></span>. For example, if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is 3 by 3 and we want to switch row 1 and row 2 then</p>
+<div>
+<div class="MathJax_Preview">
+E^3 = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\\
+0 &amp; 0 &amp; 1 \\\
+0 &amp; 1 &amp; 0
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 E^3 = \begin{bmatrix}
 1 & 0 & 0 \\\
@@ -1163,7 +1206,7 @@ E^3 = \begin{bmatrix}
 0 & 1 & 0
 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>Let's verify the calculation:</p>
 <pre><code class="python">E3 = np.array([[1,0,0],[0,0,1],[0,1,0]])
 print(E3)
@@ -1183,7 +1226,7 @@ print(E3)
 </code></pre></div>
 
 <h3 id="implementation">Implementation</h3>
-<p>Let's write function to implement the elementary row operations. First of all, let's write a function called <code>add_rows</code> which takes input parameters $A$, $k$, $i$ and $j$ and returns the NumPy array resulting from adding $k$ times row $j$ to row $i$ in the matrix $A$. If $i=j$, then let's say that the function scales row $i$ by $k+1$ since this would be the result of $k$ times row $i$ added to row $i$.</p>
+<p>Let's write function to implement the elementary row operations. First of all, let's write a function called <code>add_rows</code> which takes input parameters <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>, <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and returns the NumPy array resulting from adding <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> to row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in the matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>. If <span><span class="MathJax_Preview">i=j</span><script type="math/tex">i=j</script></span>, then let's say that the function scales row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> by <span><span class="MathJax_Preview">k+1</span><script type="math/tex">k+1</script></span> since this would be the result of <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> added to row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>.</p>
 <pre><code class="python">def add_row(A,k,i,j):
     &quot;Add k times row j to row i in matrix A.&quot;
     n = A.shape[0]
@@ -1218,7 +1261,7 @@ print(M)
        [12.,  8.]])
 </code></pre></div>
 
-<p>Let's write a function called <code>scale_row</code> which takes 3 input parameters $A$, $k$, and $i$ and returns the matrix that results from $k$ times row $i$ in the matrix $A$.</p>
+<p>Let's write a function called <code>scale_row</code> which takes 3 input parameters <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>, and <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and returns the matrix that results from <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in the matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>.</p>
 <pre><code class="python">def scale_row(A,k,i):
     &quot;Multiply row i by k in matrix A.&quot;
     n = A.shape[0]
@@ -1257,7 +1300,7 @@ print(A)
        [ 5., -5.,  0.]])
 </code></pre></div>
 
-<p>Let's write a function called <code>switch_rows</code> which takes 3 input parameters $A$, $i$ and $j$ and returns the matrix that results from switching rows $i$ and $j$ in the matrix $A$.</p>
+<p>Let's write a function called <code>switch_rows</code> which takes 3 input parameters <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and returns the matrix that results from switching rows <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> in the matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>.</p>
 <pre><code class="python">def switch_rows(A,i,j):
     &quot;Switch rows i and j in matrix A.&quot;
     n = A.shape[0]
@@ -1286,7 +1329,7 @@ print(A)
 
 <h2 id="examples">Examples</h2>
 <h3 id="find-the-inverse">Find the Inverse</h3>
-<p>Let's apply our functions to the augmented matrix $[M \ | \ I]$ to find the inverse of the matrix $M$:</p>
+<p>Let's apply our functions to the augmented matrix <span><span class="MathJax_Preview">[M \ | \ I]</span><script type="math/tex">[M \ | \ I]</script></span> to find the inverse of the matrix <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>:</p>
 <pre><code class="python">M = np.array([[5,4,2],[-1,2,1],[1,1,1]])
 print(M)
 </code></pre>
@@ -1395,7 +1438,7 @@ print(A10)
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
 </code></pre></div>
 
-<p>Let's verify that we found the inverse $M^{-1}$ correctly:</p>
+<p>Let's verify that we found the inverse <span><span class="MathJax_Preview">M^{-1}</span><script type="math/tex">M^{-1}</script></span> correctly:</p>
 <pre><code class="python">Minv = A10[:,3:]
 print(Minv)
 </code></pre>
@@ -1424,7 +1467,7 @@ print(result)
 </code></pre></div>
 
 <h3 id="solve-a-system">Solve a System</h3>
-<p>Let's use our functions to perform Gaussian elimination and solve a linear system of equations $A \mathbf{x} = \mathbf{b}$.</p>
+<p>Let's use our functions to perform Gaussian elimination and solve a linear system of equations <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span>.</p>
 <pre><code class="python">A = np.array([[6,15,1],[8,7,12],[2,7,8]])
 print(A)
 </code></pre>
@@ -1443,7 +1486,7 @@ print(b)
  [10]]
 </code></pre></div>
 
-<p>Form the augemented matrix $M$:</p>
+<p>Form the augemented matrix <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>:</p>
 <pre><code class="python">M = np.hstack([A,b])
 print(M)
 </code></pre>
@@ -1535,7 +1578,7 @@ print(M9)
  [ 0.          0.          1.          1.19008264]]
 </code></pre></div>
 
-<p>Success! The solution of $Ax=b$ is</p>
+<p>Success! The solution of <span><span class="MathJax_Preview">Ax=b</span><script type="math/tex">Ax=b</script></span> is</p>
 <pre><code class="python">x = M9[:,3].reshape(3,1)
 print(x)
 </code></pre>
@@ -1556,8 +1599,8 @@ print(x)
 </code></pre></div>
 
 <h2 id="scipylinalgsolve"><code>scipy.linalg.solve</code></h2>
-<p>We are mostly interested in linear systems $A \mathbf{x} = \mathbf{b}$ where there is a unique solution $\mathbf{x}$. This is the case when $A$ is a square matrix ($m=n$) and $\mathrm{det}(A) \not= 0$. To solve such a system, we can use the function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code>scipy.linalg.solve</code></a>.</p>
-<p>The function returns a solution of the system of equations $A \mathbf{x} = \mathbf{b}$. For example:</p>
+<p>We are mostly interested in linear systems <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span> where there is a unique solution <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span>. This is the case when <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a square matrix (<span><span class="MathJax_Preview">m=n</span><script type="math/tex">m=n</script></span>) and <span><span class="MathJax_Preview">\mathrm{det}(A) \not= 0</span><script type="math/tex">\mathrm{det}(A) \not= 0</script></span>. To solve such a system, we can use the function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code>scipy.linalg.solve</code></a>.</p>
+<p>The function returns a solution of the system of equations <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span>. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 print(A)
 </code></pre>
@@ -1581,7 +1624,7 @@ print(x1)
 <div class="highlight"><pre><span></span><code>[1. 1.]
 </code></pre></div>
 
-<p>Note that the output $\mathbf{x}$ is returned as a 1D NumPy array when the vector $\mathbf{b}$ (the right hand side) is entered as a 1D NumPy array. If we input $\mathbf{b}$ as a 2D NumPy array, then the output is a 2D NumPy array. For example:</p>
+<p>Note that the output <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> is returned as a 1D NumPy array when the vector <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> (the right hand side) is entered as a 1D NumPy array. If we input <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> as a 2D NumPy array, then the output is a 2D NumPy array. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 b2 = np.array([2,0]).reshape(2,1)
 x2 = la.solve(A,b2)
@@ -1592,7 +1635,7 @@ print(x2)
  [1.]]
 </code></pre></div>
 
-<p>Finally, if the right hand side $\mathbf{b}$ is a matrix, then the output is a matrix of the same size. It is the solution of $A \mathbf{x} = \mathbf{b}$ when $\mathbf{b}$ is a matrix. For example:</p>
+<p>Finally, if the right hand side <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> is a matrix, then the output is a matrix of the same size. It is the solution of <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span> when <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> is a matrix. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 b3 = np.array([[2,2],[0,1]])
 x3 = la.solve(A,b3)
@@ -1605,12 +1648,16 @@ print(x3)
 
 <h3 id="simple-example">Simple Example</h3>
 <p>Let's compute the solution of the system of equations</p>
-<p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+2x + y &amp;= 1 \\\
+x + y &amp;= 1
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 2x + y &= 1 \\\
 x + y &= 1
 \end{align}</script>
-</p>
+</div>
 <p>Create the matrix of coefficients:</p>
 <pre><code class="python">A = np.array([[2,1],[1,1]])
 print(A)
@@ -1620,7 +1667,7 @@ print(A)
  [1 1]]
 </code></pre></div>
 
-<p>And the vector $\mathbf{b}$:</p>
+<p>And the vector <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span>:</p>
 <pre><code class="python">b = np.array([1,-1]).reshape(2,1)
 print(b)
 </code></pre>
@@ -1638,7 +1685,7 @@ print(x)
  [-3.]]
 </code></pre></div>
 
-<p>We can verify the solution by computing the inverse of $A$:</p>
+<p>We can verify the solution by computing the inverse of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>:</p>
 <pre><code class="python">Ainv = la.inv(A)
 print(Ainv)
 </code></pre>
@@ -1647,7 +1694,7 @@ print(Ainv)
  [-1.  2.]]
 </code></pre></div>
 
-<p>And multiply $A^{-1} \mathbf{b}$ to solve for $\mathbf{x}$:</p>
+<p>And multiply <span><span class="MathJax_Preview">A^{-1} \mathbf{b}</span><script type="math/tex">A^{-1} \mathbf{b}</script></span> to solve for <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span>:</p>
 <pre><code class="python">x = Ainv @ b
 print(x)
 </code></pre>
@@ -1658,13 +1705,13 @@ print(x)
 
 <p>We get the same result. Success!</p>
 <h3 id="inverse-or-solve">Inverse or Solve</h3>
-<p>It's a bad idea to use the inverse $A^{-1}$ to solve $A \mathbf{x} = \mathbf{b}$ if $A$ is large. It's too computationally expensive. Let's create a large random matrix $A$ and vector $\mathbf{b}$ and compute the solution $\mathbf{x}$ in 2 ways:</p>
+<p>It's a bad idea to use the inverse <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> to solve <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span> if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is large. It's too computationally expensive. Let's create a large random matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and vector <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> and compute the solution <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> in 2 ways:</p>
 <pre><code class="python">N = 1000
 A = np.random.rand(N,N)
 b = np.random.rand(N,1)
 </code></pre>
 
-<p>Check the first entries $A$:</p>
+<p>Check the first entries <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>:</p>
 <pre><code class="python">A[:3,:3]
 </code></pre>
 
@@ -1673,7 +1720,7 @@ b = np.random.rand(N,1)
        [0.27576474, 0.46264005, 0.26589724]])
 </code></pre></div>
 
-<p>And for $\mathbf{b}$:</p>
+<p>And for <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span>:</p>
 <pre><code class="python">b[:4,:]
 </code></pre>
 

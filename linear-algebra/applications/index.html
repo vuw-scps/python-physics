@@ -1118,31 +1118,52 @@ import scipy.linalg as la
 </code></pre>
 
 <h2 id="polynomial-interpolation">Polynomial Interpolation</h2>
-<p><a href="https://en.wikipedia.org/wiki/Polynomial_interpolation">Polynomial interpolation</a> finds the unique polynomial of degree $n$ which passes through $n+1$ points in the $xy$-plane. For example, two points in the $xy$-plane determine a line and three points determine a parabola.</p>
+<p><a href="https://en.wikipedia.org/wiki/Polynomial_interpolation">Polynomial interpolation</a> finds the unique polynomial of degree <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> which passes through <span><span class="MathJax_Preview">n+1</span><script type="math/tex">n+1</script></span> points in the <span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span>-plane. For example, two points in the <span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span>-plane determine a line and three points determine a parabola.</p>
 <h3 id="formulation">Formulation</h3>
-<p>Suppose we have $n + 1$ points in the $xy$-plane</p>
-<p>
+<p>Suppose we have <span><span class="MathJax_Preview">n + 1</span><script type="math/tex">n + 1</script></span> points in the <span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span>-plane</p>
+<div>
+<div class="MathJax_Preview">
+(x_0,y_0),(x_1,y_1),\dots,(x_n,y_n)
+</div>
 <script type="math/tex; mode=display">
 (x_0,y_0),(x_1,y_1),\dots,(x_n,y_n)
 </script>
-</p>
-<p>such that all the $x$ values are distinct ($x_i \not= x_j$ for $i \not= j$). The general form of a degree $n$ polynomial is</p>
-<p>
+</div>
+<p>such that all the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> values are distinct (<span><span class="MathJax_Preview">x_i \not= x_j</span><script type="math/tex">x_i \not= x_j</script></span> for <span><span class="MathJax_Preview">i \not= j</span><script type="math/tex">i \not= j</script></span>). The general form of a degree <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> polynomial is</p>
+<div>
+<div class="MathJax_Preview">
+p(x) = a_0 + a_1 x + a_2x^2 + \cdots + a_n x^n
+</div>
 <script type="math/tex; mode=display">
 p(x) = a_0 + a_1 x + a_2x^2 + \cdots + a_n x^n
 </script>
-</p>
-<p>If $p(x)$ is the unique degree $n$ polynomial which interpolates all the points, then the coefficients $a_0$, $a_1$, $\dots$, $a_n$ satisfy the following equations:</p>
-<p>
+</div>
+<p>If <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> is the unique degree <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> polynomial which interpolates all the points, then the coefficients <span><span class="MathJax_Preview">a_0</span><script type="math/tex">a_0</script></span>, <span><span class="MathJax_Preview">a_1</span><script type="math/tex">a_1</script></span>, <span><span class="MathJax_Preview">\dots</span><script type="math/tex">\dots</script></span>, <span><span class="MathJax_Preview">a_n</span><script type="math/tex">a_n</script></span> satisfy the following equations:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+a_0 + a_1x_0 + a_2x_0^2 + \cdots + a_n x_0^n &amp;= y_0 \\\
+a_0 + a_1x_1 + a_2x_1^2 + \cdots + a_n x_1^n &amp;= y_1 \\\
+&amp; \ \ \vdots \\\
+a_0 + a_1x_n + a_2x_n^2 + \cdots + a_n x_n^n &amp;= y_n
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 a_0 + a_1x_0 + a_2x_0^2 + \cdots + a_n x_0^n &= y_0 \\\
 a_0 + a_1x_1 + a_2x_1^2 + \cdots + a_n x_1^n &= y_1 \\\
 & \ \ \vdots \\\
 a_0 + a_1x_n + a_2x_n^2 + \cdots + a_n x_n^n &= y_n
 \end{align}</script>
-</p>
+</div>
 <p>Therefore the vector of coefficients</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\mathbf{a} =
+\begin{bmatrix}
+a_0 \\\
+a_1 \\\
+\vdots \\\
+a_n
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 \mathbf{a} =
 \begin{bmatrix}
@@ -1152,15 +1173,36 @@ a_1 \\\
 a_n
 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>is the unique the solution of the linear system of equations</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+X \mathbf{a}=\mathbf{y}
+</div>
 <script type="math/tex; mode=display">
 X \mathbf{a}=\mathbf{y}
 </script>
-</p>
-<p>where $X$ is the <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a> and $\mathbf{y}$ is the vector of $y$ values</p>
-<p>
+</div>
+<p>where <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is the <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a> and <span><span class="MathJax_Preview">\mathbf{y}</span><script type="math/tex">\mathbf{y}</script></span> is the vector of <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values</p>
+<div>
+<div class="MathJax_Preview">
+X =
+\begin{bmatrix}
+1 &amp; x_0 &amp; x_0^2 &amp; \dots &amp; x_0^n \\\
+1 &amp; x_1 &amp; x_1^2 &amp; \dots &amp; x_1^n \\\
+ &amp; \vdots &amp; &amp; &amp; \vdots \\\
+1 &amp; x_n &amp; x_n^2 &amp; \dots &amp; x_n^n \\\
+\end{bmatrix}
+\ \ \mathrm{and} \ \
+\mathbf{y} =
+\begin{bmatrix}
+y_0 \\\
+y_1 \\\
+y_2 \\\
+\vdots \\\
+y_n
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 X =
 \begin{bmatrix}
@@ -1179,11 +1221,11 @@ y_2 \\\
 y_n
 \end{bmatrix}
 </script>
-</p>
+</div>
 <h3 id="examples">Examples</h3>
 <p><strong>Simple Parabola</strong></p>
-<p>Let's do a simple example. We know that $y=x^2$ is the unique degree 2 polynomial that interpolates the points $(-1,1)$, $(0,0)$ and $(1,1)$. Let's compute the polynomial interpolation of these points and verify the expected result $a_0=0$, $a_1=0$ and $a_2=1$.</p>
-<p>Create the Vandermonde matrix $X$ with the array of $x$ values:</p>
+<p>Let's do a simple example. We know that <span><span class="MathJax_Preview">y=x^2</span><script type="math/tex">y=x^2</script></span> is the unique degree 2 polynomial that interpolates the points <span><span class="MathJax_Preview">(-1,1)</span><script type="math/tex">(-1,1)</script></span>, <span><span class="MathJax_Preview">(0,0)</span><script type="math/tex">(0,0)</script></span> and <span><span class="MathJax_Preview">(1,1)</span><script type="math/tex">(1,1)</script></span>. Let's compute the polynomial interpolation of these points and verify the expected result <span><span class="MathJax_Preview">a_0=0</span><script type="math/tex">a_0=0</script></span>, <span><span class="MathJax_Preview">a_1=0</span><script type="math/tex">a_1=0</script></span> and <span><span class="MathJax_Preview">a_2=1</span><script type="math/tex">a_2=1</script></span>.</p>
+<p>Create the Vandermonde matrix <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> with the array of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> values:</p>
 <pre><code class="python">x = np.array([-1,0,1])
 X = np.column_stack([[1,1,1],x,x**2])
 print(X)
@@ -1194,7 +1236,7 @@ print(X)
  [ 1  1  1]]
 </code></pre></div>
 
-<p>Create the vector $\mathbf{y}$ of $y$ values:</p>
+<p>Create the vector <span><span class="MathJax_Preview">\mathbf{y}</span><script type="math/tex">\mathbf{y}</script></span> of <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values:</p>
 <pre><code class="python">y = np.array([1,0,1]).reshape(3,1)
 print(y)
 </code></pre>
@@ -1204,7 +1246,7 @@ print(y)
  [1]]
 </code></pre></div>
 
-<p>We expect the solution $\mathbf{a} = [0,0,1]^T$:</p>
+<p>We expect the solution <span><span class="MathJax_Preview">\mathbf{a} = [0,0,1]^T</span><script type="math/tex">\mathbf{a} = [0,0,1]^T</script></span>:</p>
 <pre><code class="python">a = la.solve(X,y)
 print(a)
 </code></pre>
@@ -1216,16 +1258,21 @@ print(a)
 
 <p>Success!</p>
 <p><strong>Another Parabola</strong></p>
-<p>The polynomial interpolation of 3 points $(x_0,y_0)$, $(x_1,y_1)$ and $(x_2,y_2)$ is the parabola $p(x) = a_0 + a_1x + a_2x^2$ such that the coefficients satisfy</p>
-<p>
+<p>The polynomial interpolation of 3 points <span><span class="MathJax_Preview">(x_0,y_0)</span><script type="math/tex">(x_0,y_0)</script></span>, <span><span class="MathJax_Preview">(x_1,y_1)</span><script type="math/tex">(x_1,y_1)</script></span> and <span><span class="MathJax_Preview">(x_2,y_2)</span><script type="math/tex">(x_2,y_2)</script></span> is the parabola <span><span class="MathJax_Preview">p(x) = a_0 + a_1x + a_2x^2</span><script type="math/tex">p(x) = a_0 + a_1x + a_2x^2</script></span> such that the coefficients satisfy</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+a_0 + a_1x_0 + a_2x_0^2 = y_0 \\\
+a_0 + a_1x_1 + a_2x_1^2 = y_1 \\\
+a_0 + a_1x_2 + a_2x_2^2 = y_2
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 a_0 + a_1x_0 + a_2x_0^2 = y_0 \\\
 a_0 + a_1x_1 + a_2x_1^2 = y_1 \\\
 a_0 + a_1x_2 + a_2x_2^2 = y_2
 \end{align}</script>
-</p>
-<p>Let's find the polynomial interpolation of the points $(0,6)$, $(3,1)$ and $(8,2)$.</p>
-<p>Create the Vandermonde matrix $X$:</p>
+</div>
+<p>Let's find the polynomial interpolation of the points <span><span class="MathJax_Preview">(0,6)</span><script type="math/tex">(0,6)</script></span>, <span><span class="MathJax_Preview">(3,1)</span><script type="math/tex">(3,1)</script></span> and <span><span class="MathJax_Preview">(8,2)</span><script type="math/tex">(8,2)</script></span>.</p>
+<p>Create the Vandermonde matrix <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>:</p>
 <pre><code class="python">x = np.array([0,3,8])
 X = np.column_stack([[1,1,1],x,x**2])
 print(X)
@@ -1236,7 +1283,7 @@ print(X)
  [ 1  8 64]]
 </code></pre></div>
 
-<p>And the vector of $y$ values:</p>
+<p>And the vector of <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values:</p>
 <pre><code class="python">y = np.array([6,1,2]).reshape(3,1)
 print(y)
 </code></pre>
@@ -1246,7 +1293,7 @@ print(y)
  [2]]
 </code></pre></div>
 
-<p>Compute the vector $\mathbf{a}$ of coefficients:</p>
+<p>Compute the vector <span><span class="MathJax_Preview">\mathbf{a}</span><script type="math/tex">\mathbf{a}</script></span> of coefficients:</p>
 <pre><code class="python">a = la.solve(X,y)
 print(a)
 </code></pre>
@@ -1265,7 +1312,7 @@ plt.show()
 
 <p><img alt="png" src="../../nb_img/linear-algebra/applications_18_0.png" /></p>
 <p><strong>Over Fitting 10 Random Points</strong></p>
-<p>Now let's interpolate points with $x_i=i$, $i=0,\dots,9$, and 10 random integers sampled from $[0,10)$ as $y$ values:</p>
+<p>Now let's interpolate points with <span><span class="MathJax_Preview">x_i=i</span><script type="math/tex">x_i=i</script></span>, <span><span class="MathJax_Preview">i=0,\dots,9</span><script type="math/tex">i=0,\dots,9</script></span>, and 10 random integers sampled from <span><span class="MathJax_Preview">[0,10)</span><script type="math/tex">[0,10)</script></span> as <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values:</p>
 <pre><code class="python">N = 10
 x = np.arange(0,N)
 y = np.random.randint(0,10,N)
@@ -1286,7 +1333,7 @@ print(X[:5,:5])
  [  1   4  16  64 256]]
 </code></pre></div>
 
-<p>We could also use the NumPy function <a href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.vander.html"><code>numpy.vander</code></a>. We specify the option <code>increasing=True</code> so that powers of $x_i$ increase left-to-right:</p>
+<p>We could also use the NumPy function <a href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.vander.html"><code>numpy.vander</code></a>. We specify the option <code>increasing=True</code> so that powers of <span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> increase left-to-right:</p>
 <pre><code class="python">X = np.vander(x,increasing=True)
 print(X[:5,:5])
 </code></pre>
@@ -1313,27 +1360,58 @@ plt.show()
 <p>Success! But notice how unstable the curve is. That's why it better to use a <a href="https://en.wikipedia.org/wiki/Spline_%28mathematics%29">cubic spline</a> to interpolate a large number of points.</p>
 <p>However real-life data is usually very noisy and interpolation is not the best tool to fit a line to data. Instead we would want to take a polynomial with smaller degree (like a line) and fit it as best we can without interpolating the points.</p>
 <h2 id="least-squares-linear-regression">Least Squares Linear Regression</h2>
-<p>Suppose we have $n+1$ points</p>
-<p>
+<p>Suppose we have <span><span class="MathJax_Preview">n+1</span><script type="math/tex">n+1</script></span> points</p>
+<div>
+<div class="MathJax_Preview">
+(x_0,y_0) , (x_1,y_1) , \dots , (x_n,y_n)
+</div>
 <script type="math/tex; mode=display">
 (x_0,y_0) , (x_1,y_1) , \dots , (x_n,y_n)
 </script>
-</p>
-<p>in the $xy$-plane and we want to fit a line</p>
-<p>
+</div>
+<p>in the <span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span>-plane and we want to fit a line</p>
+<div>
+<div class="MathJax_Preview">
+y=a_0 + a_1x
+</div>
 <script type="math/tex; mode=display">
 y=a_0 + a_1x
 </script>
-</p>
+</div>
 <p>that "best fits" the data. There are different ways to quantify what "best fit" means but the most common method is called <a href="https://en.wikipedia.org/wiki/Linear_regression">least squares linear regression</a>. In least squares linear regression, we want to minimize the sum of squared errors</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+SSE = \sum_i (y_i - (a_0 + a_1 x_i))^2
+</div>
 <script type="math/tex; mode=display">
 SSE = \sum_i (y_i - (a_0 + a_1 x_i))^2
 </script>
-</p>
+</div>
 <h3 id="formulation_1">Formulation</h3>
 <p>If we form matrices</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+X =
+\begin{bmatrix}
+1 &amp; x_0 \\\
+1 &amp; x_1 \\\
+\vdots &amp; \vdots \\\
+1 &amp; x_n
+\end{bmatrix}
+\ , \ \
+\mathbf{y} =
+\begin{bmatrix}
+y_0 \\\
+y_1 \\\
+\vdots \\\
+y_n
+\end{bmatrix}
+\ , \ \
+\mathbf{a} = 
+\begin{bmatrix}
+a_0 \\\ a_1
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 X =
 \begin{bmatrix}
@@ -1356,55 +1434,76 @@ y_n
 a_0 \\\ a_1
 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>then the sum of squared errors can be expressed as</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+SSE = \Vert \mathbf{y} - X \mathbf{a} \Vert^2
+</div>
 <script type="math/tex; mode=display">
 SSE = \Vert \mathbf{y} - X \mathbf{a} \Vert^2
 </script>
-</p>
+</div>
 <hr />
-<p><strong>Theorem.</strong> (Least Squares Linear Regression) Consider $n+1$ points</p>
-<p>
+<p><strong>Theorem.</strong> (Least Squares Linear Regression) Consider <span><span class="MathJax_Preview">n+1</span><script type="math/tex">n+1</script></span> points</p>
+<div>
+<div class="MathJax_Preview">
+(x_0,y_0) , (x_1,y_1) , \dots , (x_n,y_n)
+</div>
 <script type="math/tex; mode=display">
 (x_0,y_0) , (x_1,y_1) , \dots , (x_n,y_n)
 </script>
-</p>
-<p>in the $xy$-plane. The coefficients $\mathbf{a} = [a_0,a_1]^T$ which minimize the sum of squared errors</p>
-<p>
+</div>
+<p>in the <span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span>-plane. The coefficients <span><span class="MathJax_Preview">\mathbf{a} = [a_0,a_1]^T</span><script type="math/tex">\mathbf{a} = [a_0,a_1]^T</script></span> which minimize the sum of squared errors</p>
+<div>
+<div class="MathJax_Preview">
+SSE = \sum_i (y_i - (a_0 + a_1 x_i))^2
+</div>
 <script type="math/tex; mode=display">
 SSE = \sum_i (y_i - (a_0 + a_1 x_i))^2
 </script>
-</p>
+</div>
 <p>is the unique solution of the system</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\left( X^T X \right) \mathbf{a} = X^T \mathbf{y}
+</div>
 <script type="math/tex; mode=display">
 \left( X^T X \right) \mathbf{a} = X^T \mathbf{y}
 </script>
-</p>
-<p><em>Sketch of Proof.</em> The product $X\mathbf{a}$ is in the column space of $X$. The line connecting $\mathbf{y}$ to the nearest point in the column space of $X$ is perpendicluar to the column space of $X$. Therefore</p>
-<p>
+</div>
+<p><em>Sketch of Proof.</em> The product <span><span class="MathJax_Preview">X\mathbf{a}</span><script type="math/tex">X\mathbf{a}</script></span> is in the column space of <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>. The line connecting <span><span class="MathJax_Preview">\mathbf{y}</span><script type="math/tex">\mathbf{y}</script></span> to the nearest point in the column space of <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is perpendicluar to the column space of <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>. Therefore</p>
+<div>
+<div class="MathJax_Preview">
+X^T \left( \mathbf{y} - X \mathbf{a} \right) = \mathbf{0}
+</div>
 <script type="math/tex; mode=display">
 X^T \left( \mathbf{y} - X \mathbf{a} \right) = \mathbf{0}
 </script>
-</p>
+</div>
 <p>and so</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\left( X^T X \right) \mathbf{a} = X^T \mathbf{y}
+</div>
 <script type="math/tex; mode=display">
 \left( X^T X \right) \mathbf{a} = X^T \mathbf{y}
 </script>
-</p>
+</div>
 <hr />
 <h3 id="examples_1">Examples</h3>
 <p><strong>Fake Noisy Linear Data</strong></p>
 <p>Let's do an example with some fake data. Let's build a set of random points based on the model</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y = a_0 + a_1x + \epsilon
+</div>
 <script type="math/tex; mode=display">
 y = a_0 + a_1x + \epsilon
 </script>
-</p>
-<p>for some arbitrary choice of $a_0$ and $a_1$. The factor $\epsilon$ represents some random noise which we model using the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. We can generate random numbers sampled from the standard normal distribution using the NumPy function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html"><code>numpy.random.rand</code></a>.</p>
-<p>The goal is to demonstrate that we can use linear regression to retrieve the coefficeints $a_0$ and $a_1$ from the linear regression calculation.</p>
+</div>
+<p>for some arbitrary choice of <span><span class="MathJax_Preview">a_0</span><script type="math/tex">a_0</script></span> and <span><span class="MathJax_Preview">a_1</span><script type="math/tex">a_1</script></span>. The factor <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> represents some random noise which we model using the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. We can generate random numbers sampled from the standard normal distribution using the NumPy function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html"><code>numpy.random.rand</code></a>.</p>
+<p>The goal is to demonstrate that we can use linear regression to retrieve the coefficeints <span><span class="MathJax_Preview">a_0</span><script type="math/tex">a_0</script></span> and <span><span class="MathJax_Preview">a_1</span><script type="math/tex">a_1</script></span> from the linear regression calculation.</p>
 <pre><code class="python">a0 = 2
 a1 = 3
 N = 100
@@ -1416,7 +1515,7 @@ plt.show()
 </code></pre>
 
 <p><img alt="png" src="../../nb_img/linear-algebra/applications_33_0.png" /></p>
-<p>Let's use linear regression to retrieve the coefficients $a_0$ and $a_1$. Construct the matrix $X$:</p>
+<p>Let's use linear regression to retrieve the coefficients <span><span class="MathJax_Preview">a_0</span><script type="math/tex">a_0</script></span> and <span><span class="MathJax_Preview">a_1</span><script type="math/tex">a_1</script></span>. Construct the matrix <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>:</p>
 <pre><code class="python">X = np.column_stack([np.ones(N),x])
 print(X.shape)
 </code></pre>
@@ -1424,7 +1523,7 @@ print(X.shape)
 <div class="highlight"><pre><span></span><code>(100, 2)
 </code></pre></div>
 
-<p>Let's look at the first 5 rows of $X$ to see that it is in the correct form:</p>
+<p>Let's look at the first 5 rows of <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> to see that it is in the correct form:</p>
 <pre><code class="python">X[:5,:]
 </code></pre>
 
@@ -1435,7 +1534,7 @@ print(X.shape)
        [1.        , 0.86563343]])
 </code></pre></div>
 
-<p>Use <code>scipy.linalg.solve</code> to solve $\left(X^T X\right)\mathbf{a} = \left(X^T\right)\mathbf{y}$ for $\mathbf{a}$:</p>
+<p>Use <code>scipy.linalg.solve</code> to solve <span><span class="MathJax_Preview">\left(X^T X\right)\mathbf{a} = \left(X^T\right)\mathbf{y}</span><script type="math/tex">\left(X^T X\right)\mathbf{a} = \left(X^T\right)\mathbf{y}</script></span> for <span><span class="MathJax_Preview">\mathbf{a}</span><script type="math/tex">\mathbf{a}</script></span>:</p>
 <pre><code class="python">a = la.solve(X.T @ X, X.T @ y)
 print(a)
 </code></pre>
@@ -1517,20 +1616,52 @@ plt.show()
 <p>Only 4 more years!</p>
 <h2 id="polynomial-regression">Polynomial Regression</h2>
 <h3 id="formulation_2">Formulation</h3>
-<p>The same idea works for fitting a degree $d$ polynomial model</p>
-<p>
+<p>The same idea works for fitting a degree <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> polynomial model</p>
+<div>
+<div class="MathJax_Preview">
+y = a_0 + a_1x + a_2x^2 + \cdots + a_dx^d
+</div>
 <script type="math/tex; mode=display">
 y = a_0 + a_1x + a_2x^2 + \cdots + a_dx^d
 </script>
-</p>
-<p>to a set of $n+1$ data points</p>
-<p>
+</div>
+<p>to a set of <span><span class="MathJax_Preview">n+1</span><script type="math/tex">n+1</script></span> data points</p>
+<div>
+<div class="MathJax_Preview">
+(x_0,y_0), (x_1,y_1), \dots , (x_n,y_n)
+</div>
 <script type="math/tex; mode=display">
 (x_0,y_0), (x_1,y_1), \dots , (x_n,y_n)
 </script>
-</p>
-<p>We form the matrices as before but now the Vandermonde matrix $X$ has $d+1$ columns</p>
-<p>
+</div>
+<p>We form the matrices as before but now the Vandermonde matrix <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> has <span><span class="MathJax_Preview">d+1</span><script type="math/tex">d+1</script></span> columns</p>
+<div>
+<div class="MathJax_Preview">
+X =
+\begin{bmatrix}
+1 &amp; x_0 &amp; x_0^2 &amp; \cdots &amp; x_0^d \\\
+1 &amp; x_1 &amp; x_1^2 &amp; \cdots &amp; x_1^d \\\
+ &amp; \vdots &amp; &amp; &amp; \vdots \\\
+1 &amp; x_n &amp; x_n^2 &amp; \cdots &amp; x_n^d
+\end{bmatrix}
+\ , \ \
+\mathbf{y} =
+\begin{bmatrix}
+y_0 \\\
+y_1 \\\
+\vdots \\\
+y_n
+\end{bmatrix}
+\ , \ \
+\mathbf{a} =
+\begin{bmatrix}
+a_0 \\\
+a_1 \\\
+a_2 \\\
+\vdots \\\
+a_d
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 X =
 \begin{bmatrix}
@@ -1557,16 +1688,19 @@ a_2 \\\
 a_d
 \end{bmatrix}
 </script>
-</p>
-<p>The coefficients $\mathbf{a} = [a_0,a_1,a_2,\dots,a_d]^T$ which minimize the sum of squared errors $SSE$ is the unique solution of the linear system</p>
-<p>
+</div>
+<p>The coefficients <span><span class="MathJax_Preview">\mathbf{a} = [a_0,a_1,a_2,\dots,a_d]^T</span><script type="math/tex">\mathbf{a} = [a_0,a_1,a_2,\dots,a_d]^T</script></span> which minimize the sum of squared errors <span><span class="MathJax_Preview">SSE</span><script type="math/tex">SSE</script></span> is the unique solution of the linear system</p>
+<div>
+<div class="MathJax_Preview">
+\left( X^T X \right) \mathbf{a} = \left( X^T \right) \mathbf{y}
+</div>
 <script type="math/tex; mode=display">
 \left( X^T X \right) \mathbf{a} = \left( X^T \right) \mathbf{y}
 </script>
-</p>
+</div>
 <h3 id="example">Example</h3>
 <p><strong>Fake Noisy Quadratic Data</strong></p>
-<p>Let's build some fake data using a quadratic model $y = a_0 + a_1x + a_2x^2 + \epsilon$ and use linear regression to retrieve the coefficients $a_0$, $a_1$ and $a_2$.</p>
+<p>Let's build some fake data using a quadratic model <span><span class="MathJax_Preview">y = a_0 + a_1x + a_2x^2 + \epsilon</span><script type="math/tex">y = a_0 + a_1x + a_2x^2 + \epsilon</script></span> and use linear regression to retrieve the coefficients <span><span class="MathJax_Preview">a_0</span><script type="math/tex">a_0</script></span>, <span><span class="MathJax_Preview">a_1</span><script type="math/tex">a_1</script></span> and <span><span class="MathJax_Preview">a_2</span><script type="math/tex">a_2</script></span>.</p>
 <pre><code class="python">a0 = 3
 a1 = 5
 a2 = 8
@@ -1579,11 +1713,11 @@ plt.show()
 </code></pre>
 
 <p><img alt="png" src="../../nb_img/linear-algebra/applications_55_0.png" /></p>
-<p>Construct the matrix $X$:</p>
+<p>Construct the matrix <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>:</p>
 <pre><code class="python">X = np.column_stack([np.ones(N),x,x**2])
 </code></pre>
 
-<p>Use <code>scipy.linalg.solve</code> to solve $\left( X^T X \right) \mathbf{a} = \left( X^T \right) \mathbf{y}$:</p>
+<p>Use <code>scipy.linalg.solve</code> to solve <span><span class="MathJax_Preview">\left( X^T X \right) \mathbf{a} = \left( X^T \right) \mathbf{y}</span><script type="math/tex">\left( X^T X \right) \mathbf{a} = \left( X^T \right) \mathbf{y}</script></span>:</p>
 <pre><code class="python">a = la.solve((X.T @ X),X.T @ y)
 </code></pre>
 
@@ -1604,15 +1738,15 @@ plt.show()
 <li>a graph is <a href="https://en.wikipedia.org/wiki/Graph_%28discrete_mathematics%29#Connected_graph">connected</a> if each vertex is connected to every other vertex in the graph by a path</li>
 </ul>
 <p>We can visualize a graph as a set of vertices and edges and answer questions about the graph just by looking at it. However this becomes much more difficult with a large graphs such as a <a href="https://en.wikipedia.org/wiki/Social_network_analysis">social network graph</a>. Instead, we construct matrices from the graph such as the <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> and the <a href="https://en.wikipedia.org/wiki/Laplacian_matrix">Laplacian matrix</a> and study their properties.</p>
-<p><a href="https://en.wikipedia.org/wiki/Spectral_graph_theory">Spectral graph theory</a> is the study of the eigenvalues of the adjacency matrix (and other associated matrices) and the relationships to the structure of $G$.</p>
+<p><a href="https://en.wikipedia.org/wiki/Spectral_graph_theory">Spectral graph theory</a> is the study of the eigenvalues of the adjacency matrix (and other associated matrices) and the relationships to the structure of <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>.</p>
 <h3 id="networkx">NetworkX</h3>
 <p>Let's use the Python package <a href="https://networkx.github.io/">NetworkX</a> to construct and visualize some simple graphs.</p>
 <pre><code class="python">import networkx as nx
 </code></pre>
 
 <h3 id="adjacency-matrix">Adjacency Matrix</h3>
-<p>The <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> $A_G$ of a graph $G$ with $n$ vertices is the square matrix of size $n$ such that $A_{i,j} = 1$ if vertices $i$ and $j$ are connected by an edge, and $A_{i,j} = 0$ otherwise.</p>
-<p>We can use <code>networkx</code> to create the adjacency matrix of a graph $G$. The function <code>nx.adjacency_matrix</code> returns a <a href="https://docs.scipy.org/doc/scipy/reference/sparse.html">sparse matrix</a> and we convert it to a regular NumPy array using the <code>todense</code> method.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> <span><span class="MathJax_Preview">A_G</span><script type="math/tex">A_G</script></span> of a graph <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> with <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> vertices is the square matrix of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> such that <span><span class="MathJax_Preview">A_{i,j} = 1</span><script type="math/tex">A_{i,j} = 1</script></span> if vertices <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> are connected by an edge, and <span><span class="MathJax_Preview">A_{i,j} = 0</span><script type="math/tex">A_{i,j} = 0</script></span> otherwise.</p>
+<p>We can use <code>networkx</code> to create the adjacency matrix of a graph <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>. The function <code>nx.adjacency_matrix</code> returns a <a href="https://docs.scipy.org/doc/scipy/reference/sparse.html">sparse matrix</a> and we convert it to a regular NumPy array using the <code>todense</code> method.</p>
 <p>For example, plot the <a href="https://en.wikipedia.org/wiki/Complete_graph">complete graph</a> with 5 vertices and compute the adjacency matrix:</p>
 <pre><code class="python">G = nx.complete_graph(5)
 nx.draw(G,with_labels=True)
@@ -1631,7 +1765,7 @@ print(A)
 </code></pre></div>
 
 <h3 id="length-of-the-shortest-path">Length of the Shortest Path</h3>
-<p>The length of the <a href="https://en.wikipedia.org/wiki/Shortest_path_problem">shortest path</a> between vertices in a simple, undirected graph $G$ can be easily computed from the adjacency matrix $A_G$. In particular, the length of shortest path from vertex $i$ to vertex $j$ ($i\not=j$) is the smallest positive integer $k$ such that $A^k_{i,j} \not= 0$.</p>
+<p>The length of the <a href="https://en.wikipedia.org/wiki/Shortest_path_problem">shortest path</a> between vertices in a simple, undirected graph <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> can be easily computed from the adjacency matrix <span><span class="MathJax_Preview">A_G</span><script type="math/tex">A_G</script></span>. In particular, the length of shortest path from vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> to vertex <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> (<span><span class="MathJax_Preview">i\not=j</span><script type="math/tex">i\not=j</script></span>) is the smallest positive integer <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> such that <span><span class="MathJax_Preview">A^k_{i,j} \not= 0</span><script type="math/tex">A^k_{i,j} \not= 0</script></span>.</p>
 <p>Plot the <a href="https://en.wikipedia.org/wiki/Regular_dodecahedron#Dodecahedral_graph">dodecahedral graph</a>:</p>
 <pre><code class="python">G = nx.dodecahedral_graph()
 nx.draw(G,with_labels=True)
@@ -1664,7 +1798,7 @@ print(A)
  [1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]]
 </code></pre></div>
 
-<p>With this labelling, let's find the length of the shortest path from vertex $0$ to $15$:</p>
+<p>With this labelling, let's find the length of the shortest path from vertex <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> to <span><span class="MathJax_Preview">15</span><script type="math/tex">15</script></span>:</p>
 <pre><code class="python">i = 0
 j = 15
 k = 1
@@ -1679,13 +1813,16 @@ print('Length of the shortest path is',k)
 </code></pre></div>
 
 <h3 id="triangles-in-a-graph">Triangles in a Graph</h3>
-<p>A simple result in spectral graph theory is the number of <a href="https://en.wikipedia.org/wiki/Adjacency_matrix#Matrix_powers">triangles</a> in a graph $T(G)$ is given by:</p>
-<p>
+<p>A simple result in spectral graph theory is the number of <a href="https://en.wikipedia.org/wiki/Adjacency_matrix#Matrix_powers">triangles</a> in a graph <span><span class="MathJax_Preview">T(G)</span><script type="math/tex">T(G)</script></span> is given by:</p>
+<div>
+<div class="MathJax_Preview">
+T(G) = \frac{1}{6} ( \lambda_1^3 + \lambda_2^3 + \cdots + \lambda_n^3)
+</div>
 <script type="math/tex; mode=display">
 T(G) = \frac{1}{6} ( \lambda_1^3 + \lambda_2^3 + \cdots + \lambda_n^3)
 </script>
-</p>
-<p>where $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$ are the eigenvalues of the adjacency matrix.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n</span><script type="math/tex">\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n</script></span> are the eigenvalues of the adjacency matrix.</p>
 <p>Let's verify this for the simplest case, the complete graph on 3 vertices:</p>
 <pre><code class="python">C3 = nx.complete_graph(3)
 nx.draw(C3,with_labels=True)
@@ -1716,12 +1853,15 @@ int(np.round(np.sum(eigvals.real**3)/6,0))
 
 <p>There are 35 triangles in the complete graph with 7 vertices!</p>
 <p>Let's write a function called <code>triangles</code> which takes a square matrix <code>M</code> and return the sum</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\frac{1}{6} ( \lambda_1^3 + \lambda_2^3 + \cdots + \lambda_n^3)
+</div>
 <script type="math/tex; mode=display">
 \frac{1}{6} ( \lambda_1^3 + \lambda_2^3 + \cdots + \lambda_n^3)
 </script>
-</p>
-<p>where $\lambda_i$ are the eigenvalues of the symmetric matrix $A = (M + M^T)/2$. Note that $M = A$ if $M$ is symmetric. The return value is the number of triangles in the graph $G$ if the input $M$ is the adjacency matrix.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">\lambda_i</span><script type="math/tex">\lambda_i</script></span> are the eigenvalues of the symmetric matrix <span><span class="MathJax_Preview">A = (M + M^T)/2</span><script type="math/tex">A = (M + M^T)/2</script></span>. Note that <span><span class="MathJax_Preview">M = A</span><script type="math/tex">M = A</script></span> if <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is symmetric. The return value is the number of triangles in the graph <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> if the input <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the adjacency matrix.</p>
 <pre><code class="python">def triangles(M):
     A = (M + M.T)/2
     eigvals, eigvecs = la.eig(A)

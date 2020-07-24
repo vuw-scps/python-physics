@@ -964,40 +964,52 @@
                 
                 
                 <h1 id="newtons-method">Newton's Method</h1>
-<p><a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> is a root finding method that uses linear approximation. In particular, we guess a solution $x_0$ of the equation $f(x)=0$, compute the linear approximation of $f(x)$ at $x_0$ and then find the $x$-intercept of the linear approximation.</p>
+<p><a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> is a root finding method that uses linear approximation. In particular, we guess a solution <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span> of the equation <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span>, compute the linear approximation of <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> at <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span> and then find the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-intercept of the linear approximation.</p>
 <h2 id="formula">Formula</h2>
-<p>Let $f(x)$ be a differentiable function. If $x_0$ is near a solution of $f(x)=0$ then we can approximate $f(x)$ by the tangent line at $x_0$ and compute the $x$-intercept of the tangent line. The equation of the tangent line at $x_0$ is</p>
-<p>
+<p>Let <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> be a differentiable function. If <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span> is near a solution of <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span> then we can approximate <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> by the tangent line at <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span> and compute the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-intercept of the tangent line. The equation of the tangent line at <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span> is</p>
+<div>
+<div class="MathJax_Preview">
+y = f'(x_0)(x - x_0) + f(x_0)
+</div>
 <script type="math/tex; mode=display">
 y = f'(x_0)(x - x_0) + f(x_0)
 </script>
-</p>
-<p>The $x$-intercept is the solution $x_1$ of the equation</p>
-<p>
+</div>
+<p>The <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-intercept is the solution <span><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span> of the equation</p>
+<div>
+<div class="MathJax_Preview">
+0 = f'(x_0)(x_1 - x_0) + f(x_0)
+</div>
 <script type="math/tex; mode=display">
 0 = f'(x_0)(x_1 - x_0) + f(x_0)
 </script>
-</p>
-<p>and we solve for $x_1$</p>
-<p>
+</div>
+<p>and we solve for <span><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span></p>
+<div>
+<div class="MathJax_Preview">
+x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}
+</div>
 <script type="math/tex; mode=display">
 x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}
 </script>
-</p>
+</div>
 <p>If we implement this procedure repeatedly, then we obtain a sequence given by the recursive formula</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+</div>
 <script type="math/tex; mode=display">
 x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
 </script>
-</p>
-<p>which (potentially) converges to a solution of the equation $f(x)=0$.</p>
+</div>
+<p>which (potentially) converges to a solution of the equation <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span>.</p>
 <h2 id="advantagesdisadvantages">Advantages/Disadvantages</h2>
 <p>When it converges, Newton's method usually converges very quickly and this is its main advantage. However, Newton's method is not guaranteed to converge and this is obviously a big disadvantage especially compared to the bisection and secant methods which are guaranteed to converge to a solution (provided they start with an interval containing a root).</p>
 <p>Newton's method also requires computing values of the derivative of the function in question. This is potentially a disadvantage if the derivative is difficult to compute.</p>
-<p>The stopping criteria for Newton's method differs from the bisection and secant methods. In those methods, we know how close we are to a solution because we are computing intervals which contain a solution. In Newton's method, we don't know how close we are to a solution. All we can compute is the value $f(x)$ and so we implement a stopping criteria based on $f(x)$.</p>
+<p>The stopping criteria for Newton's method differs from the bisection and secant methods. In those methods, we know how close we are to a solution because we are computing intervals which contain a solution. In Newton's method, we don't know how close we are to a solution. All we can compute is the value <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> and so we implement a stopping criteria based on <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span>.</p>
 <p>Finally, there's no guarantee that the method converges to a solution and we should set a maximum number of iterations so that our implementation ends if we don't find a solution.</p>
 <h2 id="implementation">Implementation</h2>
-<p>Let's write a function called <code>newton</code> which takes 5 input parameters <code>f</code>, <code>Df</code>, <code>x0</code>, <code>epsilon</code> and <code>max_iter</code> and returns an approximation of a solution of $f(x)=0$ by Newton's method. The function may terminate in 3 ways:</p>
+<p>Let's write a function called <code>newton</code> which takes 5 input parameters <code>f</code>, <code>Df</code>, <code>x0</code>, <code>epsilon</code> and <code>max_iter</code> and returns an approximation of a solution of <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span> by Newton's method. The function may terminate in 3 ways:</p>
 <ol>
 <li>If <code>abs(f(xn)) &lt; epsilon</code>, the algorithm has found an approximate solution and returns <code>xn</code>.</li>
 <li>If <code>f'(xn) == 0</code>, the algorithm stops and returns <code>None</code>.</li>
@@ -1054,7 +1066,7 @@ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
 
 <h2 id="examples">Examples</h2>
 <h3 id="supergolden-ratio">Supergolden Ratio</h3>
-<p>Let's test our function <code>newton</code> on the polynomial $p(x) = x^3 - x^2 - 1$ to approximate the <a href="https://en.wikipedia.org/wiki/Supergolden_ratio">super golden ratio</a>.</p>
+<p>Let's test our function <code>newton</code> on the polynomial <span><span class="MathJax_Preview">p(x) = x^3 - x^2 - 1</span><script type="math/tex">p(x) = x^3 - x^2 - 1</script></span> to approximate the <a href="https://en.wikipedia.org/wiki/Supergolden_ratio">super golden ratio</a>.</p>
 <pre><code class="python">p = lambda x: x**3 - x**2 - 1
 Dp = lambda x: 3*x**2 - 2*x
 approx = newton(p,Dp,1,1e-10,10)
@@ -1065,9 +1077,9 @@ print(approx)
 1.4655712318767877
 </code></pre></div>
 
-<p>How many iterations of the bisection method starting with the interval $[1,2]$ can achieve the same accuracy?</p>
+<p>How many iterations of the bisection method starting with the interval <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span> can achieve the same accuracy?</p>
 <h3 id="divergent-example">Divergent Example</h3>
-<p>Newton's method diverges in certain cases. For example, if the tangent line at the root is vertical as in $f(x)=x^{1/3}$. Note that bisection and secant methods would converge in this case.</p>
+<p>Newton's method diverges in certain cases. For example, if the tangent line at the root is vertical as in <span><span class="MathJax_Preview">f(x)=x^{1/3}</span><script type="math/tex">f(x)=x^{1/3}</script></span>. Note that bisection and secant methods would converge in this case.</p>
 <pre><code class="python">f = lambda x: x**(1/3)
 Df = lambda x: (1/3)*x**(-2/3)
 approx = newton(f,Df,0.1,1e-2,100)
@@ -1078,17 +1090,20 @@ approx = newton(f,Df,0.1,1e-2,100)
 
 <h2 id="exercises">Exercises</h2>
 <ol>
-<li>Let $p(x) = x^3 - x - 1$. The only real root of $p(x)$ is called the <a href="https://en.wikipedia.org/wiki/Plastic_number">plastic number</a> and is given by</li>
+<li>Let <span><span class="MathJax_Preview">p(x) = x^3 - x - 1</span><script type="math/tex">p(x) = x^3 - x - 1</script></span>. The only real root of <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> is called the <a href="https://en.wikipedia.org/wiki/Plastic_number">plastic number</a> and is given by</li>
 </ol>
-<p>
+<div>
+<div class="MathJax_Preview">
+\frac{\sqrt[3]{108 + 12\sqrt{69}} + \sqrt[3]{108 - 12\sqrt{69}}}{6}
+</div>
 <script type="math/tex; mode=display">
 \frac{\sqrt[3]{108 + 12\sqrt{69}} + \sqrt[3]{108 - 12\sqrt{69}}}{6}
 </script>
-</p>
+</div>
 <ol>
-<li>Choose $x_0 = 1$ and implement 2 iterations of Newton's method to approximate the plastic number.</li>
+<li>Choose <span><span class="MathJax_Preview">x_0 = 1</span><script type="math/tex">x_0 = 1</script></span> and implement 2 iterations of Newton's method to approximate the plastic number.</li>
 <li>Use the exact value above to compute the absolute error after 2 iterations of Newton's method.</li>
-<li>Starting with the subinterval $[1,2]$, how many iterations of the bisection method is required to achieve the same accuracy?</li>
+<li>Starting with the subinterval <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span>, how many iterations of the bisection method is required to achieve the same accuracy?</li>
 </ol>
                 
               

@@ -1081,7 +1081,7 @@ for item in iterable:
 <li>end <code>for</code> statement with a colon <code>:</code></li>
 <li>code block indented 4 spaces which executes once for each value in <code>iterable</code></li>
 </ul>
-<p>For example, let's print $n^2$ for $n$ from 0 to 5:</p>
+<p>For example, let's print <span><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> for <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> from 0 to 5:</p>
 <pre><code class="python">for n in [0,1,2,3,4,5]:
     square = n**2
     print(n,'squared is',square)
@@ -1150,17 +1150,23 @@ print(squares)
 <h3 id="recursive-sequences">Recursive Sequences</h3>
 <p>We can only use a list comprehension to construct a sequence when the sequence values are defined by a formula. But what if we want to construct a sequence where the next value depends on previous values? This is called a <a href="https://en.wikipedia.org/wiki/Recursion">recursive sequence</a>.</p>
 <p>For example, consider the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+x_1 = 1, x_2 = 1, x_3 = 2, x_4 = 3, x_5 = 5, ...
+</div>
 <script type="math/tex; mode=display">
 x_1 = 1, x_2 = 1, x_3 = 2, x_4 = 3, x_5 = 5, ...
 </script>
-</p>
+</div>
 <p>where</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+x_{n} = x_{n-1} + x_{n-2}
+</div>
 <script type="math/tex; mode=display">
 x_{n} = x_{n-1} + x_{n-2}
 </script>
-</p>
+</div>
 <p>We can't use a list comprehension to build the list of Fibonacci numbers, and so we must use a <code>for</code> loop with the <code>append</code> method instead. For example, the first 15 Fibonacci numbers are:</p>
 <pre><code class="python">fibonacci_numbers = [1,1]
 for n in range(2,15):
@@ -1185,9 +1191,9 @@ for n in range(2,15):
 </code></pre></div>
 
 <h2 id="computing-sums">Computing Sums</h2>
-<p>Suppose we want to compute the sum of a sequence of numbers $x_0$, $x_1$, $x_2$, $x_3$, $\dots$, $x_n$. There are at least two approaches:</p>
+<p>Suppose we want to compute the sum of a sequence of numbers <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span>, <span><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span>, <span><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span>, <span><span class="MathJax_Preview">x_3</span><script type="math/tex">x_3</script></span>, <span><span class="MathJax_Preview">\dots</span><script type="math/tex">\dots</script></span>, <span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span>. There are at least two approaches:</p>
 <ol>
-<li>Compute the entire sequence, store it as a list $[x_0,x_1,x_2,\dots,x_n]$ and then use the built-in function <code>sum</code>.</li>
+<li>Compute the entire sequence, store it as a list <span><span class="MathJax_Preview">[x_0,x_1,x_2,\dots,x_n]</span><script type="math/tex">[x_0,x_1,x_2,\dots,x_n]</script></span> and then use the built-in function <code>sum</code>.</li>
 <li>Initialize a variable with value 0 (and name it <code>result</code> for example), create and add each element in the sequence to <code>result</code> one at a time.</li>
 </ol>
 <p>The advantage of the second approach is that we don't need to store all the values at once. For example, here are two ways to write a function which computes the sum of squares.</p>
@@ -1223,7 +1229,7 @@ for n in range(2,15):
 <p>Again, both methods yield the same result however the second uses less memory!</p>
 <h2 id="computing-products">Computing Products</h2>
 <p>There is no built-in function to compute products of sequences therefore we'll use an initialize-and-update construction similar to the example above for computing sums.</p>
-<p>Write a function called <code>factorial</code> which takes a positive integer $N$ and return the factorial $N!$.</p>
+<p>Write a function called <code>factorial</code> which takes a positive integer <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and return the factorial <span><span class="MathJax_Preview">N!</span><script type="math/tex">N!</script></span>.</p>
 <pre><code class="python">def factorial(N):
     &quot;Compute N! = N(N-1) ... (2)(1) for N &gt;= 1.&quot;
     # Initialize the output variable to 1
@@ -1247,13 +1253,16 @@ for n in range(2,15):
 <div class="highlight"><pre><span></span><code>120
 </code></pre></div>
 
-<p>We can use our function to approximate $e$ using the Taylor series for $e^x$:</p>
-<p>
+<p>We can use our function to approximate <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> using the Taylor series for <span><span class="MathJax_Preview">e^x</span><script type="math/tex">e^x</script></span>:</p>
+<div>
+<div class="MathJax_Preview">
+e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
+</div>
 <script type="math/tex; mode=display">
 e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
 </script>
-</p>
-<p>For example, let's compute the 100th partial sum of the series with $x=1$:</p>
+</div>
+<p>For example, let's compute the 100th partial sum of the series with <span><span class="MathJax_Preview">x=1</span><script type="math/tex">x=1</script></span>:</p>
 <pre><code class="python">sum([1/factorial(k) for k in range(0,101)])
 </code></pre>
 
@@ -1261,17 +1270,20 @@ e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
 </code></pre></div>
 
 <h2 id="searching-for-solutions">Searching for Solutions</h2>
-<p>We can use <code>for</code> loops to search for integer solutions of equations. For example, suppose we would like to find all representations of a positive integer $N$ as a <a href="https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem">sum of two squares</a>. In other words, we want to find all integer solutions $(x,y)$ of the equation:</p>
-<p>
+<p>We can use <code>for</code> loops to search for integer solutions of equations. For example, suppose we would like to find all representations of a positive integer <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> as a <a href="https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem">sum of two squares</a>. In other words, we want to find all integer solutions <span><span class="MathJax_Preview">(x,y)</span><script type="math/tex">(x,y)</script></span> of the equation:</p>
+<div>
+<div class="MathJax_Preview">
+x^2 + y^2 = N
+</div>
 <script type="math/tex; mode=display">
 x^2 + y^2 = N
 </script>
-</p>
-<p>Write a function called <code>reps_sum_squares</code> which takes an integer $N$ and finds all representations of $N$ as a sum of squares $x^2 + y^2 = N$ for $0 \leq x \leq y$. The function returns the representations as a list of tuples. For example, if $N = 50$ then $1^2 + 7^2 = 50$ and $5^2 + 5^2 = 50$ and the function returns the list <code>[(1, 7),(5, 5)]</code>.</p>
+</div>
+<p>Write a function called <code>reps_sum_squares</code> which takes an integer <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and finds all representations of <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> as a sum of squares <span><span class="MathJax_Preview">x^2 + y^2 = N</span><script type="math/tex">x^2 + y^2 = N</script></span> for <span><span class="MathJax_Preview">0 \leq x \leq y</span><script type="math/tex">0 \leq x \leq y</script></span>. The function returns the representations as a list of tuples. For example, if <span><span class="MathJax_Preview">N = 50</span><script type="math/tex">N = 50</script></span> then <span><span class="MathJax_Preview">1^2 + 7^2 = 50</span><script type="math/tex">1^2 + 7^2 = 50</script></span> and <span><span class="MathJax_Preview">5^2 + 5^2 = 50</span><script type="math/tex">5^2 + 5^2 = 50</script></span> and the function returns the list <code>[(1, 7),(5, 5)]</code>.</p>
 <p>Let's outline our approach before we write any code:</p>
 <ol>
-<li>Given $x \leq y$, the largest possible value for $x$ is $\sqrt{\frac{N}{2}}$</li>
-<li>For $x \leq \sqrt{\frac{N}{2}}$, the pair $(x,y)$ is a solution if $N - x^2$ is a square</li>
+<li>Given <span><span class="MathJax_Preview">x \leq y</span><script type="math/tex">x \leq y</script></span>, the largest possible value for <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is <span><span class="MathJax_Preview">\sqrt{\frac{N}{2}}</span><script type="math/tex">\sqrt{\frac{N}{2}}</script></span></li>
+<li>For <span><span class="MathJax_Preview">x \leq \sqrt{\frac{N}{2}}</span><script type="math/tex">x \leq \sqrt{\frac{N}{2}}</script></span>, the pair <span><span class="MathJax_Preview">(x,y)</span><script type="math/tex">(x,y)</script></span> is a solution if <span><span class="MathJax_Preview">N - x^2</span><script type="math/tex">N - x^2</script></span> is a square</li>
 <li>Define a helper function called <code>is_square</code> to test if an integer is square</li>
 </ol>
 <pre><code class="python">def is_square(n):
@@ -1338,9 +1350,9 @@ print(N,':',reps_sum_squares(N))
 <p>A positive integer is <a href="https://en.wikipedia.org/wiki/Prime_number">prime</a> if it is divisible only by 1 and itself. Write a function called <code>is_prime</code> which takes an input parameter <code>n</code> and returns <code>True</code> or <code>False</code> depending on whether <code>n</code> is prime or not.</p>
 <p>Let's outline our approach before we write any code:</p>
 <ol>
-<li>An integer $d$ divides $n$ if there is no remainder of $n$ divided by $d$.</li>
+<li>An integer <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> divides <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> if there is no remainder of <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> divided by <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>.</li>
 <li>Use the modulus operator <code>%</code> to compute the remainder.</li>
-<li>If $d$ divides $n$ then $n = d q$ for some integer $q$ and either $d \leq \sqrt{n}$ or $q \leq \sqrt{n}$ (and not both), therefore we need only test if $d$ divides $n$ for integers $d \leq \sqrt{n}$</li>
+<li>If <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> divides <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> then <span><span class="MathJax_Preview">n = d q</span><script type="math/tex">n = d q</script></span> for some integer <span><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> and either <span><span class="MathJax_Preview">d \leq \sqrt{n}</span><script type="math/tex">d \leq \sqrt{n}</script></span> or <span><span class="MathJax_Preview">q \leq \sqrt{n}</span><script type="math/tex">q \leq \sqrt{n}</script></span> (and not both), therefore we need only test if <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> divides <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> for integers <span><span class="MathJax_Preview">d \leq \sqrt{n}</span><script type="math/tex">d \leq \sqrt{n}</script></span></li>
 </ol>
 <pre><code class="python">def is_prime(n):
     &quot;Determine whether or not n is a prime number.&quot;
@@ -1392,7 +1404,7 @@ print(N,':',reps_sum_squares(N))
 </code></pre></div>
 
 <h3 id="divisors">Divisors</h3>
-<p>Let's write a function called <code>divisors</code> which takes a positive integer $N$ and returns the list of positive integers which divide $N$.</p>
+<p>Let's write a function called <code>divisors</code> which takes a positive integer <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the list of positive integers which divide <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>.</p>
 <pre><code class="python">def divisors(N):
     &quot;Return the list of divisors of N.&quot;
     # Initialize the list of divisors (which always includes 1)
@@ -1426,14 +1438,17 @@ print(N,':',reps_sum_squares(N))
 </code></pre></div>
 
 <h3 id="collatz-conjecture">Collatz Conjecture</h3>
-<p>Let $a$ be a positive integer and consider the recursive sequence where $x_0 = a$ and</p>
-<p>
+<p>Let <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> be a positive integer and consider the recursive sequence where <span><span class="MathJax_Preview">x_0 = a</span><script type="math/tex">x_0 = a</script></span> and</p>
+<div>
+<div class="MathJax_Preview">
+x_{n+1} = \left\\{ \begin{array}{cl} x_n/2 &amp; \text{if } x_n \text{ is even} \\\\ 3x_n+1 &amp; \text{if } x_n \text{ is odd}  \end{array} \\right.
+</div>
 <script type="math/tex; mode=display">
 x_{n+1} = \left\\{ \begin{array}{cl} x_n/2 & \text{if } x_n \text{ is even} \\\\ 3x_n+1 & \text{if } x_n \text{ is odd}  \end{array} \\right.
 </script>
-</p>
-<p>The <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a> states that this sequence will <em>always</em> reach 1. For example, if $a = 10$ then $x_0 = 10$, $x_1 = 5$, $x_2 = 16$, $x_3 = 8$, $x_4 = 4$, $x_5 = 2$ and $x_6 = 1$.</p>
-<p>Write a function called <code>collatz</code> which takes one input parameter <code>a</code> and returns the sequence of integers defined above and ending with the first occurrence $x_n=1$.</p>
+</div>
+<p>The <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a> states that this sequence will <em>always</em> reach 1. For example, if <span><span class="MathJax_Preview">a = 10</span><script type="math/tex">a = 10</script></span> then <span><span class="MathJax_Preview">x_0 = 10</span><script type="math/tex">x_0 = 10</script></span>, <span><span class="MathJax_Preview">x_1 = 5</span><script type="math/tex">x_1 = 5</script></span>, <span><span class="MathJax_Preview">x_2 = 16</span><script type="math/tex">x_2 = 16</script></span>, <span><span class="MathJax_Preview">x_3 = 8</span><script type="math/tex">x_3 = 8</script></span>, <span><span class="MathJax_Preview">x_4 = 4</span><script type="math/tex">x_4 = 4</script></span>, <span><span class="MathJax_Preview">x_5 = 2</span><script type="math/tex">x_5 = 2</script></span> and <span><span class="MathJax_Preview">x_6 = 1</span><script type="math/tex">x_6 = 1</script></span>.</p>
+<p>Write a function called <code>collatz</code> which takes one input parameter <code>a</code> and returns the sequence of integers defined above and ending with the first occurrence <span><span class="MathJax_Preview">x_n=1</span><script type="math/tex">x_n=1</script></span>.</p>
 <pre><code class="python">def collatz(a):
     &quot;Compute the Collatz sequence starting at a and ending at 1.&quot;
     # Initialize list with first value a
@@ -1478,7 +1493,7 @@ ends with [16, 8, 4, 2, 1]
 and has 178 terms.
 </code></pre></div>
 
-<p>Which $a &lt; 1000$ produces the longest sequence?</p>
+<p>Which <span><span class="MathJax_Preview">a &lt; 1000</span><script type="math/tex">a < 1000</script></span> produces the longest sequence?</p>
 <pre><code class="python">max_length = 1
 a_max = 1
 for a in range(1,1001):
@@ -1495,7 +1510,7 @@ print('Longest sequence begins with a =',a_max,'and has length',max_length)
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>
-<p><a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's theorem on the sum of two squares</a> states that every prime number $p$ of the form $4k+1$ can be expressed as the sum of two squares. For example, $5 = 2^2 + 1^2$ and $13 = 3^2 + 2^2$. Find the smallest prime greater than $2019$ of the form $4k+1$ and write it as a sum of squares. (Hint: Use the functions <code>is_prime</code> and <code>reps_sum_squares</code> from this section.)</p>
+<p><a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's theorem on the sum of two squares</a> states that every prime number <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> of the form <span><span class="MathJax_Preview">4k+1</span><script type="math/tex">4k+1</script></span> can be expressed as the sum of two squares. For example, <span><span class="MathJax_Preview">5 = 2^2 + 1^2</span><script type="math/tex">5 = 2^2 + 1^2</script></span> and <span><span class="MathJax_Preview">13 = 3^2 + 2^2</span><script type="math/tex">13 = 3^2 + 2^2</script></span>. Find the smallest prime greater than <span><span class="MathJax_Preview">2019</span><script type="math/tex">2019</script></span> of the form <span><span class="MathJax_Preview">4k+1</span><script type="math/tex">4k+1</script></span> and write it as a sum of squares. (Hint: Use the functions <code>is_prime</code> and <code>reps_sum_squares</code> from this section.)</p>
 </li>
 <li>
 <p>What is the smallest prime number which can be represented as a sum of squares in 2 different ways?</p>
@@ -1504,48 +1519,60 @@ print('Longest sequence begins with a =',a_max,'and has length',max_length)
 <p>What is the smallest integer which can be represented as a sum of squares in 3 different ways?</p>
 </li>
 <li>
-<p>Write a function called <code>primes_between</code> which takes two integer inputs $a$ and $b$ and returns the list of primes in the closed interval $[a,b]$.</p>
+<p>Write a function called <code>primes_between</code> which takes two integer inputs <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> and <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> and returns the list of primes in the closed interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span>.</p>
 </li>
 <li>
-<p>Write a function called <code>primes_d_mod_N</code> which takes four integer inputs $a$, $b$, $d$ and $N$ and returns the list of primes in the closed interval $[a,b]$ which are congruent to $d$ mod $N$ (this means that the prime has remainder $d$ after division by $N$). This kind of list is called <a href="https://en.wikipedia.org/wiki/Dirichlet%27s_theorem_on_arithmetic_progressions">primes in an arithmetic progression</a>.</p>
+<p>Write a function called <code>primes_d_mod_N</code> which takes four integer inputs <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>, <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>, <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> and <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the list of primes in the closed interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> which are congruent to <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> mod <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> (this means that the prime has remainder <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> after division by <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>). This kind of list is called <a href="https://en.wikipedia.org/wiki/Dirichlet%27s_theorem_on_arithmetic_progressions">primes in an arithmetic progression</a>.</p>
 </li>
 <li>
-<p>Write a function called <code>reciprocal_recursion</code> which takes three positive integers $x_0$, $x_1$ and $N$ and returns the sequence $[x_0,x_1,x_2,\dots,x_N]$ where</p>
-<p>
+<p>Write a function called <code>reciprocal_recursion</code> which takes three positive integers <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span>, <span><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span> and <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the sequence <span><span class="MathJax_Preview">[x_0,x_1,x_2,\dots,x_N]</span><script type="math/tex">[x_0,x_1,x_2,\dots,x_N]</script></span> where</p>
+<div>
+<div class="MathJax_Preview">
+x_n = \frac{1}{x_{n-1}} + \frac{1}{x_{n-2}}
+</div>
 <script type="math/tex; mode=display">
 x_n = \frac{1}{x_{n-1}} + \frac{1}{x_{n-2}}
 </script>
-</p>
+</div>
 </li>
 <li>
-<p>Write a function called <code>root_sequence</code> which takes input parameters $a$ and $N$, both positive integers, and returns the $N$th term $x_N$ in the sequence:</p>
-<p>
+<p>Write a function called <code>root_sequence</code> which takes input parameters <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> and <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>, both positive integers, and returns the <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>th term <span><span class="MathJax_Preview">x_N</span><script type="math/tex">x_N</script></span> in the sequence:</p>
+<div>
+<div class="MathJax_Preview">
+\begin{align}
+x_0 &amp;= a \\\
+x_n &amp;= 1 + \sqrt{x_{n-1}}
+\end{align}
+</div>
 <script type="math/tex; mode=display">
 \begin{align}
 x_0 &= a \\\
 x_n &= 1 + \sqrt{x_{n-1}}
 \end{align}
 </script>
-</p>
-<p>Does the sequence converge to different values for different starting values $a$?</p>
+</div>
+<p>Does the sequence converge to different values for different starting values <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>?</p>
 </li>
 <li>
-<p>Write a function called <code>fib_less_than</code> which takes one input $N$ and returns the list of Fibonacci numbers less than $N$.</p>
+<p>Write a function called <code>fib_less_than</code> which takes one input <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the list of Fibonacci numbers less than <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>.</p>
 </li>
 <li>
-<p>Write a function called <code>fibonacci_primes</code> which takes an input parameter $N$ and returns the list of Fibonacci numbers less than $N$ which are also prime numbers.</p>
+<p>Write a function called <code>fibonacci_primes</code> which takes an input parameter <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the list of Fibonacci numbers less than <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> which are also prime numbers.</p>
 </li>
 <li>
-<p>Let $w(N)$ be the number of ways $N$ can be expressed as a sum of two squares $x^2 + y^2 = N$ with $1 \leq x \leq y$. Then</p>
-<p>
+<p>Let <span><span class="MathJax_Preview">w(N)</span><script type="math/tex">w(N)</script></span> be the number of ways <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> can be expressed as a sum of two squares <span><span class="MathJax_Preview">x^2 + y^2 = N</span><script type="math/tex">x^2 + y^2 = N</script></span> with <span><span class="MathJax_Preview">1 \leq x \leq y</span><script type="math/tex">1 \leq x \leq y</script></span>. Then</p>
+<div>
+<div class="MathJax_Preview">
+\lim_{N \to \infty} \frac{1}{N} \sum_{n=1}^{N} w(n) = \frac{\pi}{8}
+</div>
 <script type="math/tex; mode=display">
 \lim_{N \to \infty} \frac{1}{N} \sum_{n=1}^{N} w(n) = \frac{\pi}{8}
 </script>
-</p>
-<p>Compute the left side of the formula for $N=100$ and compare the result to $\pi / 8$.</p>
+</div>
+<p>Compute the left side of the formula for <span><span class="MathJax_Preview">N=100</span><script type="math/tex">N=100</script></span> and compare the result to <span><span class="MathJax_Preview">\pi / 8</span><script type="math/tex">\pi / 8</script></span>.</p>
 </li>
 <li>
-<p>A list of positive integers $[a,b,c]$ (with $1 \leq a &lt; b$) are a <a href="https://en.wikipedia.org/wiki/Pythagorean_triple">Pythagorean triple</a> if $a^2 + b^2 = c^2$. Write a function called <code>py_triples</code> which takes an input parameter $N$ and returns the list of Pythagorean triples <code>[a,b,c]</code> with $c \leq N$.</p>
+<p>A list of positive integers <span><span class="MathJax_Preview">[a,b,c]</span><script type="math/tex">[a,b,c]</script></span> (with <span><span class="MathJax_Preview">1 \leq a &lt; b</span><script type="math/tex">1 \leq a < b</script></span>) are a <a href="https://en.wikipedia.org/wiki/Pythagorean_triple">Pythagorean triple</a> if <span><span class="MathJax_Preview">a^2 + b^2 = c^2</span><script type="math/tex">a^2 + b^2 = c^2</script></span>. Write a function called <code>py_triples</code> which takes an input parameter <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the list of Pythagorean triples <code>[a,b,c]</code> with <span><span class="MathJax_Preview">c \leq N</span><script type="math/tex">c \leq N</script></span>.</p>
 </li>
 </ol>
                 

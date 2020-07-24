@@ -1288,7 +1288,7 @@ print(numbers)
 <div class="highlight"><pre><span></span><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 </code></pre></div>
 
-<p>Create the list of square integers from $1$ to $100$:  </p>
+<p>Create the list of square integers from <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> to <span><span class="MathJax_Preview">100</span><script type="math/tex">100</script></span>:  </p>
 <pre><code class="python">squares = [n**2 for n in range(1,11)]
 print(squares)
 </code></pre>
@@ -1296,7 +1296,7 @@ print(squares)
 <div class="highlight"><pre><span></span><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </code></pre></div>
 
-<p>Create the periodic sequence $0,1,2,0,1,2,0,1,2,\dots$ of length 21 (using the remainder operator <code>%</code>):</p>
+<p>Create the periodic sequence <span><span class="MathJax_Preview">0,1,2,0,1,2,0,1,2,\dots</span><script type="math/tex">0,1,2,0,1,2,0,1,2,\dots</script></span> of length 21 (using the remainder operator <code>%</code>):</p>
 <pre><code class="python">zero_one_two = [n%3 for n in range(0,21)]
 print(zero_one_two)
 </code></pre>
@@ -1341,13 +1341,16 @@ print(sum(one_to_hundred))
 
 <h2 id="examples">Examples</h2>
 <h3 id="triangular-numbers">Triangular Numbers</h3>
-<p>The formula for the sum of integers from 1 to $N$ (also known as <a href="https://en.wikipedia.org/wiki/Triangular_number">triangular numbers</a>) is given by:</p>
-<p>
+<p>The formula for the sum of integers from 1 to <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> (also known as <a href="https://en.wikipedia.org/wiki/Triangular_number">triangular numbers</a>) is given by:</p>
+<div>
+<div class="MathJax_Preview">
+\sum_{k=1}^N k = \frac{N(N+1)}{2}
+</div>
 <script type="math/tex; mode=display">
 \sum_{k=1}^N k = \frac{N(N+1)}{2}
 </script>
-</p>
-<p>Let's verify the formula for $N=1000$:</p>
+</div>
+<p>Let's verify the formula for <span><span class="MathJax_Preview">N=1000</span><script type="math/tex">N=1000</script></span>:</p>
 <pre><code class="python">N = 1000
 left_side = sum([k for k in range(1,N+1)])
 right_side = N*(N+1)/2
@@ -1362,12 +1365,15 @@ print(right_side)
 <p>Notice the results agree (although the right side is a float since we used division).</p>
 <h3 id="sum-of-squares">Sum of Squares</h3>
 <p>The sum of squares (a special case of a <a href="https://en.wikipedia.org/wiki/Geometric_series">geometric series</a>) is given by the formula:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\sum_{k=1}^N k^2 = \frac{N(N+1)(2N+1)}{6}
+</div>
 <script type="math/tex; mode=display">
 \sum_{k=1}^N k^2 = \frac{N(N+1)(2N+1)}{6}
 </script>
-</p>
-<p>Let's verify the formula for $N=2000$:</p>
+</div>
+<p>Let's verify the formula for <span><span class="MathJax_Preview">N=2000</span><script type="math/tex">N=2000</script></span>:</p>
 <pre><code class="python">N = 2000
 left_side = sum([k**2 for k in range(1,N+1)])
 right_side = N*(N+1)*(2*N+1)/6
@@ -1381,17 +1387,23 @@ print(right_side)
 
 <h3 id="riemann-zeta-function">Riemann Zeta Function</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite series</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
+</div>
 <script type="math/tex; mode=display">
 \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
 </script>
-</p>
+</div>
 <p>Its <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Specific_values">values</a> are very mysterious! Let's verify the special value formula</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\zeta(4) = \sum_{n=1}^{\infty} \frac{1}{n^4} = \frac{\pi^4}{90}
+</div>
 <script type="math/tex; mode=display">
 \zeta(4) = \sum_{n=1}^{\infty} \frac{1}{n^4} = \frac{\pi^4}{90}
 </script>
-</p>
+</div>
 <p>Compute the 1000th partial sum of the series:</p>
 <pre><code class="python">terms = [1/n**4 for n in range(1,1001)]
 sum(terms)
@@ -1400,7 +1412,7 @@ sum(terms)
 <div class="highlight"><pre><span></span><code>1.082323233378306
 </code></pre></div>
 
-<p>Compare to an approximation of $\frac{\pi^4}{90}$:</p>
+<p>Compare to an approximation of <span><span class="MathJax_Preview">\frac{\pi^4}{90}</span><script type="math/tex">\frac{\pi^4}{90}</script></span>:</p>
 <pre><code class="python">3.14159**4/90
 </code></pre>
 
@@ -1410,27 +1422,34 @@ sum(terms)
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>
-<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series#Trigonometric_functions">Maclaurin series</a> of $\arctan(x)$ is</p>
-<p>
+<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series#Trigonometric_functions">Maclaurin series</a> of <span><span class="MathJax_Preview">\arctan(x)</span><script type="math/tex">\arctan(x)</script></span> is</p>
+<div>
+<div class="MathJax_Preview">
+\arctan(x) = \sum_{n = 0}^{\infty} \frac{(-1)^nx^{2n + 1}}{2n+1}
+</div>
 <script type="math/tex; mode=display">
 \arctan(x) = \sum_{n = 0}^{\infty} \frac{(-1)^nx^{2n + 1}}{2n+1}
 </script>
-</p>
-<p>Substituting $x = 1$ gives a series representation of $\pi/4$. Compute the 5000th partial sum of the series to approximate $\pi/4$.</p>
+</div>
+<p>Substituting <span><span class="MathJax_Preview">x = 1</span><script type="math/tex">x = 1</script></span> gives a series representation of <span><span class="MathJax_Preview">\pi/4</span><script type="math/tex">\pi/4</script></span>. Compute the 5000th partial sum of the series to approximate <span><span class="MathJax_Preview">\pi/4</span><script type="math/tex">\pi/4</script></span>.</p>
 </li>
 <li>
 <p>Compute the 2000th partial sum of the <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)#Alternating_harmonic_series">alternating harmonic series</a>:</p>
-<p>
+<div>
+<div class="MathJax_Preview">\sum_{n=1}^{\infty}\frac{(-1)^n}{n}</div>
 <script type="math/tex; mode=display">\sum_{n=1}^{\infty}\frac{(-1)^n}{n}</script>
-</p>
+</div>
 </li>
 <li>
 <p>Write a list comprehension to create the list of lists:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+[[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49]]
+</div>
 <script type="math/tex; mode=display">
 [[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49]]
 </script>
-</p>
+</div>
 </li>
 </ol>
                 

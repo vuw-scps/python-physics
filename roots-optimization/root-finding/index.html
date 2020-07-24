@@ -818,19 +818,25 @@
                 
                 
                 <h1 id="root-finding">Root Finding</h1>
-<p><a href="https://en.wikipedia.org/wiki/Root-finding_algorithm">Root finding</a> refers to the general problem of searching for a solution of an equation $F(x)=0$ for some function $F(x)$. This is a very general problem and it comes up a lot in mathematics! For example, if we want to optimize a function $f(x)$ then we need to find critical points and therefore solve the equation $f'(x)=0$.</p>
+<p><a href="https://en.wikipedia.org/wiki/Root-finding_algorithm">Root finding</a> refers to the general problem of searching for a solution of an equation <span><span class="MathJax_Preview">F(x)=0</span><script type="math/tex">F(x)=0</script></span> for some function <span><span class="MathJax_Preview">F(x)</span><script type="math/tex">F(x)</script></span>. This is a very general problem and it comes up a lot in mathematics! For example, if we want to optimize a function <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> then we need to find critical points and therefore solve the equation <span><span class="MathJax_Preview">f'(x)=0</span><script type="math/tex">f'(x)=0</script></span>.</p>
 <p>There are few examples where there exist exact methods for finding solutions. For example, the <a href="https://en.wikipedia.org/wiki/Quadratic_formula">quadratic formula</a></p>
-<p>
+<div>
+<div class="MathJax_Preview">
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+</div>
 <script type="math/tex; mode=display">
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 </script>
-</p>
+</div>
 <p>gives us an exact method for finding roots of the equation</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+ax^2 + bx + c = 0
+</div>
 <script type="math/tex; mode=display">
 ax^2 + bx + c = 0
 </script>
-</p>
+</div>
 <p>There is a <a href="https://en.wikipedia.org/wiki/Cubic_function#General_solution_to_the_cubic_equation_with_real_coefficients">general formula to solve a cubic equation</a> and even a <a href="https://en.wikipedia.org/wiki/Quartic_function">quartic (degree 4) equation</a> (but the formula is too complicated to be useful).</p>
 <p>But there does not exist a formula for a <a href="https://en.wikipedia.org/wiki/Quintic_function">quintic (degree 5) polynomial</a>. And there are <em>many</em> more examples of equations with no known method to solve them exactly.</p>
 <p>What can we do? Use numerical methods to find approximate solutions.              </p>

@@ -997,91 +997,118 @@ import matplotlib.pyplot as plt
 </code></pre>
 
 <h2 id="definitions">Definitions</h2>
-<p>A <a href="https://en.wikipedia.org/wiki/Differential_equation">differential equation</a> is an equation involving an unknown function $y(t)$ (with independent variable $t$) and its derivatives $y'$, $y''$, $y'''$, etc. The <a href="https://en.wikipedia.org/wiki/Differential_equation#Equation_order">order</a> of a differential equation refers to the highest order derivative of the unknown function $y(t)$ appearing in the equation. A differential equation is <a href="https://en.wikipedia.org/wiki/Linear_differential_equation">linear</a> if it is of the form</p>
-<p>
+<p>A <a href="https://en.wikipedia.org/wiki/Differential_equation">differential equation</a> is an equation involving an unknown function <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> (with independent variable <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>) and its derivatives <span><span class="MathJax_Preview">y'</span><script type="math/tex">y'</script></span>, <span><span class="MathJax_Preview">y''</span><script type="math/tex">y''</script></span>, <span><span class="MathJax_Preview">y'''</span><script type="math/tex">y'''</script></span>, etc. The <a href="https://en.wikipedia.org/wiki/Differential_equation#Equation_order">order</a> of a differential equation refers to the highest order derivative of the unknown function <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> appearing in the equation. A differential equation is <a href="https://en.wikipedia.org/wiki/Linear_differential_equation">linear</a> if it is of the form</p>
+<div>
+<div class="MathJax_Preview">
+a_n(t) y^{(n)} + a_{n_1}(t) y^{(n-1)} + \cdots + a_1(t) y' + a_0(t) y_0 = f(t)
+</div>
 <script type="math/tex; mode=display">
 a_n(t) y^{(n)} + a_{n_1}(t) y^{(n-1)} + \cdots + a_1(t) y' + a_0(t) y_0 = f(t)
 </script>
-</p>
-<p>where $a_n, \dots, a_0, f$ are functions of the independent variable $t$ only. For example, the equation</p>
-<p>
+</div>
+<p>where <span><span class="MathJax_Preview">a_n, \dots, a_0, f</span><script type="math/tex">a_n, \dots, a_0, f</script></span> are functions of the independent variable <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> only. For example, the equation</p>
+<div>
+<div class="MathJax_Preview">
+y'' + ty' + y^2 = t
+</div>
 <script type="math/tex; mode=display">
 y'' + ty' + y^2 = t
 </script>
-</p>
+</div>
 <p>is second order non-linear, and the equation</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y' + ty = t^2 
+</div>
 <script type="math/tex; mode=display">
 y' + ty = t^2 
 </script>
-</p>
+</div>
 <p>is first order linear. Most differential equations are <em>impossible to solve</em> explicitly however we can always use <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations">numerical methods</a> to approximate solutions. </p>
 <h2 id="eulers-method">Euler's Method</h2>
 <p>The simplest numerical method for approximating solutions of differential equations is <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a>. Consider a first order differential equation with an initial condition:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y' = f(y,y) \ , \ \ y(t_0)=y_0
+</div>
 <script type="math/tex; mode=display">
 y' = f(y,y) \ , \ \ y(t_0)=y_0
 </script>
-</p>
+</div>
 <p>The procedure for Euler's method is as follows:</p>
 <ol>
 <li>
-<p>Contruct the equation of the tangent line to the unknown function $y(t)$ at $t=t_0$:</p>
-<p>
+<p>Contruct the equation of the tangent line to the unknown function <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> at <span><span class="MathJax_Preview">t=t_0</span><script type="math/tex">t=t_0</script></span>:</p>
+<div>
+<div class="MathJax_Preview">
+y = y(t_0) + f(y_0,t_0)(t - t_0)
+</div>
 <script type="math/tex; mode=display">
 y = y(t_0) + f(y_0,t_0)(t - t_0)
 </script>
-</p>
-<p>where $y'(t_0) = f(y_0,t_0)$ is the slope of $y(t)$ at $t=t_0$.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">y'(t_0) = f(y_0,t_0)</span><script type="math/tex">y'(t_0) = f(y_0,t_0)</script></span> is the slope of <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> at <span><span class="MathJax_Preview">t=t_0</span><script type="math/tex">t=t_0</script></span>.</p>
 </li>
 <li>
-<p>Use the tangent line to approximate $y(t)$ at a small time step $t_1 = t_0 + h$:
-    <script type="math/tex; mode=display">
+<p>Use the tangent line to approximate <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> at a small time step <span><span class="MathJax_Preview">t_1 = t_0 + h</span><script type="math/tex">t_1 = t_0 + h</script></span>:
+    $$
     y_1 = y_0 + f(y_0,t_0)(t_1 - t_0)
-    </script>
-    where $y_1 \approx y(t_1)$.</p>
+    $$
+    where <span><span class="MathJax_Preview">y_1 \approx y(t_1)</span><script type="math/tex">y_1 \approx y(t_1)</script></span>.</p>
 </li>
 <li>
-<p>Construct the tangent line at the point $(t_1,y_1)$ and repeat.</p>
+<p>Construct the tangent line at the point <span><span class="MathJax_Preview">(t_1,y_1)</span><script type="math/tex">(t_1,y_1)</script></span> and repeat.</p>
 </li>
 </ol>
 <p>The formula for Euler's method defines a recursive sequence:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+y_{n+1} = y_n + f(y_n,t_n)(t_{n+1} - t_n) \ , \ \ y_0 = y(t_0)
+</div>
 <script type="math/tex; mode=display">
 y_{n+1} = y_n + f(y_n,t_n)(t_{n+1} - t_n) \ , \ \ y_0 = y(t_0)
 </script>
-</p>
-<p>where $y_n \approx y(t_n)$ for each $n$. If we choose equally spaced $t$ values then the formula becomes</p>
-<p>
+</div>
+<p>where <span><span class="MathJax_Preview">y_n \approx y(t_n)</span><script type="math/tex">y_n \approx y(t_n)</script></span> for each <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>. If we choose equally spaced <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> values then the formula becomes</p>
+<div>
+<div class="MathJax_Preview">
+y_{n+1} = y_n + f(y_n,t_n)h \ \ , \ \ y_0 = y(t_0) \ , \ \ t_n = t_0 + nh 
+</div>
 <script type="math/tex; mode=display">
 y_{n+1} = y_n + f(y_n,t_n)h \ \ , \ \ y_0 = y(t_0) \ , \ \ t_n = t_0 + nh 
 </script>
-</p>
-<p>with time step $h = t_{n+1} - t_n$.</p>
+</div>
+<p>with time step <span><span class="MathJax_Preview">h = t_{n+1} - t_n</span><script type="math/tex">h = t_{n+1} - t_n</script></span>.</p>
 <p>Note two very important things about Euler's method and numerical methods in general:</p>
 <ul>
-<li>A smaller time step $h$ reduces the error in the approximation.</li>
-<li>A smaller time step $h$ requires more computations!</li>
+<li>A smaller time step <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> reduces the error in the approximation.</li>
+<li>A smaller time step <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> requires more computations!</li>
 </ul>
 <h2 id="implementation">Implementation</h2>
 <p>Let's write a function called <code>odeEuler</code> which takes 3 input parameters <code>f</code>, <code>y0</code> and <code>t</code> where:</p>
 <ul>
 <li><code>f</code> is a function of 2 variables which represents the right side of a first order differential equation <code>y' = f(y,t)</code></li>
-<li><code>t</code> is a 1D NumPy array of $t$ values where we are approximating $y$ values</li>
-<li><code>y0</code> is an intial value $y(t_0)=y_0$ where $t_0$ is the entry at index 0 of the array <code>t</code></li>
+<li><code>t</code> is a 1D NumPy array of <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> values where we are approximating <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values</li>
+<li><code>y0</code> is an intial value <span><span class="MathJax_Preview">y(t_0)=y_0</span><script type="math/tex">y(t_0)=y_0</script></span> where <span><span class="MathJax_Preview">t_0</span><script type="math/tex">t_0</script></span> is the entry at index 0 of the array <code>t</code></li>
 </ul>
-<p>The function <code>odeEuler</code> returns a 1D NumPy array of $y$ values which approximate the solution $y(t)$ of the differential equation</p>
-<p>
+<p>The function <code>odeEuler</code> returns a 1D NumPy array of <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values which approximate the solution <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> of the differential equation</p>
+<div>
+<div class="MathJax_Preview">
+y' = f(y,t) \ , \ \ y(t_0)=y_0
+</div>
 <script type="math/tex; mode=display">
 y' = f(y,t) \ , \ \ y(t_0)=y_0
 </script>
-</p>
-<p>by Euler's method. Notice that we don't specify a time step value $h$. Instead, the function <code>odeEuler</code> takes an array of $t$ values and returns $y$ values approximating the solution $y(t)$ by the formula</p>
-<p>
+</div>
+<p>by Euler's method. Notice that we don't specify a time step value <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>. Instead, the function <code>odeEuler</code> takes an array of <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> values and returns <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values approximating the solution <span><span class="MathJax_Preview">y(t)</span><script type="math/tex">y(t)</script></span> by the formula</p>
+<div>
+<div class="MathJax_Preview">
+y_{n+1} = y_n + f(y_n,t_n)(t_{n+1} - t_n)
+</div>
 <script type="math/tex; mode=display">
 y_{n+1} = y_n + f(y_n,t_n)(t_{n+1} - t_n)
 </script>
-</p>
+</div>
 <pre><code class="python">def odeEuler(f,y0,t):
     '''Approximate the solution of y'=f(y,t) by Euler's method.
 
@@ -1109,7 +1136,7 @@ y_{n+1} = y_n + f(y_n,t_n)(t_{n+1} - t_n)
 
 <h2 id="examples">Examples</h2>
 <h3 id="exponential-equation">Exponential Equation</h3>
-<p>Let's implement Euler's method to approximate solutions of $y' = y$ for $t \in [0,2]$. We know the solution is $y(t) = e^t$ in this case and so we can compare the approximation by Euler's method to the true solution.</p>
+<p>Let's implement Euler's method to approximate solutions of <span><span class="MathJax_Preview">y' = y</span><script type="math/tex">y' = y</script></span> for <span><span class="MathJax_Preview">t \in [0,2]</span><script type="math/tex">t \in [0,2]</script></span>. We know the solution is <span><span class="MathJax_Preview">y(t) = e^t</span><script type="math/tex">y(t) = e^t</script></span> in this case and so we can compare the approximation by Euler's method to the true solution.</p>
 <pre><code class="python">t = np.linspace(0,2,21)
 y0 = 1
 f = lambda y,t: y
@@ -1125,12 +1152,15 @@ plt.show()
 
 <p><img alt="png" src="../../nb_img/differential-equations/first-order_8_0.png" /></p>
 <h3 id="non-linear-equation">Non-Linear Equation</h3>
-<p>Let's plot an approximation of $y'=y^2$ for $y(0)=-1$. We know the solution is</p>
-<p>
+<p>Let's plot an approximation of <span><span class="MathJax_Preview">y'=y^2</span><script type="math/tex">y'=y^2</script></span> for <span><span class="MathJax_Preview">y(0)=-1</span><script type="math/tex">y(0)=-1</script></span>. We know the solution is</p>
+<div>
+<div class="MathJax_Preview">
+y(t) = \frac{-1}{t+1}
+</div>
 <script type="math/tex; mode=display">
 y(t) = \frac{-1}{t+1}
 </script>
-</p>
+</div>
 <pre><code class="python">t = np.linspace(0,5,16)
 y0 = -1
 f = lambda y,t: y**2
@@ -1147,8 +1177,8 @@ plt.show()
 
 <p><img alt="png" src="../../nb_img/differential-equations/first-order_10_0.png" /></p>
 <h3 id="autonomous-equation">Autonomous Equation</h3>
-<p>Let's do an example where we know that it would be impossible to find the true solution. Let's approximate the solution of $y' = \sin(y^2)$ for each initial condition $y(0)=-3,-2.75,-2.5,...,2.5,2.75$ and plot all the results together.</p>
-<p>Note that $y'=0$ when $y=\pm \sqrt{k \pi}$ for $k=0,1,2,3,4,...$. These points are called <a href="https://en.wikipedia.org/wiki/Equilibrium_point">equilibrium points</a> of the equation and represent steady state (or constant) solutions.</p>
+<p>Let's do an example where we know that it would be impossible to find the true solution. Let's approximate the solution of <span><span class="MathJax_Preview">y' = \sin(y^2)</span><script type="math/tex">y' = \sin(y^2)</script></span> for each initial condition <span><span class="MathJax_Preview">y(0)=-3,-2.75,-2.5,...,2.5,2.75</span><script type="math/tex">y(0)=-3,-2.75,-2.5,...,2.5,2.75</script></span> and plot all the results together.</p>
+<p>Note that <span><span class="MathJax_Preview">y'=0</span><script type="math/tex">y'=0</script></span> when <span><span class="MathJax_Preview">y=\pm \sqrt{k \pi}</span><script type="math/tex">y=\pm \sqrt{k \pi}</script></span> for <span><span class="MathJax_Preview">k=0,1,2,3,4,...</span><script type="math/tex">k=0,1,2,3,4,...</script></span>. These points are called <a href="https://en.wikipedia.org/wiki/Equilibrium_point">equilibrium points</a> of the equation and represent steady state (or constant) solutions.</p>
 <pre><code class="python">t0 = 0; tf = 3; h = 0.1;
 
 f = lambda y,t: np.sin(y**2)

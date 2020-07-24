@@ -950,48 +950,60 @@
                 
                 
                 <h1 id="bisection-method">Bisection Method</h1>
-<p>The simplest root finding algorithm is the <a href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a>. The algorithm applies to any continuous function $f(x)$ on an interval $[a,b]$ where the value of the function $f(x)$ changes sign from $a$ to $b$. The idea is simple: divide the interval in two, a solution must exist within one subinterval, select the subinterval where the sign of $f(x)$ changes and repeat.</p>
+<p>The simplest root finding algorithm is the <a href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a>. The algorithm applies to any continuous function <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> on an interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> where the value of the function <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> changes sign from <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> to <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>. The idea is simple: divide the interval in two, a solution must exist within one subinterval, select the subinterval where the sign of <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> changes and repeat.</p>
 <h2 id="algorithm">Algorithm</h2>
 <p>The bisection method procedure is:</p>
 <ol>
-<li>Choose a starting interval $[a_0,b_0]$ such that $f(a_0)f(b_0) &lt; 0$.</li>
-<li>Compute $f(m_0)$ where $m_0 = (a_0+b_0)/2$ is the midpoint.</li>
-<li>Determine the next subinterval $[a_1,b_1]$:<ol>
-<li>If $f(a_0)f(m_0) &lt; 0$, then let $[a_1,b_1]$ be the next interval with $a_1=a_0$ and $b_1=m_0$.</li>
-<li>If $f(b_0)f(m_0) &lt; 0$, then let $[a_1,b_1]$ be the next interval with $a_1=m_0$ and $b_1=b_0$.</li>
+<li>Choose a starting interval <span><span class="MathJax_Preview">[a_0,b_0]</span><script type="math/tex">[a_0,b_0]</script></span> such that <span><span class="MathJax_Preview">f(a_0)f(b_0) &lt; 0</span><script type="math/tex">f(a_0)f(b_0) < 0</script></span>.</li>
+<li>Compute <span><span class="MathJax_Preview">f(m_0)</span><script type="math/tex">f(m_0)</script></span> where <span><span class="MathJax_Preview">m_0 = (a_0+b_0)/2</span><script type="math/tex">m_0 = (a_0+b_0)/2</script></span> is the midpoint.</li>
+<li>Determine the next subinterval <span><span class="MathJax_Preview">[a_1,b_1]</span><script type="math/tex">[a_1,b_1]</script></span>:<ol>
+<li>If <span><span class="MathJax_Preview">f(a_0)f(m_0) &lt; 0</span><script type="math/tex">f(a_0)f(m_0) < 0</script></span>, then let <span><span class="MathJax_Preview">[a_1,b_1]</span><script type="math/tex">[a_1,b_1]</script></span> be the next interval with <span><span class="MathJax_Preview">a_1=a_0</span><script type="math/tex">a_1=a_0</script></span> and <span><span class="MathJax_Preview">b_1=m_0</span><script type="math/tex">b_1=m_0</script></span>.</li>
+<li>If <span><span class="MathJax_Preview">f(b_0)f(m_0) &lt; 0</span><script type="math/tex">f(b_0)f(m_0) < 0</script></span>, then let <span><span class="MathJax_Preview">[a_1,b_1]</span><script type="math/tex">[a_1,b_1]</script></span> be the next interval with <span><span class="MathJax_Preview">a_1=m_0</span><script type="math/tex">a_1=m_0</script></span> and <span><span class="MathJax_Preview">b_1=b_0</span><script type="math/tex">b_1=b_0</script></span>.</li>
 </ol>
 </li>
-<li>Repeat (2) and (3) until the interval $[a_N,b_N]$ reaches some predetermined length.</li>
-<li>Return the midpoint value $m_N=(a_N+b_N)/2$.</li>
+<li>Repeat (2) and (3) until the interval <span><span class="MathJax_Preview">[a_N,b_N]</span><script type="math/tex">[a_N,b_N]</script></span> reaches some predetermined length.</li>
+<li>Return the midpoint value <span><span class="MathJax_Preview">m_N=(a_N+b_N)/2</span><script type="math/tex">m_N=(a_N+b_N)/2</script></span>.</li>
 </ol>
-<p>A solution of the equation $f(x)=0$ in the interval $[a,b]$ is guaranteed by the <a href="https://en.wikipedia.org/wiki/Intermediate_value_theorem">Intermediate Value Theorem</a> provided $f(x)$ is continuous on $[a,b]$ and $f(a)f(b) &lt; 0$. In other words, the function changes sign over the interval and therefore must equal 0 at some point in the interval $[a,b]$.</p>
+<p>A solution of the equation <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span> in the interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> is guaranteed by the <a href="https://en.wikipedia.org/wiki/Intermediate_value_theorem">Intermediate Value Theorem</a> provided <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> is continuous on <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> and <span><span class="MathJax_Preview">f(a)f(b) &lt; 0</span><script type="math/tex">f(a)f(b) < 0</script></span>. In other words, the function changes sign over the interval and therefore must equal 0 at some point in the interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span>.</p>
 <h2 id="absolute-error">Absolute Error</h2>
-<p>The bisection method does not (in general) produce an exact solution of an equation $f(x)=0$. However, we can give an estimate of the absolute error in the approxiation.</p>
+<p>The bisection method does not (in general) produce an exact solution of an equation <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span>. However, we can give an estimate of the absolute error in the approxiation.</p>
 <hr />
-<p><strong>Theorem</strong>. Let $f(x)$ be a continuous function on $[a,b]$ such that $f(a)f(b) &lt; 0$. After $N$ iterations of the biection method, let $x_N$ be the midpoint in the $N$th subinterval $[a_N,b_N]$</p>
-<p>
+<p><strong>Theorem</strong>. Let <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> be a continuous function on <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> such that <span><span class="MathJax_Preview">f(a)f(b) &lt; 0</span><script type="math/tex">f(a)f(b) < 0</script></span>. After <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> iterations of the biection method, let <span><span class="MathJax_Preview">x_N</span><script type="math/tex">x_N</script></span> be the midpoint in the <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>th subinterval <span><span class="MathJax_Preview">[a_N,b_N]</span><script type="math/tex">[a_N,b_N]</script></span></p>
+<div>
+<div class="MathJax_Preview">
+x_N = \frac{a_N + b_N}{2}
+</div>
 <script type="math/tex; mode=display">
 x_N = \frac{a_N + b_N}{2}
 </script>
-</p>
-<p>There exists an exact solution $x_{\mathrm{true}}$ of the equation $f(x)=0$ in the subinterval $[a_N,b_N]$ and the absolute error is</p>
-<p>
+</div>
+<p>There exists an exact solution <span><span class="MathJax_Preview">x_{\mathrm{true}}</span><script type="math/tex">x_{\mathrm{true}}</script></span> of the equation <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span> in the subinterval <span><span class="MathJax_Preview">[a_N,b_N]</span><script type="math/tex">[a_N,b_N]</script></span> and the absolute error is</p>
+<div>
+<div class="MathJax_Preview">
+\left| \ x_{\text{true}} - x_N \, \right| \leq \frac{b-a}{2^{N+1}}
+</div>
 <script type="math/tex; mode=display">
 \left| \ x_{\text{true}} - x_N \, \right| \leq \frac{b-a}{2^{N+1}}
 </script>
-</p>
+</div>
 <hr />
-<p>Note that we can rearrange the error bound to see the minimum number of iterations required to guarantee absolute error less than a prescribed $\epsilon$:</p>
-<p>
+<p>Note that we can rearrange the error bound to see the minimum number of iterations required to guarantee absolute error less than a prescribed <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+\frac{b-a}{2^{N+1}} &amp; &lt; \epsilon \\\
+\frac{b-a}{\epsilon} &amp; &lt; 2^{N+1} \\\
+\ln \left( \frac{b-a}{\epsilon} \right) &amp; &lt; (N+1)\ln(2) \\\
+\frac{\ln \left( \frac{b-a}{\epsilon} \right)}{\ln(2)} - 1 &amp; &lt; N
+\end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 \frac{b-a}{2^{N+1}} & < \epsilon \\\
 \frac{b-a}{\epsilon} & < 2^{N+1} \\\
 \ln \left( \frac{b-a}{\epsilon} \right) & < (N+1)\ln(2) \\\
 \frac{\ln \left( \frac{b-a}{\epsilon} \right)}{\ln(2)} - 1 & < N
 \end{align}</script>
-</p>
+</div>
 <h2 id="implementation">Implementation</h2>
-<p>Write a function called <code>bisection</code> which takes 4 input parameters <code>f</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns the approximation of a solution of $f(x)=0$ given by $N$ iterations of the bisection method. If $f(a_n)f(b_n) \geq 0$ at any point in the iteration (caused either by a bad initial interval or rounding error in computations), then print <code>"Bisection method fails."</code> and return <code>None</code>.</p>
+<p>Write a function called <code>bisection</code> which takes 4 input parameters <code>f</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns the approximation of a solution of <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span> given by <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> iterations of the bisection method. If <span><span class="MathJax_Preview">f(a_n)f(b_n) \geq 0</span><script type="math/tex">f(a_n)f(b_n) \geq 0</script></span> at any point in the iteration (caused either by a bad initial interval or rounding error in computations), then print <code>"Bisection method fails."</code> and return <code>None</code>.</p>
 <pre><code class="python">def bisection(f,a,b,N):
     '''Approximate solution of f(x)=0 on interval [a,b] by bisection method.
 
@@ -1048,13 +1060,16 @@ x_N = \frac{a_N + b_N}{2}
 
 <h2 id="examples">Examples</h2>
 <h3 id="golden-ratio">Golden Ratio</h3>
-<p>Let's use our function with input parameters $f(x)=x^2 - x - 1$ and $N=25$ iterations on $[1,2]$ to approximate the <a href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a></p>
-<p>
+<p>Let's use our function with input parameters <span><span class="MathJax_Preview">f(x)=x^2 - x - 1</span><script type="math/tex">f(x)=x^2 - x - 1</script></span> and <span><span class="MathJax_Preview">N=25</span><script type="math/tex">N=25</script></span> iterations on <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span> to approximate the <a href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a></p>
+<div>
+<div class="MathJax_Preview">
+\phi = \frac{1 + \sqrt{5}}{2}
+</div>
 <script type="math/tex; mode=display">
 \phi = \frac{1 + \sqrt{5}}{2}
 </script>
-</p>
-<p>The golden ratio $\phi$ is a root of the quadratic polynomial $x^2 - x - 1 = 0$.</p>
+</div>
+<p>The golden ratio <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span> is a root of the quadratic polynomial <span><span class="MathJax_Preview">x^2 - x - 1 = 0</span><script type="math/tex">x^2 - x - 1 = 0</script></span>.</p>
 <pre><code class="python">f = lambda x: x**2 - x - 1
 approx_phi = bisection(f,1,2,25)
 print(approx_phi)
@@ -1063,7 +1078,7 @@ print(approx_phi)
 <div class="highlight"><pre><span></span><code>1.618033990263939
 </code></pre></div>
 
-<p>The absolute error is guaranteed to be less than $(2 - 1)/(2^{26})$ which is:</p>
+<p>The absolute error is guaranteed to be less than <span><span class="MathJax_Preview">(2 - 1)/(2^{26})</span><script type="math/tex">(2 - 1)/(2^{26})</script></span> which is:</p>
 <pre><code class="python">error_bound = 2**(-26)
 print(error_bound)
 </code></pre>

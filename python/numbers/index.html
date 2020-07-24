@@ -664,8 +664,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ramanujans-pi-formula" class="md-nav__link">
-    Ramanujan's $\pi$ Formula
+  <a href="#ramanujans-pipi-formula" class="md-nav__link">
+    Ramanujan's \pi\pi Formula
   </a>
   
 </li>
@@ -943,8 +943,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ramanujans-pi-formula" class="md-nav__link">
-    Ramanujan's $\pi$ Formula
+  <a href="#ramanujans-pipi-formula" class="md-nav__link">
+    Ramanujan's \pi\pi Formula
   </a>
   
 </li>
@@ -1024,21 +1024,21 @@
 
 <h2 id="floating-point-numbers">Floating Point Numbers</h2>
 <p>A floating point number (or float) is a real number written in decimal form. Python stores floats and integers in different ways and if we combine integers and floats using arithmetic operations the result is always a float.</p>
-<p>Approximate $\sqrt{2} \,$:</p>
+<p>Approximate <span><span class="MathJax_Preview">\sqrt{2} \,</span><script type="math/tex">\sqrt{2} \,</script></span>:</p>
 <pre><code class="python">2**0.5
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>1.4142135623730951
 </code></pre></div>
 
-<p>Approximate $2 \pi$:</p>
+<p>Approximate <span><span class="MathJax_Preview">2 \pi</span><script type="math/tex">2 \pi</script></span>:</p>
 <pre><code class="python">2 * 3.14159
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>6.28318
 </code></pre></div>
 
-<p>Use scientific notation to create $0.00001$:</p>
+<p>Use scientific notation to create <span><span class="MathJax_Preview">0.00001</span><script type="math/tex">0.00001</script></span>:</p>
 <pre><code class="python">1e-5
 </code></pre>
 
@@ -1059,8 +1059,8 @@
 </code></pre></div>
 
 <h2 id="complex-numbers">Complex Numbers</h2>
-<p>Use the built-in function <code>complex()</code> to create a complex number in Python or use the letter <code>j</code> for $j = \sqrt{-1}$. The built-in function <code>complex()</code> takes 2 parameters defining the real and imaginary part of the complex number.</p>
-<p>Create the complex number $1 + j$:</p>
+<p>Use the built-in function <code>complex()</code> to create a complex number in Python or use the letter <code>j</code> for <span><span class="MathJax_Preview">j = \sqrt{-1}</span><script type="math/tex">j = \sqrt{-1}</script></span>. The built-in function <code>complex()</code> takes 2 parameters defining the real and imaginary part of the complex number.</p>
+<p>Create the complex number <span><span class="MathJax_Preview">1 + j</span><script type="math/tex">1 + j</script></span>:</p>
 <pre><code class="python">complex(1,1)
 </code></pre>
 
@@ -1252,37 +1252,49 @@ abs(z)
 
 <h2 id="examples">Examples</h2>
 <h3 id="taylor-approximation">Taylor Approximation</h3>
-<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of the exponential function $e^x$ is given by</p>
-<p>
+<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of the exponential function <span><span class="MathJax_Preview">e^x</span><script type="math/tex">e^x</script></span> is given by</p>
+<div>
+<div class="MathJax_Preview">
+e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
+</div>
 <script type="math/tex; mode=display">
 e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
 </script>
-</p>
-<p>Compute the Taylor polynomial of degree 5 evaluated at $x = 1$ to find an approximation of $e$</p>
-<p>
+</div>
+<p>Compute the Taylor polynomial of degree 5 evaluated at <span><span class="MathJax_Preview">x = 1</span><script type="math/tex">x = 1</script></span> to find an approximation of <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span></p>
+<div>
+<div class="MathJax_Preview">
+e \approx \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!}
+</div>
 <script type="math/tex; mode=display">
 e \approx \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!}
 </script>
-</p>
+</div>
 <pre><code class="python">1 + 1 + 1/2 + 1/(3*2) + 1/(4*3*2) + 1/(5*4*3*2)
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>2.7166666666666663
 </code></pre></div>
 
-<h3 id="ramanujans-pi-formula">Ramanujan's $\pi$ Formula</h3>
-<p><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan#Mathematical_achievements">Srinivasa Ramanujan</a> discovered the following beautiful (and very rapidly converging) series representation of $\pi$</p>
-<p>
+<h3 id="ramanujans-pipi-formula">Ramanujan's <span><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span> Formula</h3>
+<p><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan#Mathematical_achievements">Srinivasa Ramanujan</a> discovered the following beautiful (and very rapidly converging) series representation of <span><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span></p>
+<div>
+<div class="MathJax_Preview">
+\frac{1}{\pi} = \frac{2 \sqrt{2}}{99^2} \sum_{k = 0}^{\infty} \frac{(4k)!}{k!^4} \frac{1103 + 26390k}{396^{4k}}
+</div>
 <script type="math/tex; mode=display">
 \frac{1}{\pi} = \frac{2 \sqrt{2}}{99^2} \sum_{k = 0}^{\infty} \frac{(4k)!}{k!^4} \frac{1103 + 26390k}{396^{4k}}
 </script>
-</p>
-<p>Let's find an approximation of $\pi$ by computing the <em>reciprocal</em> of the sum of the first 3 terms of the series:</p>
-<p>
+</div>
+<p>Let's find an approximation of <span><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span> by computing the <em>reciprocal</em> of the sum of the first 3 terms of the series:</p>
+<div>
+<div class="MathJax_Preview">
+\pi \approx \frac{99^2}{2 \sqrt{2}} \frac{1}{\left( 1103 + 4! \frac{1103 + 26390}{396^{4}} + \frac{8!}{2^4} \frac{1103 + 26390(2)}{396^{8}} \right)}
+</div>
 <script type="math/tex; mode=display">
 \pi \approx \frac{99^2}{2 \sqrt{2}} \frac{1}{\left( 1103 + 4! \frac{1103 + 26390}{396^{4}} + \frac{8!}{2^4} \frac{1103 + 26390(2)}{396^{8}} \right)}
 </script>
-</p>
+</div>
 <pre><code class="python">99**2 / (2 * 2**0.5) / (1103 + 4*3*2 * (26390 + 1103) / 396**4
                        + 8*7*6*5*4*3*2 / 2**4 * (26390*2 + 1103) / 396**8)
 </code></pre>
@@ -1290,70 +1302,97 @@ e \approx \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4
 <div class="highlight"><pre><span></span><code>3.141592653589793
 </code></pre></div>
 
-<p>These are exactly the first 16 digits of <a href="https://en.wikipedia.org/wiki/Pi">$\pi$</a>.</p>
+<p>These are exactly the first 16 digits of <a href="https://en.wikipedia.org/wiki/Pi"><span><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span></a>.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>
-<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of $\cos x$ is given by</p>
-<p>
+<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of <span><span class="MathJax_Preview">\cos x</span><script type="math/tex">\cos x</script></span> is given by</p>
+<div>
+<div class="MathJax_Preview">
+\cos x = \sum_{k=0}^{\infty} (-1)^k \frac{x^{2k}}{(2k)!}
+</div>
 <script type="math/tex; mode=display">
 \cos x = \sum_{k=0}^{\infty} (-1)^k \frac{x^{2k}}{(2k)!}
 </script>
-</p>
-<p>Compute the Taylor polynomial of degree 6 evaluated at $x=2$:</p>
-<p>
+</div>
+<p>Compute the Taylor polynomial of degree 6 evaluated at <span><span class="MathJax_Preview">x=2</span><script type="math/tex">x=2</script></span>:</p>
+<div>
+<div class="MathJax_Preview">
+\cos(2) \approx 1 - \frac{2^2}{2!} + \frac{2^4}{4!} - \frac{2^6}{6!}
+</div>
 <script type="math/tex; mode=display">
 \cos(2) \approx 1 - \frac{2^2}{2!} + \frac{2^4}{4!} - \frac{2^6}{6!}
 </script>
-</p>
+</div>
 </li>
 <li>
 <p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite series</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
+</div>
 <script type="math/tex; mode=display">
 \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
 </script>
-</p>
+</div>
 <p>and is intimately related to prime numbers by the <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Euler_product_formula">Euler product formula</a></p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_p \left( \frac{1}{1 - p^{-s}} \right)
+</div>
 <script type="math/tex; mode=display">
 \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_p \left( \frac{1}{1 - p^{-s}} \right)
 </script>
-</p>
-<p>where the product is over all primes $p = 2,3,5,7,11,13,\dots$</p>
-<p>Compute the 5th partial sum for $s=2$</p>
-<p>
+</div>
+<p>where the product is over all primes <span><span class="MathJax_Preview">p = 2,3,5,7,11,13,\dots</span><script type="math/tex">p = 2,3,5,7,11,13,\dots</script></span></p>
+<p>Compute the 5th partial sum for <span><span class="MathJax_Preview">s=2</span><script type="math/tex">s=2</script></span></p>
+<div>
+<div class="MathJax_Preview">
+1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \frac{1}{5^2}
+</div>
 <script type="math/tex; mode=display">
 1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \frac{1}{5^2}
 </script>
-</p>
-<p>Compute the 5th partial product for $s=2$</p>
-<p>
+</div>
+<p>Compute the 5th partial product for <span><span class="MathJax_Preview">s=2</span><script type="math/tex">s=2</script></span></p>
+<div>
+<div class="MathJax_Preview">
+\left( \frac{1}{1 - 2^{-2}} \right) \left( \frac{1}{1 - 3^{-2}} \right) \left( \frac{1}{1 - 5^{-2}} \right) \left( \frac{1}{1 - 7^{-2}} \right) \left( \frac{1}{1 - 11^{-2}} \right)
+</div>
 <script type="math/tex; mode=display">
 \left( \frac{1}{1 - 2^{-2}} \right) \left( \frac{1}{1 - 3^{-2}} \right) \left( \frac{1}{1 - 5^{-2}} \right) \left( \frac{1}{1 - 7^{-2}} \right) \left( \frac{1}{1 - 11^{-2}} \right)
 </script>
-</p>
+</div>
 <p>Given <a href="https://en.wikipedia.org/wiki/Basel_problem">Euler's special value formula</a></p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\zeta(2) = \frac{\pi^2}{6}
+</div>
 <script type="math/tex; mode=display">
 \zeta(2) = \frac{\pi^2}{6}
 </script>
-</p>
+</div>
 <p>which converges more quickly: the infinite series or product?</p>
 </li>
 <li>
-<p>The <a href="https://en.wikipedia.org/wiki/Continued_fraction#Square_roots">continued fraction</a> for $\sqrt{2}$ is given by</p>
-<p>
+<p>The <a href="https://en.wikipedia.org/wiki/Continued_fraction#Square_roots">continued fraction</a> for <span><span class="MathJax_Preview">\sqrt{2}</span><script type="math/tex">\sqrt{2}</script></span> is given by</p>
+<div>
+<div class="MathJax_Preview">
+\sqrt{2} = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \ddots}}}}
+</div>
 <script type="math/tex; mode=display">
 \sqrt{2} = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \ddots}}}}
 </script>
-</p>
-<p>Compute the following (partial) continued fraction to approximate $\sqrt{2}$</p>
-<p>
+</div>
+<p>Compute the following (partial) continued fraction to approximate <span><span class="MathJax_Preview">\sqrt{2}</span><script type="math/tex">\sqrt{2}</script></span></p>
+<div>
+<div class="MathJax_Preview">
+\sqrt{2} \approx 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}}
+</div>
 <script type="math/tex; mode=display">
 \sqrt{2} \approx 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}}
 </script>
-</p>
+</div>
 </li>
 </ol>
                 

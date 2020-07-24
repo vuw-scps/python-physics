@@ -1160,11 +1160,14 @@ Roots are complex.
 <h2 id="examples">Examples</h2>
 <h3 id="invertible-matrix">Invertible Matrix</h3>
 <p>Represent a 2 by 2 square matrix as a list of lists. For example, represent the matrix</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix} 2 &amp; -1 \\\ 5 &amp; 7 \end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 \begin{bmatrix} 2 & -1 \\\ 5 & 7 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>as the list of lists <code>[[2,-1],[5,7]]</code>.</p>
 <p>Write a function called <code>invertible</code> which takes an input parameter <code>M</code>, a list of lists representing a 2 by 2 matrix, and returns <code>True</code> if the matrix <code>M</code> is invertible and <code>False</code> if not.</p>
 <pre><code class="python">def invertible(M):
@@ -1209,19 +1212,25 @@ Roots are complex.
 </code></pre></div>
 
 <h3 id="concavity-of-a-polynomial">Concavity of a Polynomial</h3>
-<p>Write a function called <code>concave_up</code> which takes input parameters <code>p</code> and <code>a</code> where <code>p</code> is a list representing a polynomial $p(x)$ and <code>a</code> is a number, and returns <code>True</code> if the function $p(x)$ is concave up at $x=a$ (ie. its second derivative is positive at $x=a$, $p''(a) &gt; 0$).</p>
-<p>We'll use the second derivative test for polynomials. In particular, if we have a polynomial of degree $n$</p>
-<p>
+<p>Write a function called <code>concave_up</code> which takes input parameters <code>p</code> and <code>a</code> where <code>p</code> is a list representing a polynomial <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> and <code>a</code> is a number, and returns <code>True</code> if the function <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> is concave up at <span><span class="MathJax_Preview">x=a</span><script type="math/tex">x=a</script></span> (ie. its second derivative is positive at <span><span class="MathJax_Preview">x=a</span><script type="math/tex">x=a</script></span>, <span><span class="MathJax_Preview">p''(a) &gt; 0</span><script type="math/tex">p''(a) > 0</script></span>).</p>
+<p>We'll use the second derivative test for polynomials. In particular, if we have a polynomial of degree <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span></p>
+<div>
+<div class="MathJax_Preview">
+p(x) = c_0 + c_1 x + c_2 x^2 + \cdots + c_n x^n
+</div>
 <script type="math/tex; mode=display">
 p(x) = c_0 + c_1 x + c_2 x^2 + \cdots + c_n x^n
 </script>
-</p>
-<p>then the second derivative of $p(x)$ at $x=a$ is the sum</p>
-<p>
+</div>
+<p>then the second derivative of <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> at <span><span class="MathJax_Preview">x=a</span><script type="math/tex">x=a</script></span> is the sum</p>
+<div>
+<div class="MathJax_Preview">
+p''(a) = 2(1) c_2 + 3(2)c_3 a + 4(3)c_4 a^2 + \cdots + n(n-1)c_n a^{n-2}
+</div>
 <script type="math/tex; mode=display">
 p''(a) = 2(1) c_2 + 3(2)c_3 a + 4(3)c_4 a^2 + \cdots + n(n-1)c_n a^{n-2}
 </script>
-</p>
+</div>
 <pre><code class="python">def concave_up(p,a):
     '''Determine if the polynomial p(x) is concave up at x=a.
 
@@ -1258,7 +1267,7 @@ p''(a) = 2(1) c_2 + 3(2)c_3 a + 4(3)c_4 a^2 + \cdots + n(n-1)c_n a^{n-2}
             return False
 </code></pre>
 
-<p>Let's test our function on $p(x) = 1 + x - x^3$ at $x=2$. Since $p''(x) = -6x$ and $p''(2) = -12 &lt; 0$, the polynomial is concave down at $x=2$.</p>
+<p>Let's test our function on <span><span class="MathJax_Preview">p(x) = 1 + x - x^3</span><script type="math/tex">p(x) = 1 + x - x^3</script></span> at <span><span class="MathJax_Preview">x=2</span><script type="math/tex">x=2</script></span>. Since <span><span class="MathJax_Preview">p''(x) = -6x</span><script type="math/tex">p''(x) = -6x</script></span> and <span><span class="MathJax_Preview">p''(2) = -12 &lt; 0</span><script type="math/tex">p''(2) = -12 < 0</script></span>, the polynomial is concave down at <span><span class="MathJax_Preview">x=2</span><script type="math/tex">x=2</script></span>.</p>
 <pre><code class="python">p = [1,1,0,-1]
 a = 2
 concavity = concave_up(p,a)
@@ -1271,37 +1280,49 @@ print(concavity)
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>
-<p>The <a href="https://en.wikipedia.org/wiki/Discriminant#Cubic">discriminant</a> of a cubic polynomial $p(x) = ax^3 + bx^2 + cx + d$ is</p>
-<p>
+<p>The <a href="https://en.wikipedia.org/wiki/Discriminant#Cubic">discriminant</a> of a cubic polynomial <span><span class="MathJax_Preview">p(x) = ax^3 + bx^2 + cx + d</span><script type="math/tex">p(x) = ax^3 + bx^2 + cx + d</script></span> is</p>
+<div>
+<div class="MathJax_Preview">
+\Delta = b^2c^2 - 4ac^3 - 4b^3d - 27a^2d^2 + 18abcd
+</div>
 <script type="math/tex; mode=display">
 \Delta = b^2c^2 - 4ac^3 - 4b^3d - 27a^2d^2 + 18abcd
 </script>
-</p>
-<p>The discriminant gives us information about the roots of the polynomial $p(x)$:</p>
+</div>
+<p>The discriminant gives us information about the roots of the polynomial <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span>:</p>
 <ul>
-<li>if $\Delta &gt; 0$, then $p(x)$ has 3 distinct real roots</li>
-<li>if $\Delta &lt; 0$, then $p(x)$ has 2 distinct complex roots and 1 real root</li>
-<li>if $\Delta = 0$, then $p(x)$ has at least 2 (real or complex) roots which are the same</li>
+<li>if <span><span class="MathJax_Preview">\Delta &gt; 0</span><script type="math/tex">\Delta > 0</script></span>, then <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> has 3 distinct real roots</li>
+<li>if <span><span class="MathJax_Preview">\Delta &lt; 0</span><script type="math/tex">\Delta < 0</script></span>, then <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> has 2 distinct complex roots and 1 real root</li>
+<li>if <span><span class="MathJax_Preview">\Delta = 0</span><script type="math/tex">\Delta = 0</script></span>, then <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> has at least 2 (real or complex) roots which are the same</li>
 </ul>
-<p>Represent a cubic polynomial $p(x) = ax^3 + bx^2 + cx + d$ as a list <code>[d,c,b,a]</code> of numbers. (Note the order of the coefficients is increasing degree.) For example, the polynomial $p(x) = x^3 - x + 1$ is <code>[1,-1,0,1]</code>.</p>
-<p>Write a function called <code>cubic_roots</code> which takes an input parameter <code>p</code>, a list of length 4 representing a cubic polynomial, and returns <code>True</code> if $p(x)$ has 3 real distinct roots and <code>False</code> otherwise.</p>
+<p>Represent a cubic polynomial <span><span class="MathJax_Preview">p(x) = ax^3 + bx^2 + cx + d</span><script type="math/tex">p(x) = ax^3 + bx^2 + cx + d</script></span> as a list <code>[d,c,b,a]</code> of numbers. (Note the order of the coefficients is increasing degree.) For example, the polynomial <span><span class="MathJax_Preview">p(x) = x^3 - x + 1</span><script type="math/tex">p(x) = x^3 - x + 1</script></span> is <code>[1,-1,0,1]</code>.</p>
+<p>Write a function called <code>cubic_roots</code> which takes an input parameter <code>p</code>, a list of length 4 representing a cubic polynomial, and returns <code>True</code> if <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> has 3 real distinct roots and <code>False</code> otherwise.</p>
 </li>
 <li>
 <p>Represent a 2 by 2 square matrix as a list of lists. For example, represent the matrix</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix} 2 &amp; -1 \\\ 5 &amp; 7 \end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 \begin{bmatrix} 2 & -1 \\\ 5 & 7 \end{bmatrix}
 </script>
-</p>
+</div>
 <p>as the list of lists <code>[[2,-1],[5,7]]</code>. Write a function called <code>inverse_a</code> which takes an input parameter <code>a</code> and returns a list of lists representing the <a href="https://en.wikipedia.org/wiki/Invertible_matrix">inverse of the matrix</a></p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\begin{bmatrix}
+1 &amp; a \\\
+a &amp; -1
+\end{bmatrix}
+</div>
 <script type="math/tex; mode=display">
 \begin{bmatrix}
 1 & a \\\
 a & -1
 \end{bmatrix}
 </script>
-</p>
+</div>
 </li>
 <li>
 <p>Write a function called <code>real_eigenvalues</code> which takes an input parameter <code>M</code>, a list of lists representing a 2 by 2 matrix (as in the previous exercise), and returns <code>True</code> if the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> of the matrix <code>M</code> are real numebrs and <code>False</code> if not.</p>

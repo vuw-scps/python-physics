@@ -818,31 +818,43 @@
                 
                 
                 <h1 id="definite-integrals">Definite Integrals</h1>
-<p>The <a href="https://en.wikipedia.org/wiki/Integral">definite integral</a> of a function $f(x)$ over an interval $[a,b]$ is the limit</p>
-<p>
+<p>The <a href="https://en.wikipedia.org/wiki/Integral">definite integral</a> of a function <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> over an interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> is the limit</p>
+<div>
+<div class="MathJax_Preview">
+\int_a^b f(x) \, dx = \lim_{N \to \infty} \sum_{i=1}^N f(x_i^ * ) (x_i - x_{i-1}) \ \ , \ x_i^* \in [x_{i-1},x_i]
+</div>
 <script type="math/tex; mode=display">
 \int_a^b f(x) \, dx = \lim_{N \to \infty} \sum_{i=1}^N f(x_i^ * ) (x_i - x_{i-1}) \ \ , \ x_i^* \in [x_{i-1},x_i]
 </script>
-</p>
-<p>where, for each $N$,</p>
-<p>
+</div>
+<p>where, for each <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>,</p>
+<div>
+<div class="MathJax_Preview">
+x_0 = a &lt; x_1 &lt; \cdots &lt; x_N = b
+</div>
 <script type="math/tex; mode=display">
 x_0 = a < x_1 < \cdots < x_N = b
 </script>
-</p>
-<p>is a partition of $[a,b]$ with $N$ subintervals and the values $x_i^ * \in [x_{i-1},x_i]$ chosen in each subinterval is arbitrary.</p>
+</div>
+<p>is a partition of <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> with <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> subintervals and the values <span><span class="MathJax_Preview">x_i^ * \in [x_{i-1},x_i]</span><script type="math/tex">x_i^ * \in [x_{i-1},x_i]</script></span> chosen in each subinterval is arbitrary.</p>
 <p>The formula in the definition is not very intuitive and almost impossible to use in practice but the basic idea is simple:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_a^b f(x) \, dx = \text{(net) area under the curve } y = f(x) \text{ on } [a,b]
+</div>
 <script type="math/tex; mode=display">
 \int_a^b f(x) \, dx = \text{(net) area under the curve } y = f(x) \text{ on } [a,b]
 </script>
-</p>
-<p>The value of the definite integral represents the (net) area under the curve of the graph of $y=f(x)$ on the interval $[a,b]$. The term "net" means that area above the $x$-axis is positive and the area under the $x$-axis counts as negative area. For example, we can visualize the integral:</p>
-<p>
+</div>
+<p>The value of the definite integral represents the (net) area under the curve of the graph of <span><span class="MathJax_Preview">y=f(x)</span><script type="math/tex">y=f(x)</script></span> on the interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span>. The term "net" means that area above the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-axis is positive and the area under the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-axis counts as negative area. For example, we can visualize the integral:</p>
+<div>
+<div class="MathJax_Preview">
+\int_{\pi/2}^{3\pi/2} \left( \sin(0.2 x) + \sin(2x) + 1 \right) dx
+</div>
 <script type="math/tex; mode=display">
 \int_{\pi/2}^{3\pi/2} \left( \sin(0.2 x) + \sin(2x) + 1 \right) dx
 </script>
-</p>
+</div>
 <pre><code class="python">import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -864,19 +876,25 @@ plt.show()
 
 <p><img alt="png" src="../../nb_img/integration/integrals_1_0.png" /></p>
 <p>In our introductory calculus courses, we focus on integrals which we can solve exactly by the <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus">Fundamental Theorem of Calculus</a> such as</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^{\pi/2} \cos(x) \, dx = \sin(\pi/2) - \sin(0) = 1
+</div>
 <script type="math/tex; mode=display">
 \int_0^{\pi/2} \cos(x) \, dx = \sin(\pi/2) - \sin(0) = 1
 </script>
-</p>
+</div>
 <p>However, most definite integrals are impossible to solve exactly. For example, the famous <a href="https://en.wikipedia.org/wiki/Error_function">error function</a> in probability</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+</div>
 <script type="math/tex; mode=display">
 \mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
 </script>
-</p>
+</div>
 <p>is a definite integral for which there is no explicit formula.</p>
-<p>The idea behind <a href="https://en.wikipedia.org/wiki/Numerical_integration">numerical integration</a> is to use simple geometric shapes to approximate the area under the curve $y=f(x)$ to estimate definite integrals. In this section, we explore the simplest methods of numerical integration: Riemann sums, the trapezoid rule and Simpson's rule.</p>
+<p>The idea behind <a href="https://en.wikipedia.org/wiki/Numerical_integration">numerical integration</a> is to use simple geometric shapes to approximate the area under the curve <span><span class="MathJax_Preview">y=f(x)</span><script type="math/tex">y=f(x)</script></span> to estimate definite integrals. In this section, we explore the simplest methods of numerical integration: Riemann sums, the trapezoid rule and Simpson's rule.</p>
                 
               
               

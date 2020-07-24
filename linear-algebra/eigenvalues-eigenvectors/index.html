@@ -970,26 +970,35 @@ import scipy.linalg as la
 </code></pre>
 
 <h2 id="definition">Definition</h2>
-<p>Let $A$ be a square matrix. A non-zero vector $\mathbf{v}$ is an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvector</a> for $A$ with <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue</a> $\lambda$ if</p>
-<p>
+<p>Let <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> be a square matrix. A non-zero vector <span><span class="MathJax_Preview">\mathbf{v}</span><script type="math/tex">\mathbf{v}</script></span> is an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvector</a> for <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> with <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue</a> <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> if</p>
+<div>
+<div class="MathJax_Preview">
+A\mathbf{v} = \lambda \mathbf{v}
+</div>
 <script type="math/tex; mode=display">
 A\mathbf{v} = \lambda \mathbf{v}
 </script>
-</p>
-<p>Rearranging the equation, we see that $\mathbf{v}$ is a solution of the homogeneous system of equations</p>
-<p>
+</div>
+<p>Rearranging the equation, we see that <span><span class="MathJax_Preview">\mathbf{v}</span><script type="math/tex">\mathbf{v}</script></span> is a solution of the homogeneous system of equations</p>
+<div>
+<div class="MathJax_Preview">
+\left( A - \lambda I \right) \mathbf{v} = \mathbf{0}
+</div>
 <script type="math/tex; mode=display">
 \left( A - \lambda I \right) \mathbf{v} = \mathbf{0}
 </script>
-</p>
-<p>where $I$ is the identity matrix of size $n$. Non-trivial solutions exist only if the matrix $A - \lambda I$ is singular which means $\mathrm{det}(A - \lambda I) = 0$. Therefore eigenvalues of $A$ are roots of the <a href="https://en.wikipedia.org/wiki/Characteristic_polynomial">characteristic polynomial</a></p>
-<p>
+</div>
+<p>where <span><span class="MathJax_Preview">I</span><script type="math/tex">I</script></span> is the identity matrix of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>. Non-trivial solutions exist only if the matrix <span><span class="MathJax_Preview">A - \lambda I</span><script type="math/tex">A - \lambda I</script></span> is singular which means <span><span class="MathJax_Preview">\mathrm{det}(A - \lambda I) = 0</span><script type="math/tex">\mathrm{det}(A - \lambda I) = 0</script></span>. Therefore eigenvalues of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> are roots of the <a href="https://en.wikipedia.org/wiki/Characteristic_polynomial">characteristic polynomial</a></p>
+<div>
+<div class="MathJax_Preview">
+p(\lambda) = \mathrm{det}(A - \lambda I)
+</div>
 <script type="math/tex; mode=display">
 p(\lambda) = \mathrm{det}(A - \lambda I)
 </script>
-</p>
+</div>
 <h2 id="scipylinalgeig">scipy.linalg.eig</h2>
-<p>The function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html"><code>scipy.linalg.eig</code></a> computes eigenvalues and eigenvectors of a square matrix $A$.</p>
+<p>The function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html"><code>scipy.linalg.eig</code></a> computes eigenvalues and eigenvectors of a square matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>.</p>
 <p>Let's consider a simple example with a diagonal matrix:</p>
 <pre><code class="python">A = np.array([[1,0],[0,-2]])
 print(A)
@@ -999,11 +1008,11 @@ print(A)
  [ 0 -2]]
 </code></pre></div>
 
-<p>The function <code>la.eig</code> returns a tuple <code>(eigvals,eigvecs)</code> where <code>eigvals</code> is a 1D NumPy array of complex numbers giving the eigenvalues of $A$, and <code>eigvecs</code> is a 2D NumPy array with the corresponding eigenvectors in the columns:</p>
+<p>The function <code>la.eig</code> returns a tuple <code>(eigvals,eigvecs)</code> where <code>eigvals</code> is a 1D NumPy array of complex numbers giving the eigenvalues of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, and <code>eigvecs</code> is a 2D NumPy array with the corresponding eigenvectors in the columns:</p>
 <pre><code class="python">results = la.eig(A)
 </code></pre>
 
-<p>The eigenvalues of $A$ are:</p>
+<p>The eigenvalues of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> are:</p>
 <pre><code class="python">print(results[0])
 </code></pre>
 
@@ -1033,7 +1042,7 @@ print(eigvals)
  [0. 1.]]
 </code></pre></div>
 
-<p>If we know that the eigenvalues are real numbers (ie. if $A$ is symmetric), then we can use the NumPy array method <code>.real</code> to convert the array of eigenvalues to real numbers:</p>
+<p>If we know that the eigenvalues are real numbers (ie. if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is symmetric), then we can use the NumPy array method <code>.real</code> to convert the array of eigenvalues to real numbers:</p>
 <pre><code class="python">eigvals = eigvals.real
 print(eigvals)
 </code></pre>
@@ -1085,7 +1094,7 @@ print(P)
  [6 8 8 6]]
 </code></pre></div>
 
-<p>Create the symmetric matrix $S = P P^T$:</p>
+<p>Create the symmetric matrix <span><span class="MathJax_Preview">S = P P^T</span><script type="math/tex">S = P P^T</script></span>:</p>
 <pre><code class="python">S = P @ P.T
 print(S)
 </code></pre>
@@ -1096,7 +1105,7 @@ print(S)
  [102 120  62 200]]
 </code></pre></div>
 
-<p>Let's unpack the eigenvalues and eigenvectors of $S$:</p>
+<p>Let's unpack the eigenvalues and eigenvectors of <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>:</p>
 <pre><code class="python">evals, evecs = la.eig(S)
 print(evals)
 </code></pre>
@@ -1112,7 +1121,7 @@ print(evals)
 <div class="highlight"><pre><span></span><code>[361.75382302  42.74593101  26.33718907   7.16305691]
 </code></pre></div>
 
-<p>The corresponding eigenvectors of $A$ are:</p>
+<p>The corresponding eigenvectors of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> are:</p>
 <pre><code class="python">print(evecs)
 </code></pre>
 
@@ -1143,11 +1152,11 @@ print(v2)
 <div class="highlight"><pre><span></span><code>-1.1102230246251565e-16
 </code></pre></div>
 
-<p>The dot product of eigenvectors $\mathbf{v}_1$ and $\mathbf{v}_2$ is zero (the number above is <em>very</em> close to zero and is due to rounding errors in the computations) and so they are orthogonal!</p>
+<p>The dot product of eigenvectors <span><span class="MathJax_Preview">\mathbf{v}_1</span><script type="math/tex">\mathbf{v}_1</script></span> and <span><span class="MathJax_Preview">\mathbf{v}_2</span><script type="math/tex">\mathbf{v}_2</script></span> is zero (the number above is <em>very</em> close to zero and is due to rounding errors in the computations) and so they are orthogonal!</p>
 <h3 id="diagonalization">Diagonalization</h3>
-<p>A square matrix $M$ is <a href="https://en.wikipedia.org/wiki/Diagonalizable_matrix">diagonalizable</a> if it is similar to a diagonal matrix. In other words, $M$ is diagonalizable if there exists an invertible matrix $P$ such that $D = P^{-1}MP$ is a diagonal matrix.</p>
-<p>A beautiful result in linear algebra is that a square matrix $M$ of size $n$ is diagonalizable if and only if $M$ has $n$ independent eigevectors. Furthermore, $M = PDP^{-1}$ where the columns of $P$ are the eigenvectors of $M$ and $D$ has corresponding eigenvalues along the diagonal.</p>
-<p>Let's use this to construct a matrix with given eigenvalues $\lambda_1 = 3, \lambda_2 = 1$, and eigenvectors $v_1 = [1,1]^T, v_2 = [1,-1]^T$.</p>
+<p>A square matrix <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is <a href="https://en.wikipedia.org/wiki/Diagonalizable_matrix">diagonalizable</a> if it is similar to a diagonal matrix. In other words, <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is diagonalizable if there exists an invertible matrix <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> such that <span><span class="MathJax_Preview">D = P^{-1}MP</span><script type="math/tex">D = P^{-1}MP</script></span> is a diagonal matrix.</p>
+<p>A beautiful result in linear algebra is that a square matrix <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is diagonalizable if and only if <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> has <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> independent eigevectors. Furthermore, <span><span class="MathJax_Preview">M = PDP^{-1}</span><script type="math/tex">M = PDP^{-1}</script></span> where the columns of <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> are the eigenvectors of <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> and <span><span class="MathJax_Preview">D</span><script type="math/tex">D</script></span> has corresponding eigenvalues along the diagonal.</p>
+<p>Let's use this to construct a matrix with given eigenvalues <span><span class="MathJax_Preview">\lambda_1 = 3, \lambda_2 = 1</span><script type="math/tex">\lambda_1 = 3, \lambda_2 = 1</script></span>, and eigenvectors <span><span class="MathJax_Preview">v_1 = [1,1]^T, v_2 = [1,-1]^T</span><script type="math/tex">v_1 = [1,1]^T, v_2 = [1,-1]^T</script></span>.</p>
 <pre><code class="python">P = np.array([[1,1],[1,-1]])
 print(P)
 </code></pre>
@@ -1172,7 +1181,7 @@ print(M)
  [1. 2.]]
 </code></pre></div>
 
-<p>Let's verify that the eigenvalues of $M$ are 3 and 1:</p>
+<p>Let's verify that the eigenvalues of <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> are 3 and 1:</p>
 <pre><code class="python">evals, evecs = la.eig(M)
 print(evals)
 </code></pre>
@@ -1189,19 +1198,25 @@ print(evals)
 </code></pre></div>
 
 <h3 id="matrix-powers">Matrix Powers</h3>
-<p>Let $M$ be a square matrix. Computing powers of $M$ by matrix multiplication</p>
-<p>
+<p>Let <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> be a square matrix. Computing powers of <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> by matrix multiplication</p>
+<div>
+<div class="MathJax_Preview">
+M^k = \underbrace{M M \cdots M}_k
+</div>
 <script type="math/tex; mode=display">
 M^k = \underbrace{M M \cdots M}_k
 </script>
-</p>
-<p>is computationally expensive. Instead, let's use diagonalization to compute $M^k$ more efficiently</p>
-<p>
+</div>
+<p>is computationally expensive. Instead, let's use diagonalization to compute <span><span class="MathJax_Preview">M^k</span><script type="math/tex">M^k</script></span> more efficiently</p>
+<div>
+<div class="MathJax_Preview">
+M^k = \left( P D P^{-1} \right)^k  = \underbrace{P D P^{-1} P D P^{-1} \cdots P D P^{-1}}_k = P D^k P^{-1}
+</div>
 <script type="math/tex; mode=display">
 M^k = \left( P D P^{-1} \right)^k  = \underbrace{P D P^{-1} P D P^{-1} \cdots P D P^{-1}}_k = P D^k P^{-1}
 </script>
-</p>
-<p>Let's compute $M^{20}$ both ways and compare execution time.</p>
+</div>
+<p>Let's compute <span><span class="MathJax_Preview">M^{20}</span><script type="math/tex">M^{20}</script></span> both ways and compare execution time.</p>
 <pre><code class="python">Pinv = la.inv(P)
 </code></pre>
 
@@ -1225,7 +1240,7 @@ P @ D**k @ Pinv
 <div class="highlight"><pre><span></span><code>6.42 µs ± 1.36 µs per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </code></pre></div>
 
-<p>Diagonalization computes $M^{k}$ much faster!</p>
+<p>Diagonalization computes <span><span class="MathJax_Preview">M^{k}</span><script type="math/tex">M^{k}</script></span> much faster!</p>
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em></p>
                 

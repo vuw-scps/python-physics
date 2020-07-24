@@ -1026,26 +1026,35 @@ import matplotlib.pyplot as plt
 </code></pre>
 
 <h2 id="trapezoids">Trapezoids</h2>
-<p>The definite integral of $f(x)$ is equal to the (net) area under the curve $y=f(x)$ over the interval $[a,b]$. Riemann sums approximate definite integrals by using sums of rectangles to approximate the area.</p>
+<p>The definite integral of <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> is equal to the (net) area under the curve <span><span class="MathJax_Preview">y=f(x)</span><script type="math/tex">y=f(x)</script></span> over the interval <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span>. Riemann sums approximate definite integrals by using sums of rectangles to approximate the area.</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoid rule</a> gives a better approximation of a definite integral by summing the areas of the trapezoids connecting the points</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+(x_{i-1},0), (x_i,0), (x_{i-1},f(x_{i-1})), (x_i,f(x_i))
+</div>
 <script type="math/tex; mode=display">
 (x_{i-1},0), (x_i,0), (x_{i-1},f(x_{i-1})), (x_i,f(x_i))
 </script>
-</p>
-<p>for each subinterval $[x_{i-1},x_i]$ of a partition. Note that the area of each trapezoid is the sum of a rectangle and a triangle</p>
-<p>
+</div>
+<p>for each subinterval <span><span class="MathJax_Preview">[x_{i-1},x_i]</span><script type="math/tex">[x_{i-1},x_i]</script></span> of a partition. Note that the area of each trapezoid is the sum of a rectangle and a triangle</p>
+<div>
+<div class="MathJax_Preview">
+(x_i - x_{i-1}) f(x_{i-1}) + \frac{1}{2}(x_i - x_{i-1}) (f(x_i) - f(x_{i-1})) = \frac{1}{2}(f(x_i) + f(x_{i-1}))(x_i - x_{i-1})
+</div>
 <script type="math/tex; mode=display">
 (x_i - x_{i-1}) f(x_{i-1}) + \frac{1}{2}(x_i - x_{i-1}) (f(x_i) - f(x_{i-1})) = \frac{1}{2}(f(x_i) + f(x_{i-1}))(x_i - x_{i-1})
 </script>
-</p>
+</div>
 <p>For example, we can use a single trapezoid to approximate:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^1 e^{-x^2} \, dx
+</div>
 <script type="math/tex; mode=display">
 \int_0^1 e^{-x^2} \, dx
 </script>
-</p>
-<p>First, let's plot the curve $y = e^{-x^2}$ and the trapezoid on the interval $[0,1]$:</p>
+</div>
+<p>First, let's plot the curve <span><span class="MathJax_Preview">y = e^{-x^2}</span><script type="math/tex">y = e^{-x^2}</script></span> and the trapezoid on the interval <span><span class="MathJax_Preview">[0,1]</span><script type="math/tex">[0,1]</script></span>:</p>
 <pre><code class="python">x = np.linspace(-0.5,1.5,100)
 y = np.exp(-x**2)
 plt.plot(x,y)
@@ -1068,38 +1077,50 @@ print(&quot;Trapezoid area:&quot;, A)
 </code></pre></div>
 
 <h2 id="definition">Definition</h2>
-<p>The <strong>trapezoid rule</strong> for $N$ subintervals of $[a,b]$ of equal length is</p>
-<p>
+<p>The <strong>trapezoid rule</strong> for <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> subintervals of <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> of equal length is</p>
+<div>
+<div class="MathJax_Preview">
+T_N(f) = \frac{\Delta x}{2} \sum_{i=1}^N (f(x_i) + f(x_{i-1}))
+</div>
 <script type="math/tex; mode=display">
 T_N(f) = \frac{\Delta x}{2} \sum_{i=1}^N (f(x_i) + f(x_{i-1}))
 </script>
-</p>
-<p>where $\Delta x = (b - a)/N$ is the length of the subintervals and $x_i = a + i \Delta x$.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">\Delta x = (b - a)/N</span><script type="math/tex">\Delta x = (b - a)/N</script></span> is the length of the subintervals and <span><span class="MathJax_Preview">x_i = a + i \Delta x</span><script type="math/tex">x_i = a + i \Delta x</script></span>.</p>
 <p>Notice that the trapezoid is the average of the left and right Riemann sums</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+T_N(f) = \frac{\Delta x}{2} \sum_{i=1}^N (f(x_i) + f(x_{i-1})) = \frac{1}{2} \left( \sum_{i=1}^N f(x_i) \Delta x + \sum_{i=1}^N f(x_{i-1}) \Delta x \right)
+</div>
 <script type="math/tex; mode=display">
 T_N(f) = \frac{\Delta x}{2} \sum_{i=1}^N (f(x_i) + f(x_{i-1})) = \frac{1}{2} \left( \sum_{i=1}^N f(x_i) \Delta x + \sum_{i=1}^N f(x_{i-1}) \Delta x \right)
 </script>
-</p>
+</div>
 <h2 id="error-formula">Error Formula</h2>
-<p>When computing integrals numerically, it is essential to know how good our approximations are. Notice in the theorem below that the error formula is inversely proportional to $N^2$. This means that the error decreases much faster with larger $N$ compared to Riemann sums.</p>
+<p>When computing integrals numerically, it is essential to know how good our approximations are. Notice in the theorem below that the error formula is inversely proportional to <span><span class="MathJax_Preview">N^2</span><script type="math/tex">N^2</script></span>. This means that the error decreases much faster with larger <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> compared to Riemann sums.</p>
 <hr />
-<p><strong>Theorem.</strong> Let $T_N(f)$ denote the trapezoid rule</p>
-<p>
+<p><strong>Theorem.</strong> Let <span><span class="MathJax_Preview">T_N(f)</span><script type="math/tex">T_N(f)</script></span> denote the trapezoid rule</p>
+<div>
+<div class="MathJax_Preview">
+T_N(f) = \frac{\Delta x}{2} \sum_{i=1}^N (f(x_i) + f(x_{i-1}))
+</div>
 <script type="math/tex; mode=display">
 T_N(f) = \frac{\Delta x}{2} \sum_{i=1}^N (f(x_i) + f(x_{i-1}))
 </script>
-</p>
-<p>where $\Delta x = (b-a)/N$ and $x_i = a + i \Delta x$. The error bound is</p>
-<p>
+</div>
+<p>where <span><span class="MathJax_Preview">\Delta x = (b-a)/N</span><script type="math/tex">\Delta x = (b-a)/N</script></span> and <span><span class="MathJax_Preview">x_i = a + i \Delta x</span><script type="math/tex">x_i = a + i \Delta x</script></span>. The error bound is</p>
+<div>
+<div class="MathJax_Preview">
+E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12 N^2} K_2
+</div>
 <script type="math/tex; mode=display">
 E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12 N^2} K_2
 </script>
-</p>
-<p>where $\left| \ f''(x) \, \right| \leq K_2$ for all $x \in [a,b]$.</p>
+</div>
+<p>where <span><span class="MathJax_Preview">\left| \ f''(x) \, \right| \leq K_2</span><script type="math/tex">\left| \ f''(x) \, \right| \leq K_2</script></span> for all <span><span class="MathJax_Preview">x \in [a,b]</span><script type="math/tex">x \in [a,b]</script></span>.</p>
 <hr />
 <h2 id="implementation">Implementation</h2>
-<p>Let's write a function called <code>trapz</code> which takes input parameters $f$, $a$, $b$ and $N$ and returns the approximation $T_N(f)$. Furthermore, let's assign default value $N=50$.</p>
+<p>Let's write a function called <code>trapz</code> which takes input parameters <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>, <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> and <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the approximation <span><span class="MathJax_Preview">T_N(f)</span><script type="math/tex">T_N(f)</script></span>. Furthermore, let's assign default value <span><span class="MathJax_Preview">N=50</span><script type="math/tex">N=50</script></span>.</p>
 <pre><code class="python">def trapz(f,a,b,N=50):
     '''Approximate the integral of f(x) from a to b by the trapezoid rule.
 
@@ -1137,11 +1158,14 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 </code></pre>
 
 <p>Let's test our function on an integral where we know the answer</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^{\pi/2} \sin x \ dx = 1
+</div>
 <script type="math/tex; mode=display">
 \int_0^{\pi/2} \sin x \ dx = 1
 </script>
-</p>
+</div>
 <pre><code class="python">trapz(np.sin,0,np.pi/2,1000)
 </code></pre>
 
@@ -1149,11 +1173,14 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 </code></pre></div>
 
 <p>Let's test our function again:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^1 3 x^2 \ dx = 1
+</div>
 <script type="math/tex; mode=display">
 \int_0^1 3 x^2 \ dx = 1
 </script>
-</p>
+</div>
 <pre><code class="python">trapz(lambda x : 3*x**2,0,1,10000)
 </code></pre>
 
@@ -1161,11 +1188,14 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 </code></pre></div>
 
 <p>And once more:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^1 x \ dx = \frac{1}{2}
+</div>
 <script type="math/tex; mode=display">
 \int_0^1 x \ dx = \frac{1}{2}
 </script>
-</p>
+</div>
 <pre><code class="python">trapz(lambda x : x,0,1,1)
 </code></pre>
 
@@ -1177,10 +1207,10 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 <pre><code class="python">import scipy.integrate as spi
 </code></pre>
 
-<p>The function <code>scipy.integrate.trapz</code> computes the approximation of a definite by the trapezoid rule. Consulting the documentation, we see that all we need to do it supply arrays of $x$ and $y$ values for the integrand and <code>scipy.integrate.trapz</code> returns the approximation of the integral using the trapezoid rule. The number of points we give to <code>scipy.integrate.trapz</code> is up to us but we have to remember that more points gives a better approximation but it takes more time to compute!</p>
+<p>The function <code>scipy.integrate.trapz</code> computes the approximation of a definite by the trapezoid rule. Consulting the documentation, we see that all we need to do it supply arrays of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> and <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values for the integrand and <code>scipy.integrate.trapz</code> returns the approximation of the integral using the trapezoid rule. The number of points we give to <code>scipy.integrate.trapz</code> is up to us but we have to remember that more points gives a better approximation but it takes more time to compute!</p>
 <h2 id="examples">Examples</h2>
 <h3 id="arctangent">Arctangent</h3>
-<p>Let's plot the trapezoids for $\displaystyle f(x)=\frac{1}{1 + x^2}$ on $[0,5]$ with $N=10$.</p>
+<p>Let's plot the trapezoids for <span><span class="MathJax_Preview">\displaystyle f(x)=\frac{1}{1 + x^2}</span><script type="math/tex">\displaystyle f(x)=\frac{1}{1 + x^2}</script></span> on <span><span class="MathJax_Preview">[0,5]</span><script type="math/tex">[0,5]</script></span> with <span><span class="MathJax_Preview">N=10</span><script type="math/tex">N=10</script></span>.</p>
 <pre><code class="python">f = lambda x : 1/(1 + x**2)
 a = 0; b = 5; N = 10
 
@@ -1212,11 +1242,14 @@ print(T)
 </code></pre></div>
 
 <p>We know the exact value</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^5 \frac{1}{1 + x^2} dx = \arctan(5)
+</div>
 <script type="math/tex; mode=display">
 \int_0^5 \frac{1}{1 + x^2} dx = \arctan(5)
 </script>
-</p>
+</div>
 <p>and we can compare the trapezoid rule to the value</p>
 <pre><code class="python">I = np.arctan(5)
 print(I)
@@ -1232,32 +1265,41 @@ print(I)
 </code></pre></div>
 
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
-<p>Find a value $N$ which guarantees that the trapezoid rule approximation $T_N(f)$ of the integral</p>
-<p>
+<p>Find a value <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> which guarantees that the trapezoid rule approximation <span><span class="MathJax_Preview">T_N(f)</span><script type="math/tex">T_N(f)</script></span> of the integral</p>
+<div>
+<div class="MathJax_Preview">
+\int_1^2 \frac{1}{x} \, dx = \ln(2)
+</div>
 <script type="math/tex; mode=display">
 \int_1^2 \frac{1}{x} \, dx = \ln(2)
 </script>
-</p>
-<p>satisfies $E_N^T(f) \leq 10^{-8}$.</p>
-<p>For $f(x) = \frac{1}{x}$, we compute $f''(x) = \frac{2}{x^3} \leq 2$ for all $x \in [1,2]$ therefore the error formula implies</p>
-<p>
+</div>
+<p>satisfies <span><span class="MathJax_Preview">E_N^T(f) \leq 10^{-8}</span><script type="math/tex">E_N^T(f) \leq 10^{-8}</script></span>.</p>
+<p>For <span><span class="MathJax_Preview">f(x) = \frac{1}{x}</span><script type="math/tex">f(x) = \frac{1}{x}</script></span>, we compute <span><span class="MathJax_Preview">f''(x) = \frac{2}{x^3} \leq 2</span><script type="math/tex">f''(x) = \frac{2}{x^3} \leq 2</script></span> for all <span><span class="MathJax_Preview">x \in [1,2]</span><script type="math/tex">x \in [1,2]</script></span> therefore the error formula implies</p>
+<div>
+<div class="MathJax_Preview">
+\left| \, \int_1^2 \frac{1}{x} \, dx - T_N(f) \, \right| \leq \frac{2}{12N^2}
+</div>
 <script type="math/tex; mode=display">
 \left| \, \int_1^2 \frac{1}{x} \, dx - T_N(f) \, \right| \leq \frac{2}{12N^2}
 </script>
-</p>
-<p>Then $E_N^T \leq 10^{-8}$ is guaranteed if $\frac{1}{6N^2} \leq 10^{-8}$ which implies</p>
-<p>
+</div>
+<p>Then <span><span class="MathJax_Preview">E_N^T \leq 10^{-8}</span><script type="math/tex">E_N^T \leq 10^{-8}</script></span> is guaranteed if <span><span class="MathJax_Preview">\frac{1}{6N^2} \leq 10^{-8}</span><script type="math/tex">\frac{1}{6N^2} \leq 10^{-8}</script></span> which implies</p>
+<div>
+<div class="MathJax_Preview">
+\frac{10^4}{\sqrt{6}} \leq N
+</div>
 <script type="math/tex; mode=display">
 \frac{10^4}{\sqrt{6}} \leq N
 </script>
-</p>
+</div>
 <pre><code class="python">10**4/np.sqrt(6)
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>4082.4829046386303
 </code></pre></div>
 
-<p>We need 4083 subintervals to guarantee $E_N^T(f) \leq 10^{-8}$. Compute the approximation using our own implementation of the trapezoid rule:</p>
+<p>We need 4083 subintervals to guarantee <span><span class="MathJax_Preview">E_N^T(f) \leq 10^{-8}</span><script type="math/tex">E_N^T(f) \leq 10^{-8}</script></span>. Compute the approximation using our own implementation of the trapezoid rule:</p>
 <pre><code class="python">approximation = trapz(lambda x : 1/x,1,2,4083)
 print(approximation)
 </code></pre>
@@ -1276,14 +1318,14 @@ print(approximation)
 <div class="highlight"><pre><span></span><code>0.6931471843089955
 </code></pre></div>
 
-<p>Let's verify that this is within $10^{-6}$:</p>
+<p>Let's verify that this is within <span><span class="MathJax_Preview">10^{-6}</span><script type="math/tex">10^{-6}</script></span>:</p>
 <pre><code class="python">np.abs(approximation - np.log(2)) &lt; 10**(-8)
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 
-<p>Success! However, a natural question arises: what is the actual smallest $N$ such that the trapezoid rule gives the estimate of $\ln (2)$ to within $10^{-8}$?</p>
+<p>Success! However, a natural question arises: what is the actual smallest <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> such that the trapezoid rule gives the estimate of <span><span class="MathJax_Preview">\ln (2)</span><script type="math/tex">\ln (2)</script></span> to within <span><span class="MathJax_Preview">10^{-8}</span><script type="math/tex">10^{-8}</script></span>?</p>
 <pre><code class="python">for n in range(1,4083):
     approx = trapz(lambda x : 1/x,1,2,n)
     if np.abs(approx - np.log(2)) &lt; 10e-8:
@@ -1296,30 +1338,42 @@ print(approximation)
 
 <h3 id="fresnel-integral">Fresnel Integral</h3>
 <p><a href="https://en.wikipedia.org/wiki/Fresnel_integral">Fresnel integrals</a> are examples of <a href="https://en.wikipedia.org/wiki/Nonelementary_integral">nonelementary integrals</a>: antiderivatives which cannot be written in terms of <a href="https://en.wikipedia.org/wiki/Elementary_function">elementary functions</a>. There are two types of Fresnel integrals:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+S(t) = \int_0^t \sin(x^2) dx  \ \ \text{and} \ \ C(t) = \int_0^t \cos(x^2) dx
+</div>
 <script type="math/tex; mode=display">
 S(t) = \int_0^t \sin(x^2) dx  \ \ \text{and} \ \ C(t) = \int_0^t \cos(x^2) dx
 </script>
-</p>
+</div>
 <p>Use the trapezoid rule to approximate the Fresnel integral</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+S(1) = \int_0^1 \sin(x^2) dx
+</div>
 <script type="math/tex; mode=display">
 S(1) = \int_0^1 \sin(x^2) dx
 </script>
-</p>
-<p>such that the error is less than $10^{-5}$.</p>
+</div>
+<p>such that the error is less than <span><span class="MathJax_Preview">10^{-5}</span><script type="math/tex">10^{-5}</script></span>.</p>
 <p>Compute the derivatives of the integrand</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+f(x) = \sin(x^2) \ \ , \ \ f'(x) = 2x\cos(x^2)
+</div>
 <script type="math/tex; mode=display">
 f(x) = \sin(x^2) \ \ , \ \ f'(x) = 2x\cos(x^2)
 </script>
-</p>
-<p>
+</div>
+<div>
+<div class="MathJax_Preview">
+f''(x) = 2\cos(x^2) - 4x^2\sin(x^2) \ \ , \ \ f'''(x) = -12x\sin(x^2) - 8x^3\cos(x^2)
+</div>
 <script type="math/tex; mode=display">
 f''(x) = 2\cos(x^2) - 4x^2\sin(x^2) \ \ , \ \ f'''(x) = -12x\sin(x^2) - 8x^3\cos(x^2)
 </script>
-</p>
-<p>Since $f'''(x) \leq 0$ for $x \in [0,1]$, we see that $f''(x)$ is decreasing on $[0,1]$. Values of $f''(x)$ at the endpoints of the interval are</p>
+</div>
+<p>Since <span><span class="MathJax_Preview">f'''(x) \leq 0</span><script type="math/tex">f'''(x) \leq 0</script></span> for <span><span class="MathJax_Preview">x \in [0,1]</span><script type="math/tex">x \in [0,1]</script></span>, we see that <span><span class="MathJax_Preview">f''(x)</span><script type="math/tex">f''(x)</script></span> is decreasing on <span><span class="MathJax_Preview">[0,1]</span><script type="math/tex">[0,1]</script></span>. Values of <span><span class="MathJax_Preview">f''(x)</span><script type="math/tex">f''(x)</script></span> at the endpoints of the interval are</p>
 <pre><code class="python">x = 0
 2*np.cos(x**2) - 4*x**2*np.sin(x**2)
 </code></pre>
@@ -1334,19 +1388,22 @@ f''(x) = 2\cos(x^2) - 4x^2\sin(x^2) \ \ , \ \ f'''(x) = -12x\sin(x^2) - 8x^3\cos
 <div class="highlight"><pre><span></span><code>-2.2852793274953065
 </code></pre></div>
 
-<p>Therefore $\left| \, f''(x) \, \right| \leq 2.2852793274953065$ for $x \in [0,1]$. Use the error bound formula to find a good choice for $N$</p>
-<p>
+<p>Therefore <span><span class="MathJax_Preview">\left| \, f''(x) \, \right| \leq 2.2852793274953065</span><script type="math/tex">\left| \, f''(x) \, \right| \leq 2.2852793274953065</script></span> for <span><span class="MathJax_Preview">x \in [0,1]</span><script type="math/tex">x \in [0,1]</script></span>. Use the error bound formula to find a good choice for <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span></p>
+<div>
+<div class="MathJax_Preview">
+\frac{(b-a)^3}{12 N^2} K_2 \leq 10^{-5} \Rightarrow \sqrt{\frac{10^5(2.2852793274953065)}{12}} \leq N
+</div>
 <script type="math/tex; mode=display">
 \frac{(b-a)^3}{12 N^2} K_2 \leq 10^{-5} \Rightarrow \sqrt{\frac{10^5(2.2852793274953065)}{12}} \leq N
 </script>
-</p>
+</div>
 <pre><code class="python">np.sqrt(10**5 * 2.2852793274953065 / 12)
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>137.9999796949051
 </code></pre></div>
 
-<p>Let's compute the integral using the trapezoid rule with $N=138$ subintervals</p>
+<p>Let's compute the integral using the trapezoid rule with <span><span class="MathJax_Preview">N=138</span><script type="math/tex">N=138</script></span> subintervals</p>
 <pre><code class="python">x = np.linspace(0,1,139)
 y = np.sin(x**2)
 I = spi.trapz(y,x)
@@ -1356,27 +1413,36 @@ print(I)
 <div class="highlight"><pre><span></span><code>0.31027303032220394
 </code></pre></div>
 
-<p>Therefore the Fresnel integral $S(1)$ is approximately</p>
-<p>
+<p>Therefore the Fresnel integral <span><span class="MathJax_Preview">S(1)</span><script type="math/tex">S(1)</script></span> is approximately</p>
+<div>
+<div class="MathJax_Preview">
+S(1) = \int_0^1 \sin(x^2) \, dx \approx 0.310273030322
+</div>
 <script type="math/tex; mode=display">
 S(1) = \int_0^1 \sin(x^2) \, dx \approx 0.310273030322
 </script>
-</p>
-<p>with error less than $10^{-5}$.</p>
+</div>
+<p>with error less than <span><span class="MathJax_Preview">10^{-5}</span><script type="math/tex">10^{-5}</script></span>.</p>
 <h3 id="logarithmic-integral">Logarithmic Integral</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Logarithmic_integral_function">Eulerian logarithmic integral</a> is another nonelementary integral</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\mathrm{Li}(t) = \int_2^t \frac{1}{\ln x} dx
+</div>
 <script type="math/tex; mode=display">
 \mathrm{Li}(t) = \int_2^t \frac{1}{\ln x} dx
 </script>
-</p>
-<p>Let's compute $Li(10)$ such that the error is less than $10^{-4}$. Compute derivatives of the integrand</p>
-<p>
+</div>
+<p>Let's compute <span><span class="MathJax_Preview">Li(10)</span><script type="math/tex">Li(10)</script></span> such that the error is less than <span><span class="MathJax_Preview">10^{-4}</span><script type="math/tex">10^{-4}</script></span>. Compute derivatives of the integrand</p>
+<div>
+<div class="MathJax_Preview">
+f(x) = \frac{1}{\ln x} \ \ , \ \   f'(x) = -\frac{1}{x(\ln x)^2} \ \ , \ \  f''(x) = \frac{\ln x + 2 }{x^2(\ln x)^3}
+</div>
 <script type="math/tex; mode=display">
 f(x) = \frac{1}{\ln x} \ \ , \ \   f'(x) = -\frac{1}{x(\ln x)^2} \ \ , \ \  f''(x) = \frac{\ln x + 2 }{x^2(\ln x)^3}
 </script>
-</p>
-<p>Plot $f''(x)$ on the interval $[2,10]$.</p>
+</div>
+<p>Plot <span><span class="MathJax_Preview">f''(x)</span><script type="math/tex">f''(x)</script></span> on the interval <span><span class="MathJax_Preview">[2,10]</span><script type="math/tex">[2,10]</script></span>.</p>
 <pre><code class="python">a = 2
 b = 10
 x = np.linspace(a,b,100)
@@ -1386,13 +1452,16 @@ plt.show()
 </code></pre>
 
 <p><img alt="png" src="../../nb_img/integration/trapezoid-rule_47_0.png" /></p>
-<p>Clearly $f''(x)$ is decreasing on $[2,10]$ (and bounded below by 0) therefore the absolute maximum occurs at the left endpoint:</p>
-<p>
+<p>Clearly <span><span class="MathJax_Preview">f''(x)</span><script type="math/tex">f''(x)</script></span> is decreasing on <span><span class="MathJax_Preview">[2,10]</span><script type="math/tex">[2,10]</script></span> (and bounded below by 0) therefore the absolute maximum occurs at the left endpoint:</p>
+<div>
+<div class="MathJax_Preview">
+\left| \, f''(x) \, \right| \leq \frac{\ln (2) + 2}{4 \ln (2)^3}
+</div>
 <script type="math/tex; mode=display">
 \left| \, f''(x) \, \right| \leq \frac{\ln (2) + 2}{4 \ln (2)^3}
 </script>
-</p>
-<p>for $x \in [2,10]$ and we compute</p>
+</div>
+<p>for <span><span class="MathJax_Preview">x \in [2,10]</span><script type="math/tex">x \in [2,10]</script></span> and we compute</p>
 <pre><code class="python">K2 = (np.log(2) + 2)/(4*np.log(2)**3)
 print(K2)
 </code></pre>
@@ -1401,18 +1470,21 @@ print(K2)
 </code></pre></div>
 
 <p>Use the error formula:</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\frac{(b-a)^3}{12 N^2} K_2 \leq 10^{-4} \Rightarrow \frac{8^3}{12 N^2} 2.021732598829855 \leq 10^{-4} \Rightarrow \sqrt{ \frac{8^3 10^4}{12} 2.021732598829855} \leq N
+</div>
 <script type="math/tex; mode=display">
 \frac{(b-a)^3}{12 N^2} K_2 \leq 10^{-4} \Rightarrow \frac{8^3}{12 N^2} 2.021732598829855 \leq 10^{-4} \Rightarrow \sqrt{ \frac{8^3 10^4}{12} 2.021732598829855} \leq N
 </script>
-</p>
+</div>
 <pre><code class="python">np.sqrt(8**3 * 10**4 * 2.021732598829855 / 12)
 </code></pre>
 
 <div class="highlight"><pre><span></span><code>928.7657986995814
 </code></pre></div>
 
-<p>Compute the trapzoid rule with $N=929$</p>
+<p>Compute the trapzoid rule with <span><span class="MathJax_Preview">N=929</span><script type="math/tex">N=929</script></span></p>
 <pre><code class="python">N = 929
 x = np.linspace(a,b,N+1)
 y = 1/np.log(x)
@@ -1424,46 +1496,64 @@ print(I)
 </code></pre></div>
 
 <p>Therefore the Eulerian logarithmic integral is</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\mathrm{Li}(10) = \int_2^{10} \frac{1}{\ln x} dx \approx 5.121065367200469
+</div>
 <script type="math/tex; mode=display">
 \mathrm{Li}(10) = \int_2^{10} \frac{1}{\ln x} dx \approx 5.121065367200469
 </script>
-</p>
-<p>such that the error is less than $10^{-4}$.</p>
+</div>
+<p>such that the error is less than <span><span class="MathJax_Preview">10^{-4}</span><script type="math/tex">10^{-4}</script></span>.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>
-<p>Let $f(x) = x^x$ and note that</p>
-<p>
+<p>Let <span><span class="MathJax_Preview">f(x) = x^x</span><script type="math/tex">f(x) = x^x</script></span> and note that</p>
+<div>
+<div class="MathJax_Preview">
+f'(x) = x^{x} \left(\log{\left(x \right)} + 1\right) \ , \ f''(x) = x^{x} \left(\log{\left(x \right)} + 1\right)^{2} + x^{x-1}
+</div>
 <script type="math/tex; mode=display">
 f'(x) = x^{x} \left(\log{\left(x \right)} + 1\right) \ , \ f''(x) = x^{x} \left(\log{\left(x \right)} + 1\right)^{2} + x^{x-1}
 </script>
-</p>
-<p>Plot the function $f''(x)$ and use that information to compute $T_N(f)$ for the integral</p>
-<p>
+</div>
+<p>Plot the function <span><span class="MathJax_Preview">f''(x)</span><script type="math/tex">f''(x)</script></span> and use that information to compute <span><span class="MathJax_Preview">T_N(f)</span><script type="math/tex">T_N(f)</script></span> for the integral</p>
+<div>
+<div class="MathJax_Preview">
+\int_1^2 x^x \, dx
+</div>
 <script type="math/tex; mode=display">
 \int_1^2 x^x \, dx
 </script>
-</p>
-<p>such that $E_N^T(f) \leq 10^{-3}$.</p>
+</div>
+<p>such that <span><span class="MathJax_Preview">E_N^T(f) \leq 10^{-3}</span><script type="math/tex">E_N^T(f) \leq 10^{-3}</script></span>.</p>
 </li>
 <li>
 <p>Consider the integral</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+\int_0^1 \ln(1+x^2) \, dx
+</div>
 <script type="math/tex; mode=display">
 \int_0^1 \ln(1+x^2) \, dx
 </script>
-</p>
+</div>
 <p>and note that</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+f(x) = \ln(1 + x^2) \hspace{1in} f'(x) = \frac{2x}{1 + x^2}
+$$
+$$
+f''(x) = 2 \left( \frac{1 - x^2}{1 + x^2} \right) \hspace{1in} f'''(x) = 4x \frac{x^2 - 3}{(x^2 + 1)^3}
+</div>
 <script type="math/tex; mode=display">
 f(x) = \ln(1 + x^2) \hspace{1in} f'(x) = \frac{2x}{1 + x^2}
-</script>
-<script type="math/tex; mode=display">
+$$
+$$
 f''(x) = 2 \left( \frac{1 - x^2}{1 + x^2} \right) \hspace{1in} f'''(x) = 4x \frac{x^2 - 3}{(x^2 + 1)^3}
 </script>
-</p>
-<p><strong>Without plotting the functions</strong> $f(x)$, $f'(x)$, $f''(x)$ or $f'''(x)$, find a value $N$ such that $E_N^T(f) \leq 10^{-6}$.</p>
+</div>
+<p><strong>Without plotting the functions</strong> <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span>, <span><span class="MathJax_Preview">f'(x)</span><script type="math/tex">f'(x)</script></span>, <span><span class="MathJax_Preview">f''(x)</span><script type="math/tex">f''(x)</script></span> or <span><span class="MathJax_Preview">f'''(x)</span><script type="math/tex">f'''(x)</script></span>, find a value <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> such that <span><span class="MathJax_Preview">E_N^T(f) \leq 10^{-6}</span><script type="math/tex">E_N^T(f) \leq 10^{-6}</script></span>.</p>
 </li>
 </ol>
                 
