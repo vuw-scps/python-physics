@@ -984,25 +984,29 @@
 print(python_is_fun)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">type(python_is_fun)
 </code></pre>
 
-<pre><code>bool
-</code></pre>
+<div class="highlight"><pre><span></span><code>bool
+</code></pre></div>
+
 <p>Let's assign the value <code>False</code> to a variable and again verify the type:</p>
 <pre><code class="python">math_is_scary = False
 print(math_is_scary)
 </code></pre>
 
-<pre><code>False
-</code></pre>
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
 <pre><code class="python">type(math_is_scary)
 </code></pre>
 
-<pre><code>bool
-</code></pre>
+<div class="highlight"><pre><span></span><code>bool
+</code></pre></div>
+
 <h2 id="comparison-operators">Comparison Operators</h2>
 <p><a href="https://docs.python.org/3/library/stdtypes.html#comparisons">Comparison operators</a> produce Boolean values as output. For example, if we have variables <code>x</code> and <code>y</code> with numeric values, we can evaluate the expression <code>x &lt; y</code> and the result is a boolean value either <code>True</code> or <code>False</code>.</p>
 <table>
@@ -1043,28 +1047,33 @@ print(math_is_scary)
 <pre><code class="python">1 == 2
 </code></pre>
 
-<pre><code>False
-</code></pre>
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
 <pre><code class="python">1 &lt; 2
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">2 == 2
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">3 != 3.14159
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">20.00000001 &gt;= 20
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <h2 id="boolean-operators">Boolean Operators</h2>
 <p>We combine logical expressions using <a href="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not">boolean operators</a> <code>and</code>, <code>or</code> and <code>not</code>.</p>
 <table>
@@ -1093,23 +1102,27 @@ print(math_is_scary)
 <pre><code class="python">(1 &lt; 2) and (3 != 5)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">(1 &lt; 2) and (3 &lt; 1)
 </code></pre>
 
-<pre><code>False
-</code></pre>
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
 <pre><code class="python">(1 &lt; 2) or (3 &lt; 1)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">not (1000 &lt;= 999)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <h2 id="if-statements">if statements</h2>
 <p>An <a href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if statement</a> consists of one or more blocks of code such that only one block is executed depending on logical expressions. Let's do an example:</p>
 <pre><code class="python"># Determine if roots of polynomial ax^2 + bx + c = 0
@@ -1130,9 +1143,10 @@ else:
     print(&quot;Roots are real and repeated.&quot;)
 </code></pre>
 
-<pre><code>Discriminant = -24604
+<div class="highlight"><pre><span></span><code>Discriminant = -24604
 Roots are complex.
-</code></pre>
+</code></pre></div>
+
 <p>The main points to observe are:</p>
 <ol>
 <li>Start with the <code>if</code> keyword.</li>
@@ -1183,13 +1197,15 @@ $$</p>
 <pre><code class="python">invertible([[1,2],[3,4]])
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <pre><code class="python">invertible([[1,1],[3,3]])
 </code></pre>
 
-<pre><code>False
-</code></pre>
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
 <h3 id="concavity-of-a-polynomial">Concavity of a Polynomial</h3>
 <p>Write a function called <code>concave_up</code> which takes input parameters <code>p</code> and <code>a</code> where <code>p</code> is a list representing a polynomial $p(x)$ and <code>a</code> is a number, and returns <code>True</code> if the function $p(x)$ is concave up at $x=a$ (ie. its second derivative is positive at $x=a$, $p''(a) &gt; 0$).</p>
 <p>We'll use the second derivative test for polynomials. In particular, if we have a polynomial of degree $n$</p>
@@ -1243,8 +1259,9 @@ concavity = concave_up(p,a)
 print(concavity)
 </code></pre>
 
-<pre><code>False
-</code></pre>
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>

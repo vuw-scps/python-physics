@@ -1043,16 +1043,18 @@ print(p(1))
 print(p(2))
 </code></pre>
 
-<pre><code>-1
+<div class="highlight"><pre><span></span><code>-1
 3
-</code></pre>
+</code></pre></div>
+
 <p>Since the polynomial changes sign in the interval $[1,2]$, we can apply the secant method with this as the starting interval:</p>
 <pre><code class="python">approx = secant(p,1,2,20)
 print(approx)
 </code></pre>
 
-<pre><code>1.4655712311394433
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.4655712311394433
+</code></pre></div>
+
 <p>The exact value of the supergolden ratio is</p>
 <p>$$
 \frac{1 + \sqrt[3]{\frac{29 + 3\sqrt{93}}{2}} + \sqrt[3]{\frac{29 - 3\sqrt{93}}{2}}}{3}
@@ -1061,15 +1063,17 @@ $$</p>
 print(supergolden)
 </code></pre>
 
-<pre><code>1.4655712318767682
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.4655712318767682
+</code></pre></div>
+
 <p>Let's compare our approximation with the exact solution:</p>
 <pre><code class="python">error = abs(supergolden - approx)
 print(error)
 </code></pre>
 
-<pre><code>7.373248678277378e-10
-</code></pre>
+<div class="highlight"><pre><span></span><code>7.373248678277378e-10
+</code></pre></div>
+
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em>               </p>
                 

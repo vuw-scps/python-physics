@@ -1034,8 +1034,9 @@ $$</p>
 <pre><code class="python">simps(lambda x : 3*x**2,0,1,10)
 </code></pre>
 
-<pre><code>1.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0
+</code></pre></div>
+
 <p>Test our function again with the integral</p>
 <p>$$
 \int_0^{\pi/2} \sin(x) dx = 1
@@ -1043,8 +1044,9 @@ $$</p>
 <pre><code class="python">simps(np.sin,0,np.pi/2,100)
 </code></pre>
 
-<pre><code>1.000000000338236
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.000000000338236
+</code></pre></div>
+
 <h2 id="scipyintegratesimps">scipy.integrate.simps</h2>
 <p>The <a href="https://scipy.org/">SciPy</a> subpackage <a href="https://docs.scipy.org/doc/scipy-0.18.1/reference/integrate.html">scipy.integrate</a> contains several functions for approximating definite integrals and numerically solving differential equations. Let's import the subpackage under the name <code>spi</code>.</p>
 <pre><code class="python">import scipy.integrate as spi
@@ -1072,15 +1074,17 @@ $$</p>
 <pre><code class="python">(20000/15)**0.25
 </code></pre>
 
-<pre><code>6.042750794713537
-</code></pre>
+<div class="highlight"><pre><span></span><code>6.042750794713537
+</code></pre></div>
+
 <p>Compute Simpson's rule with $N=8$ (the smallest even integer greater than 6.04)</p>
 <pre><code class="python">approximation = simps(lambda x : 1/x,1,2,8)
 print(approximation)
 </code></pre>
 
-<pre><code>0.6931545306545306
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.6931545306545306
+</code></pre></div>
+
 <p>We could also use the function <code>scipy.integrate.simps</code> to compute the exact same result</p>
 <pre><code class="python">N = 8; a = 1; b = 2;
 x = np.linspace(a,b,N+1)
@@ -1089,14 +1093,16 @@ approximation = spi.simps(y,x)
 print(approximation)
 </code></pre>
 
-<pre><code>0.6931545306545306
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.6931545306545306
+</code></pre></div>
+
 <p>Verify that $E_N^S(f) \leq 0.0001$</p>
 <pre><code class="python">np.abs(np.log(2) - approximation) &lt;= 0.0001
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em></p>
                 

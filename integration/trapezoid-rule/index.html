@@ -1058,8 +1058,9 @@ plt.show()
 print(&quot;Trapezoid area:&quot;, A)
 </code></pre>
 
-<pre><code>Trapezoid area: 0.6839397205857212
-</code></pre>
+<div class="highlight"><pre><span></span><code>Trapezoid area: 0.6839397205857212
+</code></pre></div>
+
 <h2 id="definition">Definition</h2>
 <p>The <strong>trapezoid rule</strong> for $N$ subintervals of $[a,b]$ of equal length is</p>
 <p>$$
@@ -1128,8 +1129,9 @@ $$</p>
 <pre><code class="python">trapz(np.sin,0,np.pi/2,1000)
 </code></pre>
 
-<pre><code>0.9999997943832332
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.9999997943832332
+</code></pre></div>
+
 <p>Let's test our function again:</p>
 <p>$$
 \int_0^1 3 x^2 \ dx = 1
@@ -1137,8 +1139,9 @@ $$</p>
 <pre><code class="python">trapz(lambda x : 3*x**2,0,1,10000)
 </code></pre>
 
-<pre><code>1.0000000050000002
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0000000050000002
+</code></pre></div>
+
 <p>And once more:</p>
 <p>$$
 \int_0^1 x \ dx = \frac{1}{2}
@@ -1146,8 +1149,9 @@ $$</p>
 <pre><code class="python">trapz(lambda x : x,0,1,1)
 </code></pre>
 
-<pre><code>0.5
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.5
+</code></pre></div>
+
 <h2 id="scipyintegratetrapz">scipy.integrate.trapz</h2>
 <p>The <a href="https://scipy.org/">SciPy</a> subpackage <a href="https://docs.scipy.org/doc/scipy-0.18.1/reference/integrate.html">scipy.integrate</a> contains several functions for approximating definite integrals and numerically solving differential equations. Let's import the subpackage under the name <code>spi</code>.</p>
 <pre><code class="python">import scipy.integrate as spi
@@ -1184,8 +1188,9 @@ plt.show()
 print(T)
 </code></pre>
 
-<pre><code>1.3731040812301096
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.3731040812301096
+</code></pre></div>
+
 <p>We know the exact value</p>
 <p>$$
 \int_0^5 \frac{1}{1 + x^2} dx = \arctan(5)
@@ -1195,13 +1200,15 @@ $$</p>
 print(I)
 </code></pre>
 
-<pre><code>1.373400766945016
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.373400766945016
+</code></pre></div>
+
 <pre><code class="python">print(&quot;Trapezoid Rule Error:&quot;,np.abs(I - T))
 </code></pre>
 
-<pre><code>Trapezoid Rule Error: 0.00029668571490626405
-</code></pre>
+<div class="highlight"><pre><span></span><code>Trapezoid Rule Error: 0.00029668571490626405
+</code></pre></div>
+
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
 <p>Find a value $N$ which guarantees that the trapezoid rule approximation $T_N(f)$ of the integral</p>
 <p>$$
@@ -1219,15 +1226,17 @@ $$</p>
 <pre><code class="python">10**4/np.sqrt(6)
 </code></pre>
 
-<pre><code>4082.4829046386303
-</code></pre>
+<div class="highlight"><pre><span></span><code>4082.4829046386303
+</code></pre></div>
+
 <p>We need 4083 subintervals to guarantee $E_N^T(f) \leq 10^{-8}$. Compute the approximation using our own implementation of the trapezoid rule:</p>
 <pre><code class="python">approximation = trapz(lambda x : 1/x,1,2,4083)
 print(approximation)
 </code></pre>
 
-<pre><code>0.6931471843089954
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.6931471843089954
+</code></pre></div>
+
 <p>We could also use <code>scipy.integrate.trapz</code> to get the exact same result:</p>
 <pre><code class="python">N = 4083
 x = np.linspace(1,2,N+1)
@@ -1236,14 +1245,16 @@ approximation = spi.trapz(y,x)
 print(approximation)
 </code></pre>
 
-<pre><code>0.6931471843089955
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.6931471843089955
+</code></pre></div>
+
 <p>Let's verify that this is within $10^{-6}$:</p>
 <pre><code class="python">np.abs(approximation - np.log(2)) &lt; 10**(-8)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <p>Success! However, a natural question arises: what is the actual smallest $N$ such that the trapezoid rule gives the estimate of $\ln (2)$ to within $10^{-8}$?</p>
 <pre><code class="python">for n in range(1,4083):
     approx = trapz(lambda x : 1/x,1,2,n)
@@ -1252,8 +1263,9 @@ print(approximation)
         break
 </code></pre>
 
-<pre><code>Accuracy achieved at N = 791
-</code></pre>
+<div class="highlight"><pre><span></span><code>Accuracy achieved at N = 791
+</code></pre></div>
+
 <h3 id="fresnel-integral">Fresnel Integral</h3>
 <p><a href="https://en.wikipedia.org/wiki/Fresnel_integral">Fresnel integrals</a> are examples of <a href="https://en.wikipedia.org/wiki/Nonelementary_integral">nonelementary integrals</a>: antiderivatives which cannot be written in terms of <a href="https://en.wikipedia.org/wiki/Elementary_function">elementary functions</a>. There are two types of Fresnel integrals:</p>
 <p>$$
@@ -1276,14 +1288,16 @@ $$</p>
 2*np.cos(x**2) - 4*x**2*np.sin(x**2)
 </code></pre>
 
-<pre><code>2.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>2.0
+</code></pre></div>
+
 <pre><code class="python">x = 1
 2*np.cos(x**2) - 4*x**2*np.sin(x**2)
 </code></pre>
 
-<pre><code>-2.2852793274953065
-</code></pre>
+<div class="highlight"><pre><span></span><code>-2.2852793274953065
+</code></pre></div>
+
 <p>Therefore $\left| \, f''(x) \, \right| \leq 2.2852793274953065$ for $x \in [0,1]$. Use the error bound formula to find a good choice for $N$</p>
 <p>$$
 \frac{(b-a)^3}{12 N^2} K_2 \leq 10^{-5} \Rightarrow \sqrt{\frac{10^5(2.2852793274953065)}{12}} \leq N
@@ -1291,8 +1305,9 @@ $$</p>
 <pre><code class="python">np.sqrt(10**5 * 2.2852793274953065 / 12)
 </code></pre>
 
-<pre><code>137.9999796949051
-</code></pre>
+<div class="highlight"><pre><span></span><code>137.9999796949051
+</code></pre></div>
+
 <p>Let's compute the integral using the trapezoid rule with $N=138$ subintervals</p>
 <pre><code class="python">x = np.linspace(0,1,139)
 y = np.sin(x**2)
@@ -1300,8 +1315,9 @@ I = spi.trapz(y,x)
 print(I)
 </code></pre>
 
-<pre><code>0.31027303032220394
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.31027303032220394
+</code></pre></div>
+
 <p>Therefore the Fresnel integral $S(1)$ is approximately</p>
 <p>$$
 S(1) = \int_0^1 \sin(x^2) \, dx \approx 0.310273030322
@@ -1335,8 +1351,9 @@ $$</p>
 print(K2)
 </code></pre>
 
-<pre><code>2.021732598829855
-</code></pre>
+<div class="highlight"><pre><span></span><code>2.021732598829855
+</code></pre></div>
+
 <p>Use the error formula:</p>
 <p>$$
 \frac{(b-a)^3}{12 N^2} K_2 \leq 10^{-4} \Rightarrow \frac{8^3}{12 N^2} 2.021732598829855 \leq 10^{-4} \Rightarrow \sqrt{ \frac{8^3 10^4}{12} 2.021732598829855} \leq N
@@ -1344,8 +1361,9 @@ $$</p>
 <pre><code class="python">np.sqrt(8**3 * 10**4 * 2.021732598829855 / 12)
 </code></pre>
 
-<pre><code>928.7657986995814
-</code></pre>
+<div class="highlight"><pre><span></span><code>928.7657986995814
+</code></pre></div>
+
 <p>Compute the trapzoid rule with $N=929$</p>
 <pre><code class="python">N = 929
 x = np.linspace(a,b,N+1)
@@ -1354,8 +1372,9 @@ I = spi.trapz(y,x)
 print(I)
 </code></pre>
 
-<pre><code>5.120442039184057
-</code></pre>
+<div class="highlight"><pre><span></span><code>5.120442039184057
+</code></pre></div>
+
 <p>Therefore the Eulerian logarithmic integral is</p>
 <p>$$
 \mathrm{Li}(10) = \int_2^{10} \frac{1}{\ln x} dx \approx 5.121065367200469

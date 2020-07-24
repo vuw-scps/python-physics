@@ -1053,11 +1053,12 @@ right_riemann_sum = np.sum(f(x_right) * dx)
 print(&quot;Right Riemann Sum:&quot;,right_riemann_sum)
 </code></pre>
 
-<pre><code>Partition with 10 subintervals.
+<div class="highlight"><pre><span></span><code>Partition with 10 subintervals.
 Left Riemann Sum: 1.613488696614725
 Midpoint Riemann Sum: 1.373543428316664
 Right Riemann Sum: 1.1327194658454942
-</code></pre>
+</code></pre></div>
+
 <p>We know the exact value</p>
 <p>$$
 \int_0^5 \frac{1}{1 + x^2} dx = \arctan(5)
@@ -1067,17 +1068,19 @@ $$</p>
 print(I)
 </code></pre>
 
-<pre><code>1.373400766945016
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.373400766945016
+</code></pre></div>
+
 <pre><code class="python">print(&quot;Left Riemann Sum Error:&quot;,np.abs(left_riemann_sum - I))
 print(&quot;Midpoint Riemann Sum:&quot;,np.abs(midpoint_riemann_sum - I))
 print(&quot;Right Riemann Sum:&quot;,np.abs(right_riemann_sum - I))
 </code></pre>
 
-<pre><code>Left Riemann Sum Error: 0.24008792966970915
+<div class="highlight"><pre><span></span><code>Left Riemann Sum Error: 0.24008792966970915
 Midpoint Riemann Sum: 0.00014266137164820059
 Right Riemann Sum: 0.24068130109952168
-</code></pre>
+</code></pre></div>
+
 <h2 id="error-formulas">Error Formulas</h2>
 <p>A Riemann sum is an approximation of a definite integral. A natural question arises: how good of an approximation is a Riemann sum?</p>
 <hr />
@@ -1169,24 +1172,28 @@ $$</p>
 <pre><code class="python">riemann_sum(np.sin,0,np.pi/2,100)
 </code></pre>
 
-<pre><code>1.0000102809119054
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0000102809119054
+</code></pre></div>
+
 <pre><code class="python">riemann_sum(np.sin,0,np.pi/2,100,'right')
 </code></pre>
 
-<pre><code>1.007833419873582
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.007833419873582
+</code></pre></div>
+
 <pre><code class="python">riemann_sum(np.sin,0,np.pi/2,100,'left')
 </code></pre>
 
-<pre><code>0.992125456605633
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.992125456605633
+</code></pre></div>
+
 <p>We also know that $\int_0^1 x \, dx = 1/2$ and midpoint should give the result exactly for any $N$:</p>
 <pre><code class="python">riemann_sum(lambda x : x,0,1,1)
 </code></pre>
 
-<pre><code>0.5
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.5
+</code></pre></div>
+
 <h2 id="examples">Examples</h2>
 <h3 id="approximate-pi">Approximate Pi</h3>
 <p>Find a value $N$ which guarantees the right Riemann sum of $f(x)=\frac{4}{1 + x^2}$ over $[0,1]$ is within $10^{-5}$ of the exact value</p>
@@ -1203,8 +1210,9 @@ y = np.abs(-8*x/(1 + x**2)**2)
 np.max(y)
 </code></pre>
 
-<pre><code>2.5980759093919907
-</code></pre>
+<div class="highlight"><pre><span></span><code>2.5980759093919907
+</code></pre></div>
+
 <p>Therefore, $\left| f'(x) \right| \leq 2.6$ for $x \in [0,1]$. Use the error bound</p>
 <p>$$
 \frac{(b-a)^2}{2 N} K_1 \leq 10^{-5} \ \Rightarrow \ \frac{1.3}{N} \leq 10^{-5} \ \Rightarrow \ 130000 \leq N
@@ -1214,14 +1222,16 @@ $$</p>
 print(approximation)
 </code></pre>
 
-<pre><code>3.1415849612722386
-</code></pre>
+<div class="highlight"><pre><span></span><code>3.1415849612722386
+</code></pre></div>
+
 <p>Verify the accuracy of the approximation</p>
 <pre><code class="python">np.abs(approximation - np.pi) &lt; 10**(-5)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
 <p>Find a value $N$ which guarantees the midpoint Riemann sum of $f(x)=\frac{1}{x}$ over $[1,2]$ is within $10^{-8}$ of the exact value</p>
 <p>$$
@@ -1238,21 +1248,24 @@ $$</p>
 <pre><code class="python">10**4 / np.sqrt(12)
 </code></pre>
 
-<pre><code>2886.751345948129
-</code></pre>
+<div class="highlight"><pre><span></span><code>2886.751345948129
+</code></pre></div>
+
 <p>Therefore a partition of size $N=2887$ guarantees the desired accuracy:</p>
 <pre><code class="python">approximation = riemann_sum(lambda x : 1/x,1,2,2887,method='midpoint')
 print(approximation)
 </code></pre>
 
-<pre><code>0.6931471768105913
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.6931471768105913
+</code></pre></div>
+
 <p>Verify the accuracy of the approximation:</p>
 <pre><code class="python">np.abs(approximation - np.log(2)) &lt; 10**(-8)
 </code></pre>
 
-<pre><code>True
-</code></pre>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>

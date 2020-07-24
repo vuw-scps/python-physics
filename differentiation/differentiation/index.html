@@ -1072,13 +1072,15 @@ $$</p>
 <pre><code class="python">derivative(np.cos,0)
 </code></pre>
 
-<pre><code>0.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.0
+</code></pre></div>
+
 <pre><code class="python">derivative(np.cos,0,method='forward',h=1e-8)
 </code></pre>
 
-<pre><code>0.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.0
+</code></pre></div>
+
 <p>We also know</p>
 <p>$$
 \left. \frac{d}{dx} \left( e^x \right) \, \right|_{x=0} = e^0 = 1
@@ -1087,13 +1089,15 @@ $$</p>
 <pre><code class="python">derivative(np.exp,0,h=0.0001)
 </code></pre>
 
-<pre><code>1.0000000016668897
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0000000016668897
+</code></pre></div>
+
 <pre><code class="python">derivative(np.exp,0,method='backward',h=0.0001)
 </code></pre>
 
-<pre><code>0.9999500016666385
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.9999500016666385
+</code></pre></div>
+
 <p>Notice that our function can take an array of inputs for $a$ and return the derivatives for each $a$ value. For example, we can plot the derivative of $\sin(x)$:</p>
 <pre><code class="python">x = np.linspace(0,5*np.pi,100)
 dydx = derivative(np.sin,x)
@@ -1187,8 +1191,9 @@ $$</p>
 derivative(np.exp,x,dx=0.1)
 </code></pre>
 
-<pre><code>array([ 1.0016675 ,  2.72281456,  7.40137735, 20.11902956, 54.68919246])
-</code></pre>
+<div class="highlight"><pre><span></span><code>array([ 1.0016675 ,  2.72281456,  7.40137735, 20.11902956, 54.68919246])
+</code></pre></div>
+
 <h2 id="higher-order-derivatives">Higher Order Derivatives</h2>
 <p><em>Under construction</em></p>
 <h2 id="examples">Examples</h2>
@@ -1213,8 +1218,9 @@ a3 = derivative(f,0,dx=0.001,n=3,order=5) / 6
 print(a0,a1,a2,a3)
 </code></pre>
 
-<pre><code>3.0 1.9999983891239026e-06 -1.50000037502096 1.9999920608526622
-</code></pre>
+<div class="highlight"><pre><span></span><code>3.0 1.9999983891239026e-06 -1.50000037502096 1.9999920608526622
+</code></pre></div>
+
 <p>Finally, let's plot $f(x)$ and $T_3(x)$ together:</p>
 <pre><code class="python">T3 = a0 + a1*x + a2*x**2 + a3*x**3
 plt.plot(x,y,x,T3), plt.xlim([-3,3]), plt.ylim([0,5]);
@@ -1271,38 +1277,44 @@ def arc_length(f,a,b,h=0.001,N=1000):
 <pre><code class="python">arc_length(lambda x: x,0,1)
 </code></pre>
 
-<pre><code>1.4142135623730958
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.4142135623730958
+</code></pre></div>
+
 <p>and compare with the exact value</p>
 <pre><code class="python">np.sqrt(2)
 </code></pre>
 
-<pre><code>1.4142135623730951
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.4142135623730951
+</code></pre></div>
+
 <p>The arc length of $f(x)=\sqrt{1 - x^2}$ from $a=0$ to $b=\frac{1}{\sqrt{2}}$ is $L=\frac{\pi}{4}$ and we compute</p>
 <pre><code class="python">arc_length(lambda x: np.sqrt(1 - x**2),0,1/np.sqrt(2))
 </code></pre>
 
-<pre><code>0.7853980801486478
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.7853980801486478
+</code></pre></div>
+
 <p>and compare to the exact value</p>
 <pre><code class="python">np.pi/4
 </code></pre>
 
-<pre><code>0.7853981633974483
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.7853981633974483
+</code></pre></div>
+
 <p>The arc length of $f(x)=\frac{2x^{3/2}}{3}$ from $a=0$ to $b=1$ is $L = \frac{2}{3}\left( 2^{3/2} - 1 \right)$ and we compute</p>
 <pre><code class="python">arc_length(lambda x: 2*(x**(3/2))/3,0,1,h=10**(-10),N=10**5)
 </code></pre>
 
-<pre><code>1.2189514473615233
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.2189514473615233
+</code></pre></div>
+
 <p>and compare to the exact value</p>
 <pre><code class="python">(2/3)*(2**(3/2) - 1)
 </code></pre>
 
-<pre><code>1.2189514164974602
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.2189514164974602
+</code></pre></div>
+
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>

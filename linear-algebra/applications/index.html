@@ -1177,28 +1177,31 @@ X = np.column_stack([[1,1,1],x,x**2])
 print(X)
 </code></pre>
 
-<pre><code>[[ 1 -1  1]
+<div class="highlight"><pre><span></span><code>[[ 1 -1  1]
  [ 1  0  0]
  [ 1  1  1]]
-</code></pre>
+</code></pre></div>
+
 <p>Create the vector $\mathbf{y}$ of $y$ values:</p>
 <pre><code class="python">y = np.array([1,0,1]).reshape(3,1)
 print(y)
 </code></pre>
 
-<pre><code>[[1]
+<div class="highlight"><pre><span></span><code>[[1]
  [0]
  [1]]
-</code></pre>
+</code></pre></div>
+
 <p>We expect the solution $\mathbf{a} = [0,0,1]^T$:</p>
 <pre><code class="python">a = la.solve(X,y)
 print(a)
 </code></pre>
 
-<pre><code>[[0.]
+<div class="highlight"><pre><span></span><code>[[0.]
  [0.]
  [1.]]
-</code></pre>
+</code></pre></div>
+
 <p>Success!</p>
 <p><strong>Another Parabola</strong></p>
 <p>The polynomial interpolation of 3 points $(x_0,y_0)$, $(x_1,y_1)$ and $(x_2,y_2)$ is the parabola $p(x) = a_0 + a_1x + a_2x^2$ such that the coefficients satisfy</p>
@@ -1214,28 +1217,31 @@ X = np.column_stack([[1,1,1],x,x**2])
 print(X)
 </code></pre>
 
-<pre><code>[[ 1  0  0]
+<div class="highlight"><pre><span></span><code>[[ 1  0  0]
  [ 1  3  9]
  [ 1  8 64]]
-</code></pre>
+</code></pre></div>
+
 <p>And the vector of $y$ values:</p>
 <pre><code class="python">y = np.array([6,1,2]).reshape(3,1)
 print(y)
 </code></pre>
 
-<pre><code>[[6]
+<div class="highlight"><pre><span></span><code>[[6]
  [1]
  [2]]
-</code></pre>
+</code></pre></div>
+
 <p>Compute the vector $\mathbf{a}$ of coefficients:</p>
 <pre><code class="python">a = la.solve(X,y)
 print(a)
 </code></pre>
 
-<pre><code>[[ 6.        ]
+<div class="highlight"><pre><span></span><code>[[ 6.        ]
  [-2.36666667]
  [ 0.23333333]]
-</code></pre>
+</code></pre></div>
+
 <p>And plot the result:</p>
 <pre><code class="python">xs = np.linspace(0,8,20)
 ys = a[0] + a[1]*xs + a[2]*xs**2
@@ -1259,23 +1265,25 @@ plt.show()
 print(X[:5,:5])
 </code></pre>
 
-<pre><code>[[  1   0   0   0   0]
+<div class="highlight"><pre><span></span><code>[[  1   0   0   0   0]
  [  1   1   1   1   1]
  [  1   2   4   8  16]
  [  1   3   9  27  81]
  [  1   4  16  64 256]]
-</code></pre>
+</code></pre></div>
+
 <p>We could also use the NumPy function <a href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.vander.html"><code>numpy.vander</code></a>. We specify the option <code>increasing=True</code> so that powers of $x_i$ increase left-to-right:</p>
 <pre><code class="python">X = np.vander(x,increasing=True)
 print(X[:5,:5])
 </code></pre>
 
-<pre><code>[[  1   0   0   0   0]
+<div class="highlight"><pre><span></span><code>[[  1   0   0   0   0]
  [  1   1   1   1   1]
  [  1   2   4   8  16]
  [  1   3   9  27  81]
  [  1   4  16  64 256]]
-</code></pre>
+</code></pre></div>
+
 <p>Solve the linear system:</p>
 <pre><code class="python">a = la.solve(X,y)
 </code></pre>
@@ -1377,25 +1385,28 @@ plt.show()
 print(X.shape)
 </code></pre>
 
-<pre><code>(100, 2)
-</code></pre>
+<div class="highlight"><pre><span></span><code>(100, 2)
+</code></pre></div>
+
 <p>Let's look at the first 5 rows of $X$ to see that it is in the correct form:</p>
 <pre><code class="python">X[:5,:]
 </code></pre>
 
-<pre><code>array([[1.        , 0.92365627],
+<div class="highlight"><pre><span></span><code>array([[1.        , 0.92365627],
        [1.        , 0.78757973],
        [1.        , 0.51506055],
        [1.        , 0.51540875],
        [1.        , 0.86563343]])
-</code></pre>
+</code></pre></div>
+
 <p>Use <code>scipy.linalg.solve</code> to solve $\left(X^T X\right)\mathbf{a} = \left(X^T\right)\mathbf{y}$ for $\mathbf{a}$:</p>
 <pre><code class="python">a = la.solve(X.T @ X, X.T @ y)
 print(a)
 </code></pre>
 
-<pre><code>[2.02783873 2.95308228]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[2.02783873 2.95308228]
+</code></pre></div>
+
 <p>We have retrieved the coefficients of the model almost exactly! Let's plot the random data points with the linear regression we just computed.</p>
 <pre><code class="python">xs = np.linspace(0,1,10)
 ys = a[0] + a[1]*xs
@@ -1437,8 +1448,9 @@ points = np.array([35.4,31.6,28.3,26.8,27,25.3,27.9,27.3,22.3,17.6])
 print(avg_games_per_year)
 </code></pre>
 
-<pre><code>71.3
-</code></pre>
+<div class="highlight"><pre><span></span><code>71.3
+</code></pre></div>
+
 <p>Compute the linear model for points per game:</p>
 <pre><code class="python">X = np.column_stack([np.ones(len(years)),years])
 a = la.solve(X.T @ X, X.T @ points)
@@ -1567,12 +1579,13 @@ nx.draw(G,with_labels=True)
 print(A)
 </code></pre>
 
-<pre><code>[[0 1 1 1 1]
+<div class="highlight"><pre><span></span><code>[[0 1 1 1 1]
  [1 0 1 1 1]
  [1 1 0 1 1]
  [1 1 1 0 1]
  [1 1 1 1 0]]
-</code></pre>
+</code></pre></div>
+
 <h3 id="length-of-the-shortest-path">Length of the Shortest Path</h3>
 <p>The length of the <a href="https://en.wikipedia.org/wiki/Shortest_path_problem">shortest path</a> between vertices in a simple, undirected graph $G$ can be easily computed from the adjacency matrix $A_G$. In particular, the length of shortest path from vertex $i$ to vertex $j$ ($i\not=j$) is the smallest positive integer $k$ such that $A^k_{i,j} \not= 0$.</p>
 <p>Plot the <a href="https://en.wikipedia.org/wiki/Regular_dodecahedron#Dodecahedral_graph">dodecahedral graph</a>:</p>
@@ -1585,7 +1598,7 @@ nx.draw(G,with_labels=True)
 print(A)
 </code></pre>
 
-<pre><code>[[0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1]
+<div class="highlight"><pre><span></span><code>[[0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1]
  [1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
  [0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
  [0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]
@@ -1605,7 +1618,8 @@ print(A)
  [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0]
  [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1]
  [1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]]
-</code></pre>
+</code></pre></div>
+
 <p>With this labelling, let's find the length of the shortest path from vertex $0$ to $15$:</p>
 <pre><code class="python">i = 0
 j = 15
@@ -1617,8 +1631,9 @@ while Ak[i,j] == 0:
 print('Length of the shortest path is',k)
 </code></pre>
 
-<pre><code>Length of the shortest path is 5
-</code></pre>
+<div class="highlight"><pre><span></span><code>Length of the shortest path is 5
+</code></pre></div>
+
 <h3 id="triangles-in-a-graph">Triangles in a Graph</h3>
 <p>A simple result in spectral graph theory is the number of <a href="https://en.wikipedia.org/wiki/Adjacency_matrix#Matrix_powers">triangles</a> in a graph $T(G)$ is given by:</p>
 <p>$$
@@ -1636,8 +1651,9 @@ eigvals, eigvecs = la.eig(A3)
 int(np.round(np.sum(eigvals.real**3)/6,0))
 </code></pre>
 
-<pre><code>1
-</code></pre>
+<div class="highlight"><pre><span></span><code>1
+</code></pre></div>
+
 <p>Let's compute the number of triangles in the complete graph 7 vertices:</p>
 <pre><code class="python">C7 = nx.complete_graph(7)
 nx.draw(C7,with_labels=True)
@@ -1649,8 +1665,9 @@ eigvals, eigvecs = la.eig(A7)
 int(np.round(np.sum(eigvals.real**3)/6,0))
 </code></pre>
 
-<pre><code>35
-</code></pre>
+<div class="highlight"><pre><span></span><code>35
+</code></pre></div>
+
 <p>There are 35 triangles in the complete graph with 7 vertices!</p>
 <p>Let's write a function called <code>triangles</code> which takes a square matrix <code>M</code> and return the sum</p>
 <p>$$
@@ -1674,7 +1691,7 @@ nx.draw(G,with_labels=True)
 print(A)
 </code></pre>
 
-<pre><code>[[0 0 1 1 1 1 1 1 1 1]
+<div class="highlight"><pre><span></span><code>[[0 0 1 1 1 1 1 1 1 1]
  [0 0 1 1 1 1 1 1 1 1]
  [1 1 0 0 1 1 1 1 1 1]
  [1 1 0 0 1 1 1 1 1 1]
@@ -1684,13 +1701,15 @@ print(A)
  [1 1 1 1 1 1 0 0 1 1]
  [1 1 1 1 1 1 1 1 0 0]
  [1 1 1 1 1 1 1 1 0 0]]
-</code></pre>
+</code></pre></div>
+
 <p>Find the number of triangles:</p>
 <pre><code class="python">triangles(A)
 </code></pre>
 
-<pre><code>80
-</code></pre>
+<div class="highlight"><pre><span></span><code>80
+</code></pre></div>
+
 <p>Finally, let's compute the number of triangles in the dodecahedral graph:</p>
 <pre><code class="python">G = nx.dodecahedral_graph()
 nx.draw(G,with_labels=True)
@@ -1701,7 +1720,7 @@ nx.draw(G,with_labels=True)
 print(A)
 </code></pre>
 
-<pre><code>[[0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1]
+<div class="highlight"><pre><span></span><code>[[0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1]
  [1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
  [0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
  [0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]
@@ -1721,12 +1740,14 @@ print(A)
  [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0]
  [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1]
  [1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">np.round(triangles(A),2)
 </code></pre>
 
-<pre><code>0
-</code></pre>
+<div class="highlight"><pre><span></span><code>0
+</code></pre></div>
+
 <h2 id="exercises">Exercises</h2>
 <p><em>Under Construction</em></p>
                 

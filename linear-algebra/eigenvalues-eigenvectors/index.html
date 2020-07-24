@@ -989,9 +989,10 @@ $$</p>
 print(A)
 </code></pre>
 
-<pre><code>[[ 1  0]
+<div class="highlight"><pre><span></span><code>[[ 1  0]
  [ 0 -2]]
-</code></pre>
+</code></pre></div>
+
 <p>The function <code>la.eig</code> returns a tuple <code>(eigvals,eigvecs)</code> where <code>eigvals</code> is a 1D NumPy array of complex numbers giving the eigenvalues of $A$, and <code>eigvecs</code> is a 2D NumPy array with the corresponding eigenvectors in the columns:</p>
 <pre><code class="python">results = la.eig(A)
 </code></pre>
@@ -1000,61 +1001,70 @@ print(A)
 <pre><code class="python">print(results[0])
 </code></pre>
 
-<pre><code>[ 1.+0.j -2.+0.j]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[ 1.+0.j -2.+0.j]
+</code></pre></div>
+
 <p>The corresponding eigenvectors are:</p>
 <pre><code class="python">print(results[1])
 </code></pre>
 
-<pre><code>[[1. 0.]
+<div class="highlight"><pre><span></span><code>[[1. 0.]
  [0. 1.]]
-</code></pre>
+</code></pre></div>
+
 <p>We can <a href="../../python/sequences/#unpacking-a-sequence">unpack the tuple</a>:</p>
 <pre><code class="python">eigvals, eigvecs = la.eig(A)
 print(eigvals)
 </code></pre>
 
-<pre><code>[ 1.+0.j -2.+0.j]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[ 1.+0.j -2.+0.j]
+</code></pre></div>
+
 <pre><code class="python">print(eigvecs)
 </code></pre>
 
-<pre><code>[[1. 0.]
+<div class="highlight"><pre><span></span><code>[[1. 0.]
  [0. 1.]]
-</code></pre>
+</code></pre></div>
+
 <p>If we know that the eigenvalues are real numbers (ie. if $A$ is symmetric), then we can use the NumPy array method <code>.real</code> to convert the array of eigenvalues to real numbers:</p>
 <pre><code class="python">eigvals = eigvals.real
 print(eigvals)
 </code></pre>
 
-<pre><code>[ 1. -2.]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[ 1. -2.]
+</code></pre></div>
+
 <p>Notice that the position of an eigenvalue in the array <code>eigvals</code> correspond to the column in <code>eigvecs</code> with its eigenvector:</p>
 <pre><code class="python">lambda1 = eigvals[1]
 print(lambda1)
 </code></pre>
 
-<pre><code>-2.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>-2.0
+</code></pre></div>
+
 <pre><code class="python">v1 = eigvecs[:,1].reshape(2,1)
 print(v1)
 </code></pre>
 
-<pre><code>[[0.]
+<div class="highlight"><pre><span></span><code>[[0.]
  [1.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A @ v1
 </code></pre>
 
-<pre><code>array([[ 0.],
+<div class="highlight"><pre><span></span><code>array([[ 0.],
        [-2.]])
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">lambda1 * v1
 </code></pre>
 
-<pre><code>array([[-0.],
+<div class="highlight"><pre><span></span><code>array([[-0.],
        [-2.]])
-</code></pre>
+</code></pre></div>
+
 <h2 id="examples">Examples</h2>
 <h3 id="symmetric-matrices">Symmetric Matrices</h3>
 <p>The eigenvalues of a <a href="https://en.wikipedia.org/wiki/Symmetric_matrix">symmetric matrix</a> are always real and the eigenvectors are always orthogonal! Let's verify these facts with some random matrices:</p>
@@ -1063,62 +1073,70 @@ P = np.random.randint(0,10,(n,n))
 print(P)
 </code></pre>
 
-<pre><code>[[7 0 6 2]
+<div class="highlight"><pre><span></span><code>[[7 0 6 2]
  [9 5 1 3]
  [0 2 2 5]
  [6 8 8 6]]
-</code></pre>
+</code></pre></div>
+
 <p>Create the symmetric matrix $S = P P^T$:</p>
 <pre><code class="python">S = P @ P.T
 print(S)
 </code></pre>
 
-<pre><code>[[ 89  75  22 102]
+<div class="highlight"><pre><span></span><code>[[ 89  75  22 102]
  [ 75 116  27 120]
  [ 22  27  33  62]
  [102 120  62 200]]
-</code></pre>
+</code></pre></div>
+
 <p>Let's unpack the eigenvalues and eigenvectors of $S$:</p>
 <pre><code class="python">evals, evecs = la.eig(S)
 print(evals)
 </code></pre>
 
-<pre><code>[361.75382302+0.j  42.74593101+0.j  26.33718907+0.j   7.16305691+0.j]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[361.75382302+0.j  42.74593101+0.j  26.33718907+0.j   7.16305691+0.j]
+</code></pre></div>
+
 <p>The eigenvalues all have zero imaginary part and so they are indeed real numbers:</p>
 <pre><code class="python">evals = evals.real
 print(evals)
 </code></pre>
 
-<pre><code>[361.75382302  42.74593101  26.33718907   7.16305691]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[361.75382302  42.74593101  26.33718907   7.16305691]
+</code></pre></div>
+
 <p>The corresponding eigenvectors of $A$ are:</p>
 <pre><code class="python">print(evecs)
 </code></pre>
 
-<pre><code>[[-0.42552429 -0.42476765  0.76464379 -0.23199439]
+<div class="highlight"><pre><span></span><code>[[-0.42552429 -0.42476765  0.76464379 -0.23199439]
  [-0.50507589 -0.54267519 -0.64193252 -0.19576676]
  [-0.20612674  0.54869183 -0.05515612 -0.80833585]
  [-0.72203822  0.4733005   0.01415338  0.50442752]]
-</code></pre>
+</code></pre></div>
+
 <p>Let's check that the eigenvectors are orthogonal to each other:</p>
 <pre><code class="python">v1 = evecs[:,0] # First column is the first eigenvector
 print(v1)
 </code></pre>
 
-<pre><code>[-0.42552429 -0.50507589 -0.20612674 -0.72203822]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[-0.42552429 -0.50507589 -0.20612674 -0.72203822]
+</code></pre></div>
+
 <pre><code class="python">v2 = evecs[:,1] # Second column is the second eigenvector
 print(v2)
 </code></pre>
 
-<pre><code>[-0.42476765 -0.54267519  0.54869183  0.4733005 ]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[-0.42476765 -0.54267519  0.54869183  0.4733005 ]
+</code></pre></div>
+
 <pre><code class="python">v1 @ v2
 </code></pre>
 
-<pre><code>-1.1102230246251565e-16
-</code></pre>
+<div class="highlight"><pre><span></span><code>-1.1102230246251565e-16
+</code></pre></div>
+
 <p>The dot product of eigenvectors $\mathbf{v}_1$ and $\mathbf{v}_2$ is zero (the number above is <em>very</em> close to zero and is due to rounding errors in the computations) and so they are orthogonal!</p>
 <h3 id="diagonalization">Diagonalization</h3>
 <p>A square matrix $M$ is <a href="https://en.wikipedia.org/wiki/Diagonalizable_matrix">diagonalizable</a> if it is similar to a diagonal matrix. In other words, $M$ is diagonalizable if there exists an invertible matrix $P$ such that $D = P^{-1}MP$ is a diagonal matrix.</p>
@@ -1128,37 +1146,42 @@ print(v2)
 print(P)
 </code></pre>
 
-<pre><code>[[ 1  1]
+<div class="highlight"><pre><span></span><code>[[ 1  1]
  [ 1 -1]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">D = np.diag((3,1))
 print(D)
 </code></pre>
 
-<pre><code>[[3 0]
+<div class="highlight"><pre><span></span><code>[[3 0]
  [0 1]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M = P @ D @ la.inv(P)
 print(M)
 </code></pre>
 
-<pre><code>[[2. 1.]
+<div class="highlight"><pre><span></span><code>[[2. 1.]
  [1. 2.]]
-</code></pre>
+</code></pre></div>
+
 <p>Let's verify that the eigenvalues of $M$ are 3 and 1:</p>
 <pre><code class="python">evals, evecs = la.eig(M)
 print(evals)
 </code></pre>
 
-<pre><code>[3.+0.j 1.+0.j]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[3.+0.j 1.+0.j]
+</code></pre></div>
+
 <p>Verify the eigenvectors:</p>
 <pre><code class="python">print(evecs)
 </code></pre>
 
-<pre><code>[[ 0.70710678 -0.70710678]
+<div class="highlight"><pre><span></span><code>[[ 0.70710678 -0.70710678]
  [ 0.70710678  0.70710678]]
-</code></pre>
+</code></pre></div>
+
 <h3 id="matrix-powers">Matrix Powers</h3>
 <p>Let $M$ be a square matrix. Computing powers of $M$ by matrix multiplication</p>
 <p>$$
@@ -1181,15 +1204,17 @@ for _ in range(1,k):
     result = result @ M
 </code></pre>
 
-<pre><code>42.1 µs ± 11.4 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-</code></pre>
+<div class="highlight"><pre><span></span><code>42.1 µs ± 11.4 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</code></pre></div>
+
 <p>Let's use diagonalization to do the same computation.</p>
 <pre><code class="python">%%timeit
 P @ D**k @ Pinv
 </code></pre>
 
-<pre><code>6.42 µs ± 1.36 µs per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-</code></pre>
+<div class="highlight"><pre><span></span><code>6.42 µs ± 1.36 µs per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</code></pre></div>
+
 <p>Diagonalization computes $M^{k}$ much faster!</p>
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em></p>

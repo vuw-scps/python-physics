@@ -1094,89 +1094,101 @@
 print(pi)
 </code></pre>
 
-<pre><code>3.14159
-</code></pre>
+<div class="highlight"><pre><span></span><code>3.14159
+</code></pre></div>
+
 <p>Use the function <code>type()</code> to see the datatype of a value:</p>
 <pre><code class="python">type(pi)
 </code></pre>
 
-<pre><code>float
-</code></pre>
+<div class="highlight"><pre><span></span><code>float
+</code></pre></div>
+
 <p>Use the function <code>abs()</code> to compute the absolute value of a real number:</p>
 <pre><code class="python">x = -2019
 abs(x)
 </code></pre>
 
-<pre><code>2019
-</code></pre>
+<div class="highlight"><pre><span></span><code>2019
+</code></pre></div>
+
 <p>Or compute the magnitude of a complex number:</p>
 <pre><code class="python">z = 3 - 4j
 abs(z)
 </code></pre>
 
-<pre><code>5.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>5.0
+</code></pre></div>
+
 <p>Use the function <code>int()</code> to truncate a float into an int:</p>
 <pre><code class="python">pi = 3.14159
 int(pi)
 </code></pre>
 
-<pre><code>3
-</code></pre>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div>
+
 <p>The function truncates floats always towards 0:</p>
 <pre><code class="python">c = -1.2345
 int(c)
 </code></pre>
 
-<pre><code>-1
-</code></pre>
+<div class="highlight"><pre><span></span><code>-1
+</code></pre></div>
+
 <p>Use the function <code>len()</code> to compute the length of a sequence:</p>
 <pre><code class="python">primes = [2,3,5,7,11,13,17,19,23,29,31,37,41]
 len(primes)
 </code></pre>
 
-<pre><code>13
-</code></pre>
+<div class="highlight"><pre><span></span><code>13
+</code></pre></div>
+
 <p>Use the function <code>sum()</code> to compute the sum of a sequence:</p>
 <pre><code class="python">one_to_hundred = range(1,101)
 sum(one_to_hundred)
 </code></pre>
 
-<pre><code>5050
-</code></pre>
+<div class="highlight"><pre><span></span><code>5050
+</code></pre></div>
+
 <p>Use the functions <code>max()</code> and <code>min()</code> to compute the maximum and minimum values in a sequence.</p>
 <pre><code class="python">random = [8,27,3,7,6,14,28,19]
 print(max(random))
 print(min(random))
 </code></pre>
 
-<pre><code>28
+<div class="highlight"><pre><span></span><code>28
 3
-</code></pre>
+</code></pre></div>
+
 <p>Use the function <code>list()</code> to convert a sequence (such as a range or a tuple) into a list:</p>
 <pre><code class="python">list(range(0,10,2))
 </code></pre>
 
-<pre><code>[0, 2, 4, 6, 8]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[0, 2, 4, 6, 8]
+</code></pre></div>
+
 <p>Use the function <code>sorted()</code> to sort a sequence:</p>
 <pre><code class="python">sorted_random = sorted(random)
 print(random)
 print(sorted_random)
 </code></pre>
 
-<pre><code>[8, 27, 3, 7, 6, 14, 28, 19]
+<div class="highlight"><pre><span></span><code>[8, 27, 3, 7, 6, 14, 28, 19]
 [3, 6, 7, 8, 14, 19, 27, 28]
-</code></pre>
+</code></pre></div>
+
 <p>Use the function <code>reversed()</code> to reverse the order of a sequence:</p>
 <pre><code class="python">reversed_random = list(reversed(random))
 print(random)
 print(reversed_random)
 </code></pre>
 
-<pre><code>[8, 27, 3, 7, 6, 14, 28, 19]
+<div class="highlight"><pre><span></span><code>[8, 27, 3, 7, 6, 14, 28, 19]
 [19, 28, 14, 6, 7, 3, 27, 8]
-</code></pre>
+</code></pre></div>
+
 <p>Use the function <code>enumerate()</code> to enumerate a sequence:</p>
 <pre><code class="python">squares = [n**2 for n in range(0,6)]
 print(squares)
@@ -1184,9 +1196,10 @@ enum_squares = list(enumerate(squares))
 print(enum_squares)
 </code></pre>
 
-<pre><code>[0, 1, 4, 9, 16, 25]
+<div class="highlight"><pre><span></span><code>[0, 1, 4, 9, 16, 25]
 [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
-</code></pre>
+</code></pre></div>
+
 <p>Use the function <code>zip()</code> to combine sequences into a list of pairs:</p>
 <pre><code class="python">random_1 = [-2,4,0,5]
 random_2 = [7,-1,9,3]
@@ -1194,8 +1207,9 @@ random_zip = list(zip(random_1,random_2))
 print(random_zip)
 </code></pre>
 
-<pre><code>[(-2, 7), (4, -1), (0, 9), (5, 3)]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[(-2, 7), (4, -1), (0, 9), (5, 3)]
+</code></pre></div>
+
 <p>Notice in the last three examples <code>reversed()</code>, <code>enumerate()</code> and <code>zip()</code> we use the function <code>list()</code> to create a list from the output of each function. This is because these functions return <em>iterator</em> objects (similar to range objects) which only yield values when explicitly told to do so.</p>
 <h2 id="defining-functions">Defining Functions</h2>
 <p>Let's begin with a simple example. Define a function which returns the average of a sequence of numbers:</p>
@@ -1222,8 +1236,9 @@ print(random_zip)
 <pre><code class="python">average([1,2,3,4])
 </code></pre>
 
-<pre><code>2.5
-</code></pre>
+<div class="highlight"><pre><span></span><code>2.5
+</code></pre></div>
+
 <p>The function returns the expected value. Success!</p>
 <h2 id="documentation-strings">Documentation Strings</h2>
 <p>The first line after the <code>def</code> statement in a function definition should be a <a href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">documentation string</a> (or docstring). A docstring is text (enclosed in double quotes <code>" ... "</code> or triple quotes <code>''' ... '''</code>) which describes your function. Use triple quotes for a multiline docstring. See the <a href="https://www.python.org/dev/peps/pep-0257/">Python documentation</a> for all the conventions related to documentation strings.</p>
@@ -1275,13 +1290,15 @@ print(random_zip)
 <pre><code class="python">poly(1,2)
 </code></pre>
 
-<pre><code>5
-</code></pre>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div>
+
 <pre><code class="python">poly(2,1)
 </code></pre>
 
-<pre><code>3
-</code></pre>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div>
+
 <p>A <a href="https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments">keyword argument</a> allows us to insert default values for some parameters and we call them by name and the order doesn't matter.</p>
 <pre><code class="python">def greeting(first_name,last_name,salutation='Hello, '):
     return &quot;{0}{1} {2}!&quot;.format(salutation, first_name, last_name)
@@ -1290,18 +1307,21 @@ print(random_zip)
 <pre><code class="python">greeting('Patrick','Walls')
 </code></pre>
 
-<pre><code>'Hello, Patrick Walls!'
-</code></pre>
+<div class="highlight"><pre><span></span><code>&#39;Hello, Patrick Walls!&#39;
+</code></pre></div>
+
 <pre><code class="python">greeting('Walls','Patrick')
 </code></pre>
 
-<pre><code>'Hello, Walls Patrick!'
-</code></pre>
+<div class="highlight"><pre><span></span><code>&#39;Hello, Walls Patrick!&#39;
+</code></pre></div>
+
 <pre><code class="python">greeting('LeBron','James',salutation='I love you ')
 </code></pre>
 
-<pre><code>'I love you LeBron James!'
-</code></pre>
+<div class="highlight"><pre><span></span><code>&#39;I love you LeBron James!&#39;
+</code></pre></div>
+
 <p>In this function, <code>first_name</code> and <code>last_name</code> are positional arguments and <code>saluation</code> is a keyword argument.</p>
 <p>For example, the function <code>pandas.read_csv</code> in the <code>pandas</code> package has <em>many</em> keyword arguments:</p>
 <pre><code class="python">import pandas as pd
@@ -1376,14 +1396,16 @@ $$</p>
 <pre><code class="python">area_triangle([(0,0),(0,1),(1,0)])
 </code></pre>
 
-<pre><code>0.49999999999999983
-</code></pre>
+<div class="highlight"><pre><span></span><code>0.49999999999999983
+</code></pre></div>
+
 <p>Let's test again on another triangle with base $b=3$ and height $h=4$ and therefore its area is $A=3(4)/2=6$.</p>
 <pre><code class="python">area_triangle([(0,0),(3,0),(1,4)])
 </code></pre>
 
-<pre><code>6.000000000000003
-</code></pre>
+<div class="highlight"><pre><span></span><code>6.000000000000003
+</code></pre></div>
+
 <p>The function <code>area_triangle</code> returns the expected values. Success!</p>
 <h3 id="riemann-zeta-function">Riemann Zeta Function</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite sum</p>
@@ -1405,13 +1427,15 @@ $$</p>
 <pre><code class="python">zeta(1,1)
 </code></pre>
 
-<pre><code>1.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0
+</code></pre></div>
+
 <pre><code class="python">zeta(2,2)
 </code></pre>
 
-<pre><code>1.25
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.25
+</code></pre></div>
+
 <p>Now let's use our function to approximate <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Specific_values">special values of the Riemann zeta function</a>:</p>
 <p>$$
 \zeta(2) = \frac{\pi^2}{6} \hspace{10mm} \text{and} \hspace{10mm} \zeta(4) = \frac{\pi^4}{90}
@@ -1420,26 +1444,30 @@ $$</p>
 <pre><code class="python">zeta(2,100000)
 </code></pre>
 
-<pre><code>1.6449240668982423
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.6449240668982423
+</code></pre></div>
+
 <p>Compare to an approximation of the special value $\pi^2/6$:</p>
 <pre><code class="python">3.14159265**2/6
 </code></pre>
 
-<pre><code>1.6449340630890041
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.6449340630890041
+</code></pre></div>
+
 <p>Compute the partial sum for $s=4$ and $N=100000$:</p>
 <pre><code class="python">zeta(4,100000)
 </code></pre>
 
-<pre><code>1.082323233710861
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.082323233710861
+</code></pre></div>
+
 <p>Compare to an approximation of the special value $\pi^4/90$:</p>
 <pre><code class="python">3.14159265**4/90
 </code></pre>
 
-<pre><code>1.0823232287641997
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0823232287641997
+</code></pre></div>
+
 <h3 id="harmonic-mean">Harmonic Mean</h3>
 <p>Write a function called <code>harmonic_mean</code> which takes an input parameter <code>s</code>, a list of numbers $x_1, \dots, x_n$ of length $n$, and returns the <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of the sequence:</p>
 <p>$$
@@ -1457,13 +1485,15 @@ $$</p>
 <pre><code class="python">harmonic_mean([1,1,1,1])
 </code></pre>
 
-<pre><code>1.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.0
+</code></pre></div>
+
 <pre><code class="python">harmonic_mean([1,2,3])
 </code></pre>
 
-<pre><code>1.6363636363636365
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.6363636363636365
+</code></pre></div>
+
 <h3 id="riemann-sums">Riemann Sums</h3>
 <p>Write a function called <code>mn_integral</code> which takes input parameters <code>m</code>, <code>n</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns the (right) <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a>:
 $$
@@ -1523,13 +1553,15 @@ $$</p>
 <pre><code class="python">mn_integral(0,1,0,1,2)
 </code></pre>
 
-<pre><code>1.1666666666666665
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.1666666666666665
+</code></pre></div>
+
 <pre><code class="python">7/6
 </code></pre>
 
-<pre><code>1.1666666666666667
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.1666666666666667
+</code></pre></div>
+
 <p>Let's test our function on another example. Let $m=1$, $n=2$, $a=0$, and $b=1$. We can solve this integral exactly:</p>
 <p>$$
 \begin{aligned}
@@ -1542,14 +1574,16 @@ $$</p>
 <pre><code class="python">mn_integral(1,2,0,1,100000)
 </code></pre>
 
-<pre><code>1.1319717536649336
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.1319717536649336
+</code></pre></div>
+
 <p>Since $\pi \approx 3.14159265$ and $\ln(2) \approx 0.69314718$, we compare to the approximation:</p>
 <pre><code class="python">0.5*0.69314718 + 3.14159265/4
 </code></pre>
 
-<pre><code>1.1319717525000002
-</code></pre>
+<div class="highlight"><pre><span></span><code>1.1319717525000002
+</code></pre></div>
+
 <p>Our function computes the expected values!</p>
 <h2 id="exercises">Exercises</h2>
 <ol>

@@ -1098,25 +1098,28 @@ $$</p>
 print(A)
 </code></pre>
 
-<pre><code>[[ 1  1  2]
+<div class="highlight"><pre><span></span><code>[[ 1  1  2]
  [-1  3  1]
  [ 0  5  2]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">E1 = np.array([[1,0,3],[0,1,0],[0,0,1]])
 print(E1)
 </code></pre>
 
-<pre><code>[[1 0 3]
+<div class="highlight"><pre><span></span><code>[[1 0 3]
  [0 1 0]
  [0 0 1]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">E1 @ A
 </code></pre>
 
-<pre><code>array([[ 1, 16,  8],
+<div class="highlight"><pre><span></span><code>array([[ 1, 16,  8],
        [-1,  3,  1],
        [ 0,  5,  2]])
-</code></pre>
+</code></pre></div>
+
 <p>To multiply $k$ times row $i$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except the $,i,j$ entry is $E_{i,i} = k$. For example, if $A$ is 3 by 3 and we want to multiply row 1 by -2 then</p>
 <p>$$
 E_2 = \begin{bmatrix}
@@ -1130,17 +1133,19 @@ $$</p>
 print(E2)
 </code></pre>
 
-<pre><code>[[ 1  0  0]
+<div class="highlight"><pre><span></span><code>[[ 1  0  0]
  [ 0 -2  0]
  [ 0  0  1]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">E2 @ A
 </code></pre>
 
-<pre><code>array([[ 1,  1,  2],
+<div class="highlight"><pre><span></span><code>array([[ 1,  1,  2],
        [ 2, -6, -2],
        [ 0,  5,  2]])
-</code></pre>
+</code></pre></div>
+
 <p>Finally, to switch row $i$ and row $j$ in a matrix $A$, we multiply $A$ by the matrix $E$ where $E$ is equal to the identity matrix except $E_{i,i} = 0$, $E_{j,j} = 0$, $E_{i,j} = 1$ and $E_{j,i} = 1$. For example, if $A$ is 3 by 3 and we want to switch row 1 and row 2 then</p>
 <p>$$
 E^3 = \begin{bmatrix}
@@ -1154,17 +1159,19 @@ $$</p>
 print(E3)
 </code></pre>
 
-<pre><code>[[1 0 0]
+<div class="highlight"><pre><span></span><code>[[1 0 0]
  [0 0 1]
  [0 1 0]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">E3 @ A
 </code></pre>
 
-<pre><code>array([[ 1,  1,  2],
+<div class="highlight"><pre><span></span><code>array([[ 1,  1,  2],
        [ 0,  5,  2],
        [-1,  3,  1]])
-</code></pre>
+</code></pre></div>
+
 <h3 id="implementation">Implementation</h3>
 <p>Let's write function to implement the elementary row operations. First of all, let's write a function called <code>add_rows</code> which takes input parameters $A$, $k$, $i$ and $j$ and returns the NumPy array resulting from adding $k$ times row $j$ to row $i$ in the matrix $A$. If $i=j$, then let's say that the function scales row $i$ by $k+1$ since this would be the result of $k$ times row $i$ added to row $i$.</p>
 <pre><code class="python">def add_row(A,k,i,j):
@@ -1183,21 +1190,24 @@ print(E3)
 print(M)
 </code></pre>
 
-<pre><code>[[1 1]
+<div class="highlight"><pre><span></span><code>[[1 1]
  [3 2]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">add_row(M,2,0,1)
 </code></pre>
 
-<pre><code>array([[7., 5.],
+<div class="highlight"><pre><span></span><code>array([[7., 5.],
        [3., 2.]])
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">add_row(M,3,1,1)
 </code></pre>
 
-<pre><code>array([[ 1.,  1.],
+<div class="highlight"><pre><span></span><code>array([[ 1.,  1.],
        [12.,  8.]])
-</code></pre>
+</code></pre></div>
+
 <p>Let's write a function called <code>scale_row</code> which takes 3 input parameters $A$, $k$, and $i$ and returns the matrix that results from $k$ times row $i$ in the matrix $A$.</p>
 <pre><code class="python">def scale_row(A,k,i):
     &quot;Multiply row i by k in matrix A.&quot;
@@ -1211,28 +1221,32 @@ print(M)
 print(M)
 </code></pre>
 
-<pre><code>[[ 3  1]
+<div class="highlight"><pre><span></span><code>[[ 3  1]
  [-2  7]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">scale_row(M,3,1)
 </code></pre>
 
-<pre><code>array([[ 3.,  1.],
+<div class="highlight"><pre><span></span><code>array([[ 3.,  1.],
        [-6., 21.]])
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A = np.array([[1,1,1],[1,-1,0]])
 print(A)
 </code></pre>
 
-<pre><code>[[ 1  1  1]
+<div class="highlight"><pre><span></span><code>[[ 1  1  1]
  [ 1 -1  0]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">scale_row(A,5,1)
 </code></pre>
 
-<pre><code>array([[ 1.,  1.,  1.],
+<div class="highlight"><pre><span></span><code>array([[ 1.,  1.,  1.],
        [ 5., -5.,  0.]])
-</code></pre>
+</code></pre></div>
+
 <p>Let's write a function called <code>switch_rows</code> which takes 3 input parameters $A$, $i$ and $j$ and returns the matrix that results from switching rows $i$ and $j$ in the matrix $A$.</p>
 <pre><code class="python">def switch_rows(A,i,j):
     &quot;Switch rows i and j in matrix A.&quot;
@@ -1249,15 +1263,17 @@ print(A)
 print(A)
 </code></pre>
 
-<pre><code>[[ 1  1  1]
+<div class="highlight"><pre><span></span><code>[[ 1  1  1]
  [ 1 -1  0]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">switch_rows(A,0,1)
 </code></pre>
 
-<pre><code>array([[ 1., -1.,  0.],
+<div class="highlight"><pre><span></span><code>array([[ 1., -1.,  0.],
        [ 1.,  1.,  1.]])
-</code></pre>
+</code></pre></div>
+
 <h2 id="examples">Examples</h2>
 <h3 id="find-the-inverse">Find the Inverse</h3>
 <p>Let's apply our functions to the augmented matrix $[M \ | \ I]$ to find the inverse of the matrix $M$:</p>
@@ -1265,241 +1281,270 @@ print(A)
 print(M)
 </code></pre>
 
-<pre><code>[[ 5  4  2]
+<div class="highlight"><pre><span></span><code>[[ 5  4  2]
  [-1  2  1]
  [ 1  1  1]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A = np.hstack([M,np.eye(3)])
 print(A)
 </code></pre>
 
-<pre><code>[[ 5.  4.  2.  1.  0.  0.]
+<div class="highlight"><pre><span></span><code>[[ 5.  4.  2.  1.  0.  0.]
  [-1.  2.  1.  0.  1.  0.]
  [ 1.  1.  1.  0.  0.  1.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A1 = switch_rows(A,0,2)
 print(A1)
 </code></pre>
 
-<pre><code>[[ 1.  1.  1.  0.  0.  1.]
+<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
  [-1.  2.  1.  0.  1.  0.]
  [ 5.  4.  2.  1.  0.  0.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A2 = add_row(A1,1,1,0)
 print(A2)
 </code></pre>
 
-<pre><code>[[1. 1. 1. 0. 0. 1.]
+<div class="highlight"><pre><span></span><code>[[1. 1. 1. 0. 0. 1.]
  [0. 3. 2. 0. 1. 1.]
  [5. 4. 2. 1. 0. 0.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A3 = add_row(A2,-5,2,0)
 print(A3)
 </code></pre>
 
-<pre><code>[[ 1.  1.  1.  0.  0.  1.]
+<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
  [ 0.  3.  2.  0.  1.  1.]
  [ 0. -1. -3.  1.  0. -5.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A4 = switch_rows(A3,1,2)
 print(A4)
 </code></pre>
 
-<pre><code>[[ 1.  1.  1.  0.  0.  1.]
+<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
  [ 0. -1. -3.  1.  0. -5.]
  [ 0.  3.  2.  0.  1.  1.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A5 = scale_row(A4,-1,1)
 print(A5)
 </code></pre>
 
-<pre><code>[[ 1.  1.  1.  0.  0.  1.]
+<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
  [ 0.  1.  3. -1.  0.  5.]
  [ 0.  3.  2.  0.  1.  1.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A6 = add_row(A5,-3,2,1)
 print(A6)
 </code></pre>
 
-<pre><code>[[  1.   1.   1.   0.   0.   1.]
+<div class="highlight"><pre><span></span><code>[[  1.   1.   1.   0.   0.   1.]
  [  0.   1.   3.  -1.   0.   5.]
  [  0.   0.  -7.   3.   1. -14.]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A7 = scale_row(A6,-1/7,2)
 print(A7)
 </code></pre>
 
-<pre><code>[[ 1.          1.          1.          0.          0.          1.        ]
+<div class="highlight"><pre><span></span><code>[[ 1.          1.          1.          0.          0.          1.        ]
  [ 0.          1.          3.         -1.          0.          5.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A8 = add_row(A7,-3,1,2)
 print(A8)
 </code></pre>
 
-<pre><code>[[ 1.          1.          1.          0.          0.          1.        ]
+<div class="highlight"><pre><span></span><code>[[ 1.          1.          1.          0.          0.          1.        ]
  [ 0.          1.          0.          0.28571429  0.42857143 -1.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A9 = add_row(A8,-1,0,2)
 print(A9)
 </code></pre>
 
-<pre><code>[[ 1.          1.          0.          0.42857143  0.14285714 -1.        ]
+<div class="highlight"><pre><span></span><code>[[ 1.          1.          0.          0.42857143  0.14285714 -1.        ]
  [ 0.          1.          0.          0.28571429  0.42857143 -1.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">A10 = add_row(A9,-1,0,1)
 print(A10)
 </code></pre>
 
-<pre><code>[[ 1.          0.          0.          0.14285714 -0.28571429  0.        ]
+<div class="highlight"><pre><span></span><code>[[ 1.          0.          0.          0.14285714 -0.28571429  0.        ]
  [ 0.          1.          0.          0.28571429  0.42857143 -1.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre>
+</code></pre></div>
+
 <p>Let's verify that we found the inverse $M^{-1}$ correctly:</p>
 <pre><code class="python">Minv = A10[:,3:]
 print(Minv)
 </code></pre>
 
-<pre><code>[[ 0.14285714 -0.28571429  0.        ]
+<div class="highlight"><pre><span></span><code>[[ 0.14285714 -0.28571429  0.        ]
  [ 0.28571429  0.42857143 -1.        ]
  [-0.42857143 -0.14285714  2.        ]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">result = Minv @ M
 print(result)
 </code></pre>
 
-<pre><code>[[ 1.00000000e+00  4.44089210e-16  2.22044605e-16]
+<div class="highlight"><pre><span></span><code>[[ 1.00000000e+00  4.44089210e-16  2.22044605e-16]
  [-6.66133815e-16  1.00000000e+00 -2.22044605e-16]
  [ 0.00000000e+00  0.00000000e+00  1.00000000e+00]]
-</code></pre>
+</code></pre></div>
+
 <p>Success! We can see the result more clearly if we round to 15 decimal places:</p>
 <pre><code class="python">np.round(result,15)
 </code></pre>
 
-<pre><code>array([[ 1.e+00,  0.e+00,  0.e+00],
+<div class="highlight"><pre><span></span><code>array([[ 1.e+00,  0.e+00,  0.e+00],
        [-1.e-15,  1.e+00, -0.e+00],
        [ 0.e+00,  0.e+00,  1.e+00]])
-</code></pre>
+</code></pre></div>
+
 <h3 id="solve-a-system">Solve a System</h3>
 <p>Let's use our functions to perform Gaussian elimination and solve a linear system of equations $A \mathbf{x} = \mathbf{b}$.</p>
 <pre><code class="python">A = np.array([[6,15,1],[8,7,12],[2,7,8]])
 print(A)
 </code></pre>
 
-<pre><code>[[ 6 15  1]
+<div class="highlight"><pre><span></span><code>[[ 6 15  1]
  [ 8  7 12]
  [ 2  7  8]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">b = np.array([[2],[14],[10]])
 print(b)
 </code></pre>
 
-<pre><code>[[ 2]
+<div class="highlight"><pre><span></span><code>[[ 2]
  [14]
  [10]]
-</code></pre>
+</code></pre></div>
+
 <p>Form the augemented matrix $M$:</p>
 <pre><code class="python">M = np.hstack([A,b])
 print(M)
 </code></pre>
 
-<pre><code>[[ 6 15  1  2]
+<div class="highlight"><pre><span></span><code>[[ 6 15  1  2]
  [ 8  7 12 14]
  [ 2  7  8 10]]
-</code></pre>
+</code></pre></div>
+
 <p>Perform row operations:</p>
 <pre><code class="python">M1 = scale_row(M,1/6,0)
 print(M1)
 </code></pre>
 
-<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
+<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 8.          7.         12.         14.        ]
  [ 2.          7.          8.         10.        ]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M2 = add_row(M1,-8,1,0)
 print(M2)
 </code></pre>
 
-<pre><code>[[  1.           2.5          0.16666667   0.33333333]
+<div class="highlight"><pre><span></span><code>[[  1.           2.5          0.16666667   0.33333333]
  [  0.         -13.          10.66666667  11.33333333]
  [  2.           7.           8.          10.        ]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M3 = add_row(M2,-2,2,0)
 print(M3)
 </code></pre>
 
-<pre><code>[[  1.           2.5          0.16666667   0.33333333]
+<div class="highlight"><pre><span></span><code>[[  1.           2.5          0.16666667   0.33333333]
  [  0.         -13.          10.66666667  11.33333333]
  [  0.           2.           7.66666667   9.33333333]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M4 = scale_row(M3,-1/13,1)
 print(M4)
 </code></pre>
 
-<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
+<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 0.          1.         -0.82051282 -0.87179487]
  [ 0.          2.          7.66666667  9.33333333]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M5 = add_row(M4,-2,2,1)
 print(M5)
 </code></pre>
 
-<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
+<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 0.          1.         -0.82051282 -0.87179487]
  [ 0.          0.          9.30769231 11.07692308]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M6 = scale_row(M5,1/M5[2,2],2)
 print(M6)
 </code></pre>
 
-<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
+<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 0.          1.         -0.82051282 -0.87179487]
  [ 0.          0.          1.          1.19008264]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M7 = add_row(M6,-M6[1,2],1,2)
 print(M7)
 </code></pre>
 
-<pre><code>[[1.         2.5        0.16666667 0.33333333]
+<div class="highlight"><pre><span></span><code>[[1.         2.5        0.16666667 0.33333333]
  [0.         1.         0.         0.1046832 ]
  [0.         0.         1.         1.19008264]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M8 = add_row(M7,-M7[0,2],0,2)
 print(M8)
 </code></pre>
 
-<pre><code>[[1.         2.5        0.         0.13498623]
+<div class="highlight"><pre><span></span><code>[[1.         2.5        0.         0.13498623]
  [0.         1.         0.         0.1046832 ]
  [0.         0.         1.         1.19008264]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">M9 = add_row(M8,-M8[0,1],0,1)
 print(M9)
 </code></pre>
 
-<pre><code>[[ 1.          0.          0.         -0.12672176]
+<div class="highlight"><pre><span></span><code>[[ 1.          0.          0.         -0.12672176]
  [ 0.          1.          0.          0.1046832 ]
  [ 0.          0.          1.          1.19008264]]
-</code></pre>
+</code></pre></div>
+
 <p>Success! The solution of $Ax=b$ is</p>
 <pre><code class="python">x = M9[:,3].reshape(3,1)
 print(x)
 </code></pre>
 
-<pre><code>[[-0.12672176]
+<div class="highlight"><pre><span></span><code>[[-0.12672176]
  [ 0.1046832 ]
  [ 1.19008264]]
-</code></pre>
+</code></pre></div>
+
 <p>Or, we can do it the easy way...</p>
 <pre><code class="python">x = la.solve(A,b)
 print(x)
 </code></pre>
 
-<pre><code>[[-0.12672176]
+<div class="highlight"><pre><span></span><code>[[-0.12672176]
  [ 0.1046832 ]
  [ 1.19008264]]
-</code></pre>
+</code></pre></div>
+
 <h2 id="scipylinalgsolve"><code>scipy.linalg.solve</code></h2>
 <p>We are mostly interested in linear systems $A \mathbf{x} = \mathbf{b}$ where there is a unique solution $\mathbf{x}$. This is the case when $A$ is a square matrix ($m=n$) and $\mathrm{det}(A) \not= 0$. To solve such a system, we can use the function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code>scipy.linalg.solve</code></a>.</p>
 <p>The function returns a solution of the system of equations $A \mathbf{x} = \mathbf{b}$. For example:</p>
@@ -1507,22 +1552,25 @@ print(x)
 print(A)
 </code></pre>
 
-<pre><code>[[ 1  1]
+<div class="highlight"><pre><span></span><code>[[ 1  1]
  [ 1 -1]]
-</code></pre>
+</code></pre></div>
+
 <pre><code class="python">b1 = np.array([2,0])
 print(b1)
 </code></pre>
 
-<pre><code>[2 0]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[2 0]
+</code></pre></div>
+
 <p>And solve:</p>
 <pre><code class="python">x1 = la.solve(A,b1)
 print(x1)
 </code></pre>
 
-<pre><code>[1. 1.]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[1. 1.]
+</code></pre></div>
+
 <p>Note that the output $\mathbf{x}$ is returned as a 1D NumPy array when the vector $\mathbf{b}$ (the right hand side) is entered as a 1D NumPy array. If we input $\mathbf{b}$ as a 2D NumPy array, then the output is a 2D NumPy array. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 b2 = np.array([2,0]).reshape(2,1)
@@ -1530,9 +1578,10 @@ x2 = la.solve(A,b2)
 print(x2)
 </code></pre>
 
-<pre><code>[[1.]
+<div class="highlight"><pre><span></span><code>[[1.]
  [1.]]
-</code></pre>
+</code></pre></div>
+
 <p>Finally, if the right hand side $\mathbf{b}$ is a matrix, then the output is a matrix of the same size. It is the solution of $A \mathbf{x} = \mathbf{b}$ when $\mathbf{b}$ is a matrix. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 b3 = np.array([[2,2],[0,1]])
@@ -1540,9 +1589,10 @@ x3 = la.solve(A,b3)
 print(x3)
 </code></pre>
 
-<pre><code>[[1.  1.5]
+<div class="highlight"><pre><span></span><code>[[1.  1.5]
  [1.  0.5]]
-</code></pre>
+</code></pre></div>
+
 <h3 id="simple-example">Simple Example</h3>
 <p>Let's compute the solution of the system of equations</p>
 <p>\begin{align}
@@ -1554,41 +1604,46 @@ x + y &amp;= 1
 print(A)
 </code></pre>
 
-<pre><code>[[2 1]
+<div class="highlight"><pre><span></span><code>[[2 1]
  [1 1]]
-</code></pre>
+</code></pre></div>
+
 <p>And the vector $\mathbf{b}$:</p>
 <pre><code class="python">b = np.array([1,-1]).reshape(2,1)
 print(b)
 </code></pre>
 
-<pre><code>[[ 1]
+<div class="highlight"><pre><span></span><code>[[ 1]
  [-1]]
-</code></pre>
+</code></pre></div>
+
 <p>And solve:</p>
 <pre><code class="python">x = la.solve(A,b)
 print(x)
 </code></pre>
 
-<pre><code>[[ 2.]
+<div class="highlight"><pre><span></span><code>[[ 2.]
  [-3.]]
-</code></pre>
+</code></pre></div>
+
 <p>We can verify the solution by computing the inverse of $A$:</p>
 <pre><code class="python">Ainv = la.inv(A)
 print(Ainv)
 </code></pre>
 
-<pre><code>[[ 1. -1.]
+<div class="highlight"><pre><span></span><code>[[ 1. -1.]
  [-1.  2.]]
-</code></pre>
+</code></pre></div>
+
 <p>And multiply $A^{-1} \mathbf{b}$ to solve for $\mathbf{x}$:</p>
 <pre><code class="python">x = Ainv @ b
 print(x)
 </code></pre>
 
-<pre><code>[[ 2.]
+<div class="highlight"><pre><span></span><code>[[ 2.]
  [-3.]]
-</code></pre>
+</code></pre></div>
+
 <p>We get the same result. Success!</p>
 <h3 id="inverse-or-solve">Inverse or Solve</h3>
 <p>It's a bad idea to use the inverse $A^{-1}$ to solve $A \mathbf{x} = \mathbf{b}$ if $A$ is large. It's too computationally expensive. Let's create a large random matrix $A$ and vector $\mathbf{b}$ and compute the solution $\mathbf{x}$ in 2 ways:</p>
@@ -1601,32 +1656,36 @@ b = np.random.rand(N,1)
 <pre><code class="python">A[:3,:3]
 </code></pre>
 
-<pre><code>array([[0.35754719, 0.63135432, 0.6572258 ],
+<div class="highlight"><pre><span></span><code>array([[0.35754719, 0.63135432, 0.6572258 ],
        [0.18450506, 0.14639832, 0.23528745],
        [0.27576474, 0.46264005, 0.26589724]])
-</code></pre>
+</code></pre></div>
+
 <p>And for $\mathbf{b}$:</p>
 <pre><code class="python">b[:4,:]
 </code></pre>
 
-<pre><code>array([[0.82726751],
+<div class="highlight"><pre><span></span><code>array([[0.82726751],
        [0.96946096],
        [0.31351176],
        [0.63757837]])
-</code></pre>
+</code></pre></div>
+
 <p>Now we compare the speed of <code>scipy.linalg.solve</code> with <code>scipy.linalg.inv</code>:</p>
 <pre><code class="python">%%timeit
 x = la.solve(A,b)
 </code></pre>
 
-<pre><code>2.77 s ± 509 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</code></pre>
+<div class="highlight"><pre><span></span><code>2.77 s ± 509 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</code></pre></div>
+
 <pre><code class="python">%%timeit
 x = la.inv(A) @ b
 </code></pre>
 
-<pre><code>4.46 s ± 2.04 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</code></pre>
+<div class="highlight"><pre><span></span><code>4.46 s ± 2.04 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</code></pre></div>
+
 <p>Solving with <code>scipy.linalg.solve</code> is about twice as fast!</p>
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em></p>
