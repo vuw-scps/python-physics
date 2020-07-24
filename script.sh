@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd notebooks
+
+for dir in */
+do
+  rm -r ../docs/nb_img/$dir
+  rm -r ../docs/$dir
+  for nb in $dir*.ipynb
+  do
+    jupyter nbconvert --to markdown $nb --output-dir ../docs/$dir --NbConvertApp.output_files_dir="../nb_img/$dir"
+  done
+done
+
+cd ..
