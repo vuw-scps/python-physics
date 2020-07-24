@@ -1131,134 +1131,117 @@ When we select a row or column from a 2D NumPy array, the result is a 1D NumPy a
 print(a)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[ 1  3 -2  1]
-</code></pre></div>
-
+<pre><code>[ 1  3 -2  1]
+</code></pre>
 <p>Verify the number of dimensions:</p>
 <pre><code class="python">a.ndim
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1
-</code></pre></div>
-
+<pre><code>1
+</code></pre>
 <p>Verify the shape of the array:</p>
 <pre><code class="python">a.shape
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>(4,)
-</code></pre></div>
-
+<pre><code>(4,)
+</code></pre>
 <p>The shape of an array is returned as a <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Python tuple</a>. The output in the cell above is a tuple of length 1. And we verify the size of the array (ie. the total number of entries in the array):</p>
 <pre><code class="python">a.size
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>4
-</code></pre></div>
-
+<pre><code>4
+</code></pre>
 <p>Create a 2D (two-dimensional) NumPy array (ie. matrix):</p>
 <pre><code class="python">M = np.array([[1,2],[3,7],[-1,5]])
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  2]
+<pre><code>[[ 1  2]
  [ 3  7]
  [-1  5]]
-</code></pre></div>
-
+</code></pre>
 <p>Verify the number of dimensions:</p>
 <pre><code class="python">M.ndim
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2
-</code></pre></div>
-
+<pre><code>2
+</code></pre>
 <p>Verify the shape of the array:</p>
 <pre><code class="python">M.shape
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>(3, 2)
-</code></pre></div>
-
+<pre><code>(3, 2)
+</code></pre>
 <p>Finally, verify the total number of entries in the array:</p>
 <pre><code class="python">M.size
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>6
-</code></pre></div>
-
+<pre><code>6
+</code></pre>
 <p>Select a row or column from a 2D NumPy array and we get a 1D array:</p>
 <pre><code class="python">col = M[:,1] 
 print(col)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[2 7 5]
-</code></pre></div>
-
+<pre><code>[2 7 5]
+</code></pre>
 <p>Verify the number of dimensions of the slice:</p>
 <pre><code class="python">col.ndim
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1
-</code></pre></div>
-
+<pre><code>1
+</code></pre>
 <p>Verify the shape and size of the slice:</p>
 <pre><code class="python">col.shape
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>(3,)
-</code></pre></div>
-
+<pre><code>(3,)
+</code></pre>
 <pre><code class="python">col.size
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>3
-</code></pre></div>
-
+<pre><code>3
+</code></pre>
 <p>When we select a row of column from a 2D NumPy array, the result is a 1D NumPy array. However, we may want to select a column as a 2D column vector. This requires us to use the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html">reshape</a> method.</p>
 <p>For example, create a 2D column vector from the 1D slice selected from the matrix <code>M</code> above:</p>
 <pre><code class="python">print(col)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[2 7 5]
-</code></pre></div>
-
+<pre><code>[2 7 5]
+</code></pre>
 <pre><code class="python">column = np.array([2,7,5]).reshape(3,1)
 print(column)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[2]
+<pre><code>[[2]
  [7]
  [5]]
-</code></pre></div>
-
+</code></pre>
 <p>Verify the dimensions, shape and size of the array:</p>
 <pre><code class="python">print('Dimensions:', column.ndim)
 print('Shape:', column.shape)
 print('Size:', column.size)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Dimensions: 2
+<pre><code>Dimensions: 2
 Shape: (3, 1)
 Size: 3
-</code></pre></div>
-
+</code></pre>
 <p>The variables <code>col</code> and <code>column</code> are different types of objects even though they have the "same" data.</p>
 <pre><code class="python">print(col)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[2 7 5]
-</code></pre></div>
-
+<pre><code>[2 7 5]
+</code></pre>
 <pre><code class="python">print('Dimensions:',col.ndim)
 print('Shape:',col.shape)
 print('Size:',col.size)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Dimensions: 1
+<pre><code>Dimensions: 1
 Shape: (3,)
 Size: 3
-</code></pre></div>
-
+</code></pre>
 <h2 id="matrix-operations-and-functions">Matrix Operations and Functions</h2>
 <h3 id="arithmetic-operations">Arithmetic Operations</h3>
 <p>Recall that arithmetic <a href="../scipy/numpy/#operations-and-functions">array operations</a> <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> and <code>**</code> are performed elementwise on NumPy arrays. Let's create a NumPy array and do some computations:</p>
@@ -1266,26 +1249,23 @@ Size: 3
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 3  4]
+<pre><code>[[ 3  4]
  [-1  5]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M * M
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 9, 16],
+<pre><code>array([[ 9, 16],
        [ 1, 25]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="matrix-multiplication">Matrix Multiplication</h3>
 <p>We use the <code>@</code> operator to do matrix multiplication with NumPy arrays:</p>
 <pre><code class="python">M @ M
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 5, 32],
+<pre><code>array([[ 5, 32],
        [-8, 21]])
-</code></pre></div>
-
+</code></pre>
 <p>Let's compute <span><span class="MathJax_Preview">2I + 3A - AB</span><script type="math/tex">2I + 3A - AB</script></span> for</p>
 <div>
 <div class="MathJax_Preview">
@@ -1316,33 +1296,29 @@ B = \begin{bmatrix}
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  3]
+<pre><code>[[ 1  3]
  [-1  7]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">B = np.array([[5,2],[1,2]])
 print(B)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[5 2]
+<pre><code>[[5 2]
  [1 2]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">I = np.eye(2)
 print(I)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1. 0.]
+<pre><code>[[1. 0.]
  [0. 1.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">2*I + 3*A - A@B
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[-3.,  1.],
+<pre><code>array([[-3.,  1.],
        [-5., 11.]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="matrix-powers">Matrix Powers</h3>
 <p>There's no symbol for matrix powers and so we must import the function <code>matrix_power</code> from the subpackage <code>numpy.linalg</code>.</p>
 <pre><code class="python">from numpy.linalg import matrix_power as mpow
@@ -1352,95 +1328,83 @@ print(I)
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 3  4]
+<pre><code>[[ 3  4]
  [-1  5]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">mpow(M,2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 5, 32],
+<pre><code>array([[ 5, 32],
        [-8, 21]])
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">mpow(M,5)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[-1525,  3236],
+<pre><code>array([[-1525,  3236],
        [ -809,    93]])
-</code></pre></div>
-
+</code></pre>
 <p>Compare with the matrix multiplcation operator:</p>
 <pre><code class="python">M @ M @ M @ M @ M
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[-1525,  3236],
+<pre><code>array([[-1525,  3236],
        [ -809,    93]])
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">mpow(M,3)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[-17, 180],
+<pre><code>array([[-17, 180],
        [-45,  73]])
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M @ M @ M
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[-17, 180],
+<pre><code>array([[-17, 180],
        [-45,  73]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="tranpose">Tranpose</h3>
 <p>We can take the transpose with <code>.T</code> attribute:</p>
 <pre><code class="python">print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 3  4]
+<pre><code>[[ 3  4]
  [-1  5]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">print(M.T)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 3 -1]
+<pre><code>[[ 3 -1]
  [ 4  5]]
-</code></pre></div>
-
+</code></pre>
 <p>Notice that <span><span class="MathJax_Preview">M M^T</span><script type="math/tex">M M^T</script></span> is a symmetric matrix:</p>
 <pre><code class="python">M @ M.T
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[25, 17],
+<pre><code>array([[25, 17],
        [17, 26]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="inverse">Inverse</h3>
 <p>We can find the inverse using the function <code>scipy.linalg.inv</code>:</p>
 <pre><code class="python">A = np.array([[1,2],[3,4]])
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 2]
+<pre><code>[[1 2]
  [3 4]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">la.inv(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[-2. ,  1. ],
+<pre><code>array([[-2. ,  1. ],
        [ 1.5, -0.5]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="trace">Trace</h3>
 <p>We can find the trace of a matrix using the function <code>numpy.trace</code>:</p>
 <pre><code class="python">np.trace(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>5
-</code></pre></div>
-
+<pre><code>5
+</code></pre>
 <h3 id="norm">Norm</h3>
 <p><em>Under construction</em></p>
 <h3 id="determinant">Determinant</h3>
@@ -1449,16 +1413,14 @@ print(A)
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 2]
+<pre><code>[[1 2]
  [3 4]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">la.det(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>-2.0
-</code></pre></div>
-
+<pre><code>-2.0
+</code></pre>
 <h3 id="dot-product">Dot Product</h3>
 <p><em>Under construction</em></p>
 <h2 id="examples">Examples</h2>
@@ -1485,39 +1447,35 @@ p_A(A) = A^2 - \mathrm{tr}(A) A + \mathrm{det}(A) I = 0
 <pre><code class="python">print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 2]
+<pre><code>[[1 2]
  [3 4]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">trace_A = np.trace(A)
 det_A = la.det(A)
 I = np.eye(2)
 A @ A - trace_A * A + det_A * I
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[0., 0.],
+<pre><code>array([[0., 0.],
        [0., 0.]])
-</code></pre></div>
-
+</code></pre>
 <p>Let's do this again for some random matrices:</p>
 <pre><code class="python">N = np.random.randint(0,10,[2,2])
 print(N)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 9]
+<pre><code>[[1 9]
  [4 3]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">trace_N = np.trace(N)
 det_N = la.det(N)
 I = np.eye(2)
 N @ N - trace_N * N + det_N * I
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[0., 0.],
+<pre><code>array([[0., 0.],
        [0., 0.]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="projections">Projections</h3>
 <p>The formula to project a vector <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> onto a vector <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is</p>
 <div>
@@ -1539,9 +1497,8 @@ N @ N - trace_N * N + det_N * I
 <pre><code class="python">proj([1,2,3],[1,1,1])
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([2., 2., 2.])
-</code></pre></div>
-
+<pre><code>array([2., 2., 2.])
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Write a function which takes an input parameter <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and returns the dot product of the <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>th and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>th row (indexing starts at 0).</li>

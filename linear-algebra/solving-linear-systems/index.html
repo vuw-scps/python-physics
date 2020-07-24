@@ -1135,28 +1135,25 @@ E_1 = \begin{bmatrix}
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  1  2]
+<pre><code>[[ 1  1  2]
  [-1  3  1]
  [ 0  5  2]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">E1 = np.array([[1,0,3],[0,1,0],[0,0,1]])
 print(E1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 0 3]
+<pre><code>[[1 0 3]
  [0 1 0]
  [0 0 1]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">E1 @ A
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1, 16,  8],
+<pre><code>array([[ 1, 16,  8],
        [-1,  3,  1],
        [ 0,  5,  2]])
-</code></pre></div>
-
+</code></pre>
 <p>To multiply <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in a matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, we multiply <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> by the matrix <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> where <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> is equal to the identity matrix except the <span><span class="MathJax_Preview">,i,j</span><script type="math/tex">,i,j</script></span> entry is <span><span class="MathJax_Preview">E_{i,i} = k</span><script type="math/tex">E_{i,i} = k</script></span>. For example, if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is 3 by 3 and we want to multiply row 1 by -2 then</p>
 <div>
 <div class="MathJax_Preview">
@@ -1179,19 +1176,17 @@ E_2 = \begin{bmatrix}
 print(E2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  0  0]
+<pre><code>[[ 1  0  0]
  [ 0 -2  0]
  [ 0  0  1]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">E2 @ A
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1,  1,  2],
+<pre><code>array([[ 1,  1,  2],
        [ 2, -6, -2],
        [ 0,  5,  2]])
-</code></pre></div>
-
+</code></pre>
 <p>Finally, to switch row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and row <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> in a matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, we multiply <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> by the matrix <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> where <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> is equal to the identity matrix except <span><span class="MathJax_Preview">E_{i,i} = 0</span><script type="math/tex">E_{i,i} = 0</script></span>, <span><span class="MathJax_Preview">E_{j,j} = 0</span><script type="math/tex">E_{j,j} = 0</script></span>, <span><span class="MathJax_Preview">E_{i,j} = 1</span><script type="math/tex">E_{i,j} = 1</script></span> and <span><span class="MathJax_Preview">E_{j,i} = 1</span><script type="math/tex">E_{j,i} = 1</script></span>. For example, if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is 3 by 3 and we want to switch row 1 and row 2 then</p>
 <div>
 <div class="MathJax_Preview">
@@ -1214,19 +1209,17 @@ E^3 = \begin{bmatrix}
 print(E3)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 0 0]
+<pre><code>[[1 0 0]
  [0 0 1]
  [0 1 0]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">E3 @ A
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1,  1,  2],
+<pre><code>array([[ 1,  1,  2],
        [ 0,  5,  2],
        [-1,  3,  1]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="implementation">Implementation</h3>
 <p>Let's write function to implement the elementary row operations. First of all, let's write a function called <code>add_rows</code> which takes input parameters <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>, <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and returns the NumPy array resulting from adding <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> to row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in the matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>. If <span><span class="MathJax_Preview">i=j</span><script type="math/tex">i=j</script></span>, then let's say that the function scales row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> by <span><span class="MathJax_Preview">k+1</span><script type="math/tex">k+1</script></span> since this would be the result of <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> added to row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>.</p>
 <pre><code class="python">def add_row(A,k,i,j):
@@ -1245,24 +1238,21 @@ print(E3)
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1 1]
+<pre><code>[[1 1]
  [3 2]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">add_row(M,2,0,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[7., 5.],
+<pre><code>array([[7., 5.],
        [3., 2.]])
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">add_row(M,3,1,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1.,  1.],
+<pre><code>array([[ 1.,  1.],
        [12.,  8.]])
-</code></pre></div>
-
+</code></pre>
 <p>Let's write a function called <code>scale_row</code> which takes 3 input parameters <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>, and <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and returns the matrix that results from <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> times row <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in the matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>.</p>
 <pre><code class="python">def scale_row(A,k,i):
     &quot;Multiply row i by k in matrix A.&quot;
@@ -1276,32 +1266,28 @@ print(M)
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 3  1]
+<pre><code>[[ 3  1]
  [-2  7]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">scale_row(M,3,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 3.,  1.],
+<pre><code>array([[ 3.,  1.],
        [-6., 21.]])
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A = np.array([[1,1,1],[1,-1,0]])
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  1  1]
+<pre><code>[[ 1  1  1]
  [ 1 -1  0]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">scale_row(A,5,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1.,  1.,  1.],
+<pre><code>array([[ 1.,  1.,  1.],
        [ 5., -5.,  0.]])
-</code></pre></div>
-
+</code></pre>
 <p>Let's write a function called <code>switch_rows</code> which takes 3 input parameters <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> and returns the matrix that results from switching rows <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> in the matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>.</p>
 <pre><code class="python">def switch_rows(A,i,j):
     &quot;Switch rows i and j in matrix A.&quot;
@@ -1318,17 +1304,15 @@ print(A)
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  1  1]
+<pre><code>[[ 1  1  1]
  [ 1 -1  0]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">switch_rows(A,0,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1., -1.,  0.],
+<pre><code>array([[ 1., -1.,  0.],
        [ 1.,  1.,  1.]])
-</code></pre></div>
-
+</code></pre>
 <h2 id="examples">Examples</h2>
 <h3 id="find-the-inverse">Find the Inverse</h3>
 <p>Let's apply our functions to the augmented matrix <span><span class="MathJax_Preview">[M \ | \ I]</span><script type="math/tex">[M \ | \ I]</script></span> to find the inverse of the matrix <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>:</p>
@@ -1336,270 +1320,241 @@ print(A)
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 5  4  2]
+<pre><code>[[ 5  4  2]
  [-1  2  1]
  [ 1  1  1]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A = np.hstack([M,np.eye(3)])
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 5.  4.  2.  1.  0.  0.]
+<pre><code>[[ 5.  4.  2.  1.  0.  0.]
  [-1.  2.  1.  0.  1.  0.]
  [ 1.  1.  1.  0.  0.  1.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A1 = switch_rows(A,0,2)
 print(A1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
+<pre><code>[[ 1.  1.  1.  0.  0.  1.]
  [-1.  2.  1.  0.  1.  0.]
  [ 5.  4.  2.  1.  0.  0.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A2 = add_row(A1,1,1,0)
 print(A2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1. 1. 1. 0. 0. 1.]
+<pre><code>[[1. 1. 1. 0. 0. 1.]
  [0. 3. 2. 0. 1. 1.]
  [5. 4. 2. 1. 0. 0.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A3 = add_row(A2,-5,2,0)
 print(A3)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
+<pre><code>[[ 1.  1.  1.  0.  0.  1.]
  [ 0.  3.  2.  0.  1.  1.]
  [ 0. -1. -3.  1.  0. -5.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A4 = switch_rows(A3,1,2)
 print(A4)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
+<pre><code>[[ 1.  1.  1.  0.  0.  1.]
  [ 0. -1. -3.  1.  0. -5.]
  [ 0.  3.  2.  0.  1.  1.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A5 = scale_row(A4,-1,1)
 print(A5)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.  1.  1.  0.  0.  1.]
+<pre><code>[[ 1.  1.  1.  0.  0.  1.]
  [ 0.  1.  3. -1.  0.  5.]
  [ 0.  3.  2.  0.  1.  1.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A6 = add_row(A5,-3,2,1)
 print(A6)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[  1.   1.   1.   0.   0.   1.]
+<pre><code>[[  1.   1.   1.   0.   0.   1.]
  [  0.   1.   3.  -1.   0.   5.]
  [  0.   0.  -7.   3.   1. -14.]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A7 = scale_row(A6,-1/7,2)
 print(A7)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          1.          1.          0.          0.          1.        ]
+<pre><code>[[ 1.          1.          1.          0.          0.          1.        ]
  [ 0.          1.          3.         -1.          0.          5.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A8 = add_row(A7,-3,1,2)
 print(A8)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          1.          1.          0.          0.          1.        ]
+<pre><code>[[ 1.          1.          1.          0.          0.          1.        ]
  [ 0.          1.          0.          0.28571429  0.42857143 -1.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A9 = add_row(A8,-1,0,2)
 print(A9)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          1.          0.          0.42857143  0.14285714 -1.        ]
+<pre><code>[[ 1.          1.          0.          0.42857143  0.14285714 -1.        ]
  [ 0.          1.          0.          0.28571429  0.42857143 -1.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">A10 = add_row(A9,-1,0,1)
 print(A10)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          0.          0.          0.14285714 -0.28571429  0.        ]
+<pre><code>[[ 1.          0.          0.          0.14285714 -0.28571429  0.        ]
  [ 0.          1.          0.          0.28571429  0.42857143 -1.        ]
  [ 0.          0.          1.         -0.42857143 -0.14285714  2.        ]]
-</code></pre></div>
-
+</code></pre>
 <p>Let's verify that we found the inverse <span><span class="MathJax_Preview">M^{-1}</span><script type="math/tex">M^{-1}</script></span> correctly:</p>
 <pre><code class="python">Minv = A10[:,3:]
 print(Minv)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 0.14285714 -0.28571429  0.        ]
+<pre><code>[[ 0.14285714 -0.28571429  0.        ]
  [ 0.28571429  0.42857143 -1.        ]
  [-0.42857143 -0.14285714  2.        ]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">result = Minv @ M
 print(result)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.00000000e+00  4.44089210e-16  2.22044605e-16]
+<pre><code>[[ 1.00000000e+00  4.44089210e-16  2.22044605e-16]
  [-6.66133815e-16  1.00000000e+00 -2.22044605e-16]
  [ 0.00000000e+00  0.00000000e+00  1.00000000e+00]]
-</code></pre></div>
-
+</code></pre>
 <p>Success! We can see the result more clearly if we round to 15 decimal places:</p>
 <pre><code class="python">np.round(result,15)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[ 1.e+00,  0.e+00,  0.e+00],
+<pre><code>array([[ 1.e+00,  0.e+00,  0.e+00],
        [-1.e-15,  1.e+00, -0.e+00],
        [ 0.e+00,  0.e+00,  1.e+00]])
-</code></pre></div>
-
+</code></pre>
 <h3 id="solve-a-system">Solve a System</h3>
 <p>Let's use our functions to perform Gaussian elimination and solve a linear system of equations <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span>.</p>
 <pre><code class="python">A = np.array([[6,15,1],[8,7,12],[2,7,8]])
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 6 15  1]
+<pre><code>[[ 6 15  1]
  [ 8  7 12]
  [ 2  7  8]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">b = np.array([[2],[14],[10]])
 print(b)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 2]
+<pre><code>[[ 2]
  [14]
  [10]]
-</code></pre></div>
-
+</code></pre>
 <p>Form the augemented matrix <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>:</p>
 <pre><code class="python">M = np.hstack([A,b])
 print(M)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 6 15  1  2]
+<pre><code>[[ 6 15  1  2]
  [ 8  7 12 14]
  [ 2  7  8 10]]
-</code></pre></div>
-
+</code></pre>
 <p>Perform row operations:</p>
 <pre><code class="python">M1 = scale_row(M,1/6,0)
 print(M1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
+<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 8.          7.         12.         14.        ]
  [ 2.          7.          8.         10.        ]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M2 = add_row(M1,-8,1,0)
 print(M2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[  1.           2.5          0.16666667   0.33333333]
+<pre><code>[[  1.           2.5          0.16666667   0.33333333]
  [  0.         -13.          10.66666667  11.33333333]
  [  2.           7.           8.          10.        ]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M3 = add_row(M2,-2,2,0)
 print(M3)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[  1.           2.5          0.16666667   0.33333333]
+<pre><code>[[  1.           2.5          0.16666667   0.33333333]
  [  0.         -13.          10.66666667  11.33333333]
  [  0.           2.           7.66666667   9.33333333]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M4 = scale_row(M3,-1/13,1)
 print(M4)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
+<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 0.          1.         -0.82051282 -0.87179487]
  [ 0.          2.          7.66666667  9.33333333]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M5 = add_row(M4,-2,2,1)
 print(M5)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
+<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 0.          1.         -0.82051282 -0.87179487]
  [ 0.          0.          9.30769231 11.07692308]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M6 = scale_row(M5,1/M5[2,2],2)
 print(M6)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          2.5         0.16666667  0.33333333]
+<pre><code>[[ 1.          2.5         0.16666667  0.33333333]
  [ 0.          1.         -0.82051282 -0.87179487]
  [ 0.          0.          1.          1.19008264]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M7 = add_row(M6,-M6[1,2],1,2)
 print(M7)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1.         2.5        0.16666667 0.33333333]
+<pre><code>[[1.         2.5        0.16666667 0.33333333]
  [0.         1.         0.         0.1046832 ]
  [0.         0.         1.         1.19008264]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M8 = add_row(M7,-M7[0,2],0,2)
 print(M8)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1.         2.5        0.         0.13498623]
+<pre><code>[[1.         2.5        0.         0.13498623]
  [0.         1.         0.         0.1046832 ]
  [0.         0.         1.         1.19008264]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">M9 = add_row(M8,-M8[0,1],0,1)
 print(M9)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1.          0.          0.         -0.12672176]
+<pre><code>[[ 1.          0.          0.         -0.12672176]
  [ 0.          1.          0.          0.1046832 ]
  [ 0.          0.          1.          1.19008264]]
-</code></pre></div>
-
+</code></pre>
 <p>Success! The solution of <span><span class="MathJax_Preview">Ax=b</span><script type="math/tex">Ax=b</script></span> is</p>
 <pre><code class="python">x = M9[:,3].reshape(3,1)
 print(x)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[-0.12672176]
+<pre><code>[[-0.12672176]
  [ 0.1046832 ]
  [ 1.19008264]]
-</code></pre></div>
-
+</code></pre>
 <p>Or, we can do it the easy way...</p>
 <pre><code class="python">x = la.solve(A,b)
 print(x)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[-0.12672176]
+<pre><code>[[-0.12672176]
  [ 0.1046832 ]
  [ 1.19008264]]
-</code></pre></div>
-
+</code></pre>
 <h2 id="scipylinalgsolve"><code>scipy.linalg.solve</code></h2>
 <p>We are mostly interested in linear systems <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span> where there is a unique solution <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span>. This is the case when <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a square matrix (<span><span class="MathJax_Preview">m=n</span><script type="math/tex">m=n</script></span>) and <span><span class="MathJax_Preview">\mathrm{det}(A) \not= 0</span><script type="math/tex">\mathrm{det}(A) \not= 0</script></span>. To solve such a system, we can use the function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code>scipy.linalg.solve</code></a>.</p>
 <p>The function returns a solution of the system of equations <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span>. For example:</p>
@@ -1607,25 +1562,22 @@ print(x)
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1  1]
+<pre><code>[[ 1  1]
  [ 1 -1]]
-</code></pre></div>
-
+</code></pre>
 <pre><code class="python">b1 = np.array([2,0])
 print(b1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[2 0]
-</code></pre></div>
-
+<pre><code>[2 0]
+</code></pre>
 <p>And solve:</p>
 <pre><code class="python">x1 = la.solve(A,b1)
 print(x1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1. 1.]
-</code></pre></div>
-
+<pre><code>[1. 1.]
+</code></pre>
 <p>Note that the output <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> is returned as a 1D NumPy array when the vector <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> (the right hand side) is entered as a 1D NumPy array. If we input <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> as a 2D NumPy array, then the output is a 2D NumPy array. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 b2 = np.array([2,0]).reshape(2,1)
@@ -1633,10 +1585,9 @@ x2 = la.solve(A,b2)
 print(x2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1.]
+<pre><code>[[1.]
  [1.]]
-</code></pre></div>
-
+</code></pre>
 <p>Finally, if the right hand side <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> is a matrix, then the output is a matrix of the same size. It is the solution of <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span> when <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> is a matrix. For example:</p>
 <pre><code class="python">A = np.array([[1,1],[1,-1]])
 b3 = np.array([[2,2],[0,1]])
@@ -1644,10 +1595,9 @@ x3 = la.solve(A,b3)
 print(x3)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[1.  1.5]
+<pre><code>[[1.  1.5]
  [1.  0.5]]
-</code></pre></div>
-
+</code></pre>
 <h3 id="simple-example">Simple Example</h3>
 <p>Let's compute the solution of the system of equations</p>
 <div>
@@ -1665,46 +1615,41 @@ x + y &= 1
 print(A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[2 1]
+<pre><code>[[2 1]
  [1 1]]
-</code></pre></div>
-
+</code></pre>
 <p>And the vector <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span>:</p>
 <pre><code class="python">b = np.array([1,-1]).reshape(2,1)
 print(b)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1]
+<pre><code>[[ 1]
  [-1]]
-</code></pre></div>
-
+</code></pre>
 <p>And solve:</p>
 <pre><code class="python">x = la.solve(A,b)
 print(x)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 2.]
+<pre><code>[[ 2.]
  [-3.]]
-</code></pre></div>
-
+</code></pre>
 <p>We can verify the solution by computing the inverse of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>:</p>
 <pre><code class="python">Ainv = la.inv(A)
 print(Ainv)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 1. -1.]
+<pre><code>[[ 1. -1.]
  [-1.  2.]]
-</code></pre></div>
-
+</code></pre>
 <p>And multiply <span><span class="MathJax_Preview">A^{-1} \mathbf{b}</span><script type="math/tex">A^{-1} \mathbf{b}</script></span> to solve for <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span>:</p>
 <pre><code class="python">x = Ainv @ b
 print(x)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[[ 2.]
+<pre><code>[[ 2.]
  [-3.]]
-</code></pre></div>
-
+</code></pre>
 <p>We get the same result. Success!</p>
 <h3 id="inverse-or-solve">Inverse or Solve</h3>
 <p>It's a bad idea to use the inverse <span><span class="MathJax_Preview">A^{-1}</span><script type="math/tex">A^{-1}</script></span> to solve <span><span class="MathJax_Preview">A \mathbf{x} = \mathbf{b}</span><script type="math/tex">A \mathbf{x} = \mathbf{b}</script></span> if <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is large. It's too computationally expensive. Let's create a large random matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and vector <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> and compute the solution <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> in 2 ways:</p>
@@ -1717,36 +1662,32 @@ b = np.random.rand(N,1)
 <pre><code class="python">A[:3,:3]
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[0.35754719, 0.63135432, 0.6572258 ],
+<pre><code>array([[0.35754719, 0.63135432, 0.6572258 ],
        [0.18450506, 0.14639832, 0.23528745],
        [0.27576474, 0.46264005, 0.26589724]])
-</code></pre></div>
-
+</code></pre>
 <p>And for <span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span>:</p>
 <pre><code class="python">b[:4,:]
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([[0.82726751],
+<pre><code>array([[0.82726751],
        [0.96946096],
        [0.31351176],
        [0.63757837]])
-</code></pre></div>
-
+</code></pre>
 <p>Now we compare the speed of <code>scipy.linalg.solve</code> with <code>scipy.linalg.inv</code>:</p>
 <pre><code class="python">%%timeit
 x = la.solve(A,b)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2.77 s ± 509 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</code></pre></div>
-
+<pre><code>2.77 s ± 509 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</code></pre>
 <pre><code class="python">%%timeit
 x = la.inv(A) @ b
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>4.46 s ± 2.04 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</code></pre></div>
-
+<pre><code>4.46 s ± 2.04 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</code></pre>
 <p>Solving with <code>scipy.linalg.solve</code> is about twice as fast!</p>
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em></p>

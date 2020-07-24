@@ -1099,15 +1099,13 @@ f'(a) \approx \frac{1}{2} \left( \frac{f(a + h) - f(a)}{h} + \frac{f(a) - f(a - 
 <pre><code class="python">derivative(np.cos,0)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.0
-</code></pre></div>
-
+<pre><code>0.0
+</code></pre>
 <pre><code class="python">derivative(np.cos,0,method='forward',h=1e-8)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.0
-</code></pre></div>
-
+<pre><code>0.0
+</code></pre>
 <p>We also know</p>
 <div>
 <div class="MathJax_Preview">
@@ -1121,15 +1119,13 @@ f'(a) \approx \frac{1}{2} \left( \frac{f(a + h) - f(a)}{h} + \frac{f(a) - f(a - 
 <pre><code class="python">derivative(np.exp,0,h=0.0001)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.0000000016668897
-</code></pre></div>
-
+<pre><code>1.0000000016668897
+</code></pre>
 <pre><code class="python">derivative(np.exp,0,method='backward',h=0.0001)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.9999500016666385
-</code></pre></div>
-
+<pre><code>0.9999500016666385
+</code></pre>
 <p>Notice that our function can take an array of inputs for <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> and return the derivatives for each <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> value. For example, we can plot the derivative of <span><span class="MathJax_Preview">\sin(x)</span><script type="math/tex">\sin(x)</script></span>:</p>
 <pre><code class="python">x = np.linspace(0,5*np.pi,100)
 dydx = derivative(np.sin,x)
@@ -1274,9 +1270,8 @@ f'''(c) = \frac{f'''(c_1) + f'''(c_2)}{2}
 derivative(np.exp,x,dx=0.1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>array([ 1.0016675 ,  2.72281456,  7.40137735, 20.11902956, 54.68919246])
-</code></pre></div>
-
+<pre><code>array([ 1.0016675 ,  2.72281456,  7.40137735, 20.11902956, 54.68919246])
+</code></pre>
 <h2 id="higher-order-derivatives">Higher Order Derivatives</h2>
 <p><em>Under construction</em></p>
 <h2 id="examples">Examples</h2>
@@ -1301,9 +1296,8 @@ a3 = derivative(f,0,dx=0.001,n=3,order=5) / 6
 print(a0,a1,a2,a3)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>3.0 1.9999983891239026e-06 -1.50000037502096 1.9999920608526622
-</code></pre></div>
-
+<pre><code>3.0 1.9999983891239026e-06 -1.50000037502096 1.9999920608526622
+</code></pre>
 <p>Finally, let's plot <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> and <span><span class="MathJax_Preview">T_3(x)</span><script type="math/tex">T_3(x)</script></span> together:</p>
 <pre><code class="python">T3 = a0 + a1*x + a2*x**2 + a3*x**3
 plt.plot(x,y,x,T3), plt.xlim([-3,3]), plt.ylim([0,5]);
@@ -1365,44 +1359,38 @@ def arc_length(f,a,b,h=0.001,N=1000):
 <pre><code class="python">arc_length(lambda x: x,0,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.4142135623730958
-</code></pre></div>
-
+<pre><code>1.4142135623730958
+</code></pre>
 <p>and compare with the exact value</p>
 <pre><code class="python">np.sqrt(2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.4142135623730951
-</code></pre></div>
-
+<pre><code>1.4142135623730951
+</code></pre>
 <p>The arc length of <span><span class="MathJax_Preview">f(x)=\sqrt{1 - x^2}</span><script type="math/tex">f(x)=\sqrt{1 - x^2}</script></span> from <span><span class="MathJax_Preview">a=0</span><script type="math/tex">a=0</script></span> to <span><span class="MathJax_Preview">b=\frac{1}{\sqrt{2}}</span><script type="math/tex">b=\frac{1}{\sqrt{2}}</script></span> is <span><span class="MathJax_Preview">L=\frac{\pi}{4}</span><script type="math/tex">L=\frac{\pi}{4}</script></span> and we compute</p>
 <pre><code class="python">arc_length(lambda x: np.sqrt(1 - x**2),0,1/np.sqrt(2))
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.7853980801486478
-</code></pre></div>
-
+<pre><code>0.7853980801486478
+</code></pre>
 <p>and compare to the exact value</p>
 <pre><code class="python">np.pi/4
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.7853981633974483
-</code></pre></div>
-
+<pre><code>0.7853981633974483
+</code></pre>
 <p>The arc length of <span><span class="MathJax_Preview">f(x)=\frac{2x^{3/2}}{3}</span><script type="math/tex">f(x)=\frac{2x^{3/2}}{3}</script></span> from <span><span class="MathJax_Preview">a=0</span><script type="math/tex">a=0</script></span> to <span><span class="MathJax_Preview">b=1</span><script type="math/tex">b=1</script></span> is <span><span class="MathJax_Preview">L = \frac{2}{3}\left( 2^{3/2} - 1 \right)</span><script type="math/tex">L = \frac{2}{3}\left( 2^{3/2} - 1 \right)</script></span> and we compute</p>
 <pre><code class="python">arc_length(lambda x: 2*(x**(3/2))/3,0,1,h=10**(-10),N=10**5)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.2189514473615233
-</code></pre></div>
-
+<pre><code>1.2189514473615233
+</code></pre>
 <p>and compare to the exact value</p>
 <pre><code class="python">(2/3)*(2**(3/2) - 1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.2189514164974602
-</code></pre></div>
-
+<pre><code>1.2189514164974602
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>

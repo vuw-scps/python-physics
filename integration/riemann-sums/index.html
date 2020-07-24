@@ -1075,12 +1075,11 @@ right_riemann_sum = np.sum(f(x_right) * dx)
 print(&quot;Right Riemann Sum:&quot;,right_riemann_sum)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Partition with 10 subintervals.
+<pre><code>Partition with 10 subintervals.
 Left Riemann Sum: 1.613488696614725
 Midpoint Riemann Sum: 1.373543428316664
 Right Riemann Sum: 1.1327194658454942
-</code></pre></div>
-
+</code></pre>
 <p>We know the exact value</p>
 <div>
 <div class="MathJax_Preview">
@@ -1095,19 +1094,17 @@ Right Riemann Sum: 1.1327194658454942
 print(I)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.373400766945016
-</code></pre></div>
-
+<pre><code>1.373400766945016
+</code></pre>
 <pre><code class="python">print(&quot;Left Riemann Sum Error:&quot;,np.abs(left_riemann_sum - I))
 print(&quot;Midpoint Riemann Sum:&quot;,np.abs(midpoint_riemann_sum - I))
 print(&quot;Right Riemann Sum:&quot;,np.abs(right_riemann_sum - I))
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Left Riemann Sum Error: 0.24008792966970915
+<pre><code>Left Riemann Sum Error: 0.24008792966970915
 Midpoint Riemann Sum: 0.00014266137164820059
 Right Riemann Sum: 0.24068130109952168
-</code></pre></div>
-
+</code></pre>
 <h2 id="error-formulas">Error Formulas</h2>
 <p>A Riemann sum is an approximation of a definite integral. A natural question arises: how good of an approximation is a Riemann sum?</p>
 <hr />
@@ -1239,28 +1236,24 @@ E_N^{M}(f) = \left| \ \int_a^b f(x) \ dx - M_N(f) \ \right| \leq \frac{(b-a)^3}{
 <pre><code class="python">riemann_sum(np.sin,0,np.pi/2,100)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.0000102809119054
-</code></pre></div>
-
+<pre><code>1.0000102809119054
+</code></pre>
 <pre><code class="python">riemann_sum(np.sin,0,np.pi/2,100,'right')
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.007833419873582
-</code></pre></div>
-
+<pre><code>1.007833419873582
+</code></pre>
 <pre><code class="python">riemann_sum(np.sin,0,np.pi/2,100,'left')
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.992125456605633
-</code></pre></div>
-
+<pre><code>0.992125456605633
+</code></pre>
 <p>We also know that <span><span class="MathJax_Preview">\int_0^1 x \, dx = 1/2</span><script type="math/tex">\int_0^1 x \, dx = 1/2</script></span> and midpoint should give the result exactly for any <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>:</p>
 <pre><code class="python">riemann_sum(lambda x : x,0,1,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.5
-</code></pre></div>
-
+<pre><code>0.5
+</code></pre>
 <h2 id="examples">Examples</h2>
 <h3 id="approximate-pi">Approximate Pi</h3>
 <p>Find a value <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> which guarantees the right Riemann sum of <span><span class="MathJax_Preview">f(x)=\frac{4}{1 + x^2}</span><script type="math/tex">f(x)=\frac{4}{1 + x^2}</script></span> over <span><span class="MathJax_Preview">[0,1]</span><script type="math/tex">[0,1]</script></span> is within <span><span class="MathJax_Preview">10^{-5}</span><script type="math/tex">10^{-5}</script></span> of the exact value</p>
@@ -1287,9 +1280,8 @@ y = np.abs(-8*x/(1 + x**2)**2)
 np.max(y)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2.5980759093919907
-</code></pre></div>
-
+<pre><code>2.5980759093919907
+</code></pre>
 <p>Therefore, <span><span class="MathJax_Preview">\left| f'(x) \right| \leq 2.6</span><script type="math/tex">\left| f'(x) \right| \leq 2.6</script></span> for <span><span class="MathJax_Preview">x \in [0,1]</span><script type="math/tex">x \in [0,1]</script></span>. Use the error bound</p>
 <div>
 <div class="MathJax_Preview">
@@ -1304,16 +1296,14 @@ np.max(y)
 print(approximation)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>3.1415849612722386
-</code></pre></div>
-
+<pre><code>3.1415849612722386
+</code></pre>
 <p>Verify the accuracy of the approximation</p>
 <pre><code class="python">np.abs(approximation - np.pi) &lt; 10**(-5)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>True
-</code></pre></div>
-
+<pre><code>True
+</code></pre>
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
 <p>Find a value <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> which guarantees the midpoint Riemann sum of <span><span class="MathJax_Preview">f(x)=\frac{1}{x}</span><script type="math/tex">f(x)=\frac{1}{x}</script></span> over <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span> is within <span><span class="MathJax_Preview">10^{-8}</span><script type="math/tex">10^{-8}</script></span> of the exact value</p>
 <div>
@@ -1345,24 +1335,21 @@ f''(x) = \frac{2}{x^3}
 <pre><code class="python">10**4 / np.sqrt(12)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2886.751345948129
-</code></pre></div>
-
+<pre><code>2886.751345948129
+</code></pre>
 <p>Therefore a partition of size <span><span class="MathJax_Preview">N=2887</span><script type="math/tex">N=2887</script></span> guarantees the desired accuracy:</p>
 <pre><code class="python">approximation = riemann_sum(lambda x : 1/x,1,2,2887,method='midpoint')
 print(approximation)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.6931471768105913
-</code></pre></div>
-
+<pre><code>0.6931471768105913
+</code></pre>
 <p>Verify the accuracy of the approximation:</p>
 <pre><code class="python">np.abs(approximation - np.log(2)) &lt; 10**(-8)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>True
-</code></pre></div>
-
+<pre><code>True
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>

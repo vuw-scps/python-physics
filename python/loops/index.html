@@ -1070,11 +1070,10 @@ for item in iterable:
     print(item)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1
+<pre><code>1
 2
 3
-</code></pre></div>
-
+</code></pre>
 <p>The main points to observe are:</p>
 <ul>
 <li><code>for</code> and <code>in</code> keywords</li>
@@ -1090,15 +1089,14 @@ for item in iterable:
 print('The for loop is complete!')
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0 squared is 0
+<pre><code>0 squared is 0
 1 squared is 1
 2 squared is 4
 3 squared is 9
 4 squared is 16
 5 squared is 25
 The for loop is complete!
-</code></pre></div>
-
+</code></pre>
 <p>Copy and paste this code and any of the examples below into the <a href="http://www.pythontutor.com/visualize.html#mode=edit">Python visualizer</a> to see each step in a <code>for</code> loop!</p>
 <h2 id="while-loops">while Loops</h2>
 <p>What if we want to execute a block of code multiple times but we don't know exactly how many times? We can't write a <code>for</code> loop because this requires us to set the length of the loop in advance. This is a situation when a <a href="https://en.wikipedia.org/wiki/While_loop#Python">while loop</a> is useful.</p>
@@ -1109,13 +1107,12 @@ while n &gt; 0:
     n = n - 1
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>5
+<pre><code>5
 4
 3
 2
 1
-</code></pre></div>
-
+</code></pre>
 <p>The main points to observe are:</p>
 <ul>
 <li><code>while</code> keyword</li>
@@ -1133,9 +1130,8 @@ while n &gt; 0:
 print(squares)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre></div>
-
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
 <p>However, we can achieve the same result with a <code>for</code> loop and the <code>append</code> method for lists:</p>
 <pre><code class="python"># Intialize an empty list
 squares = []
@@ -1145,9 +1141,8 @@ for d in range(1,11):
 print(squares)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre></div>
-
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
 <p>In fact, the two examples above are equivalent. The purpose of list comprehensions is to simplify and compress the syntax into a one-line construction.</p>
 <h3 id="recursive-sequences">Recursive Sequences</h3>
 <p>We can only use a list comprehension to construct a sequence when the sequence values are defined by a formula. But what if we want to construct a sequence where the next value depends on previous values? This is called a <a href="https://en.wikipedia.org/wiki/Recursion">recursive sequence</a>.</p>
@@ -1177,7 +1172,7 @@ for n in range(2,15):
     print(fibonacci_numbers)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1, 1, 2]
+<pre><code>[1, 1, 2]
 [1, 1, 2, 3]
 [1, 1, 2, 3, 5]
 [1, 1, 2, 3, 5, 8]
@@ -1190,8 +1185,7 @@ for n in range(2,15):
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
-</code></pre></div>
-
+</code></pre>
 <h2 id="computing-sums">Computing Sums</h2>
 <p>Suppose we want to compute the sum of a sequence of numbers <span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span>, <span><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span>, <span><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span>, <span><span class="MathJax_Preview">x_3</span><script type="math/tex">x_3</script></span>, <span><span class="MathJax_Preview">\dots</span><script type="math/tex">\dots</script></span>, <span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span>. There are at least two approaches:</p>
 <ol>
@@ -1208,9 +1202,8 @@ for n in range(2,15):
 <pre><code class="python">sum_of_squares_1(4)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>30
-</code></pre></div>
-
+<pre><code>30
+</code></pre>
 <p>For the second approach, use a <code>for</code> loop with the initialize-and-update construction:</p>
 <pre><code class="python">def sum_of_squares_2(N):
     &quot;Compute the sum of squares 1**2 + 2**2 + ... + N**2.&quot;
@@ -1225,9 +1218,8 @@ for n in range(2,15):
 <pre><code class="python">sum_of_squares_2(4)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>30
-</code></pre></div>
-
+<pre><code>30
+</code></pre>
 <p>Again, both methods yield the same result however the second uses less memory!</p>
 <h2 id="computing-products">Computing Products</h2>
 <p>There is no built-in function to compute products of sequences therefore we'll use an initialize-and-update construction similar to the example above for computing sums.</p>
@@ -1246,15 +1238,13 @@ for n in range(2,15):
 <pre><code class="python">factorial(2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2
-</code></pre></div>
-
+<pre><code>2
+</code></pre>
 <pre><code class="python">factorial(5)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>120
-</code></pre></div>
-
+<pre><code>120
+</code></pre>
 <p>We can use our function to approximate <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> using the Taylor series for <span><span class="MathJax_Preview">e^x</span><script type="math/tex">e^x</script></span>:</p>
 <div>
 <div class="MathJax_Preview">
@@ -1268,9 +1258,8 @@ e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
 <pre><code class="python">sum([1/factorial(k) for k in range(0,101)])
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2.7182818284590455
-</code></pre></div>
-
+<pre><code>2.7182818284590455
+</code></pre>
 <h2 id="searching-for-solutions">Searching for Solutions</h2>
 <p>We can use <code>for</code> loops to search for integer solutions of equations. For example, suppose we would like to find all representations of a positive integer <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> as a <a href="https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem">sum of two squares</a>. In other words, we want to find all integer solutions <span><span class="MathJax_Preview">(x,y)</span><script type="math/tex">(x,y)</script></span> of the equation:</p>
 <div>
@@ -1331,9 +1320,8 @@ def reps_sum_squares(N):
 <pre><code class="python">reps_sum_squares(1105)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[(4, 33), (9, 32), (12, 31), (23, 24)]
-</code></pre></div>
-
+<pre><code>[(4, 33), (9, 32), (12, 31), (23, 24)]
+</code></pre>
 <p>What is the smallest integer which can be expressed as the sum of squares in 5 different ways?</p>
 <pre><code class="python">N = 1105
 num_reps = 4
@@ -1344,9 +1332,8 @@ while num_reps &lt; 5:
 print(N,':',reps_sum_squares(N))
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>4225 : [(0, 65), (16, 63), (25, 60), (33, 56), (39, 52)]
-</code></pre></div>
-
+<pre><code>4225 : [(0, 65), (16, 63), (25, 60), (33, 56), (39, 52)]
+</code></pre>
 <h2 id="examples">Examples</h2>
 <h3 id="prime-numbers">Prime Numbers</h3>
 <p>A positive integer is <a href="https://en.wikipedia.org/wiki/Prime_number">prime</a> if it is divisible only by 1 and itself. Write a function called <code>is_prime</code> which takes an input parameter <code>n</code> and returns <code>True</code> or <code>False</code> depending on whether <code>n</code> is prime or not.</p>
@@ -1376,7 +1363,7 @@ print(N,':',reps_sum_squares(N))
         print(n,'is prime!')
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2 is prime!
+<pre><code>2 is prime!
 3 is prime!
 5 is prime!
 7 is prime!
@@ -1386,15 +1373,14 @@ print(N,':',reps_sum_squares(N))
 19 is prime!
 23 is prime!
 29 is prime!
-</code></pre></div>
-
+</code></pre>
 <p>Our function works! Let's find all the primes between 20,000 and 20,100.</p>
 <pre><code class="python">for n in range(20000,20100):
     if is_prime(n):
         print(n,'is prime!')
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>20011 is prime!
+<pre><code>20011 is prime!
 20021 is prime!
 20023 is prime!
 20029 is prime!
@@ -1403,8 +1389,7 @@ print(N,':',reps_sum_squares(N))
 20063 is prime!
 20071 is prime!
 20089 is prime!
-</code></pre></div>
-
+</code></pre>
 <h3 id="divisors">Divisors</h3>
 <p>Let's write a function called <code>divisors</code> which takes a positive integer <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> and returns the list of positive integers which divide <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>.</p>
 <pre><code class="python">def divisors(N):
@@ -1424,21 +1409,18 @@ print(N,':',reps_sum_squares(N))
 <pre><code class="python">divisors(10)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1, 2, 5, 10]
-</code></pre></div>
-
+<pre><code>[1, 2, 5, 10]
+</code></pre>
 <pre><code class="python">divisors(100)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1, 2, 4, 5, 10, 20, 25, 50, 100]
-</code></pre></div>
-
+<pre><code>[1, 2, 4, 5, 10, 20, 25, 50, 100]
+</code></pre>
 <pre><code class="python">divisors(59)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[1, 59]
-</code></pre></div>
-
+<pre><code>[1, 59]
+</code></pre>
 <h3 id="collatz-conjecture">Collatz Conjecture</h3>
 <p>Let <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> be a positive integer and consider the recursive sequence where <span><span class="MathJax_Preview">x_0 = a</span><script type="math/tex">x_0 = a</script></span> and</p>
 <div>
@@ -1471,15 +1453,13 @@ x_{n+1} = \left\\{ \begin{array}{cl} x_n/2 & \text{if } x_n \text{ is even} \\\\
 <pre><code class="python">print(collatz(10))
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[10, 5, 16, 8, 4, 2, 1]
-</code></pre></div>
-
+<pre><code>[10, 5, 16, 8, 4, 2, 1]
+</code></pre>
 <pre><code class="python">collatz(22)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>[22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
-</code></pre></div>
-
+<pre><code>[22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+</code></pre>
 <p>The Collatz conjecture is quite amazing. No matter where we start, the sequence always terminates at 1!</p>
 <pre><code class="python">a = 123456789
 seq = collatz(a)
@@ -1489,12 +1469,11 @@ print(&quot;ends with&quot;,seq[-5:])
 print(&quot;and has&quot;,len(seq),&quot;terms.&quot;)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Collatz sequence for a = 123456789
+<pre><code>Collatz sequence for a = 123456789
 begins with [123456789, 370370368, 185185184, 92592592, 46296296]
 ends with [16, 8, 4, 2, 1]
 and has 178 terms.
-</code></pre></div>
-
+</code></pre>
 <p>Which <span><span class="MathJax_Preview">a &lt; 1000</span><script type="math/tex">a < 1000</script></span> produces the longest sequence?</p>
 <pre><code class="python">max_length = 1
 a_max = 1
@@ -1506,9 +1485,8 @@ for a in range(1,1001):
 print('Longest sequence begins with a =',a_max,'and has length',max_length)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Longest sequence begins with a = 871 and has length 179
-</code></pre></div>
-
+<pre><code>Longest sequence begins with a = 871 and has length 179
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>

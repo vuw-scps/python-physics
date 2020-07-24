@@ -1056,9 +1056,8 @@ E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{1
 <pre><code class="python">simps(lambda x : 3*x**2,0,1,10)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.0
-</code></pre></div>
-
+<pre><code>1.0
+</code></pre>
 <p>Test our function again with the integral</p>
 <div>
 <div class="MathJax_Preview">
@@ -1071,9 +1070,8 @@ E_N^S(f) = \left| \ \int_a^b f(x) \, dx - S_N(f) \ \right| \leq \frac{(b-a)^5}{1
 <pre><code class="python">simps(np.sin,0,np.pi/2,100)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.000000000338236
-</code></pre></div>
-
+<pre><code>1.000000000338236
+</code></pre>
 <h2 id="scipyintegratesimps">scipy.integrate.simps</h2>
 <p>The <a href="https://scipy.org/">SciPy</a> subpackage <a href="https://docs.scipy.org/doc/scipy-0.18.1/reference/integrate.html">scipy.integrate</a> contains several functions for approximating definite integrals and numerically solving differential equations. Let's import the subpackage under the name <code>spi</code>.</p>
 <pre><code class="python">import scipy.integrate as spi
@@ -1118,17 +1116,15 @@ f^{(4)}(x) = \frac{24}{x^5}
 <pre><code class="python">(20000/15)**0.25
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>6.042750794713537
-</code></pre></div>
-
+<pre><code>6.042750794713537
+</code></pre>
 <p>Compute Simpson's rule with <span><span class="MathJax_Preview">N=8</span><script type="math/tex">N=8</script></span> (the smallest even integer greater than 6.04)</p>
 <pre><code class="python">approximation = simps(lambda x : 1/x,1,2,8)
 print(approximation)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.6931545306545306
-</code></pre></div>
-
+<pre><code>0.6931545306545306
+</code></pre>
 <p>We could also use the function <code>scipy.integrate.simps</code> to compute the exact same result</p>
 <pre><code class="python">N = 8; a = 1; b = 2;
 x = np.linspace(a,b,N+1)
@@ -1137,16 +1133,14 @@ approximation = spi.simps(y,x)
 print(approximation)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.6931545306545306
-</code></pre></div>
-
+<pre><code>0.6931545306545306
+</code></pre>
 <p>Verify that <span><span class="MathJax_Preview">E_N^S(f) \leq 0.0001</span><script type="math/tex">E_N^S(f) \leq 0.0001</script></span></p>
 <pre><code class="python">np.abs(np.log(2) - approximation) &lt;= 0.0001
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>True
-</code></pre></div>
-
+<pre><code>True
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <p><em>Under construction</em></p>
                 

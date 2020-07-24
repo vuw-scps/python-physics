@@ -1075,10 +1075,9 @@ approx = newton(p,Dp,1,1e-10,10)
 print(approx)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Found solution after 6 iterations.
+<pre><code>Found solution after 6 iterations.
 1.4655712318767877
-</code></pre></div>
-
+</code></pre>
 <p>How many iterations of the bisection method starting with the interval <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span> can achieve the same accuracy?</p>
 <h3 id="divergent-example">Divergent Example</h3>
 <p>Newton's method diverges in certain cases. For example, if the tangent line at the root is vertical as in <span><span class="MathJax_Preview">f(x)=x^{1/3}</span><script type="math/tex">f(x)=x^{1/3}</script></span>. Note that bisection and secant methods would converge in this case.</p>
@@ -1087,9 +1086,8 @@ Df = lambda x: (1/3)*x**(-2/3)
 approx = newton(f,Df,0.1,1e-2,100)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Exceeded maximum iterations. No solution found.
-</code></pre></div>
-
+<pre><code>Exceeded maximum iterations. No solution found.
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Let <span><span class="MathJax_Preview">p(x) = x^3 - x - 1</span><script type="math/tex">p(x) = x^3 - x - 1</script></span>. The only real root of <span><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> is called the <a href="https://en.wikipedia.org/wiki/Plastic_number">plastic number</a> and is given by</li>

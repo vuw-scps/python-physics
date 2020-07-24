@@ -1075,9 +1075,8 @@ plt.show()
 print(&quot;Trapezoid area:&quot;, A)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Trapezoid area: 0.6839397205857212
-</code></pre></div>
-
+<pre><code>Trapezoid area: 0.6839397205857212
+</code></pre>
 <h2 id="definition">Definition</h2>
 <p>The <strong>trapezoid rule</strong> for <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> subintervals of <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> of equal length is</p>
 <div>
@@ -1171,9 +1170,8 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 <pre><code class="python">trapz(np.sin,0,np.pi/2,1000)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.9999997943832332
-</code></pre></div>
-
+<pre><code>0.9999997943832332
+</code></pre>
 <p>Let's test our function again:</p>
 <div>
 <div class="MathJax_Preview">
@@ -1186,9 +1184,8 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 <pre><code class="python">trapz(lambda x : 3*x**2,0,1,10000)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.0000000050000002
-</code></pre></div>
-
+<pre><code>1.0000000050000002
+</code></pre>
 <p>And once more:</p>
 <div>
 <div class="MathJax_Preview">
@@ -1201,9 +1198,8 @@ E_N^T(f) = \left| \ \int_a^b f(x) \ dx - T_N(f) \ \right| \leq \frac{(b-a)^3}{12
 <pre><code class="python">trapz(lambda x : x,0,1,1)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.5
-</code></pre></div>
-
+<pre><code>0.5
+</code></pre>
 <h2 id="scipyintegratetrapz">scipy.integrate.trapz</h2>
 <p>The <a href="https://scipy.org/">SciPy</a> subpackage <a href="https://docs.scipy.org/doc/scipy-0.18.1/reference/integrate.html">scipy.integrate</a> contains several functions for approximating definite integrals and numerically solving differential equations. Let's import the subpackage under the name <code>spi</code>.</p>
 <pre><code class="python">import scipy.integrate as spi
@@ -1240,9 +1236,8 @@ plt.show()
 print(T)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.3731040812301096
-</code></pre></div>
-
+<pre><code>1.3731040812301096
+</code></pre>
 <p>We know the exact value</p>
 <div>
 <div class="MathJax_Preview">
@@ -1257,15 +1252,13 @@ print(T)
 print(I)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>1.373400766945016
-</code></pre></div>
-
+<pre><code>1.373400766945016
+</code></pre>
 <pre><code class="python">print(&quot;Trapezoid Rule Error:&quot;,np.abs(I - T))
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Trapezoid Rule Error: 0.00029668571490626405
-</code></pre></div>
-
+<pre><code>Trapezoid Rule Error: 0.00029668571490626405
+</code></pre>
 <h3 id="approximate-ln2">Approximate ln(2)</h3>
 <p>Find a value <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> which guarantees that the trapezoid rule approximation <span><span class="MathJax_Preview">T_N(f)</span><script type="math/tex">T_N(f)</script></span> of the integral</p>
 <div>
@@ -1298,17 +1291,15 @@ print(I)
 <pre><code class="python">10**4/np.sqrt(6)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>4082.4829046386303
-</code></pre></div>
-
+<pre><code>4082.4829046386303
+</code></pre>
 <p>We need 4083 subintervals to guarantee <span><span class="MathJax_Preview">E_N^T(f) \leq 10^{-8}</span><script type="math/tex">E_N^T(f) \leq 10^{-8}</script></span>. Compute the approximation using our own implementation of the trapezoid rule:</p>
 <pre><code class="python">approximation = trapz(lambda x : 1/x,1,2,4083)
 print(approximation)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.6931471843089954
-</code></pre></div>
-
+<pre><code>0.6931471843089954
+</code></pre>
 <p>We could also use <code>scipy.integrate.trapz</code> to get the exact same result:</p>
 <pre><code class="python">N = 4083
 x = np.linspace(1,2,N+1)
@@ -1317,16 +1308,14 @@ approximation = spi.trapz(y,x)
 print(approximation)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.6931471843089955
-</code></pre></div>
-
+<pre><code>0.6931471843089955
+</code></pre>
 <p>Let's verify that this is within <span><span class="MathJax_Preview">10^{-6}</span><script type="math/tex">10^{-6}</script></span>:</p>
 <pre><code class="python">np.abs(approximation - np.log(2)) &lt; 10**(-8)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>True
-</code></pre></div>
-
+<pre><code>True
+</code></pre>
 <p>Success! However, a natural question arises: what is the actual smallest <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> such that the trapezoid rule gives the estimate of <span><span class="MathJax_Preview">\ln (2)</span><script type="math/tex">\ln (2)</script></span> to within <span><span class="MathJax_Preview">10^{-8}</span><script type="math/tex">10^{-8}</script></span>?</p>
 <pre><code class="python">for n in range(1,4083):
     approx = trapz(lambda x : 1/x,1,2,n)
@@ -1335,9 +1324,8 @@ print(approximation)
         break
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>Accuracy achieved at N = 791
-</code></pre></div>
-
+<pre><code>Accuracy achieved at N = 791
+</code></pre>
 <h3 id="fresnel-integral">Fresnel Integral</h3>
 <p><a href="https://en.wikipedia.org/wiki/Fresnel_integral">Fresnel integrals</a> are examples of <a href="https://en.wikipedia.org/wiki/Nonelementary_integral">nonelementary integrals</a>: antiderivatives which cannot be written in terms of <a href="https://en.wikipedia.org/wiki/Elementary_function">elementary functions</a>. There are two types of Fresnel integrals:</p>
 <div>
@@ -1380,16 +1368,14 @@ f''(x) = 2\cos(x^2) - 4x^2\sin(x^2) \ \ , \ \ f'''(x) = -12x\sin(x^2) - 8x^3\cos
 2*np.cos(x**2) - 4*x**2*np.sin(x**2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2.0
-</code></pre></div>
-
+<pre><code>2.0
+</code></pre>
 <pre><code class="python">x = 1
 2*np.cos(x**2) - 4*x**2*np.sin(x**2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>-2.2852793274953065
-</code></pre></div>
-
+<pre><code>-2.2852793274953065
+</code></pre>
 <p>Therefore <span><span class="MathJax_Preview">\left| \, f''(x) \, \right| \leq 2.2852793274953065</span><script type="math/tex">\left| \, f''(x) \, \right| \leq 2.2852793274953065</script></span> for <span><span class="MathJax_Preview">x \in [0,1]</span><script type="math/tex">x \in [0,1]</script></span>. Use the error bound formula to find a good choice for <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span></p>
 <div>
 <div class="MathJax_Preview">
@@ -1402,9 +1388,8 @@ f''(x) = 2\cos(x^2) - 4x^2\sin(x^2) \ \ , \ \ f'''(x) = -12x\sin(x^2) - 8x^3\cos
 <pre><code class="python">np.sqrt(10**5 * 2.2852793274953065 / 12)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>137.9999796949051
-</code></pre></div>
-
+<pre><code>137.9999796949051
+</code></pre>
 <p>Let's compute the integral using the trapezoid rule with <span><span class="MathJax_Preview">N=138</span><script type="math/tex">N=138</script></span> subintervals</p>
 <pre><code class="python">x = np.linspace(0,1,139)
 y = np.sin(x**2)
@@ -1412,9 +1397,8 @@ I = spi.trapz(y,x)
 print(I)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>0.31027303032220394
-</code></pre></div>
-
+<pre><code>0.31027303032220394
+</code></pre>
 <p>Therefore the Fresnel integral <span><span class="MathJax_Preview">S(1)</span><script type="math/tex">S(1)</script></span> is approximately</p>
 <div>
 <div class="MathJax_Preview">
@@ -1468,9 +1452,8 @@ plt.show()
 print(K2)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>2.021732598829855
-</code></pre></div>
-
+<pre><code>2.021732598829855
+</code></pre>
 <p>Use the error formula:</p>
 <div>
 <div class="MathJax_Preview">
@@ -1483,9 +1466,8 @@ print(K2)
 <pre><code class="python">np.sqrt(8**3 * 10**4 * 2.021732598829855 / 12)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>928.7657986995814
-</code></pre></div>
-
+<pre><code>928.7657986995814
+</code></pre>
 <p>Compute the trapzoid rule with <span><span class="MathJax_Preview">N=929</span><script type="math/tex">N=929</script></span></p>
 <pre><code class="python">N = 929
 x = np.linspace(a,b,N+1)
@@ -1494,9 +1476,8 @@ I = spi.trapz(y,x)
 print(I)
 </code></pre>
 
-<div class="highlight"><pre><span></span><code>5.120442039184057
-</code></pre></div>
-
+<pre><code>5.120442039184057
+</code></pre>
 <p>Therefore the Eulerian logarithmic integral is</p>
 <div>
 <div class="MathJax_Preview">
