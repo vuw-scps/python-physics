@@ -4,10 +4,10 @@ theme:
   highlightjs: true
 markdown_extensions:
   - pymdownx.arithmatex
-extra_css:
+extra_css:  
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css
   - stylesheets/extra.css
-extra_javascript:  
-  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
-  - javascripts/highlight.js
-  - javascripts/extra.js
+extra_javascript:    
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
+  - javascripts/extra.js  
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
