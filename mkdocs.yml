@@ -4,12 +4,10 @@ theme:
   highlightjs: true
 markdown_extensions:
   - pymdownx.arithmatex
-  - pymdownx.highlight:
-      use_pygments: true
-  - pymdownx.inlinehilite
-extra_javascript: 
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 extra_css:
   - stylesheets/extra.css
-extra_javascript:
+extra_javascript:  
+  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
+  - javascripts/highlight.js
   - javascripts/extra.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
