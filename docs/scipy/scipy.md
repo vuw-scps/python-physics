@@ -1,3 +1,0 @@
-# SciPy
-
-*Under construction*

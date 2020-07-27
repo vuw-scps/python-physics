@@ -1,5 +1,7 @@
 # Molecular Speeds lab Python data analysis - single gas dataset processing
 
+Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/blob/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/blob/master/scripts/phys221/Multiplots.py)
+
 Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’
 
 I have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it. As you read through you'll see lots of print commands commented out, these were included to check the code was working.
@@ -119,7 +121,7 @@ plt.ylabel("Pressure (Pa)")
 
 
 
-![png](../nb_img/phys221/Single_exp_26_1.png)
+![png](../nb_img/phys221/Single_exp_27_1.png)
 
 
 Note that I am planning on having multiple figures so I have given this one a number.  This should help as we move along.I even remembered to label my axes and to put in units. 
@@ -236,7 +238,7 @@ plt.ylabel("log Pressure (Pa)")
 
 
 
-![png](../nb_img/phys221/Single_exp_50_1.png)
+![png](../nb_img/phys221/Single_exp_51_1.png)
 
 
 We can also plot only the data after we reach the effusion regime, on the same figure, the ‘r’ makes it red.
@@ -254,7 +256,7 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],"r")
 
 
 
-![png](../nb_img/phys221/Single_exp_52_1.png)
+![png](../nb_img/phys221/Single_exp_53_1.png)
 
 
 Actually, in spyder that just plots ontop..
@@ -278,7 +280,7 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],"r")
 
 
 
-![png](../nb_img/phys221/Single_exp_54_1.png)
+![png](../nb_img/phys221/Single_exp_55_1.png)
 
 
 Here in the Jupyter environment I had to put them together in one code section.  So if anyone is using Jupyter you will have to do what I just did here.
@@ -329,7 +331,7 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, "k--")
 
 
 
-![png](../nb_img/phys221/Single_exp_65_1.png)
+![png](../nb_img/phys221/Single_exp_66_1.png)
 
 
 For me, I need to plot it ontop of the existing plots again. 
@@ -352,7 +354,7 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, "k--")
 
 
 
-![png](../nb_img/phys221/Single_exp_67_1.png)
+![png](../nb_img/phys221/Single_exp_68_1.png)
 
 
 Hopefully you can see it all, and the small black dashes.  You can look up the plot instructions to see what k means.

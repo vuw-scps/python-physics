@@ -9,6 +9,9 @@ do
   for nb in $dir*.ipynb
   do
     jupyter nbconvert --to markdown $nb --output-dir ../docs/$dir --NbConvertApp.output_files_dir="../nb_img/$dir"
+
+    jupyter nbconvert --to script $nb --output-dir ../scripts/$dir
+
   done
 done
 
