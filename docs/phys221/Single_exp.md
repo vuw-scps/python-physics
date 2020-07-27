@@ -1,8 +1,14 @@
 # Molecular Speeds lab Python data analysis - single gas dataset processing
 
+This Python workshop was originally developed by VUW students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiams in making this resource.
+
+## Making use of folders
+
 Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’
 
-I have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it. As you read through you'll see lots of print commands commented out, these were included to check the code was working.
+I have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you read through you'll see lots of print commands commented out, these were included to check the code was working.
+
+## Setting up
 
 The first thing we want to do is define some constants that we will use later on.  These will be the Volume of the bulb, the area of the opening and the pressure at which the effusion regime begins.
 
@@ -27,6 +33,8 @@ print(V)
     0.0020299999999999997
 
 
+## Importing packages 
+
 To start of with we need to call up the packages that help us handle our data. packages are bunches of functions that can be imported all at the same time for later use. The package we want is called ‘numpy’ so let’s import that now.
 
 
@@ -41,6 +49,8 @@ Does that matter?
 ```python
 from matplotlib import pyplot as plt
 ```
+
+## Importing the data files
 
 We also want to load up the data that we have in our CSVs. If you remember back to the experiment the data is pressure as a function of time. 
 
@@ -77,6 +87,8 @@ print(rawdata)
 
 This looks good and along the lines of what you expect.  It really makes sense to throw in a few tests here and there to make sure that the code is doing what you expect.
 
+## Using arrays and vectors
+
 Now we want to split this array up into two vectors, one for time and one for pressure, we can do that using the indexing we learned before.
 
 
@@ -100,6 +112,8 @@ print(pressure)
     [3.91587981 3.90860622 3.89163795 ... 0.06100258 0.06100258 0.06241967]
 
 
+## Plotting the data
+
 It's quite tricky to see what's really going on here, so let's plot it out to get a better idea.
 
 
@@ -119,10 +133,12 @@ plt.ylabel("Pressure (Pa)")
 
 
 
-![png](../nb_img/phys221/Single_exp_26_1.png)
+![png](../nb_img/phys221/Single_exp_33_1.png)
 
 
-Note that I am planning on having multiple figures so I have given this one a number.  This should help as we move along.I even remembered to label my axes and to put in units. 
+Note that I am planning on having multiple figures so I have given this one a number.  This should help as we move along. I even remembered to label my axes and to put in units! 
+
+## Making use of built in functions
 
 If you remember back to the experiment and what we actually have to do to from the basis of our analysis here, we need to find the minimum pressure we reached. 
 To do this we will use an inbuilt python function ‘min’ and set the result as a new variable ‘baseP’.
@@ -142,7 +158,8 @@ print(baseP)
 
 Have a bit of a think about what that function is doing.  It is going from the first data point and last data point in our pressure column (here 1) and finding the minimum.  If you want to know more you can easily google this function and see how it operates.
 
-We are now going to use a list comprehension to subtract the base pressure from each value in ‘Pressure’ as we will need to take the log of this later (everyone remembers the experiment and you all definitely read ahead to see where this is going...).   
+We are now going to use a list comprehension to subtract the base pressure from each value in ‘Pressure’ as we will need to take the log of this later (everyone remembers the experiment and you all definitely read ahead to see where this is going...).  
+
 We therefore want to avoid 0 values, and as baseP is in ‘Pressure’ it will return a zero, so we can just multiply it by 0.99 to avoid this.
 
 
@@ -156,6 +173,8 @@ Now we have our pressure minus base pressure we need to find the point at which 
 
 We already know the pressure at which the effusion regime begins, we called it ‘ef_begin’, what we don't know is the INDEX of this value in the pressure vector. We are going to find this using residuals. 
 
+## Making use of loops
+
 This vector ‘Res’ will be a vector where we take the value we are looking for ‘ef_begin’ from all values of the pressure vector the smallest value of this vector will have an index equal to that of when the effusion regime begins, in the vector ‘Pressure’.
 
 
@@ -163,7 +182,8 @@ This vector ‘Res’ will be a vector where we take the value we are looking fo
 res=[abs(i-ef_begin) for i in P_minus_baseP]
 ```
 
-You should recognice the look comprehension in the line above.
+You should recognise the list comprehension in the line above.  This was in the reminder tutorial and is a neat way of writing a for loop.
+
 We've made a new array as described above.  We now need to take the minimum value.
 
 
@@ -181,9 +201,20 @@ print(minres)
 
 I get 0.00043142575999999266, you should get something similar…. Or the same.
 
-We now need to find the index of the minimum value, for this we will use a for loop, we want the loop to run for as many entries as we have in res so we can make it run for ‘len(res)’ we then want to use an if statement, so when ‘res[i]=minres’ we assign that ‘I’ to a variable, then stop.
+We now need to find the index of the minimum value, for this we will use a for loop, we want the loop to run for as many entries as we have in res so we can make it run for ‘len(res)’ we then want to use an if statement, so when ‘res[i]=minres’ we assign that ‘i’ to a variable, then stop.
 
-Just take a moment and think that through.  Can you write it yourself?
+Just take a moment and think that through.  
+
+Can you write it yourself before you scroll down?
+
+*
+*
+*
+*
+*
+*
+*
+*
 
 
 ```python
@@ -203,7 +234,11 @@ print(Peff_index)
 
 Now we have the value of the index where the effusion regime begins we can move on.
 
-The next step is to take the log of our data, to do this we need to import another module called ‘math’.  Maybe we could have added that to the top with numpy and matplotlib, but here we are.
+## Using the math module 
+
+The next step is to take the log of our data, to do this we need to import another module called ‘math’.  
+
+Maybe we could have added that to the top with numpy and matplotlib, but here we are...
 
 
 ```python
@@ -218,7 +253,7 @@ We are going to use another list comprehension to create a new vector with all t
 LogP=[log(i) for i in P_minus_baseP]
 ```
 
-print(LogP) - if you want to check things.  I find it better to plot.  Especially as you have your own data that you can double check against.
+print(LogP) - if you want to check things.  I find it better to plot.  Especially as you have your own data from the PHYS223 lab that you can double check against.
 
 
 ```python
@@ -236,7 +271,7 @@ plt.ylabel("log Pressure (Pa)")
 
 
 
-![png](../nb_img/phys221/Single_exp_50_1.png)
+![png](../nb_img/phys221/Single_exp_61_1.png)
 
 
 We can also plot only the data after we reach the effusion regime, on the same figure, the ‘r’ makes it red.
@@ -254,10 +289,12 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],"r")
 
 
 
-![png](../nb_img/phys221/Single_exp_52_1.png)
+![png](../nb_img/phys221/Single_exp_63_1.png)
 
 
-Actually, in spyder that just plots ontop..
+Actually, in spyder that just plots ontop of the existing plot.  In the Jupyter workbook environment things happen a little differently.  
+
+So, if you are in Sypder I expect you have something that looks like this:
 
 
 ```python
@@ -278,10 +315,12 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],"r")
 
 
 
-![png](../nb_img/phys221/Single_exp_54_1.png)
+![png](../nb_img/phys221/Single_exp_65_1.png)
 
 
 Here in the Jupyter environment I had to put them together in one code section.  So if anyone is using Jupyter you will have to do what I just did here.
+
+## Fitting
 
 Now I want to fit a trend line to the section of the data in the effusion regime. To do this I'll use a fitting tool and create a new variable. 
 
@@ -329,7 +368,7 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, "k--")
 
 
 
-![png](../nb_img/phys221/Single_exp_65_1.png)
+![png](../nb_img/phys221/Single_exp_77_1.png)
 
 
 For me, I need to plot it ontop of the existing plots again. 
@@ -352,10 +391,12 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, "k--")
 
 
 
-![png](../nb_img/phys221/Single_exp_67_1.png)
+![png](../nb_img/phys221/Single_exp_79_1.png)
 
 
 Hopefully you can see it all, and the small black dashes.  You can look up the plot instructions to see what k means.
+
+## Final analysis
 
 We now can calculate the velocity of the nitrogen from the fit. 
 Which remember, is the reason we’ve done all this work... and let's print it.

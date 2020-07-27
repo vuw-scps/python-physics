@@ -3,8 +3,12 @@
 
 # # Molecular Speeds lab Python data analysis - multiple gas dataset processing
 
+# This Python workshop was originally developed by VUW students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiams in making this resource.
+
 # Take a look at the example code you have been given - or start to workthrough from here.  
-# 
+
+# ## Importing modules
+
 # Let's begin by importing all the modules we will need at the top of the code and adding in the variables that we know we will need for the analysis.  
 
 # In[1]:
@@ -16,6 +20,8 @@ from math import log
 import math
 
 
+# ## Setting up variables and constants required later
+
 # In[2]:
 
 
@@ -25,6 +31,8 @@ ef_begin=0.26
 
 
 # What we are going to do here is run a for loop over all the code we wrote for all files in a specific folder. This will be the folder we are in, so make sure that's where you are and you have all the data from the workshop folder.   
+
+# ## New moldues for file organisation
 
 # To start with we need to import the other modules we are going to use.
 # 
@@ -49,6 +57,8 @@ import glob
 folder = os.getcwd()
 
 
+# ## File formats
+
 # Now we know where the files are stored we need to set the pattern (or type of files) for Glob to look for.
 
 # In[5]:
@@ -66,6 +76,8 @@ fileformat=folder+str('/*.csv')
 
 files = glob.glob(fileformat)
 
+
+# ## Building the arrays
 
 # Create an array of masses from filenames to use later, as filenames are  strings we need to set them as intergers.  Note that -ve indicies run from the end.
 
@@ -85,13 +97,15 @@ print(files)
 
 # argh!!!  depending on your filing system this might look horrible...
 
+# I think it becomes clearer if we print the output of the array.
+
 # In[9]:
 
 
 print(masses)
 
 
-# but hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name...
+# Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name...
 
 # We now need to find out how many files we have in the folder.  We know how to do that already.
 
@@ -108,6 +122,8 @@ n=len(files)
 
 v=np.zeros(n)
 
+
+# ## Applying the previous code to multiple files
 
 # We now want to simply run though the previous code (in the single gas experiment) for all of the files in the folder.
 
@@ -189,6 +205,8 @@ plt.scatter(masses,v)
     
 
 
+# ## Analysis
+
 # In[16]:
 
 
@@ -206,7 +224,7 @@ plt.xlabel('Mass Number')
 plt.ylabel('Velocity')
 
 
-# Putting these last two parts together we find (this will be what comes up in Spyder.
+# Putting these last two parts together we find (this will be what comes up in Spyder).
 
 # In[17]:
 
@@ -265,5 +283,7 @@ plt.plot(range(10,90),vtheory,'k--')
 plt.xlabel('Mass Number')
 plt.ylabel('Velocity')
 
+
+# Compare this to your results from the PHYS223 lab.  What are the advantages of using the Python script?
 
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Multiplots.py)._
