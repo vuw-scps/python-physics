@@ -3,8 +3,6 @@
 
 # # Molecular Speeds lab Python data analysis - single gas dataset processing
 
-# Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/blob/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/blob/master/scripts/phys221/Multiplots.py)
-
 # Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’
 # 
 # I have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it. As you read through you'll see lots of print commands commented out, these were included to check the code was working.
@@ -305,8 +303,4 @@ print(v)
 
 # Do you get the same?  Does it agree with your lab report?
 
-# In[ ]:
-
-
-
-
+# _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Single_exp.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Single_exp.py)._

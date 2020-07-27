@@ -266,8 +266,4 @@ plt.xlabel('Mass Number')
 plt.ylabel('Velocity')
 
 
-# In[ ]:
-
-
-
-
+# _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Multiplots.py)._

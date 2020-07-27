@@ -287,7 +287,4 @@ plt.ylabel('Velocity')
 ![png](../nb_img/phys221/Multiplots_32_1.png)
 
 
-
-```python
-
-```
+_Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Multiplots.py)._
