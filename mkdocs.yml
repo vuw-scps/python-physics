@@ -1,6 +1,8 @@
 site_name: python-physics
 theme:
   name: material
+  palette:
+    primary: white
   highlightjs: true
 markdown_extensions:
   - pymdownx.arithmatex

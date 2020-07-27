@@ -4,7 +4,9 @@
 
 ## Acknowledgments and further resources
 
-This website is currently a template copied from the [excellent resources at http://www.math.ubc.ca/~pwalls/math-python/](www.math.ubc.ca/~pwalls/math-python/) and [the associated notebooks](https://github.com/patrickwalls/mathematical-python); we'll soon be adding our own content with the following topics:
+This website is currently a template copied from the [excellent resources at http://www.math.ubc.ca/~pwalls/math-python/](http://www.math.ubc.ca/~pwalls/math-python/) and [the associated notebooks](https://github.com/patrickwalls/mathematical-python).
+
+We gratefully acknowledge contributions from William Hewett and Campbell Matthews for the 200-level tutorials.
 
 ## Planned content
 
@@ -33,7 +35,11 @@ This website is currently a template copied from the [excellent resources at htt
 
 ### Worked-through examples from our Physics labs
 
-- phys304 spherical harmonics
+- phys221 • Molecular speeds
+
+- phys304 • Relaxation method in 2D
+
+- phys304 • Spherical harmonics
 
 
 ----
@@ -56,6 +62,3 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
-## $\LaTeX$ test
-
-$\beta\gg\alpha$
