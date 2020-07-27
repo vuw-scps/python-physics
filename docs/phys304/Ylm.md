@@ -125,8 +125,3 @@ if (outputEl) {{
             </script>
         </div>
 
-
-
-```python
-
-```
