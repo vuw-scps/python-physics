@@ -426,7 +426,6 @@
                 
                 
                 <h1 id="molecular-speeds-lab-python-data-analysis-single-gas-dataset-processing">Molecular Speeds lab Python data analysis - single gas dataset processing</h1>
-<p>Download this page <a href="https://github.com/vuw-scps/python-physics/blob/master/notebooks/phys221/Multiplots.ipynb">as a Jupyter notebook</a> or as a <a href="https://github.com/vuw-scps/python-physics/blob/master/scripts/phys221/Multiplots.py">standalone Python script</a></p>
 <p>Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’</p>
 <p>I have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it. As you read through you'll see lots of print commands commented out, these were included to check the code was working.</p>
 <p>The first thing we want to do is define some constants that we will use later on.  These will be the Volume of the bulb, the area of the opening and the pressure at which the effusion regime begins.</p>
@@ -499,7 +498,7 @@ plt.ylabel(&quot;Pressure (Pa)&quot;)
 
 <pre><code>Text(0, 0.5, 'Pressure (Pa)')
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Single_exp_27_1.png" /></p>
+<p><img alt="png" src="../../nb_img/phys221/Single_exp_26_1.png" /></p>
 <p>Note that I am planning on having multiple figures so I have given this one a number.  This should help as we move along.I even remembered to label my axes and to put in units. </p>
 <p>If you remember back to the experiment and what we actually have to do to from the basis of our analysis here, we need to find the minimum pressure we reached. 
 To do this we will use an inbuilt python function ‘min’ and set the result as a new variable ‘baseP’.</p>
@@ -567,14 +566,14 @@ plt.ylabel(&quot;log Pressure (Pa)&quot;)
 
 <pre><code>Text(0, 0.5, 'log Pressure (Pa)')
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Single_exp_51_1.png" /></p>
+<p><img alt="png" src="../../nb_img/phys221/Single_exp_50_1.png" /></p>
 <p>We can also plot only the data after we reach the effusion regime, on the same figure, the ‘r’ makes it red.</p>
 <pre><code class="python">plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 </code></pre>
 
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca48843e10&gt;]
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Single_exp_53_1.png" /></p>
+<p><img alt="png" src="../../nb_img/phys221/Single_exp_52_1.png" /></p>
 <p>Actually, in spyder that just plots ontop..</p>
 <pre><code class="python">plt.figure(2)
 plt.plot(time,LogP)
@@ -587,7 +586,7 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca88a9e790&gt;]
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Single_exp_55_1.png" /></p>
+<p><img alt="png" src="../../nb_img/phys221/Single_exp_54_1.png" /></p>
 <p>Here in the Jupyter environment I had to put them together in one code section.  So if anyone is using Jupyter you will have to do what I just did here.</p>
 <p>Now I want to fit a trend line to the section of the data in the effusion regime. To do this I'll use a fitting tool and create a new variable. </p>
 <pre><code class="python">fit=np.polyfit(time[Peff_index:1400],LogP[Peff_index:1400],1)
@@ -614,7 +613,7 @@ c=fit[1]
 
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca68e3b250&gt;]
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Single_exp_66_1.png" /></p>
+<p><img alt="png" src="../../nb_img/phys221/Single_exp_65_1.png" /></p>
 <p>For me, I need to plot it ontop of the existing plots again. </p>
 <pre><code class="python">plt.figure(2)
 plt.plot(time,LogP)
@@ -626,7 +625,7 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
 
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca48899f90&gt;]
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Single_exp_68_1.png" /></p>
+<p><img alt="png" src="../../nb_img/phys221/Single_exp_67_1.png" /></p>
 <p>Hopefully you can see it all, and the small black dashes.  You can look up the plot instructions to see what k means.</p>
 <p>We now can calculate the velocity of the nitrogen from the fit. 
 Which remember, is the reason we’ve done all this work... and let's print it.</p>
@@ -637,8 +636,7 @@ print(v)
 <pre><code>469.5579056720142
 </code></pre>
 <p>Do you get the same?  Does it agree with your lab report?</p>
-<pre><code class="python">
-</code></pre>
+<p><em>Download this page <a href="https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Single_exp.ipynb">as a Jupyter notebook</a> or as a <a href="https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Single_exp.py">standalone Python script</a>.</em></p>
                 
               
               
