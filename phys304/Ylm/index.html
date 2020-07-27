@@ -1,0 +1,1163 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>Ylm - python-physics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#required-dependencies" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="python-physics" class="md-header-nav__button md-logo" aria-label="python-physics">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            python-physics
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Ylm
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="python-physics" class="md-nav__button md-logo" aria-label="python-physics">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    python-physics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome to MkDocs" class="md-nav__link">
+      Welcome to MkDocs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Differential equations
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Differential equations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Differential equations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../differential-equations/first-order/" title="First Order Equations" class="md-nav__link">
+      First Order Equations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Differentiation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Differentiation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Differentiation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../differentiation/differentiation/" title="Numerical Differentiation" class="md-nav__link">
+      Numerical Differentiation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Integration" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Integration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../integration/integrals/" title="Definite Integrals" class="md-nav__link">
+      Definite Integrals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../integration/riemann-sums/" title="Riemann Sums" class="md-nav__link">
+      Riemann Sums
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../integration/simpsons-rule/" title="Simpson's Rule" class="md-nav__link">
+      Simpson's Rule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../integration/trapezoid-rule/" title="Trapezoid Rule" class="md-nav__link">
+      Trapezoid Rule
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Jupyter
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Jupyter
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jupyter/latex/" title="LaTeX" class="md-nav__link">
+      LaTeX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jupyter/markdown/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jupyter/notebook/" title="Jupyter Notebook" class="md-nav__link">
+      Jupyter Notebook
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Linear algebra
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Linear algebra" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Linear algebra
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linear-algebra/applications/" title="Applications" class="md-nav__link">
+      Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linear-algebra/eigenvalues-eigenvectors/" title="Eigenvalues and Eigenvectors" class="md-nav__link">
+      Eigenvalues and Eigenvectors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linear-algebra/linear-algebra-scipy/" title="Linear Algebra with SciPy" class="md-nav__link">
+      Linear Algebra with SciPy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linear-algebra/solving-linear-systems/" title="Solving Linear Systems" class="md-nav__link">
+      Solving Linear Systems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Phys304
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys304" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys304
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Ylm
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Ylm" class="md-nav__link md-nav__link--active">
+      Ylm
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#required-dependencies" class="md-nav__link">
+    Required dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spherical-grid" class="md-nav__link">
+    Spherical grid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spherical-harmonics" class="md-nav__link">
+    Spherical harmonics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting-static" class="md-nav__link">
+    Plotting (static)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting-interactive" class="md-nav__link">
+    Plotting (interactive)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Problems
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Problems" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../problems/problems/" title="Problems" class="md-nav__link">
+      Problems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/logic/" title="Logic" class="md-nav__link">
+      Logic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/modules-packages/" title="Modules and Packages" class="md-nav__link">
+      Modules and Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/numbers/" title="Numbers" class="md-nav__link">
+      Numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/sequences/" title="Sequences" class="md-nav__link">
+      Sequences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/text/" title="Text" class="md-nav__link">
+      Text
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/variables/" title="Variables" class="md-nav__link">
+      Variables
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Roots optimization
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Roots optimization" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Roots optimization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../roots-optimization/bisection/" title="Bisection Method" class="md-nav__link">
+      Bisection Method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../roots-optimization/newton/" title="Newton's Method" class="md-nav__link">
+      Newton's Method
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../roots-optimization/root-finding/" title="Root Finding" class="md-nav__link">
+      Root Finding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../roots-optimization/secant/" title="Secant Method" class="md-nav__link">
+      Secant Method
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      Scipy
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Scipy" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Scipy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../scipy/matplotlib/" title="Matplotlib" class="md-nav__link">
+      Matplotlib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../scipy/numpy/" title="NumPy" class="md-nav__link">
+      NumPy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../scipy/scipy/" title="SciPy" class="md-nav__link">
+      SciPy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#required-dependencies" class="md-nav__link">
+    Required dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spherical-grid" class="md-nav__link">
+    Spherical grid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spherical-harmonics" class="md-nav__link">
+    Spherical harmonics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting-static" class="md-nav__link">
+    Plotting (static)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting-interactive" class="md-nav__link">
+    Plotting (interactive)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Ylm</h1>
+                
+                <p>adapted from https://scipython.com/book/chapter-8-scipy/examples/visualizing-the-spherical-harmonics/</p>
+<h2 id="required-dependencies">Required dependencies</h2>
+<pre><code class="python">import numpy as np
+import scipy as sp
+from scipy.special import sph_harm
+</code></pre>
+
+<h2 id="spherical-grid">Spherical grid</h2>
+<pre><code class="python">
+## first, evaluate the potential on a fine grid
+# at r=10.
+
+R = 10.
+Np = 36
+Nt=18
+theta = -np.arccos(np.linspace(-1, 1, Nt))
+phi = np.linspace(0, 2*np.pi, Np)
+
+theta, phi = np.meshgrid(theta, phi)
+
+x = R * np.sin(theta) * np.cos(phi) 
+y = R * np.sin(theta) * np.sin(phi) 
+z = R * np.cos(theta) 
+</code></pre>
+
+<h2 id="spherical-harmonics">Spherical harmonics</h2>
+<pre><code class="python">m = 0
+l = 1
+Y01 = 1/R**2 * sph_harm(m, l, phi, theta).real
+</code></pre>
+
+<h2 id="plotting-static">Plotting (static)</h2>
+<pre><code class="python">import matplotlib.pyplot as plt
+from matplotlib import cm, colors
+from mpl_toolkits.mplot3d import Axes3D
+
+fmax, fmin = Y01.max(), Y01.min()
+Y01 = (Y01 - fmin)/(fmax - fmin)
+
+# Set the aspect ratio to 1 so our sphere looks spherical
+fig = plt.figure(figsize=plt.figaspect(1.))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z,  rstride=1, cstride=1, facecolors=cm.seismic(Y01))
+# Turn off the axis planes
+ax.set_axis_off()
+plt.show()
+</code></pre>
+
+<p><img alt="png" src="../../nb_img/phys304/Ylm_7_0.png" /></p>
+<h2 id="plotting-interactive">Plotting (interactive)</h2>
+<pre><code class="python">import plotly.graph_objects as go
+import chart_studio.plotly as py
+
+fig = go.Figure()
+
+fig.add_trace(go.Surface(x=x, y=y, z=z, 
+                surfacecolor=Y01, 
+                showscale=False, 
+                colorscale='PrGN'))
+
+fig.show()
+</code></pre>
+
+<div>
+
+            <div id="ef403284-6a59-48e2-b0f4-de24074c0eb6" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <script type="text/javascript">
+                require(["plotly"], function(Plotly) {
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+
+                if (document.getElementById("ef403284-6a59-48e2-b0f4-de24074c0eb6")) {
+                    Plotly.newPlot(
+                        'ef403284-6a59-48e2-b0f4-de24074c0eb6',
+                        [{"colorscale": [[0.0, "rgb(64,0,75)"], [0.1, "rgb(118,42,131)"], [0.2, "rgb(153,112,171)"], [0.3, "rgb(194,165,207)"], [0.4, "rgb(231,212,232)"], [0.5, "rgb(247,247,247)"], [0.6, "rgb(217,240,211)"], [0.7, "rgb(166,219,160)"], [0.8, "rgb(90,174,97)"], [0.9, "rgb(27,120,55)"], [1.0, "rgb(0,68,27)"]], "showscale": false, "surfacecolor": [[0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0], [0.0, 0.05882352941176477, 0.11764705882352945, 0.17647058823529407, 0.23529411764705882, 0.2941176470588235, 0.35294117647058815, 0.4117647058823529, 0.47058823529411764, 0.5294117647058824, 0.5882352941176472, 0.6470588235294119, 0.7058823529411764, 0.7647058823529411, 0.8235294117647058, 0.8823529411764707, 0.9411764705882353, 1.0]], "type": "surface", "x": [[-1.2246467991473533e-15, -4.705882352941178, -6.443794794178425, -7.624400821656306, -8.483650059915268, -9.112901991076274, -9.557692240748189, -9.843059135695006, -9.982683969692435, -9.982683969692435, -9.843059135695006, -9.557692240748189, -9.112901991076276, -8.483650059915268, -7.624400821656307, -6.443794794178426, -4.7058823529411775, -0.0], [-1.204966221263684e-15, -4.630256887522965, -6.340240360849969, -7.501873563763343, -8.34731431326717, -8.966453907019313, -9.40409619439168, -9.68487712593637, -9.822258131409612, -9.822258131409612, -9.68487712593637, -9.40409619439168, -8.966453907019314, -8.34731431326717, -7.501873563763344, -6.34024036084997, -4.630256887522965, -0.0], [-1.1465570375790906e-15, -4.405811155951707, -6.032905385556649, -7.138229916968898, -7.94268901639757, -8.5318166167679, -8.9482447586313, -9.215415196606697, -9.346136835002374, -9.346136835002374, -9.215415196606697, -8.9482447586313, -8.531816616767902, -7.94268901639757, -7.138229916968899, -6.03290538555665, -4.405811155951706, -0.0], [-1.0512965673164322e-15, -4.039759028714665, -5.531667867280454, -6.545157687287933, -7.282779159274661, -7.822959720451471, -8.204789373688198, -8.449762240389205, -8.569623010691158, -8.569623010691158, -8.449762240389205, -8.204789373688198, -7.822959720451473, -7.282779159274661, -6.545157687287934, -5.531667867280454, -4.0397590287146645, -0.0], [-9.22246560370527e-16, -3.5438657223699352, -4.852637992278383, -5.74171870416385, -6.388794787682013, -6.862666461967035, -7.197625307351576, -7.412526973278074, -7.517674451707029, -7.517674451707029, -7.412526973278074, -7.197625307351576, -6.862666461967036, -6.388794787682013, -5.741718704163851, -4.8526379922783835, -3.543865722369935, -0.0], [-7.635547901473156e-16, -2.934069655805806, -4.0176403394406455, -4.753736157586056, -5.289469294895404, -5.681801456774205, -5.9591236414108435, -6.137046990198277, -6.224101650281892, -6.224101650281892, -6.137046990198277, -5.9591236414108435, -5.681801456774206, -5.289469294895404, -4.753736157586056, -4.0176403394406455, -2.9340696558058057, -0.0], [-5.803217407137954e-16, -2.229970176343524, -3.053512420367802, -3.612964619516306, -4.020135906781023, -4.318318677758841, -4.529090838451902, -4.664317267274423, -4.730481100608799, -4.730481100608799, -4.664317267274423, -4.529090838451902, -4.318318677758842, -4.020135906781023, -3.6129646195163065, -3.0535124203678023, -2.2299701763435236, -0.0], [-3.7843667304341507e-16, -1.4541976205879885, -1.99124209966595, -2.3560694258181116, -2.621592042843859, -2.8160415833158643, -2.953489329396762, -3.041672549567339, -3.084818996109325, -3.084818996109325, -3.041672549567339, -2.953489329396762, -2.816041583315865, -2.621592042843859, -2.3560694258181116, -1.9912420996659503, -1.4541976205879883, -0.0], [-1.6438833932268765e-16, -0.6316859567889674, -0.8649716194813774, -1.023448222193742, -1.1387880535965753, -1.2232545953383838, -1.2829602431556952, -1.3212659734206502, -1.340008270877373, -1.340008270877373, -1.3212659734206502, -1.2829602431556952, -1.223254595338384, -1.1387880535965753, -1.0234482221937422, -0.8649716194813775, -0.6316859567889673, -0.0], [5.4943570883047055e-17, 0.21112861341418768, 0.28909976025434586, 0.3420674493879363, 0.3806175206912337, 0.40884880183050615, 0.42880424092359976, 0.44160717825304185, 0.4478714227430553, 0.4478714227430553, 0.44160717825304185, 0.42880424092359976, 0.4088488018305062, 0.3806175206912337, 0.3420674493879363, 0.2890997602543459, 0.21112861341418762, 0.0], [2.7250954951287997e-16, 1.047157336265009, 1.4338792358234194, 1.6965887916922517, 1.8877897346908876, 2.027811462106649, 2.1267866038783056, 2.190286711862085, 2.221356160326688, 2.221356160326688, 2.190286711862085, 2.1267866038783056, 2.0278114621066496, 1.8877897346908876, 1.696588791692252, 1.4338792358234196, 1.0471573362650088, 0.0], [4.813168469997646e-16, 1.849529560724347, 2.5325726529533634, 2.9965803742736705, 3.3342868333390085, 3.5815985935018557, 3.7564122954585164, 3.868568628377971, 3.9234446831794845, 3.9234446831794845, 3.868568628377971, 3.7564122954585164, 3.581598593501856, 3.3342868333390085, 2.996580374273671, 2.5325726529533634, 1.8495295607243465, 0.0], [6.74654224995256e-16, 2.5924563833040124, 3.549867101209666, 4.200259398031388, 4.673617209703269, 5.020270199152773, 5.265303805076358, 5.422511566108919, 5.4994304656938535, 5.4994304656938535, 5.422511566108919, 5.265303805076358, 5.020270199152774, 4.673617209703269, 4.200259398031389, 3.5498671012096663, 2.592456383304012, 0.0], [8.463076610920545e-16, 3.2520595246440696, 4.45306589999271, 5.2689386287514335, 5.862733683482618, 6.2975861899108425, 6.604964118092644, 6.802170520447748, 6.898660028094362, 6.898660028094362, 6.802170520447748, 6.604964118092644, 6.297586189910843, 5.862733683482618, 5.268938628751434, 4.45306589999271, 3.252059524644069, 0.0], [9.907600726170915e-16, 3.8071387970585775, 5.213139496755161, 6.168269836646264, 6.863417072801492, 7.3724925788540006, 7.732335449770855, 7.96320211741484, 8.07616098095554, 8.07616098095554, 7.96320211741484, 7.732335449770855, 7.372492578854002, 6.863417072801492, 6.168269836646265, 5.213139496755162, 3.8071387970585766, 0.0], [1.103368640208112e-15, 4.239853496011386, 5.8056585007064365, 6.8693477767219555, 7.643504590162149, 8.210440990205692, 8.61118315790663, 8.868289846183693, 8.99408747480142, 8.99408747480142, 8.868289846183693, 8.61118315790663, 8.210440990205694, 7.643504590162149, 6.869347776721956, 5.805658500706437, 4.239853496011385, 0.0], [1.1805140318481027e-15, 4.536295815039312, 6.211578863533282, 7.349639227135627, 8.177923580898469, 8.784499072558821, 9.213260354042184, 9.48834344244301, 9.622936596847355, 9.622936596847355, 9.48834344244301, 9.213260354042184, 8.784499072558823, 8.177923580898469, 7.3496392271356275, 6.2115788635332825, 4.536295815039311, 0.0], [1.2197167311743145e-15, 4.686937854095245, 6.417853970782054, 7.59370722548586, 8.449497378926777, 9.076216126810001, 9.519215781702952, 9.803433873427222, 9.942496618892013, 9.942496618892013, 9.803433873427222, 9.519215781702952, 9.076216126810003, 8.449497378926777, 7.593707225485861, 6.417853970782055, 4.686937854095244, 0.0], [1.2197167311743145e-15, 4.686937854095245, 6.417853970782054, 7.59370722548586, 8.449497378926777, 9.076216126810001, 9.519215781702952, 9.803433873427222, 9.942496618892013, 9.942496618892013, 9.803433873427222, 9.519215781702952, 9.076216126810003, 8.449497378926777, 7.593707225485861, 6.417853970782055, 4.686937854095244, 0.0], [1.1805140318481027e-15, 4.536295815039312, 6.211578863533282, 7.3496392271356275, 8.17792358089847, 8.784499072558823, 9.213260354042184, 9.48834344244301, 9.622936596847357, 9.622936596847357, 9.48834344244301, 9.213260354042184, 8.784499072558825, 8.17792358089847, 7.349639227135628, 6.2115788635332825, 4.536295815039311, 0.0], [1.1033686402081122e-15, 4.239853496011386, 5.805658500706437, 6.869347776721956, 7.6435045901621494, 8.210440990205692, 8.611183157906632, 8.868289846183693, 8.99408747480142, 8.99408747480142, 8.868289846183693, 8.611183157906632, 8.210440990205694, 7.6435045901621494, 6.869347776721957, 5.805658500706438, 4.239853496011385, 0.0], [9.907600726170917e-16, 3.807138797058578, 5.213139496755162, 6.168269836646265, 6.863417072801493, 7.372492578854001, 7.732335449770856, 7.963202117414841, 8.076160980955542, 8.076160980955542, 7.963202117414841, 7.732335449770856, 7.372492578854003, 6.863417072801493, 6.168269836646266, 5.213139496755163, 3.807138797058577, 0.0], [8.463076610920548e-16, 3.252059524644071, 4.453065899992711, 5.268938628751435, 5.862733683482619, 6.297586189910844, 6.604964118092647, 6.80217052044775, 6.898660028094365, 6.898660028094365, 6.80217052044775, 6.604964118092647, 6.297586189910845, 5.862733683482619, 5.268938628751436, 4.453065899992712, 3.25205952464407, 0.0], [6.746542249952563e-16, 2.5924563833040133, 3.549867101209667, 4.20025939803139, 4.673617209703271, 5.020270199152775, 5.2653038050763605, 5.422511566108921, 5.499430465693855, 5.499430465693855, 5.422511566108921, 5.2653038050763605, 5.020270199152776, 4.673617209703271, 4.200259398031391, 3.5498671012096676, 2.592456383304013, 0.0], [4.813168469997649e-16, 1.8495295607243478, 2.5325726529533648, 2.9965803742736723, 3.3342868333390108, 3.5815985935018575, 3.7564122954585186, 3.868568628377973, 3.9234446831794867, 3.9234446831794867, 3.868568628377973, 3.7564122954585186, 3.5815985935018584, 3.3342868333390108, 2.9965803742736723, 2.532572652953365, 1.8495295607243476, 0.0], [2.7250954951288026e-16, 1.0471573362650102, 1.433879235823421, 1.6965887916922535, 1.8877897346908896, 2.0278114621066514, 2.1267866038783083, 2.1902867118620875, 2.2213561603266907, 2.2213561603266907, 2.1902867118620875, 2.1267866038783083, 2.027811462106652, 1.8877897346908896, 1.6965887916922537, 1.4338792358234211, 1.04715733626501, 0.0], [5.494357088304735e-17, 0.21112861341418881, 0.2890997602543474, 0.34206744938793815, 0.38061752069123583, 0.40884880183050837, 0.42880424092360203, 0.44160717825304424, 0.44787142274305775, 0.44787142274305775, 0.44160717825304424, 0.42880424092360203, 0.4088488018305084, 0.38061752069123583, 0.3420674493879382, 0.28909976025434747, 0.2111286134141888, 0.0], [-1.6438833932268735e-16, -0.6316859567889662, -0.8649716194813757, -1.0234482221937402, -1.1387880535965733, -1.2232545953383815, -1.2829602431556928, -1.3212659734206478, -1.3400082708773706, -1.3400082708773706, -1.3212659734206478, -1.2829602431556928, -1.2232545953383818, -1.1387880535965733, -1.0234482221937402, -0.8649716194813758, -0.6316859567889661, -0.0], [-3.7843667304341477e-16, -1.4541976205879876, -1.9912420996659486, -2.35606942581811, -2.621592042843857, -2.8160415833158625, -2.95348932939676, -3.0416725495673367, -3.084818996109323, -3.084818996109323, -3.0416725495673367, -2.95348932939676, -2.816041583315863, -2.621592042843857, -2.35606942581811, -1.9912420996659488, -1.4541976205879872, -0.0], [-5.803217407137952e-16, -2.2299701763435236, -3.053512420367801, -3.6129646195163048, -4.020135906781022, -4.318318677758839, -4.529090838451901, -4.664317267274421, -4.730481100608797, -4.730481100608797, -4.664317267274421, -4.529090838451901, -4.31831867775884, -4.020135906781022, -3.612964619516305, -3.0535124203678015, -2.229970176343523, -0.0], [-7.635547901473153e-16, -2.9340696558058053, -4.017640339440644, -4.753736157586054, -5.289469294895402, -5.6818014567742035, -5.959123641410842, -6.137046990198274, -6.22410165028189, -6.22410165028189, -6.137046990198274, -5.959123641410842, -5.681801456774204, -5.289469294895402, -4.753736157586054, -4.017640339440645, -2.934069655805805, -0.0], [-9.22246560370527e-16, -3.543865722369935, -4.852637992278383, -5.7417187041638496, -6.388794787682012, -6.862666461967034, -7.197625307351575, -7.412526973278073, -7.517674451707027, -7.517674451707027, -7.412526973278073, -7.197625307351575, -6.862666461967035, -6.388794787682012, -5.74171870416385, -4.852637992278383, -3.5438657223699344, -0.0], [-1.051296567316432e-15, -4.039759028714665, -5.531667867280453, -6.545157687287932, -7.28277915927466, -7.82295972045147, -8.204789373688198, -8.449762240389203, -8.569623010691156, -8.569623010691156, -8.449762240389203, -8.204789373688198, -7.822959720451472, -7.28277915927466, -6.545157687287933, -5.531667867280454, -4.0397590287146645, -0.0], [-1.1465570375790904e-15, -4.405811155951706, -6.032905385556649, -7.138229916968897, -7.942689016397569, -8.531816616767898, -8.948244758631299, -9.215415196606696, -9.346136835002374, -9.346136835002374, -9.215415196606696, -8.948244758631299, -8.5318166167679, -7.942689016397569, -7.138229916968898, -6.03290538555665, -4.405811155951705, -0.0], [-1.204966221263684e-15, -4.630256887522965, -6.340240360849969, -7.501873563763343, -8.34731431326717, -8.966453907019313, -9.40409619439168, -9.68487712593637, -9.822258131409612, -9.822258131409612, -9.68487712593637, -9.40409619439168, -8.966453907019314, -8.34731431326717, -7.501873563763344, -6.34024036084997, -4.630256887522965, -0.0], [-1.2246467991473533e-15, -4.705882352941178, -6.443794794178425, -7.624400821656306, -8.483650059915268, -9.112901991076274, -9.557692240748189, -9.843059135695006, -9.982683969692435, -9.982683969692435, -9.843059135695006, -9.557692240748189, -9.112901991076276, -8.483650059915268, -7.624400821656307, -6.443794794178426, -4.7058823529411775, -0.0]], "y": [[-0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0], [-2.1866912968084107e-16, -0.8402677402288787, -1.1505839891681195, -1.3613893354151239, -1.514814211256738, -1.6271714821308927, -1.70659184794902, -1.7575460745890525, -1.7824770513844086, -1.7824770513844086, -1.7575460745890525, -1.70659184794902, -1.6271714821308931, -1.514814211256738, -1.361389335415124, -1.1505839891681198, -0.8402677402288785, -0.0], [-4.3031005361218065e-16, -1.6535285839122016, -2.264187262220716, -2.6790224974351293, -2.9809410473703997, -3.202044333984943, -3.358332429716509, -3.4586031722270856, -3.507663823710319, -3.507663823710319, -3.4586031722270856, -3.358332429716509, -3.202044333984944, -2.9809410473703997, -2.6790224974351293, -2.264187262220716, -1.6535285839122011, -0.0], [-6.281204583601334e-16, -2.4136436583807357, -3.305017693686054, -3.910549672080516, -4.3512579854951134, -4.674000846293865, -4.902133443947782, -5.048497918161571, -5.120111394626772, -5.120111394626772, -5.048497918161571, -4.902133443947782, -4.674000846293866, -4.3512579854951134, -3.910549672080517, -3.3050176936860542, -2.4136436583807352, -0.0], [-8.0574255475715675e-16, -3.096182239716296, -4.2396221370987055, -5.016388562654248, -5.5817219117390175, -5.995731125622194, -6.28837585580174, -6.4761297870884205, -6.567994372478233, -6.567994372478233, -6.4761297870884205, -6.28837585580174, -5.9957311256221955, -5.5817219117390175, -5.016388562654249, -4.2396221370987055, -3.096182239716295, -0.0], [-9.574674224771025e-16, -3.6792069763201414, -5.03796163665229, -5.960996597326013, -6.632784703083543, -7.124753673269023, -7.472504693557341, -7.695613516080909, -7.804776607034472, -7.804776607034472, -7.695613516080909, -7.472504693557341, -7.124753673269025, -6.632784703083543, -5.960996597326014, -5.037961636652291, -3.6792069763201405, -0.0], [-1.0784184994318154e-15, -4.143978973443475, -5.674376903955229, -6.714013296635385, -7.470664336597533, -8.024780775590138, -8.41646108206467, -8.667753894694668, -8.790706899649042, -8.790706899649042, -8.667753894694668, -8.41646108206467, -8.02478077559014, -7.470664336597533, -6.714013296635386, -5.67437690395523, -4.143978973443474, -0.0], [-1.1647083184890924e-15, -4.475560076683077, -6.1284130286721785, -7.251236084282353, -8.068430671450185, -8.66688482097217, -9.089905486307192, -9.361305531281277, -9.494096639491161, -9.494096639491161, -9.361305531281277, -9.089905486307192, -8.666884820972172, -8.068430671450185, -7.251236084282354, -6.128413028672179, -4.4755600766830765, -0.0], [-1.2135634538649334e-15, -4.663292996554989, -6.385476916172568, -7.555398177843562, -8.40687100579556, -9.030428057071571, -9.471192849020655, -9.753977105584658, -9.892338301571298, -9.892338301571298, -9.753977105584658, -9.471192849020655, -9.030428057071573, -8.40687100579556, -7.555398177843563, -6.385476916172569, -4.663292996554988, -0.0], [-1.2234136613102199e-15, -4.701143842547365, -6.437306321599264, -7.616723557366552, -8.475107588818162, -9.10372590515574, -9.548068280643163, -9.833147830115456, -9.97263207119587, -9.97263207119587, -9.833147830115456, -9.548068280643163, -9.103725905155741, -8.475107588818162, -7.616723557366553, -6.437306321599265, -4.701143842547364, -0.0], [-1.1939423470528821e-15, -4.587896057326231, -6.2822354052164755, -7.433241174694763, -8.270947240594396, -8.884422512077576, -9.318060941549048, -9.596273092645356, -9.732397240543204, -9.732397240543204, -9.596273092645356, -9.318060941549048, -8.884422512077577, -8.270947240594396, -7.433241174694764, -6.282235405216476, -4.58789605732623, -0.0], [-1.1260967433822296e-15, -4.327189517889181, -5.925248273869521, -7.010848304577074, -7.800951842699868, -8.379566469334046, -8.788563456867466, -9.050966242137836, -9.179355154736358, -9.179355154736358, -9.050966242137836, -8.788563456867466, -8.379566469334048, -7.800951842699868, -7.010848304577075, -5.925248273869522, -4.327189517889181, -0.0], [-1.0220574638237853e-15, -3.927403546923779, -5.37781878768988, -6.363121001405077, -7.08022743393641, -7.605384265535864, -7.976594311428065, -8.214753889448176, -8.331281041457705, -8.331281041457705, -8.214753889448176, -7.976594311428065, -7.605384265535866, -7.08022743393641, -6.363121001405078, -5.377818787689881, -3.9274035469237787, -0.0], [-8.851684164263621e-16, -3.401387594481844, -4.657541780789849, -5.510877753654522, -6.131938689815699, -6.586758753712341, -6.908250861655704, -7.114512587629634, -7.215432700505728, -7.215432700505728, -7.114512587629634, -6.908250861655704, -6.586758753712342, -6.131938689815699, -5.510877753654523, -4.65754178078985, -3.4013875944818435, -0.0], [-7.198293278059968e-16, -2.766048246082228, -3.787567548817091, -4.481510360536192, -4.9865643908283515, -5.356429395941349, -5.617870545061988, -5.7856049974042225, -5.867674415681696, -5.867674415681696, -5.7856049974042225, -5.617870545061988, -5.356429395941351, -4.9865643908283515, -4.481510360536193, -3.787567548817092, -2.7660482460822275, -0.0], [-5.313543323124029e-16, -2.0418058311414513, -2.7958577794043915, -3.3081035370312213, -3.6809178093609334, -3.953939990100015, -4.146927246750698, -4.27074330215059, -4.3313242471990625, -4.3313242471990625, -4.27074330215059, -4.146927246750698, -3.953939990100016, -3.6809178093609334, -3.3081035370312217, -2.795857779404392, -2.041805831141451, -0.0], [-3.2580117137848757e-16, -1.2519380967843545, -1.7142868405221914, -2.0283715439294103, -2.256963500831393, -2.424367699664206, -2.542698294625736, -2.618616403186544, -2.6557617535859905, -2.6557617535859905, -2.618616403186544, -2.542698294625736, -2.4243676996642063, -2.256963500831393, -2.0283715439294108, -1.7142868405221916, -1.2519380967843543, -0.0], [-1.0977649272637083e-16, -0.4218320418985113, -0.5776173120656973, -0.6834460204560427, -0.7604685283493778, -0.8168742365848014, -0.8567449271723776, -0.882325018419329, -0.8948408920446151, -0.8948408920446151, -0.882325018419329, -0.8567449271723776, -0.8168742365848016, -0.7604685283493778, -0.6834460204560429, -0.5776173120656973, -0.42183204189851126, -0.0], [1.0977649272637052e-16, 0.42183204189851015, 0.5776173120656957, 0.6834460204560409, 0.7604685283493757, 0.8168742365847992, 0.8567449271723752, 0.8823250184193265, 0.8948408920446126, 0.8948408920446126, 0.8823250184193265, 0.8567449271723752, 0.8168742365847993, 0.7604685283493757, 0.6834460204560409, 0.5776173120656958, 0.4218320418985101, 0.0], [3.2580117137848727e-16, 1.2519380967843534, 1.71428684052219, 2.0283715439294085, 2.2569635008313913, 2.424367699664204, 2.5426982946257337, 2.6186164031865418, 2.6557617535859883, 2.6557617535859883, 2.6186164031865418, 2.5426982946257337, 2.4243676996642045, 2.2569635008313913, 2.028371543929409, 1.7142868405221903, 1.2519380967843532, 0.0], [5.313543323124027e-16, 2.0418058311414504, 2.79585777940439, 3.3081035370312195, 3.6809178093609316, 3.953939990100013, 4.146927246750695, 4.270743302150588, 4.331324247199061, 4.331324247199061, 4.270743302150588, 4.146927246750695, 3.953939990100014, 3.6809178093609316, 3.30810353703122, 2.7958577794043906, 2.04180583114145, 0.0], [7.198293278059966e-16, 2.766048246082227, 3.7875675488170897, 4.48151036053619, 4.98656439082835, 5.356429395941348, 5.617870545061986, 5.785604997404221, 5.867674415681694, 5.867674415681694, 5.785604997404221, 5.617870545061986, 5.3564293959413485, 4.98656439082835, 4.481510360536191, 3.78756754881709, 2.7660482460822267, 0.0], [8.851684164263618e-16, 3.401387594481843, 4.657541780789848, 5.510877753654521, 6.131938689815697, 6.586758753712339, 6.908250861655702, 7.114512587629632, 7.215432700505725, 7.215432700505725, 7.114512587629632, 6.908250861655702, 6.58675875371234, 6.131938689815697, 5.510877753654521, 4.657541780789848, 3.401387594481842, 0.0], [1.022057463823785e-15, 3.9274035469237782, 5.377818787689879, 6.363121001405076, 7.080227433936408, 7.6053842655358626, 7.976594311428062, 8.214753889448172, 8.331281041457704, 8.331281041457704, 8.214753889448172, 7.976594311428062, 7.605384265535864, 7.080227433936408, 6.3631210014050765, 5.37781878768988, 3.9274035469237774, 0.0], [1.1260967433822294e-15, 4.327189517889181, 5.92524827386952, 7.010848304577073, 7.800951842699867, 8.379566469334046, 8.788563456867465, 9.050966242137834, 9.179355154736356, 9.179355154736356, 9.050966242137834, 8.788563456867465, 8.379566469334048, 7.800951842699867, 7.010848304577074, 5.925248273869521, 4.32718951788918, 0.0], [1.1939423470528821e-15, 4.58789605732623, 6.282235405216475, 7.433241174694762, 8.270947240594394, 8.884422512077574, 9.318060941549046, 9.596273092645356, 9.732397240543204, 9.732397240543204, 9.596273092645356, 9.318060941549046, 8.884422512077576, 8.270947240594394, 7.433241174694763, 6.2822354052164755, 4.587896057326229, 0.0], [1.2234136613102199e-15, 4.701143842547364, 6.437306321599264, 7.6167235573665515, 8.475107588818162, 9.10372590515574, 9.548068280643161, 9.833147830115456, 9.97263207119587, 9.97263207119587, 9.833147830115456, 9.548068280643161, 9.103725905155741, 8.475107588818162, 7.616723557366552, 6.437306321599265, 4.7011438425473635, 0.0], [1.2135634538649336e-15, 4.663292996554989, 6.385476916172569, 7.555398177843563, 8.40687100579556, 9.030428057071573, 9.471192849020657, 9.75397710558466, 9.8923383015713, 9.8923383015713, 9.75397710558466, 9.471192849020657, 9.030428057071575, 8.40687100579556, 7.555398177843564, 6.3854769161725695, 4.663292996554988, 0.0], [1.1647083184890926e-15, 4.475560076683077, 6.128413028672179, 7.251236084282354, 8.068430671450187, 8.666884820972172, 9.089905486307194, 9.361305531281278, 9.494096639491161, 9.494096639491161, 9.361305531281278, 9.089905486307194, 8.666884820972172, 8.068430671450187, 7.251236084282354, 6.12841302867218, 4.4755600766830765, 0.0], [1.0784184994318154e-15, 4.143978973443475, 5.67437690395523, 6.714013296635386, 7.470664336597534, 8.02478077559014, 8.41646108206467, 8.667753894694668, 8.790706899649043, 8.790706899649043, 8.667753894694668, 8.41646108206467, 8.024780775590141, 7.470664336597534, 6.714013296635387, 5.674376903955231, 4.143978973443474, 0.0], [9.57467422477103e-16, 3.6792069763201423, 5.037961636652292, 5.960996597326015, 6.632784703083545, 7.124753673269025, 7.472504693557343, 7.695613516080911, 7.804776607034474, 7.804776607034474, 7.695613516080911, 7.472504693557343, 7.124753673269026, 6.632784703083545, 5.960996597326016, 5.037961636652292, 3.6792069763201414, 0.0], [8.057425547571569e-16, 3.096182239716297, 4.239622137098706, 5.0163885626542495, 5.58172191173902, 5.995731125622196, 6.288375855801743, 6.476129787088423, 6.567994372478235, 6.567994372478235, 6.476129787088423, 6.288375855801743, 5.995731125622197, 5.58172191173902, 5.01638856265425, 4.239622137098707, 3.0961822397162964, 0.0], [6.281204583601337e-16, 2.4136436583807366, 3.305017693686055, 3.910549672080518, 4.351257985495115, 4.6740008462938665, 4.902133443947784, 5.048497918161574, 5.1201113946267744, 5.1201113946267744, 5.048497918161574, 4.902133443947784, 4.674000846293867, 4.351257985495115, 3.9105496720805184, 3.3050176936860556, 2.413643658380736, 0.0], [4.3031005361218095e-16, 1.6535285839122027, 2.2641872622207173, 2.679022497435131, 2.9809410473704014, 3.2020443339849454, 3.358332429716511, 3.458603172227088, 3.5076638237103213, 3.5076638237103213, 3.458603172227088, 3.358332429716511, 3.202044333984946, 2.9809410473704014, 2.679022497435131, 2.2641872622207178, 1.6535285839122023, 0.0], [2.1866912968084137e-16, 0.8402677402288798, 1.150583989168121, 1.3613893354151259, 1.5148142112567402, 1.6271714821308951, 1.7065918479490225, 1.757546074589055, 1.782477051384411, 1.782477051384411, 1.757546074589055, 1.7065918479490225, 1.6271714821308954, 1.5148142112567402, 1.3613893354151259, 1.1505839891681213, 0.8402677402288797, 0.0], [2.9995195653237157e-31, 1.1526087521386858e-15, 1.5782745338105972e-15, 1.867439612331569e-15, 2.077894978192297e-15, 2.23201725086302e-15, 2.3409594419735527e-15, 2.4108541728694004e-15, 2.4450523940766866e-15, 2.4450523940766866e-15, 2.4108541728694004e-15, 2.3409594419735527e-15, 2.2320172508630206e-15, 2.077894978192297e-15, 1.8674396123315694e-15, 1.5782745338105974e-15, 1.1526087521386856e-15, 0.0]], "z": [[-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0], [-10.0, -8.823529411764705, -7.647058823529411, -6.470588235294118, -5.294117647058823, -4.11764705882353, -2.941176470588236, -1.7647058823529418, -0.588235294117647, 0.5882352941176482, 1.764705882352943, 2.9411764705882373, 4.117647058823529, 5.294117647058823, 6.470588235294117, 7.647058823529411, 8.823529411764707, 10.0]]}],
+                        {"template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}},
+                        {"responsive": true}
+                    ).then(function(){
+
+var gd = document.getElementById('ef403284-6a59-48e2-b0f4-de24074c0eb6');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })
+                };
+                });
+            </script>
+        </div>
+
+<pre><code class="python">
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../linear-algebra/solving-linear-systems/" title="Solving Linear Systems" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Solving Linear Systems
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../problems/problems/" title="Problems" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Problems
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
