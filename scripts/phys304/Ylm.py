@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# adapted from https://scipython.com/book/chapter-8-scipy/examples/visualizing-the-spherical-harmonics/
+# Visualising spherical harmonics.
+# 
+# Example adapted from [https://scipython.com/book/chapter-8-scipy/examples/visualizing-the-spherical-harmonics/](https://scipython.com/book/chapter-8-scipy/examples/visualizing-the-spherical-harmonics/).
 # 
 # ## Required dependencies
+# 
+# We load the usual dependencies `numpy` and `scipy`, and import the `sph_harm` function from `scipy`'s _special functions_ to calculate spherical harmonics of any degree and order.
 
-# In[2]:
+# In[6]:
 
 
 import numpy as np
@@ -14,18 +18,17 @@ from scipy.special import sph_harm
 
 
 # ## Spherical grid
+# 
+# We'll evaluate the function on a grid of $(\theta, \phi)$ values, and calculate the corresponding cartesian coordinates $(x,y,z)$ for plotting.
 
-# In[3]:
+# In[7]:
 
 
+R = 10. # arbitrary radius
+Np = 360 # number of steps along phi
+Nt = 180 # number of steps along theta
 
-## first, evaluate the potential on a fine grid
-# at r=10.
-
-R = 10.
-Np = 36
-Nt=18
-theta = -np.arccos(np.linspace(-1, 1, Nt))
+theta = -np.arccos(np.linspace(-1, 1, Nt)) # uniform steps along cos(theta)
 phi = np.linspace(0, 2*np.pi, Np)
 
 theta, phi = np.meshgrid(theta, phi)
@@ -36,39 +39,46 @@ z = R * np.cos(theta)
 
 
 # ## Spherical harmonics
+# 
+# Note that `sph_harm` harmfully takes the opposite convention to ours with regards to the meaning of `theta` and `phi` in the help page.
 
-# In[4]:
+# In[8]:
 
 
-m = 0
-l = 1
-Y01 = 1/R**2 * sph_harm(m, l, phi, theta).real
+l = 5
+m = 3
+
+Ylm = 1/R**(l+1) * sph_harm(m, l, phi, theta).real
 
 
 # ## Plotting (static)
+# 
+# We first use `matplotlib` to create a 3D surface plot, rescaling the scalar values to a colour palette defined to map on the interval $[0,1]$.
 
-# In[5]:
+# In[9]:
 
 
 import matplotlib.pyplot as plt
 from matplotlib import cm, colors
 from mpl_toolkits.mplot3d import Axes3D
 
-fmax, fmin = Y01.max(), Y01.min()
-Y01 = (Y01 - fmin)/(fmax - fmin)
+fmax, fmin = Ylm.max(), Ylm.min()
+Ylm = (Ylm - fmin)/(fmax - fmin)
 
 # Set the aspect ratio to 1 so our sphere looks spherical
 fig = plt.figure(figsize=plt.figaspect(1.))
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(x, y, z,  rstride=1, cstride=1, facecolors=cm.seismic(Y01))
+ax.plot_surface(x, y, z,  rstride=1, cstride=1, facecolors=cm.seismic(Ylm))
 # Turn off the axis planes
 ax.set_axis_off()
 plt.show()
 
 
 # ## Plotting (interactive)
+# 
+# With the Jupyter notebook, or in the ipython console, you can create an interactive version of this plot using the Plotly library.
 
-# In[6]:
+# In[11]:
 
 
 import plotly.graph_objects as go
@@ -77,7 +87,7 @@ import chart_studio.plotly as py
 fig = go.Figure()
 
 fig.add_trace(go.Surface(x=x, y=y, z=z, 
-                surfacecolor=Y01, 
+                surfacecolor=Ylm, 
                 showscale=False, 
                 colorscale='PrGN'))
 
