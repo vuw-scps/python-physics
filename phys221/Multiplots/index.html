@@ -608,47 +608,28 @@ import glob
 <p>This will make the script only look for csv files in the correct folder.</p>
 <p>We now want to create an array of the filenames, these are named after the gases and mass numbers.</p>
 <pre><code class="python">files=glob.glob(fileformat)
+print(files)
 </code></pre>
 
+<pre><code>['/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Nitrogen 28.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Argon 38.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Sulphur Dioxide 64.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Krypton 84.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Oxygen 32.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Neon 17.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Carbon Dioxide 40.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Chlorine 71.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Methane 16.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Fluorine 38.csv']
+</code></pre>
 <h2 id="building-the-arrays">Building the arrays</h2>
 <p>Create an array of masses from filenames to use later, as filenames are  strings we need to set them as intergers.  Note that -ve indicies run from the end.</p>
 <pre><code class="python">masses=[int(f[-6:-4]) for f in files]
 </code></pre>
 
-<pre><code>---------------------------------------------------------------------------
-
-ValueError                                Traceback (most recent call last)
-
-&lt;ipython-input-32-80f6f43a0414&gt; in &lt;module&gt;
-----&gt; 1 masses=[int(f[-6:-4]) for f in files]
-
-
-&lt;ipython-input-32-80f6f43a0414&gt; in &lt;listcomp&gt;(.0)
-----&gt; 1 masses=[int(f[-6:-4]) for f in files]
-
-
-ValueError: invalid literal for int() with base 10: '_2'
-</code></pre>
 <p>It might not be totally clear what this is doing unless we print the output. </p>
 <pre><code class="python">print(files)
 </code></pre>
 
-<pre><code>['C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Argon 38.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Carbon Dioxide 40.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Chlorine 71.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Fluorine 38.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Krypton 84.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Methane 16.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Neon 17.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Nitrogen 28.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Nitrogen 28_2.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Oxygen 32.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Sulphur Dioxide 64.csv']
+<pre><code>['/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Nitrogen 28.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Argon 38.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Sulphur Dioxide 64.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Krypton 84.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Oxygen 32.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Neon 17.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Carbon Dioxide 40.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Chlorine 71.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Methane 16.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Fluorine 38.csv']
 </code></pre>
 <p>argh!!!  depending on your filing system this might look horrible...</p>
 <p>I think it becomes clearer if we print the output of the array.</p>
 <pre><code class="python">print(masses)
 </code></pre>
 
-<pre><code>---------------------------------------------------------------------------
-
-NameError                                 Traceback (most recent call last)
-
-&lt;ipython-input-17-b7e9c1c16a60&gt; in &lt;module&gt;
-----&gt; 1 print(masses)
-
-
-NameError: name 'masses' is not defined
+<pre><code>[28, 38, 64, 84, 32, 17, 40, 71, 16, 38]
 </code></pre>
 <p>Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name.</p>
 <p>We now need to find out how many files we have in the folder.  We know how to do that already.</p>
@@ -684,20 +665,6 @@ NameError: name 'masses' is not defined
 
 </code></pre>
 
-<pre><code>---------------------------------------------------------------------------
-
-IndexError                                Traceback (most recent call last)
-
-&lt;ipython-input-20-c05382a0ce81&gt; in &lt;module&gt;
-      5 
-      6     rawdata=np.genfromtxt(files[j], delimiter=',')
-----&gt; 7     time=rawdata[:,0]
-      8     pressure=rawdata[:,1]
-      9     baseP=min(rawdata[:,1])
-
-
-IndexError: too many indices for array
-</code></pre>
 <p>note, we no longer have cats... ;-)</p>
 <p>compare this to your previous code.  It is the same, just compressed.</p>
 <p>Now I am adding on to this and plotting the data.</p>
@@ -742,20 +709,9 @@ plt.scatter(masses,v)
 
 </code></pre>
 
-<pre><code>---------------------------------------------------------------------------
-
-IndexError                                Traceback (most recent call last)
-
-&lt;ipython-input-21-e3bdfcc6e811&gt; in &lt;module&gt;
-      5 
-      6     rawdata=np.genfromtxt(files[j], delimiter=',')
-----&gt; 7     time=rawdata[:,0]
-      8     pressure=rawdata[:,1]
-      9     baseP=min(rawdata[:,1])
-
-
-IndexError: too many indices for array
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x7fb708a83750&gt;
 </code></pre>
+<p><img alt="png" src="../../nb_img/phys221/Multiplots_38_1.png" /></p>
 <h2 id="analysis">Analysis</h2>
 <pre><code class="python">#now we simply complete the theoritical calculation
 

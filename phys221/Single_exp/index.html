@@ -658,7 +658,7 @@ Note that some of this code here may be in a slightly different order to the exa
 <h2 id="importing-the-data-files">Importing the data files</h2>
 <p>We also want to load up the data that we have in our CSVs. If you remember back to the experiment, the data is pressure as a function of time. </p>
 <p>Now we want to use numpy to import our data, the command we are going to use is called ‘genfromtext’. We will import the data into a variable, called rawdata:</p>
-<pre><code class="python">rawdata=np.genfromtxt(&quot;Nitrogen 28_2.csv&quot;, delimiter=&quot;cat&quot;)
+<pre><code class="python">rawdata=np.genfromtxt(&quot;Nitrogen 28.dat&quot;, delimiter=&quot;cat&quot;)
 </code></pre>
 
 <p>Hold on...  What's this cat?</p>
@@ -794,7 +794,7 @@ plt.ylabel(&quot;log Pressure (Pa)&quot;)
 <pre><code class="python">plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 </code></pre>
 
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca48843e10&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6a11b7fd0&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_64_1.png" /></p>
 <p>Actually, in spyder that just plots ontop of the existing plot.  In the Jupyter workbook environment things happen a little differently.  </p>
@@ -808,7 +808,7 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 
 </code></pre>
 
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca88a9e790&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6c06a49d0&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_66_1.png" /></p>
 <p>Here in the Jupyter environment I had to put them together in one code section.  So if anyone is using Jupyter you will have to do what I just did here.</p>
@@ -836,7 +836,7 @@ c=fit[1]
 <pre><code class="python">plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
 </code></pre>
 
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca68e3b250&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6c07ff050&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_78_1.png" /></p>
 <p>For me, I need to plot it ontop of the existing plots again. </p>
@@ -848,7 +848,7 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
 </code></pre>
 
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fca48899f90&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6d0a1ce50&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_80_1.png" /></p>
 <p>Hopefully you can see it all, and the small black dashes.  You can look up the plot instructions to see what k means.</p>
