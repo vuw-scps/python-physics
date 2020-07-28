@@ -6,7 +6,7 @@
 
 This website is currently a template copied from the [excellent resources at http://www.math.ubc.ca/~pwalls/math-python/](http://www.math.ubc.ca/~pwalls/math-python/) and [the associated notebooks](https://github.com/patrickwalls/mathematical-python).
 
-We gratefully acknowledge contributions from William Hewett and Campbell Matthews for the 200-level tutorials.
+We gratefully acknowledge contributions from William Holmes-Hewett and Campbell Matthews for the 200-level tutorials.
 
 ## Planned content
 

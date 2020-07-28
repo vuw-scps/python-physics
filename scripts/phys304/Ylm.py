@@ -91,7 +91,7 @@ fig.add_trace(go.Surface(x=x, y=y, z=z,
                 showscale=False, 
                 colorscale='PrGN'))
 
-fig.show()
+# fig.show() # doesn't work well on the website; uncomment to run in Jupyter or Spyder
 
 
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys304/Ylm.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys304/Ylm.py)._
