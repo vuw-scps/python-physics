@@ -569,8 +569,8 @@
                 
                 
                 <h1 id="molecular-speeds-lab-python-data-analysis-multiple-gas-dataset-processing">Molecular Speeds lab Python data analysis - multiple gas dataset processing</h1>
-<p>This Python workshop was originally developed by VUW students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiams in making this resource.</p>
-<p>Take a look at the example code you have been given - or start to workthrough from here.  </p>
+<p>This Python workshop was originally developed by VUW Physics students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiam in making this resource.</p>
+<p>Start a new code file in the folder that you have saved all of the .csv files.  You can take a look at the example code you have been given or just start from scratch and workthrough from here.  </p>
 <h2 id="importing-modules">Importing modules</h2>
 <p>Let's begin by importing all the modules we will need at the top of the code and adding in the variables that we know we will need for the analysis.  </p>
 <pre><code class="python">import numpy as np
@@ -588,15 +588,16 @@ ef_begin=0.26
 <p>What we are going to do here is run a for loop over all the code we wrote for all files in a specific folder. This will be the folder we are in, so make sure that's where you are and you have all the data from the workshop folder.   </p>
 <h2 id="new-moldues-for-file-organisation">New moldues for file organisation</h2>
 <p>To start with we need to import the other modules we are going to use.</p>
-<p>os (or Miscellaneous Operating system interfaces) Lets us look up file paths and folder locations</p>
-<p>Glob lets us find all files matching a pattern</p>
+<p>os (or Miscellaneous Operating system interfaces) let's us look up file paths and folder locations.</p>
+<p>Glob lets us find all files matching a pattern.</p>
 <p>These are file organisation tools.  You can look up more about them if you like.</p>
 <pre><code class="python">import os
 import glob
 </code></pre>
 
 <p>The first thing we want to do is set the location of our folder which is where the script is stored i.e. CWD or current working directory.</p>
-<pre><code class="python">folder = os.getcwd()
+<p>This is one of the reasons why we made our .py code in the same folder as the data.  You could use a different folder but that would be trickier.  Although certinaly doable.</p>
+<pre><code class="python">folder=os.getcwd()
 </code></pre>
 
 <h2 id="file-formats">File formats</h2>
@@ -605,29 +606,51 @@ import glob
 </code></pre>
 
 <p>This will make the script only look for csv files in the correct folder.</p>
-<p>We now want to create an array of the filenames, these are named after the gasses and mass numbers.</p>
-<pre><code class="python">files = glob.glob(fileformat)
+<p>We now want to create an array of the filenames, these are named after the gases and mass numbers.</p>
+<pre><code class="python">files=glob.glob(fileformat)
 </code></pre>
 
 <h2 id="building-the-arrays">Building the arrays</h2>
 <p>Create an array of masses from filenames to use later, as filenames are  strings we need to set them as intergers.  Note that -ve indicies run from the end.</p>
-<pre><code class="python">masses = [int(f[-6:-4]) for f in files]
+<pre><code class="python">masses=[int(f[-6:-4]) for f in files]
 </code></pre>
 
+<pre><code>---------------------------------------------------------------------------
+
+ValueError                                Traceback (most recent call last)
+
+&lt;ipython-input-32-80f6f43a0414&gt; in &lt;module&gt;
+----&gt; 1 masses=[int(f[-6:-4]) for f in files]
+
+
+&lt;ipython-input-32-80f6f43a0414&gt; in &lt;listcomp&gt;(.0)
+----&gt; 1 masses=[int(f[-6:-4]) for f in files]
+
+
+ValueError: invalid literal for int() with base 10: '_2'
+</code></pre>
 <p>It might not be totally clear what this is doing unless we print the output. </p>
 <pre><code class="python">print(files)
 </code></pre>
 
-<pre><code>['C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Argon 38.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Carbon Dioxide 40.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Chlorine 71.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Fluorine 38.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Krypton 84.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Methane 16.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Neon 17.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Nitrogen 28.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Oxygen 32.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Sulphur Dioxide 64.csv']
+<pre><code>['C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Argon 38.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Carbon Dioxide 40.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Chlorine 71.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Fluorine 38.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Krypton 84.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Methane 16.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Neon 17.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Nitrogen 28.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Nitrogen 28_2.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Oxygen 32.csv', 'C:\\Users\\plankna\\Dropbox\\GithubStuff_tosave\\python-physics\\notebooks\\phys221\\Sulphur Dioxide 64.csv']
 </code></pre>
 <p>argh!!!  depending on your filing system this might look horrible...</p>
 <p>I think it becomes clearer if we print the output of the array.</p>
 <pre><code class="python">print(masses)
 </code></pre>
 
-<pre><code>[38, 40, 71, 38, 84, 16, 17, 28, 32, 64]
+<pre><code>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-17-b7e9c1c16a60&gt; in &lt;module&gt;
+----&gt; 1 print(masses)
+
+
+NameError: name 'masses' is not defined
 </code></pre>
-<p>Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name...</p>
+<p>Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name.</p>
 <p>We now need to find out how many files we have in the folder.  We know how to do that already.</p>
 <pre><code class="python">n=len(files)
 </code></pre>
@@ -661,6 +684,20 @@ import glob
 
 </code></pre>
 
+<pre><code>---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-20-c05382a0ce81&gt; in &lt;module&gt;
+      5 
+      6     rawdata=np.genfromtxt(files[j], delimiter=',')
+----&gt; 7     time=rawdata[:,0]
+      8     pressure=rawdata[:,1]
+      9     baseP=min(rawdata[:,1])
+
+
+IndexError: too many indices for array
+</code></pre>
 <p>note, we no longer have cats... ;-)</p>
 <p>compare this to your previous code.  It is the same, just compressed.</p>
 <p>Now I am adding on to this and plotting the data.</p>
@@ -697,19 +734,28 @@ import glob
 
 #we can then plot v as a function of mass number
 
-plt.scatter(masses,v)
+plt.scatter(masses,v)   
 
 #we can now create a theoritical line to match these to
 
 #first we need a range of mass numbers
 
-
-
 </code></pre>
 
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x2501a8d68d0&gt;
+<pre><code>---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-21-e3bdfcc6e811&gt; in &lt;module&gt;
+      5 
+      6     rawdata=np.genfromtxt(files[j], delimiter=',')
+----&gt; 7     time=rawdata[:,0]
+      8     pressure=rawdata[:,1]
+      9     baseP=min(rawdata[:,1])
+
+
+IndexError: too many indices for array
 </code></pre>
-<p><img alt="png" src="../../nb_img/phys221/Multiplots_38_1.png" /></p>
 <h2 id="analysis">Analysis</h2>
 <pre><code class="python">#now we simply complete the theoritical calculation
 
@@ -787,7 +833,8 @@ plt.ylabel('Velocity')
 <pre><code>Text(0, 0.5, 'Velocity')
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Multiplots_42_1.png" /></p>
-<p>Compare this to your results from the PHYS223 lab.  What are the advantages of using the Python script?</p>
+<p>Compare this to your results from the PHYS223 lab.  </p>
+<p>What are the advantages of using the Python script?</p>
 <p><em>Download this page <a href="https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Multiplots.ipynb">as a Jupyter notebook</a> or as a <a href="https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Multiplots.py">standalone Python script</a>.</em></p>
                 
               
