@@ -1,18 +1,18 @@
 # Molecular Speeds lab Python data analysis - single gas dataset processing
 
-This Python workshop was originally developed by VUW students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiams in making this resource.
+This Python workshop was originally developed by VUW Physics students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiam in making this resource.
 
 ## Making use of folders
 
 Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’
 
-I have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you read through you'll see lots of print commands commented out, these were included to check the code was working.
+We have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you read through you'll see lots of print commands commented out, these were included just to check that the code was working along the way.
 
 ## Setting up
 
-The first thing we want to do is define some constants that we will use later on.  These will be the Volume of the bulb, the area of the opening and the pressure at which the effusion regime begins.
+The first thing we want to do is define some constants that we will use later on.  These will be the volume of the bulb, the area of the opening and the pressure at which the effusion regime begins.
 
-You were asked to calculate some of these in the pre-workshop exercise as I reminder of the PHYS223 lab.
+You were asked to calculate some of these in the pre-workshop exercise.  The pre-workshop exercise also serves as a reminder of the PHYS223 lab that this data analysis is based on.
 
 So let’s write the first piece of the code and set up same values to use later on (note capital V we are using here).
 
@@ -23,7 +23,7 @@ A=5.55113*10**-8
 ef_begin=0.26
 ```
 
-Let’s check that worked by printing one of the variables
+Let’s check that worked by printing one of the variables.  You can print them all if you like.
 
 
 ```python
@@ -35,14 +35,17 @@ print(V)
 
 ## Importing packages 
 
-To start of with we need to call up the packages that help us handle our data. packages are bunches of functions that can be imported all at the same time for later use. The package we want is called ‘numpy’ so let’s import that now.
+To start of with we need to call up the packages that help us handle our data. Packages are groups of functions that can be imported all at the same time for later use. The package we want is called ‘numpy’ so let’s import that now.
 
 
 ```python
 import numpy as np
 ```
 
-Now we want to import a module to help with plotting.  Some of this may be in a slightly different order to the example .py code.  
+Now we want to import a module to help with plotting.  
+Note that some of this code here may be in a slightly different order to the example .py code that we have given in the folder on Blackboard. 
+
+
 Does that matter?
 
 
@@ -52,18 +55,20 @@ from matplotlib import pyplot as plt
 
 ## Importing the data files
 
-We also want to load up the data that we have in our CSVs. If you remember back to the experiment the data is pressure as a function of time. 
+We also want to load up the data that we have in our CSVs. If you remember back to the experiment, the data is pressure as a function of time. 
 
 Now we want to use numpy to import our data, the command we are going to use is called ‘genfromtext’. We will import the data into a variable, called rawdata:
 
 
 ```python
-rawdata=np.genfromtxt("Nitrogen 28_2.csv", delimiter="cat")
+rawdata=np.genfromtxt("Nitrogen 28.dat", delimiter="cat")
 ```
 
 Hold on...  What's this cat?
 
-note that the delimiter argument tells Python how the data is separated, just to prove a point I’ve replaced all the commas, which are normally used to separate data, with the word ‘cat’.
+Note that the delimiter argument tells Python how the data is separated, just to prove a point I’ve replaced all the commas, which are normally used to separate data, with the word ‘cat’.
+
+You can see this if you open the file in excel or something similar.
 
 This seems silly, does it really help me learn?
 
@@ -85,11 +90,15 @@ print(rawdata)
      [2.28300000e+03 6.24196670e-02]]
 
 
-This looks good and along the lines of what you expect.  It really makes sense to throw in a few tests here and there to make sure that the code is doing what you expect.
+This looks good and along the lines of what you expect.  
+
+It really makes sense to throw in a few tests here and there to make sure that the code is doing what you expect.
 
 ## Using arrays and vectors
 
 Now we want to split this array up into two vectors, one for time and one for pressure, we can do that using the indexing we learned before.
+
+Note, when I say before, I mean in the first year lab and/or the introduction material that is loaded on Blackboard.
 
 
 ```python
@@ -97,7 +106,7 @@ time=rawdata[:,0]
 pressure=rawdata[:,1]
 ```
 
-This " : " means  [ first_row:last_row , column_0 ]. 
+This [ : ,0] means [ first_row:last_row , column_0 ]. 
 If you have a 2-dimensional list/matrix/array, this notation will give you all the values in column 0 (from all rows).
 
 We should probably test what's happening here, just to be sure...
@@ -114,7 +123,7 @@ print(pressure)
 
 ## Plotting the data
 
-It's quite tricky to see what's really going on here, so let's plot it out to get a better idea.
+It's quite tricky to see what's really going on here, so let's plot it to get a better idea.
 
 
 ```python
@@ -133,14 +142,15 @@ plt.ylabel("Pressure (Pa)")
 
 
 
-![png](../nb_img/phys221/Single_exp_33_1.png)
+![png](../nb_img/phys221/Single_exp_34_1.png)
 
 
 Note that I am planning on having multiple figures so I have given this one a number.  This should help as we move along. I even remembered to label my axes and to put in units! 
 
 ## Making use of built in functions
 
-If you remember back to the experiment and what we actually have to do to from the basis of our analysis here, we need to find the minimum pressure we reached. 
+If you remember back to the experiment (and what we actually have to do to from the basis of our analysis here) we need to find the minimum pressure we reached. 
+
 To do this we will use an inbuilt python function ‘min’ and set the result as a new variable ‘baseP’.
 
 
@@ -271,7 +281,7 @@ plt.ylabel("log Pressure (Pa)")
 
 
 
-![png](../nb_img/phys221/Single_exp_61_1.png)
+![png](../nb_img/phys221/Single_exp_62_1.png)
 
 
 We can also plot only the data after we reach the effusion regime, on the same figure, the ‘r’ makes it red.
@@ -284,12 +294,12 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],"r")
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fca48843e10>]
+    [<matplotlib.lines.Line2D at 0x7fb6a11b7fd0>]
 
 
 
 
-![png](../nb_img/phys221/Single_exp_63_1.png)
+![png](../nb_img/phys221/Single_exp_64_1.png)
 
 
 Actually, in spyder that just plots ontop of the existing plot.  In the Jupyter workbook environment things happen a little differently.  
@@ -310,12 +320,12 @@ plt.plot(time[Peff_index:],LogP[Peff_index:],"r")
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fca88a9e790>]
+    [<matplotlib.lines.Line2D at 0x7fb6c06a49d0>]
 
 
 
 
-![png](../nb_img/phys221/Single_exp_65_1.png)
+![png](../nb_img/phys221/Single_exp_66_1.png)
 
 
 Here in the Jupyter environment I had to put them together in one code section.  So if anyone is using Jupyter you will have to do what I just did here.
@@ -363,12 +373,12 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, "k--")
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fca68e3b250>]
+    [<matplotlib.lines.Line2D at 0x7fb6c07ff050>]
 
 
 
 
-![png](../nb_img/phys221/Single_exp_77_1.png)
+![png](../nb_img/phys221/Single_exp_78_1.png)
 
 
 For me, I need to plot it ontop of the existing plots again. 
@@ -386,12 +396,12 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, "k--")
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fca48899f90>]
+    [<matplotlib.lines.Line2D at 0x7fb6d0a1ce50>]
 
 
 
 
-![png](../nb_img/phys221/Single_exp_79_1.png)
+![png](../nb_img/phys221/Single_exp_80_1.png)
 
 
 Hopefully you can see it all, and the small black dashes.  You can look up the plot instructions to see what k means.

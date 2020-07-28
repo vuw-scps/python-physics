@@ -3,9 +3,9 @@
 
 # # Molecular Speeds lab Python data analysis - multiple gas dataset processing
 
-# This Python workshop was originally developed by VUW students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiams in making this resource.
+# This Python workshop was originally developed by VUW Physics students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiam in making this resource.
 
-# Take a look at the example code you have been given - or start to workthrough from here.  
+# Start a new code file in the folder that you have saved all of the .csv files.  You can take a look at the example code you have been given or just start from scratch and workthrough from here.  
 
 # ## Importing modules
 
@@ -36,13 +36,13 @@ ef_begin=0.26
 
 # To start with we need to import the other modules we are going to use.
 # 
-# os (or Miscellaneous Operating system interfaces) Lets us look up file paths and folder locations
+# os (or Miscellaneous Operating system interfaces) let's us look up file paths and folder locations.
 # 
-# Glob lets us find all files matching a pattern
+# Glob lets us find all files matching a pattern.
 # 
 # These are file organisation tools.  You can look up more about them if you like.
 
-# In[3]:
+# In[10]:
 
 
 import os
@@ -50,18 +50,20 @@ import glob
 
 
 # The first thing we want to do is set the location of our folder which is where the script is stored i.e. CWD or current working directory.
+# 
+# This is one of the reasons why we made our .py code in the same folder as the data.  You could use a different folder but that would be trickier.  Although certinaly doable.
 
-# In[4]:
+# In[11]:
 
 
-folder = os.getcwd()
+folder=os.getcwd()
 
 
 # ## File formats
 
 # Now we know where the files are stored we need to set the pattern (or type of files) for Glob to look for.
 
-# In[5]:
+# In[12]:
 
 
 fileformat=folder+str('/*.csv')
@@ -69,27 +71,28 @@ fileformat=folder+str('/*.csv')
 
 # This will make the script only look for csv files in the correct folder.
 
-# We now want to create an array of the filenames, these are named after the gasses and mass numbers.
+# We now want to create an array of the filenames, these are named after the gases and mass numbers.
 
-# In[6]:
+# In[13]:
 
 
-files = glob.glob(fileformat)
+files=glob.glob(fileformat)
+print(files)
 
 
 # ## Building the arrays
 
 # Create an array of masses from filenames to use later, as filenames are  strings we need to set them as intergers.  Note that -ve indicies run from the end.
 
-# In[7]:
+# In[14]:
 
 
-masses = [int(f[-6:-4]) for f in files]
+masses=[int(f[-6:-4]) for f in files]
 
 
 # It might not be totally clear what this is doing unless we print the output. 
 
-# In[8]:
+# In[15]:
 
 
 print(files)
@@ -99,17 +102,17 @@ print(files)
 
 # I think it becomes clearer if we print the output of the array.
 
-# In[9]:
+# In[16]:
 
 
 print(masses)
 
 
-# Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name...
+# Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name.
 
 # We now need to find out how many files we have in the folder.  We know how to do that already.
 
-# In[10]:
+# In[17]:
 
 
 n=len(files)
@@ -117,7 +120,7 @@ n=len(files)
 
 # We also need to create an empty array to populate later.
 
-# In[11]:
+# In[18]:
 
 
 v=np.zeros(n)
@@ -127,7 +130,7 @@ v=np.zeros(n)
 
 # We now want to simply run though the previous code (in the single gas experiment) for all of the files in the folder.
 
-# In[12]:
+# In[19]:
 
 
 for j in range(n):
@@ -159,7 +162,7 @@ for j in range(n):
 # 
 # Now I am adding on to this and plotting the data.
 
-# In[15]:
+# In[20]:
 
 
 for j in range(n):
@@ -195,19 +198,17 @@ for j in range(n):
 
 #we can then plot v as a function of mass number
 
-plt.scatter(masses,v)
+plt.scatter(masses,v)   
 
 #we can now create a theoritical line to match these to
 
 #first we need a range of mass numbers
     
-    
-    
 
 
 # ## Analysis
 
-# In[16]:
+# In[21]:
 
 
 #now we simply complete the theoritical calculation
@@ -226,7 +227,7 @@ plt.ylabel('Velocity')
 
 # Putting these last two parts together we find (this will be what comes up in Spyder).
 
-# In[17]:
+# In[22]:
 
 
 for j in range(n):
@@ -284,6 +285,8 @@ plt.xlabel('Mass Number')
 plt.ylabel('Velocity')
 
 
-# Compare this to your results from the PHYS223 lab.  What are the advantages of using the Python script?
+# Compare this to your results from the PHYS223 lab.  
+# 
+# What are the advantages of using the Python script?
 
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Multiplots.py)._

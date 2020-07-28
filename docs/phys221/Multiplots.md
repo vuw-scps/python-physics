@@ -1,8 +1,8 @@
 # Molecular Speeds lab Python data analysis - multiple gas dataset processing
 
-This Python workshop was originally developed by VUW students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiams in making this resource.
+This Python workshop was originally developed by VUW Physics students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiam in making this resource.
 
-Take a look at the example code you have been given - or start to workthrough from here.  
+Start a new code file in the folder that you have saved all of the .csv files.  You can take a look at the example code you have been given or just start from scratch and workthrough from here.  
 
 ## Importing modules
 
@@ -31,9 +31,9 @@ What we are going to do here is run a for loop over all the code we wrote for al
 
 To start with we need to import the other modules we are going to use.
 
-os (or Miscellaneous Operating system interfaces) Lets us look up file paths and folder locations
+os (or Miscellaneous Operating system interfaces) let's us look up file paths and folder locations.
 
-Glob lets us find all files matching a pattern
+Glob lets us find all files matching a pattern.
 
 These are file organisation tools.  You can look up more about them if you like.
 
@@ -45,9 +45,11 @@ import glob
 
 The first thing we want to do is set the location of our folder which is where the script is stored i.e. CWD or current working directory.
 
+This is one of the reasons why we made our .py code in the same folder as the data.  You could use a different folder but that would be trickier.  Although certinaly doable.
+
 
 ```python
-folder = os.getcwd()
+folder=os.getcwd()
 ```
 
 ## File formats
@@ -61,12 +63,16 @@ fileformat=folder+str('/*.csv')
 
 This will make the script only look for csv files in the correct folder.
 
-We now want to create an array of the filenames, these are named after the gasses and mass numbers.
+We now want to create an array of the filenames, these are named after the gases and mass numbers.
 
 
 ```python
-files = glob.glob(fileformat)
+files=glob.glob(fileformat)
+print(files)
 ```
+
+    ['/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Nitrogen 28.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Argon 38.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Sulphur Dioxide 64.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Krypton 84.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Oxygen 32.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Neon 17.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Carbon Dioxide 40.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Chlorine 71.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Methane 16.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Fluorine 38.csv']
+
 
 ## Building the arrays
 
@@ -74,7 +80,7 @@ Create an array of masses from filenames to use later, as filenames are  strings
 
 
 ```python
-masses = [int(f[-6:-4]) for f in files]
+masses=[int(f[-6:-4]) for f in files]
 ```
 
 It might not be totally clear what this is doing unless we print the output. 
@@ -84,7 +90,7 @@ It might not be totally clear what this is doing unless we print the output.
 print(files)
 ```
 
-    ['C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Argon 38.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Carbon Dioxide 40.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Chlorine 71.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Fluorine 38.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Krypton 84.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Methane 16.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Neon 17.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Nitrogen 28.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Oxygen 32.csv', 'C:\\Users\\plankna\\Desktop\\PythonWorkshop\\Intro_documents\\Multiple\\Sulphur Dioxide 64.csv']
+    ['/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Nitrogen 28.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Argon 38.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Sulphur Dioxide 64.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Krypton 84.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Oxygen 32.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Neon 17.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Carbon Dioxide 40.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Chlorine 71.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Methane 16.csv', '/Users/auguieba/Documents/vuw-scps/python-physics/notebooks/phys221/Fluorine 38.csv']
 
 
 argh!!!  depending on your filing system this might look horrible...
@@ -96,10 +102,10 @@ I think it becomes clearer if we print the output of the array.
 print(masses)
 ```
 
-    [38, 40, 71, 38, 84, 16, 17, 28, 32, 64]
+    [28, 38, 64, 84, 32, 17, 40, 71, 16, 38]
 
 
-Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name...
+Hopefully this helps to see what has gone on.  We have taken the string from the file name and turned them into an integer.  To do this we counted back from the end of the file name.
 
 We now need to find out how many files we have in the folder.  We know how to do that already.
 
@@ -185,20 +191,18 @@ for j in range(n):
 
 #we can then plot v as a function of mass number
 
-plt.scatter(masses,v)
+plt.scatter(masses,v)   
 
 #we can now create a theoritical line to match these to
 
 #first we need a range of mass numbers
-    
-    
     
 ```
 
 
 
 
-    <matplotlib.collections.PathCollection at 0x2501a8d68d0>
+    <matplotlib.collections.PathCollection at 0x7fb708a83750>
 
 
 
@@ -305,6 +309,8 @@ plt.ylabel('Velocity')
 ![png](../nb_img/phys221/Multiplots_42_1.png)
 
 
-Compare this to your results from the PHYS223 lab.  What are the advantages of using the Python script?
+Compare this to your results from the PHYS223 lab.  
+
+What are the advantages of using the Python script?
 
 _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Multiplots.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Multiplots.py)._
