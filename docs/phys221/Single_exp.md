@@ -4,9 +4,9 @@ This Python workshop was originally developed by VUW Physics students William Ho
 
 ## Making use of folders
 
-Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’
+Start a new Code in the folder that contains the file ‘Nitrogen 28.dat’
 
-We have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you read through you'll see lots of print commands commented out, these were included just to check that the code was working along the way.
+We have given you an example of the full code that you can download at the end here.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you run through you may want to comment out some of the print commands that are in to check that the code was working along the way.
 
 ## Setting up
 
@@ -55,7 +55,9 @@ from matplotlib import pyplot as plt
 
 ## Importing the data files
 
-We also want to load up the data that we have in our CSVs. If you remember back to the experiment, the data is pressure as a function of time. 
+We also want to load up the data that we have in our data file.  This could be a .txt file, a .csv or a .dat for example.  In this case we have a .dat file.  Later we will use a .csv.  
+
+If you remember back to the experiment, the data is pressure as a function of time. 
 
 Now we want to use numpy to import our data, the command we are going to use is called ‘genfromtext’. We will import the data into a variable, called rawdata:
 
