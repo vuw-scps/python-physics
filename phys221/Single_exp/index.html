@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -19,9 +19,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.b5d04df8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9ab2c1f8.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -380,132 +380,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Python
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Python" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Python
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/functions/" title="Functions" class="md-nav__link">
-      Functions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/logic/" title="Logic" class="md-nav__link">
-      Logic
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/loops/" title="Loops" class="md-nav__link">
-      Loops
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/modules-packages/" title="Modules and Packages" class="md-nav__link">
-      Modules and Packages
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/numbers/" title="Numbers" class="md-nav__link">
-      Numbers
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/sequences/" title="Sequences" class="md-nav__link">
-      Sequences
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/text/" title="Text" class="md-nav__link">
-      Text
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/variables/" title="Variables" class="md-nav__link">
-      Variables
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -627,8 +501,8 @@
                 <h1 id="molecular-speeds-lab-python-data-analysis-single-gas-dataset-processing">Molecular Speeds lab Python data analysis - single gas dataset processing</h1>
 <p>This Python workshop was originally developed by VUW Physics students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiam in making this resource.</p>
 <h2 id="making-use-of-folders">Making use of folders</h2>
-<p>Start a new Code in the folder that contains the file ‘Nitrogen 28.dat’</p>
-<p>We have given you an example of the full code that you can download at the end here.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you run through you may want to comment out some of the print commands that are in to check that the code was working along the way.</p>
+<p>Start a new Code in the folder that contains the file ‘Nitrogen 28_2.csv’</p>
+<p>We have given you an example of the full code in the workshop folder.  Remember that we can 'comment out' code by using a # so the program won't try to run it.  As you read through you'll see lots of print commands commented out, these were included just to check that the code was working along the way.</p>
 <h2 id="setting-up">Setting up</h2>
 <p>The first thing we want to do is define some constants that we will use later on.  These will be the volume of the bulb, the area of the opening and the pressure at which the effusion regime begins.</p>
 <p>You were asked to calculate some of these in the pre-workshop exercise.  The pre-workshop exercise also serves as a reminder of the PHYS223 lab that this data analysis is based on.</p>
@@ -656,8 +530,7 @@ Note that some of this code here may be in a slightly different order to the exa
 </code></pre>
 
 <h2 id="importing-the-data-files">Importing the data files</h2>
-<p>We also want to load up the data that we have in our data file.  This could be a .txt file, a .csv or a .dat for example.  In this case we have a .dat file.  Later we will use a .csv.  </p>
-<p>If you remember back to the experiment, the data is pressure as a function of time. </p>
+<p>We also want to load up the data that we have in our CSVs. If you remember back to the experiment, the data is pressure as a function of time. </p>
 <p>Now we want to use numpy to import our data, the command we are going to use is called ‘genfromtext’. We will import the data into a variable, called rawdata:</p>
 <pre><code class="python">rawdata=np.genfromtxt(&quot;Nitrogen 28.dat&quot;, delimiter=&quot;cat&quot;)
 </code></pre>
@@ -930,8 +803,8 @@ print(v)
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.92ffa368.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
