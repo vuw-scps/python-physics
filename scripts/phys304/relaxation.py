@@ -5,7 +5,7 @@
 # 
 # 
 
-# In[1]:
+# In[6]:
 
 
 import scipy as sp
@@ -18,7 +18,7 @@ import matplotlib.cm as cm
 # 
 # We'll calculate the potential on a $N_x\times N_y$ grid of $(x,y)$ values.
 
-# In[2]:
+# In[7]:
 
 
 Nx = 50
@@ -33,7 +33,7 @@ x, y = np.meshgrid(xv, yv)
 # ## Boundary conditions
 # 
 
-# In[3]:
+# In[8]:
 
 
 
@@ -54,7 +54,7 @@ Vini = V.copy()
 # 
 # relaxation method: iteratively replace value at point by average of 4 neighbours
 
-# In[4]:
+# In[9]:
 
 
 Niter = 5000
@@ -75,7 +75,7 @@ for it in range(1, Niter):
 # 
 # 
 
-# In[5]:
+# In[10]:
 
 
 fig = plt.figure()
