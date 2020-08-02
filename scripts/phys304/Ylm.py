@@ -9,7 +9,7 @@
 # 
 # We load the usual dependencies `numpy` and `scipy`, and import the `sph_harm` function from `scipy`'s _special functions_ to calculate spherical harmonics of any degree and order.
 
-# In[3]:
+# In[1]:
 
 
 import numpy as np
@@ -21,7 +21,7 @@ from scipy.special import sph_harm
 # 
 # We'll evaluate the function on a grid of $(\theta, \phi)$ values, and calculate the corresponding cartesian coordinates $(x,y,z)$ for plotting.
 
-# In[4]:
+# In[2]:
 
 
 R = 10. # arbitrary radius
@@ -42,7 +42,7 @@ z = R * np.cos(theta)
 # 
 # Note that `sph_harm` harmfully takes the opposite convention to ours with regards to the meaning of `theta` and `phi` in the help page.
 
-# In[5]:
+# In[3]:
 
 
 l = 5
@@ -55,7 +55,7 @@ Ylm = 1/R**(l+1) * sph_harm(m, l, phi, theta).real
 # 
 # We first use `matplotlib` to create a 3D surface plot, rescaling the scalar values to a colour palette defined to map on the interval $[0,1]$.
 
-# In[6]:
+# In[4]:
 
 
 import matplotlib.pyplot as plt
@@ -78,11 +78,11 @@ plt.show()
 # 
 # With the Jupyter notebook, or in the ipython console, you can create an interactive version of this plot using the Plotly library.
 
-# In[8]:
+# In[5]:
 
 
 import plotly.graph_objects as go
-import chart_studio.plotly as py
+#import chart_studio.plotly as py
 
 fig = go.Figure()
 
@@ -91,7 +91,9 @@ fig.add_trace(go.Surface(x=x, y=y, z=z,
                 showscale=False, 
                 colorscale='PrGN'))
 
-fig.show() # note: doesn't work on this website, but run it in Jupyter or Spyder
+# fig.show() # note: interactive output doesn't work on this website, but run it in Jupyter or Spyder
+
+fig.show(renderer='png')
 
 
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys304/Ylm.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys304/Ylm.py)._

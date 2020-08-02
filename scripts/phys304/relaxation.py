@@ -5,7 +5,7 @@
 # 
 # 
 
-# In[6]:
+# In[1]:
 
 
 import scipy as sp
@@ -18,7 +18,7 @@ import matplotlib.cm as cm
 # 
 # We'll calculate the potential on a $N_x\times N_y$ grid of $(x,y)$ values.
 
-# In[7]:
+# In[2]:
 
 
 Nx = 50
@@ -33,7 +33,7 @@ x, y = np.meshgrid(xv, yv)
 # ## Boundary conditions
 # 
 
-# In[8]:
+# In[3]:
 
 
 
@@ -54,7 +54,7 @@ Vini = V.copy()
 # 
 # relaxation method: iteratively replace value at point by average of 4 neighbours
 
-# In[9]:
+# In[4]:
 
 
 Niter = 5000
@@ -75,7 +75,7 @@ for it in range(1, Niter):
 # 
 # 
 
-# In[10]:
+# In[5]:
 
 
 fig = plt.figure()
@@ -86,6 +86,23 @@ ax2 = fig.add_subplot(122)
 ax2.imshow(Vlist[-1], interpolation='nearest', cmap=cm.Greys_r)
 
 plt.show()
+
+
+# In[27]:
+
+
+import plotly.graph_objects as go
+fig = go.Figure(data=[go.Surface(z=Vlist[-1],  
+                colorscale='PrGN')])
+fig.update_layout(title='Relaxed solution', autosize=False,
+                  width=800, height=800,
+                  margin=dict(l=65, r=50, b=100, t=90),
+        scene = {
+            'camera_eye': {"x": -1, "y": -1, "z": 0.5},
+            "aspectratio": {"x": 1, "y": 1, "z": 0.8}
+        })
+
+fig.show(renderer='png') 
 
 
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys304/relaxation.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys304/relaxation.py)._

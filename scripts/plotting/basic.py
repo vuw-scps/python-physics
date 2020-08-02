@@ -100,16 +100,17 @@ m = pd.melt(d, id_vars='x')
 m.head()          
 
 
-# In[12]:
+# In[13]:
 
 
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
+pio.renderers
 # pio.renderers.default = "browser"
 
 fig = px.line(m, x='x', y='value', color='variable')
-fig.show()
+fig.show(renderer='png')
 
 
 # In[11]:
