@@ -5,7 +5,7 @@
 # 
 # 
 
-# In[1]:
+# In[2]:
 
 
 import numpy as np
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 # 
 # Let's plot a few sine functions with different line types; we assign a label to each trace, which can be displayed in a legend.
 
-# In[2]:
+# In[3]:
 
 
 x = np.linspace(-np.pi,np.pi, 200)
@@ -34,7 +34,7 @@ plt.show()
 
 # ## Scatter plot
 
-# In[3]:
+# In[4]:
 
 
 x = np.linspace(-np.pi,np.pi, 200)
@@ -54,7 +54,7 @@ plt.show()
 # 
 # To display multiple plots side-by-side, set up a subplot. Note the slightly different syntax for labels etc. 
 
-# In[4]:
+# In[5]:
 
 
 fig,ax=plt.subplots(2,1,sharex='col')
@@ -75,7 +75,7 @@ plt.show()
 # An alternative is to create plots following _a grammar of graphics_, such as implemented in [plotly](https://plotly.com/python). Data should typically be prepared in long format [`Panda ` `DataFrame`s](https://pandas.pydata.org/).
 # 
 
-# In[5]:
+# In[6]:
 
 
 import pandas as pd
@@ -93,7 +93,7 @@ d.head()
 
 # Converting from this wide format to long format can be achieved with `melt`,
 
-# In[6]:
+# In[7]:
 
 
 m = pd.melt(d, id_vars='x')
@@ -108,24 +108,21 @@ import plotly.graph_objects as go
 import plotly.io as pio
 # pio.renderers.default = "browser"
 
-#fig = go.FigureWidget()
-#fig.add_trace(go.Scatter(x=m['x'], y=m['value'], fillcolor=m['variable']))
-
-#fig = px.line(m, x='x', y='value', color='variable')
-#fig.show(renderer="plotly_mimetype")
+fig = px.line(m, x='x', y='value', color='variable')
+fig.show()
 
 
-# Build figure
-fig = go.Figure()
+# In[11]:
+
+
+
+#fig = go.Figure()
 
 # Add scatter trace with medium sized markers
-fig.add_trace(
-    go.Scatter(mode='lines+markers',
-        x=m['x'],
-        y=m['value']))
-
-
-fig.show()
+#fig.add_trace(
+#    go.Scatter(mode='lines',
+#        x=m['x'],
+#        y=m['value']))
 
 
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/plotting/line.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/plotting/line.py)._
