@@ -5,7 +5,7 @@
 # 
 # 
 
-# In[2]:
+# In[15]:
 
 
 import numpy as np
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 # 
 # Let's plot a few sine functions with different line types; we assign a label to each trace, which can be displayed in a legend.
 
-# In[3]:
+# In[16]:
 
 
 x = np.linspace(-np.pi,np.pi, 200)
@@ -34,15 +34,14 @@ plt.show()
 
 # ## Scatter plot
 
-# In[4]:
+# In[34]:
 
 
-x = np.linspace(-np.pi,np.pi, 200)
+x = np.linspace(-np.pi,np.pi, 20)
 
-lts = ['-',':','--','-.','-']
-
+marker = ["." , ",", "o", "v", "^"]
 for i in range(5):
-    plt.plot(x, np.sin(i*x)+i,lts[i],label="{0}*x".format(i))
+    plt.scatter(x, np.sin(x)+i, c = 'brown', marker=marker[i], label="{0}*x".format(i))
     
 plt.ylabel("y")
 plt.xlabel("x")
@@ -126,4 +125,4 @@ fig.show(renderer='png')
 #        y=m['value']))
 
 
-# _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/plotting/line.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/plotting/line.py)._
+# _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/plotting/basic.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/plotting/basic.py)._
