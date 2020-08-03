@@ -486,12 +486,11 @@ plt.show()
 
 <p><img alt="png" src="../../nb_img/plotting/basic_3_0.png" /></p>
 <h2 id="scatter-plot">Scatter plot</h2>
-<pre><code class="python">x = np.linspace(-np.pi,np.pi, 200)
+<pre><code class="python">x = np.linspace(-np.pi,np.pi, 20)
 
-lts = ['-',':','--','-.','-']
-
+marker = [&quot;.&quot; , &quot;,&quot;, &quot;o&quot;, &quot;v&quot;, &quot;^&quot;]
 for i in range(5):
-    plt.plot(x, np.sin(i*x)+i,lts[i],label=&quot;{0}*x&quot;.format(i))
+    plt.scatter(x, np.sin(x)+i, c = 'brown', marker=marker[i], label=&quot;{0}*x&quot;.format(i))
 
 plt.ylabel(&quot;y&quot;)
 plt.xlabel(&quot;x&quot;)
