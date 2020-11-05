@@ -1,11 +1,13 @@
-# python-physics
+Using Python in the physical sciences: tutorials and recipes 
+
+https://vuw-scps.github.io/python-physics/
+
+![potential](potential.jpg)
 
 ![elves](elves.png)
 
-Tutorials and recipes for Python
-
+Updating the site:
 ```
 bash script.sh 
 mkdocs gh-deploy
-https://vuw-scps.github.io/python-physics/
 ```
