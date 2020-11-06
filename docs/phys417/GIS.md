@@ -141,4 +141,4 @@ pyplot.gca().set_yticks(np.arange(0,1.5,0.5))
 ![png](../nb_img/phys417/GIS_13_1.png)
 
 
-_Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys417/GIS.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys417/gis.py)._
+_Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys417/GIS.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/phys417/GIS.py)._
