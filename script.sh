@@ -16,3 +16,7 @@ do
 done
 
 cd ..
+
+echo maybe you want to run
+echo mkdocs gh-deploy
+echo to update the website
