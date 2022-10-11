@@ -1,0 +1,1264 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>fitting 04 MCMC - python-physics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revisiting-our-nonlinear-fitting-example-with-mcmc-sampling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="python-physics" class="md-header-nav__button md-logo" aria-label="python-physics">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            python-physics
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              fitting 04 MCMC
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="python-physics" class="md-nav__button md-logo" aria-label="python-physics">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    python-physics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Phys114
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys114" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys114
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys114/HailStone/" title="HailStone" class="md-nav__link">
+      HailStone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys114/Momentum/" title="Momentum" class="md-nav__link">
+      Momentum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys114/NIIsolver/" title="NIIsolver" class="md-nav__link">
+      NIIsolver
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys114/SimplePlots/" title="SimplePlots" class="md-nav__link">
+      SimplePlots
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Phys115
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys115" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys115
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys115/Inductor-Capacitor/" title="Inductor Capacitor" class="md-nav__link">
+      Inductor Capacitor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys115/RLC/" title="RLC" class="md-nav__link">
+      RLC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys115/Refraction/" title="Refraction" class="md-nav__link">
+      Refraction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys115/Resistors/" title="Resistors" class="md-nav__link">
+      Resistors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Phys221
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys221" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys221
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys221/Multiplots/" title="Molecular Speeds lab Python data analysis - multiple gas dataset processing" class="md-nav__link">
+      Molecular Speeds lab Python data analysis - multiple gas dataset processing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys221/Single_exp/" title="Molecular Speeds lab Python data analysis - single gas dataset processing" class="md-nav__link">
+      Molecular Speeds lab Python data analysis - single gas dataset processing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Phys304
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys304" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys304
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys304/spherical_harmonics/" title="Spherical harmonics" class="md-nav__link">
+      Spherical harmonics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Phys345
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys345" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys345
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fitting_01_linear/" title="Fitting 01 linear" class="md-nav__link">
+      Fitting 01 linear
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fitting_02_basic/" title="Fitting 02 basic" class="md-nav__link">
+      Fitting 02 basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fitting_03_bayes/" title="Fitting 03 bayes" class="md-nav__link">
+      Fitting 03 bayes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        fitting 04 MCMC
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="fitting 04 MCMC" class="md-nav__link md-nav__link--active">
+      fitting 04 MCMC
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revisiting-our-nonlinear-fitting-example-with-mcmc-sampling" class="md-nav__link">
+    Revisiting our nonlinear fitting example with MCMC sampling
+  </a>
+  
+    <nav class="md-nav" aria-label="Revisiting our nonlinear fitting example with MCMC sampling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-the-posterior-density" class="md-nav__link">
+    Sampling the posterior density
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wrangling_00_regex/" title="Wrangling 00 regex" class="md-nav__link">
+      Wrangling 00 regex
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wrangling_01_singlefile_blocks/" title="Wrangling 01 singlefile blocks" class="md-nav__link">
+      Wrangling 01 singlefile blocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wrangling_02_folder_filenames/" title="Wrangling 02 folder filenames" class="md-nav__link">
+      Wrangling 02 folder filenames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wrangling_03_folder_files_meta/" title="Wrangling 03 folder files meta" class="md-nav__link">
+      Wrangling 03 folder files meta
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Phys415
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys415" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys415
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys415/fresnel/" title="Fresnel" class="md-nav__link">
+      Fresnel
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Phys417
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Phys417" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Phys417
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys417/GIS/" title="GIS" class="md-nav__link">
+      GIS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../phys417/collapse/" title="Collapse" class="md-nav__link">
+      Collapse
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Plotting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Plotting" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Plotting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../plotting/basic/" title="Basic" class="md-nav__link">
+      Basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../plotting/grammar/" title="Tutorial example: plotting with Python" class="md-nav__link">
+      Tutorial example: plotting with Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revisiting-our-nonlinear-fitting-example-with-mcmc-sampling" class="md-nav__link">
+    Revisiting our nonlinear fitting example with MCMC sampling
+  </a>
+  
+    <nav class="md-nav" aria-label="Revisiting our nonlinear fitting example with MCMC sampling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-the-posterior-density" class="md-nav__link">
+    Sampling the posterior density
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>fitting 04 MCMC</h1>
+                
+                <h2 id="revisiting-our-nonlinear-fitting-example-with-mcmc-sampling">Revisiting our nonlinear fitting example with MCMC sampling</h2>
+<p>We return to our original model with 5 parameters, for which it would be impractical to evaluate the posterior distribution over a grid of parameters. </p>
+<div>
+<div class="MathJax_Preview">
+y(x) = b_1 \exp\left(-b_2 x\right) + \frac{b_3}{b_5\sqrt{2\pi}} \exp\left(-\tfrac12\frac{(x-b_4)^2}{b_5^2}\right)
+</div>
+<script type="math/tex; mode=display">
+y(x) = b_1 \exp\left(-b_2 x\right) + \frac{b_3}{b_5\sqrt{2\pi}} \exp\left(-\tfrac12\frac{(x-b_4)^2}{b_5^2}\right)
+</script>
+</div>
+<p>(the sum of a decaying exponential background, and a Gaussian peak). </p>
+<p>We first load some standard packages, including <code>emcee</code> for MCMC sampling and <code>corner</code> for visualisation of the posterior.</p>
+<pre><code class="python">import numpy as np
+import os, sys
+from numpy import exp, pi, sqrt
+
+from numpy import linspace
+
+import pandas as pd
+from matplotlib import pyplot
+import matplotlib.pyplot as plt
+
+import scipy.optimize as optimization
+from lmfit import minimize, Parameters, report_fit
+from scipy.optimize import leastsq
+import emcee #conda install -c conda-forge emcee
+
+
+</code></pre>
+
+<p>We then proceed as in the previous example, loading the dataset, and defining the log-likelihood, the log-prior, and the log-posterior functions.</p>
+<pre><code class="python">data = pd.read_csv(&quot;exppeak.txt&quot;, header=0, delim_whitespace=True)
+data
+
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>sigma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000</td>
+      <td>1.17747</td>
+      <td>0.0357</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.526</td>
+      <td>0.64436</td>
+      <td>0.0272</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.053</td>
+      <td>0.53100</td>
+      <td>0.0353</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.579</td>
+      <td>0.52761</td>
+      <td>0.0323</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.105</td>
+      <td>0.64534</td>
+      <td>0.0313</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.632</td>
+      <td>0.80235</td>
+      <td>0.0419</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3.158</td>
+      <td>0.82748</td>
+      <td>0.0334</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3.684</td>
+      <td>0.74864</td>
+      <td>0.0265</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.211</td>
+      <td>0.64265</td>
+      <td>0.0364</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4.737</td>
+      <td>0.48122</td>
+      <td>0.0375</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>5.263</td>
+      <td>0.35455</td>
+      <td>0.0293</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>5.789</td>
+      <td>0.19687</td>
+      <td>0.0280</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>6.316</td>
+      <td>0.10605</td>
+      <td>0.0340</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>6.842</td>
+      <td>0.04602</td>
+      <td>0.0338</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>7.368</td>
+      <td>0.00328</td>
+      <td>0.0332</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>7.895</td>
+      <td>0.05068</td>
+      <td>0.0319</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>8.421</td>
+      <td>0.01430</td>
+      <td>0.0305</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>8.947</td>
+      <td>-0.04866</td>
+      <td>0.0256</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>9.474</td>
+      <td>0.01765</td>
+      <td>0.0281</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>10.000</td>
+      <td>-0.01179</td>
+      <td>0.0288</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">
+def model_peak(x, b1, b2, b3, b4, b5):
+    return b1*exp(-b2*x) + b3/(sqrt(2*np.pi)*b5)*exp(-0.5*(x-b4)**2 / b5**2)
+
+def log_likelihood(theta, x, y, yerr):
+    b1, b2, b3, b4, b5 = theta
+    model = model_peak(x, b1, b2, b3, b4, b5)
+    logLhood0=np.size(y)/2*np.log(2*np.pi)+np.sum(np.log(yerr))
+    chi2=np.sum(((y - model)/yerr)**2)
+    return -chi2/2-logLhood0
+
+def log_prior(theta):
+    b1, b2, b3, b4, b5 = theta
+    if 0.5 &lt; b1 &lt; 2 and 1. &lt; b2 &lt; 2 and 1 &lt; b3 &lt; 5.0 and 1.0 &lt; b4 &lt; 5 and 1. &lt; b5 &lt; 2.0:
+        return 0.0
+    return -np.inf
+
+def log_posterior(theta, x, y, yerr):
+    lp = log_prior(theta)
+    if not np.isfinite(lp):
+        return -np.inf
+    return lp + log_likelihood(theta, x, y, yerr)
+
+</code></pre>
+
+<p>We first seek the optimum parameters by minimising the (negative) log-likelihood, and visualise the fit</p>
+<pre><code class="python">nll = lambda *args: -log_likelihood(*args)
+initial = [1, 1, 1, 4,  1]
+soln = optimization.minimize(nll, initial, args=(data.x, data.y, data.sigma))
+b1, b2, b3, b4, b5 = soln.x
+
+print(&quot;Maximum likelihood estimates:&quot;)
+print(&quot;b1 = {0:.3f}&quot;.format(b1))
+print(&quot;b2 = {0:.3f}&quot;.format(b2))
+print(&quot;b3 = {0:.3f}&quot;.format(b3))
+print(&quot;b4 = {0:.3f}&quot;.format(b4))
+print(&quot;b5 = {0:.3f}&quot;.format(b5))
+
+xx = np.arange(0,10,0.1)
+p_truth = [1.12, 1.52, 3, 3.26,  1.48]
+truth = model_peak(xx, *p_truth)
+guess = model_peak(xx, *initial)
+fit_ML = model_peak(xx, b1, b2, b3, b4, b5)
+pyplot.errorbar(data.loc[:,'x'], data.loc[:,'y'], yerr=data.loc[:,'sigma'], fmt='.', label='data')
+pyplot.plot(xx, truth, 'k-', label='Truth')
+pyplot.plot(xx, guess, 'g', label='Guess')
+pyplot.plot(xx, fit_ML, 'r', label='ML fit')
+pyplot.legend(loc='best')
+pyplot.xlabel(&quot;x&quot;)
+pyplot.ylabel(&quot;y&quot;)
+
+</code></pre>
+
+<pre><code>Maximum likelihood estimates:
+b1 = 1.083
+b2 = 1.594
+b3 = 3.110
+b4 = 3.207
+b5 = 1.552
+
+
+
+
+
+Text(0, 0.5, 'y')
+</code></pre>
+<p><img alt="png" src="../../nb_img/phys345/fitting_04_MCMC_6_2.png" /></p>
+<h3 id="sampling-the-posterior-density">Sampling the posterior density</h3>
+<p>MCMC allows us to sample the posterior distribution and thus gain some understanding of its shape around the optimum parameter values. This solnling is done via <em>Markov chains</em>, which we can think about as random walks in the parameter space. To get a more reliable result, several "walkers" are run in parallel, each with a different starting point. Since we are most interested in the posterior's shape around the maximum, we choose random starting points close to this maximum, for example:</p>
+<pre><code class="python">soln.x + 1e-4 * np.random.randn(12, 5)
+</code></pre>
+
+<pre><code>array([[1.0823876 , 1.59386719, 3.11010714, 3.20660868, 1.55170751],
+       [1.08261343, 1.5937265 , 3.1104251 , 3.20642335, 1.55165622],
+       [1.08243095, 1.59384169, 3.11023314, 3.20665387, 1.55176051],
+       [1.08233536, 1.59366526, 3.11027403, 3.20659327, 1.55178218],
+       [1.0825858 , 1.59386002, 3.11035792, 3.20669072, 1.5516467 ],
+       [1.08256639, 1.59372896, 3.11014732, 3.20666428, 1.5518133 ],
+       [1.08251245, 1.59380216, 3.11039025, 3.2065474 , 1.55184496],
+       [1.08251992, 1.59383695, 3.11015795, 3.20655538, 1.55173872],
+       [1.08258598, 1.59383277, 3.11021095, 3.20657282, 1.55184531],
+       [1.08255997, 1.59371991, 3.11025562, 3.20642684, 1.55174756],
+       [1.08259651, 1.5938106 , 3.11027874, 3.206563  , 1.55183963],
+       [1.08244543, 1.5937451 , 3.11035527, 3.20666038, 1.55176184]])
+</code></pre>
+<p>We now run the sampler with 32 walkers and a maximum number of 5000 steps, which takes a bit of time. </p>
+<pre><code class="python">import emcee
+
+pos = soln.x + 1e-3 * np.random.randn(32, 5)
+nwalkers, ndim = pos.shape
+
+sampler = emcee.EnsembleSampler(
+    nwalkers, ndim, log_posterior, args=(data.x, data.y, data.sigma)
+)
+sampler.run_mcmc(pos, 5000, progress=True);
+</code></pre>
+
+<pre><code>100%|██████████| 5000/5000 [02:46&lt;00:00, 30.03it/s]
+</code></pre>
+<p>We can plot the sampled values for each parameter as follows:</p>
+<pre><code class="python">fig, axes = plt.subplots(5, figsize=(10, 7), sharex=True)
+samples = sampler.get_chain()
+labels = [&quot;b1&quot;, &quot;b2&quot;, &quot;b3&quot;, &quot;b4&quot;, &quot;b5&quot;]
+for i in range(ndim):
+    ax = axes[i]
+    ax.plot(samples[:, :, i], &quot;k&quot;, alpha=0.3)
+    ax.set_xlim(0, len(samples))
+    ax.set_ylabel(labels[i])
+
+axes[-1].set_xlabel(&quot;step number&quot;);
+</code></pre>
+
+<p><img alt="png" src="../../nb_img/phys345/fitting_04_MCMC_12_0.png" /></p>
+<p>The initial steps taken by the walkers are usually discarded (known as <em>burn-in</em> period), as the walkers are not necessarily exploring a representative region of the posterior distribution. A common way to decide how many iterations should be discarded is to evaluate the autocorrelation time of the walks. </p>
+<pre><code class="python">tau = sampler.get_autocorr_time()
+print(tau)
+</code></pre>
+
+<pre><code>[58.08490385 57.9926111  54.5014361  56.34124705 52.3393036 ]
+</code></pre>
+<p>As a rule of thumb, we might discard the initial steps up to about twice this autocorrelation time. We also <em>thin</em> (sub-sample) the chains by roughly half this amount, to reduce the correlation between adjacent values:</p>
+<pre><code class="python">flat_samples = sampler.get_chain(discard=100, thin=20, flat=True)
+print(flat_samples.shape)
+</code></pre>
+
+<pre><code>(7840, 5)
+</code></pre>
+<p>With these sampled values, we can now estimate various quantities from the posterior distribution. For instance, the best parameter values are near the maximum of the posterior distribution, and we can access them via:</p>
+<pre><code class="python"># Get the index of the most probable parameter set
+max_ind = np.argmax(sampler.flatlnprobability)
+
+b1_MCMC, b2_MCMC, b3_MCMC, b4_MCMC, b5_MCMC = sampler.flatchain[max_ind,:]
+
+print(&quot;&quot;&quot;
+Most probable parameter values from MCMC sampling:
+b1:  {0:.3f}
+b2: {1:.3f}
+b3:  {2:.3f}
+b4: {3:.3f}
+b5: {4:.3f}
+&quot;&quot;&quot;.format(b1_MCMC, b2_MCMC, b3_MCMC, b4_MCMC, b5_MCMC))
+</code></pre>
+
+<pre><code>Most probable parameter values from MCMC sampling:
+b1:  1.083
+b2: 1.594
+b3:  3.110
+b4: 3.206
+b5: 1.552
+</code></pre>
+<p>Note, however, that the real purpose of MCMC sampling is <em>not</em> to find the optimum values (for this, it is better to use a minimiser), but rather to inform us on the shape of the posterior distribution. We can for instance compute the standard deviation to summarise the uncertainty on the fitted parameters:</p>
+<pre><code class="python"># Compute error bars by taking standard deviation
+b1_err, b2_err, b3_err, b4_err, b5_err = sampler.flatchain.std(axis=0)
+
+print('Error bars:\n', b1_err, b2_err, b3_err, b4_err, b5_err)
+</code></pre>
+
+<pre><code>Error bars:
+ 0.0386747708259245 0.16209889231109387 0.11549947477834956 0.06291385617929797 0.0597530583944446
+</code></pre>
+<p>in reasonable agreement with the estimates from the Hessian matrix (which supposes that the posterior density has gaussian shape):</p>
+<pre><code class="python">print('Error bars from Hessian:\n', np.sqrt(np.diag(soln.hess_inv)))
+</code></pre>
+
+<pre><code>Error bars from Hessian:
+ [0.03815517 0.17042324 0.11786717 0.06522477 0.05940693]
+</code></pre>
+<p>Finally, we can summarise the posterior distribution with a corner plot, illustrating the marginalised parameter distributions and all pairwise correlations:</p>
+<pre><code class="python">import corner
+
+fig = corner.corner(
+    flat_samples, labels=labels, truths=  p_truth
+);
+</code></pre>
+
+<p><img alt="png" src="../../nb_img/phys345/fitting_04_MCMC_24_0.png" /></p>
+<p>Note how the "true" values of the parameters are close, but not necessarily exactly on top of the posterior maximum. </p>
+<p><em>Download this page <a href="https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys345/fitting_04_MCMC.ipynb">as a Jupyter notebook</a> or as a <a href="https://github.com/vuw-scps/python-physics/raw/master/scripts/phys345/fitting_04_MCMC.py">standalone Python script</a>.</em></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../fitting_03_bayes/" title="Fitting 03 bayes" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Fitting 03 bayes
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../wrangling_00_regex/" title="Wrangling 00 regex" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Wrangling 00 regex
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
