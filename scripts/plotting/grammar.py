@@ -1,128 +1,186 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Basic plots
+# # Tutorial example: plotting with Python
 # 
+# We'll load the `palmerpenguins` dataset, and produce a simple scatter plot using different plotting packages for comparison. Each of these plots can be adjusted in many ways, and you should explore the documentation of those packages to get an idea of the possibilities (and the specific syntax to use).
+
+# In[1]:
+
+
+# pip install palmerpenguins 
+import palmerpenguins
+import pandas as pd
+
+
+# Let's check that things work by looking at the first few rows of the dataset
+
+# In[2]:
+
+
+from palmerpenguins import load_penguins
+penguins = load_penguins()
+penguins.head()
+
+
+# ## Plotting with matplotlib
 # 
+# Let's make a plot with the standard pyplot package:
 
-# In[15]:
+# In[3]:
 
 
-import numpy as np
 import matplotlib.pyplot as plt
 
-
-# ## Line plot
-# 
-# Let's plot a few sine functions with different line types; we assign a label to each trace, which can be displayed in a legend.
-
-# In[16]:
-
-
-x = np.linspace(-np.pi,np.pi, 200)
-
-lts = ['-',':','--','-.','-']
-
-for i in range(5):
-    plt.plot(x, np.sin(i*x)+i,lts[i],label="{0}*x".format(i))
-    
-plt.ylabel("y")
-plt.xlabel("x")
-plt.legend(ncol=1,bbox_to_anchor=(1.0,1), title='variable')
-plt.show()
+colors = {'Adelie':'blue', 'Gentoo':'orange', 'Chinstrap':'green'}
+plt.scatter(penguins.flipper_length_mm,
+penguins.body_mass_g, 
+c= penguins.species.apply(lambda x: colors[x]))
+plt.xlabel('Flipper Length')
+plt.ylabel('Body Mass')
 
 
-# ## Scatter plot
+# ## Using plotnine
 
-# In[34]:
-
-
-x = np.linspace(-np.pi,np.pi, 20)
-
-marker = ["." , ",", "o", "v", "^"]
-for i in range(5):
-    plt.scatter(x, np.sin(x)+i, c = 'brown', marker=marker[i], label="{0}*x".format(i))
-    
-plt.ylabel("y")
-plt.xlabel("x")
-plt.legend(ncol=1,bbox_to_anchor=(1.0,1), title='variable')
-plt.show()
+# In[4]:
 
 
-# ## Subplots
-# 
-# To display multiple plots side-by-side, set up a subplot. Note the slightly different syntax for labels etc. 
+#conda install -c conda-forge plotnine 
+from plotnine import *
+# note the use of parentheses, because the syntax below (+) is non-standard in Python
+(ggplot(penguins) +
+  geom_point(aes(x = 'flipper_length_mm',
+                  y = 'body_mass_g',
+                  color = 'species',
+                  shape = 'species')) +
+  xlab("Flipper Length") +
+  ylab("Body Mass"))
+
+
+# ## Interactive plotting with plotly
 
 # In[5]:
 
 
-fig,ax=plt.subplots(2,1,sharex='col')
+import plotly.express as px
 
-for i in range(5):
-    ax[0].plot(x,np.sin(i*x)+i,lts[i],label="{0}*x".format(i))
-    ax[1].plot(x,np.cos(i*x)+i,lts[i]                        )
-    
-ax[0].set_ylabel("sin")
-ax[1].set_ylabel("cos")
-ax[1].set_xlabel("x")
-ax[0].legend(ncol=5,bbox_to_anchor=(0.1,1.02))
-plt.show()
+fig = px.scatter(penguins,
+                 x="flipper_length_mm",
+                 y="body_mass_g",
+                 color= "species",
+                 symbol= "species",
+                 labels=dict(flipper_length_mm="Flipper Length",
+                             body_mass_g="Body Mass"))
+
+# fig.show() # use this in interactive notebook
+fig.show(renderer='svg')
 
 
-# ## Grammar of graphics with Pandas
-# 
-# An alternative is to create plots following _a grammar of graphics_, such as implemented in [plotly](https://plotly.com/python). Data should typically be prepared in long format [`Panda ` `DataFrame`s](https://pandas.pydata.org/).
-# 
+# ## Plotting with seaborn
 
 # In[6]:
 
 
-import pandas as pd
+import seaborn as sns 
 
-x = np.linspace(-np.pi,np.pi, 200)
-mat = [np.sin(i*x.T) + i for i in range(5)]
+# Apply the default theme
+sns.set_theme()
+# sns.set_style('whitegrid')
+p = sns.relplot(x = 'flipper_length_mm',
+            y ='body_mass_g',
+            hue = 'species',
+            style = 'species',
+            data = penguins)
+p.set_xlabels('Flipper Length')
+p.set_ylabels('Body Mass') 
 
-# set column names to refer to them
-columns = ['a','b','c','d','e']
 
-d = pd.DataFrame(dict(zip(columns, mat)))
-d['x'] = x
-d.head()
-
-
-# Converting from this wide format to long format can be achieved with `melt`,
+# ## Plotting with altair
 
 # In[7]:
 
 
-m = pd.melt(d, id_vars='x')
-m.head()          
+import altair as alt
 
 
-# In[13]:
+# In[8]:
 
 
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.io as pio
-pio.renderers
-# pio.renderers.default = "browser"
-
-fig = px.line(m, x='x', y='value', color='variable')
-fig.show(renderer='png')
+chart = alt.Chart(penguins).mark_point().encode(
+    x = 'flipper_length_mm:Q',
+    y ='body_mass_g:Q',
+    color='species:N',
+).properties(width=600)
+chart
 
 
-# In[11]:
+# The x and y axes include 0 by default, which we can adjust by providing a scale. While we're at it, let's split the plot into different panels for illustration:
+
+# In[10]:
 
 
+chart = alt.Chart(penguins).mark_point().encode(
+    alt.X('flipper_length_mm:Q',
+        scale=alt.Scale(zero=False)
+    ),
+    alt.Y('body_mass_g:Q',
+        scale=alt.Scale(zero=False)
+    ),
+    color='species:N',
+    column='island',
+).properties(width=220)
+chart
 
-#fig = go.Figure()
 
-# Add scatter trace with medium sized markers
-#fig.add_trace(
-#    go.Scatter(mode='lines',
-#        x=m['x'],
-#        y=m['value']))
+# ## Suggested exercises
+# 
+# 
+# ### Data input/output
+# 
+# Instead of using a built-in dataset like in the examples above:
+# 
+# 1. Take a look at the [10 mins introduction to `pandas`](https://pandas.pydata.org/docs/user_guide/10min.html#min); the dataframe format is very useful to mix numeric variables (as in a standard numpy matrix) together with other types (dates, categories, strings, etc.)
+# 1. Create a synthetic dataset with 5 (or more) variables, at least one of which should be a categorical type (as in the penguin species, or islands above)
+# 1. Export these data into a CSV file on your computer, and re-import them as if this was a dataset provided to you in this format
+# 
+# ### Faceted plots
+# 
+# Try to create small multiples (facets, also called trellis) for the plots above, using one or two categories to facet by rows and/or columns.
+# 
+# ### Different aesthetics
+# 
+# Try mapping different aesthetics, such as:
+# 
+# - line type (solid, dashed, etc.)
+# - point shape
+# - point size
+# - line width, opacity, ... see what is available
+# 
+# ### Different plot types
+# 
+# Try producing the following kinds of plots:
+# 
+# - A boxplot
+# - A violing plot
+# - A heatmap
+# 
+# ### Fine-tuning
+# 
+# Read the documentation to figure out how to polish your plot, notably:
+# 
+# - change the colour scheme/palette
+# - change the theme (e.g. dark background, large font size for all the text)
+# - suppress the legend
+# - render LaTeX-like strings in the axis labels, e.g `$\alpha = \int_0^\infty \beta(x)dx$`
+# - optional: add interactive tooltips (in plotly)
+# 
+# ### Saving plots
+# 
+# Check the options to save your graphic as 
+# 
+# - png, with size 6x4 inches and resolution of 300dpi
+# - pdf, with transparent background and size 6x4 inches
+# - square svg of size 4x4 inches
+# 
 
-
-# _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/plotting/basic.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/plotting/basic.py)._
+# _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/plotting/grammar.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/plotting/grammar.py)._

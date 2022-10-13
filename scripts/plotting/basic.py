@@ -112,17 +112,4 @@ fig = px.line(m, x='x', y='value', color='variable')
 fig.show(renderer='png')
 
 
-# In[11]:
-
-
-
-#fig = go.Figure()
-
-# Add scatter trace with medium sized markers
-#fig.add_trace(
-#    go.Scatter(mode='lines',
-#        x=m['x'],
-#        y=m['value']))
-
-
 # _Download this page [as a Jupyter notebook](https://github.com/vuw-scps/python-physics/raw/master/notebooks/plotting/basic.ipynb) or as a [standalone Python script](https://github.com/vuw-scps/python-physics/raw/master/scripts/plotting/basic.py)._
