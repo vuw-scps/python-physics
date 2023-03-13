@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -10,8 +8,14 @@
       
       
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      
+        <link rel="prev" href="../Multiplots/">
+      
+      
+        <link rel="next" href="../../phys304/spherical_harmonics/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
@@ -19,32 +23,34 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7bf56d0a.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
+      
+
+    
+    
+    
       
         
         
-        <meta name="theme-color" content="">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
-    
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css">
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -53,8 +59,11 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -71,48 +80,60 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="python-physics" class="md-header-nav__button md-logo" aria-label="python-physics">
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="python-physics" class="md-header__button md-logo" aria-label="python-physics" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             python-physics
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Molecular Speeds lab Python data analysis - single gas dataset processing
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -120,7 +141,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -129,28 +150,33 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
+      
         
-      
-      
+          
         
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="python-physics" class="md-nav__button md-logo" aria-label="python-physics">
+    <a href="../.." title="python-physics" class="md-nav__button md-logo" aria-label="python-physics" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     python-physics
@@ -162,168 +188,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Phys114
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys114" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys114
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys114/HailStone/" title="HailStone" class="md-nav__link">
-      HailStone
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys114/Momentum/" title="Momentum" class="md-nav__link">
-      Momentum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys114/NIIsolver/" title="NIIsolver" class="md-nav__link">
-      NIIsolver
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys114/SimplePlots/" title="SimplePlots" class="md-nav__link">
-      SimplePlots
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Phys115
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys115" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys115
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys115/Inductor-Capacitor/" title="Inductor Capacitor" class="md-nav__link">
-      Inductor Capacitor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys115/RLC/" title="RLC" class="md-nav__link">
-      RLC
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys115/Refraction/" title="Refraction" class="md-nav__link">
-      Refraction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys115/Resistors/" title="Resistors" class="md-nav__link">
-      Resistors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
 
     
       
@@ -331,79 +204,315 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
-    
-    <label class="md-nav__link" for="nav-4">
-      Phys221
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys221" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys221
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Multiplots/" title="Molecular Speeds lab Python data analysis - multiple gas dataset processing" class="md-nav__link">
-      Molecular Speeds lab Python data analysis - multiple gas dataset processing
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/00_basic_intro/" class="md-nav__link">
+        00 basic intro
+      </a>
+    </li>
   
 
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
+      
+      
+
+  
+  
+  
     
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Phys114
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Phys114
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys114/HailStone/" class="md-nav__link">
+        HailStone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys114/Momentum/" class="md-nav__link">
+        Momentum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys114/NIIsolver/" class="md-nav__link">
+        NIIsolver
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys114/SimplePlots/" class="md-nav__link">
+        SimplePlots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Phys115
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Phys115
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys115/Inductor-Capacitor/" class="md-nav__link">
+        Inductor Capacitor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys115/RLC/" class="md-nav__link">
+        RLC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys115/Refraction/" class="md-nav__link">
+        Refraction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys115/Resistors/" class="md-nav__link">
+        Resistors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Phys221
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Phys221
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multiplots/" class="md-nav__link">
+        Molecular Speeds lab Python data analysis - multiple gas dataset processing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Molecular Speeds lab Python data analysis - single gas dataset processing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Molecular Speeds lab Python data analysis - single gas dataset processing
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Molecular Speeds lab Python data analysis - single gas dataset processing" class="md-nav__link md-nav__link--active">
-      Molecular Speeds lab Python data analysis - single gas dataset processing
-    </a>
-    
+      </a>
       
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#making-use-of-folders" class="md-nav__link">
@@ -485,331 +594,387 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
-        
-      </ul>
-    </nav>
-  </li>
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Phys304
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys304" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys304
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Phys304
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Phys304
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys304/spherical_harmonics/" class="md-nav__link">
+        Spherical harmonics
+      </a>
+    </li>
+  
+
+            
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys304/spherical_harmonics/" title="Spherical harmonics" class="md-nav__link">
-      Spherical harmonics
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Phys345
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys345" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys345
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Phys345
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Phys345
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/fitting_01_linear/" class="md-nav__link">
+        Fitting 01 linear
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/fitting_02_basic/" class="md-nav__link">
+        Fitting 02 basic
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/fitting_03_bayes/" class="md-nav__link">
+        Fitting 03 bayes
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../phys345/fitting_01_linear/" title="Fitting 01 linear" class="md-nav__link">
-      Fitting 01 linear
-    </a>
-  </li>
-
-        
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/fitting_04_MCMC/" class="md-nav__link">
+        fitting 04 MCMC
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/wrangling_00_regex/" class="md-nav__link">
+        Wrangling 00 regex
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/wrangling_01_singlefile_blocks/" class="md-nav__link">
+        Wrangling 01 singlefile blocks
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../phys345/fitting_02_basic/" title="Fitting 02 basic" class="md-nav__link">
-      Fitting 02 basic
-    </a>
-  </li>
-
-        
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/wrangling_02_folder_filenames/" class="md-nav__link">
+        Wrangling 02 folder filenames
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys345/wrangling_03_folder_files_meta/" class="md-nav__link">
+        Wrangling 03 folder files meta
+      </a>
+    </li>
+  
+
+            
           
-
-
-  <li class="md-nav__item">
-    <a href="../../phys345/fitting_03_bayes/" title="Fitting 03 bayes" class="md-nav__link">
-      Fitting 03 bayes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys345/fitting_04_MCMC/" title="fitting 04 MCMC" class="md-nav__link">
-      fitting 04 MCMC
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys345/wrangling_00_regex/" title="Wrangling 00 regex" class="md-nav__link">
-      Wrangling 00 regex
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys345/wrangling_01_singlefile_blocks/" title="Wrangling 01 singlefile blocks" class="md-nav__link">
-      Wrangling 01 singlefile blocks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys345/wrangling_02_folder_filenames/" title="Wrangling 02 folder filenames" class="md-nav__link">
-      Wrangling 02 folder filenames
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys345/wrangling_03_folder_files_meta/" title="Wrangling 03 folder files meta" class="md-nav__link">
-      Wrangling 03 folder files meta
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Phys415
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys415" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys415
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Phys415
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Phys415
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys415/fresnel/" class="md-nav__link">
+        Fresnel
+      </a>
+    </li>
+  
+
+            
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys415/fresnel/" title="Fresnel" class="md-nav__link">
-      Fresnel
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Phys417
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Phys417" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Phys417
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Phys417
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Phys417
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys417/GIS/" class="md-nav__link">
+        GIS
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phys417/collapse/" class="md-nav__link">
+        Collapse
+      </a>
+    </li>
+  
+
+            
           
-
-
-  <li class="md-nav__item">
-    <a href="../../phys417/GIS/" title="GIS" class="md-nav__link">
-      GIS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../phys417/collapse/" title="Collapse" class="md-nav__link">
-      Collapse
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      Plotting
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Plotting" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Plotting
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          Plotting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Plotting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plotting/basic/" class="md-nav__link">
+        Basic
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plotting/grammar/" class="md-nav__link">
+        Tutorial example: plotting with Python
+      </a>
+    </li>
+  
+
+            
           
-
-
-  <li class="md-nav__item">
-    <a href="../../plotting/basic/" title="Basic" class="md-nav__link">
-      Basic
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../plotting/grammar/" title="Tutorial example: plotting with Python" class="md-nav__link">
-      Tutorial example: plotting with Python
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -819,23 +984,24 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#making-use-of-folders" class="md-nav__link">
@@ -922,15 +1088,14 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
                   
-                
-                
-                <h1 id="molecular-speeds-lab-python-data-analysis-single-gas-dataset-processing">Molecular Speeds lab Python data analysis - single gas dataset processing</h1>
+
+
+<h1 id="molecular-speeds-lab-python-data-analysis-single-gas-dataset-processing">Molecular Speeds lab Python data analysis - single gas dataset processing</h1>
 <p>This Python workshop was originally developed by VUW Physics students William Holmes-Hewett and Campbell Matthews.  Thanks to both of them for their energy and enthusiam in making this resource.</p>
 <h2 id="making-use-of-folders">Making use of folders</h2>
 <p>Start a new Code in the folder that contains the file ‘Nitrogen 28.dat’</p>
@@ -939,44 +1104,38 @@
 <p>The first thing we want to do is define some constants that we will use later on.  These will be the volume of the bulb, the area of the opening and the pressure at which the effusion regime begins.</p>
 <p>You were asked to calculate some of these in the pre-workshop exercise.  The pre-workshop exercise also serves as a reminder of the PHYS223 lab that this data analysis is based on.</p>
 <p>So let’s write the first piece of the code and set up same values to use later on (note capital V we are using here).</p>
-<pre><code class="python">V=2.03*10**-3
+<pre><code class="language-python">V=2.03*10**-3
 A=5.55113*10**-8
 ef_begin=0.26
 </code></pre>
-
 <p>Let’s check that worked by printing one of the variables.  You can print them all if you like.</p>
-<pre><code class="python">print(V)
+<pre><code class="language-python">print(V)
 </code></pre>
-
 <pre><code>0.0020299999999999997
 </code></pre>
 <h2 id="importing-packages">Importing packages</h2>
 <p>To start of with we need to call up the packages that help us handle our data. Packages are groups of functions that can be imported all at the same time for later use. The package we want is called ‘numpy’ so let’s import that now.</p>
-<pre><code class="python">import numpy as np
+<pre><code class="language-python">import numpy as np
 </code></pre>
-
 <p>Now we want to import a module to help with plotting.<br />
 Note that some of this code here may be in a slightly different order to the example .py code that we have given in the folder on Blackboard. </p>
 <p>Does that matter?</p>
-<pre><code class="python">from matplotlib import pyplot as plt
+<pre><code class="language-python">from matplotlib import pyplot as plt
 </code></pre>
-
 <h2 id="importing-the-data-files">Importing the data files</h2>
 <p>We also want to load up the data that we have in our data file.  This could be a .txt file, a .csv or a .dat for example.  In this case we have a .dat file.  Later we will use a .csv.  </p>
 <p>If you remember back to the experiment, the data is pressure as a function of time. </p>
 <p>Now we want to use numpy to import our data, the command we are going to use is called ‘genfromtext’. We will import the data into a variable, called rawdata:</p>
-<pre><code class="python">rawdata=np.genfromtxt(&quot;Nitrogen 28.dat&quot;, delimiter=&quot;cat&quot;)
+<pre><code class="language-python">rawdata=np.genfromtxt(&quot;Nitrogen 28.dat&quot;, delimiter=&quot;cat&quot;)
 </code></pre>
-
 <p>Hold on...  What's this cat?</p>
 <p>Note that the delimiter argument tells Python how the data is separated, just to prove a point I’ve replaced all the commas, which are normally used to separate data, with the word ‘cat’.</p>
 <p>You can see this if you open the file in excel or something similar.</p>
 <p>This seems silly, does it really help me learn?</p>
 <p>Hopefully.  And think back to this when you move onto the multiple data example next.</p>
 <p>Now let’s print the variable ‘rawdata’</p>
-<pre><code class="python">print(rawdata)
+<pre><code class="language-python">print(rawdata)
 </code></pre>
-
 <pre><code>[[0.00000000e+00 3.91587981e+00]
  [1.00000000e+00 3.90860622e+00]
  [2.00000000e+00 3.89163795e+00]
@@ -990,29 +1149,26 @@ Note that some of this code here may be in a slightly different order to the exa
 <h2 id="using-arrays-and-vectors">Using arrays and vectors</h2>
 <p>Now we want to split this array up into two vectors, one for time and one for pressure, we can do that using the indexing we learned before.</p>
 <p>Note, when I say before, I mean in the first year lab and/or the introduction material that is loaded on Blackboard.</p>
-<pre><code class="python">time=rawdata[:,0]
+<pre><code class="language-python">time=rawdata[:,0]
 pressure=rawdata[:,1]
 </code></pre>
-
 <p>This [ : ,0] means [ first_row:last_row , column_0 ]. 
 If you have a 2-dimensional list/matrix/array, this notation will give you all the values in column 0 (from all rows).</p>
 <p>We should probably test what's happening here, just to be sure...</p>
-<pre><code class="python">print(time)
+<pre><code class="language-python">print(time)
 print(pressure)
 </code></pre>
-
 <pre><code>[0.000e+00 1.000e+00 2.000e+00 ... 2.281e+03 2.282e+03 2.283e+03]
 [3.91587981 3.90860622 3.89163795 ... 0.06100258 0.06100258 0.06241967]
 </code></pre>
 <h2 id="plotting-the-data">Plotting the data</h2>
 <p>It's quite tricky to see what's really going on here, so let's plot it to get a better idea.</p>
-<pre><code class="python">plt.figure(1)
+<pre><code class="language-python">plt.figure(1)
 
 plt.plot(time,pressure)
 plt.xlabel(&quot;time (s)&quot;)
 plt.ylabel(&quot;Pressure (Pa)&quot;)
 </code></pre>
-
 <pre><code>Text(0, 0.5, 'Pressure (Pa)')
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_34_1.png" /></p>
@@ -1020,36 +1176,30 @@ plt.ylabel(&quot;Pressure (Pa)&quot;)
 <h2 id="making-use-of-built-in-functions">Making use of built in functions</h2>
 <p>If you remember back to the experiment (and what we actually have to do to from the basis of our analysis here) we need to find the minimum pressure we reached. </p>
 <p>To do this we will use an inbuilt python function ‘min’ and set the result as a new variable ‘baseP’.</p>
-<pre><code class="python">baseP=min(rawdata[:,1])
+<pre><code class="language-python">baseP=min(rawdata[:,1])
 </code></pre>
-
-<pre><code class="python">print(baseP)
+<pre><code class="language-python">print(baseP)
 </code></pre>
-
 <pre><code>0.061002576
 </code></pre>
 <p>Have a bit of a think about what that function is doing.  It is going from the first data point and last data point in our pressure column (here 1) and finding the minimum.  If you want to know more you can easily google this function and see how it operates.</p>
 <p>We are now going to use a list comprehension to subtract the base pressure from each value in ‘Pressure’ as we will need to take the log of this later (everyone remembers the experiment and you all definitely read ahead to see where this is going...).  </p>
 <p>We therefore want to avoid 0 values, and as baseP is in ‘Pressure’ it will return a zero, so we can just multiply it by 0.99 to avoid this.</p>
-<pre><code class="python">P_minus_baseP=[i-0.99*baseP for i in pressure]
+<pre><code class="language-python">P_minus_baseP=[i-0.99*baseP for i in pressure]
 </code></pre>
-
 <p>print(P_minus_baseP) - do this at your peril.  It gives a big list...</p>
 <p>Now we have our pressure minus base pressure we need to find the point at which the effusion regime begins, to do this we are going to make a new vector of residuals. </p>
 <p>We already know the pressure at which the effusion regime begins, we called it ‘ef_begin’, what we don't know is the INDEX of this value in the pressure vector. We are going to find this using residuals. </p>
 <h2 id="making-use-of-loops">Making use of loops</h2>
 <p>This vector ‘Res’ will be a vector where we take the value we are looking for ‘ef_begin’ from all values of the pressure vector the smallest value of this vector will have an index equal to that of when the effusion regime begins, in the vector ‘Pressure’.</p>
-<pre><code class="python">res=[abs(i-ef_begin) for i in P_minus_baseP]
+<pre><code class="language-python">res=[abs(i-ef_begin) for i in P_minus_baseP]
 </code></pre>
-
 <p>You should recognise the list comprehension in the line above.  This was in the reminder tutorial and is a neat way of writing a for loop.</p>
 <p>We've made a new array as described above.  We now need to take the minimum value.</p>
-<pre><code class="python">minres=min(res)
+<pre><code class="language-python">minres=min(res)
 </code></pre>
-
-<pre><code class="python">print(minres)
+<pre><code class="language-python">print(minres)
 </code></pre>
-
 <pre><code>0.00043142575999999266
 </code></pre>
 <p>I get 0.00043142575999999266, you should get something similar…. Or the same.</p>
@@ -1064,49 +1214,43 @@ plt.ylabel(&quot;Pressure (Pa)&quot;)
 <em>
 *
 </em></p>
-<pre><code class="python">for i in range (len(res)):
+<pre><code class="language-python">for i in range (len(res)):
     if res[i]==minres:
         Peff_index=i
         break
 </code></pre>
-
-<pre><code class="python">print(Peff_index)
+<pre><code class="language-python">print(Peff_index)
 </code></pre>
-
 <pre><code>691
 </code></pre>
 <p>Now we have the value of the index where the effusion regime begins we can move on.</p>
 <h2 id="using-the-math-module">Using the math module</h2>
 <p>The next step is to take the log of our data, to do this we need to import another module called ‘math’.  </p>
 <p>Maybe we could have added that to the top with numpy and matplotlib, but here we are...</p>
-<pre><code class="python">from math import log
+<pre><code class="language-python">from math import log
 import math
 </code></pre>
-
 <p>We are going to use another list comprehension to create a new vector with all the logged values</p>
-<pre><code class="python">LogP=[log(i) for i in P_minus_baseP]
+<pre><code class="language-python">LogP=[log(i) for i in P_minus_baseP]
 </code></pre>
-
 <p>print(LogP) - if you want to check things.  I find it better to plot.  Especially as you have your own data from the PHYS223 lab that you can double check against.</p>
-<pre><code class="python">plt.figure(2)
+<pre><code class="language-python">plt.figure(2)
 plt.plot(time,LogP)
 plt.xlabel(&quot;time (s)&quot;)
 plt.ylabel(&quot;log Pressure (Pa)&quot;)
 </code></pre>
-
 <pre><code>Text(0, 0.5, 'log Pressure (Pa)')
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_62_1.png" /></p>
 <p>We can also plot only the data after we reach the effusion regime, on the same figure, the ‘r’ makes it red.</p>
-<pre><code class="python">plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
+<pre><code class="language-python">plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 </code></pre>
-
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6a11b7fd0&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_64_1.png" /></p>
 <p>Actually, in spyder that just plots ontop of the existing plot.  In the Jupyter workbook environment things happen a little differently.  </p>
 <p>So, if you are in Sypder I expect you have something that looks like this:</p>
-<pre><code class="python">plt.figure(2)
+<pre><code class="language-python">plt.figure(2)
 plt.plot(time,LogP)
 plt.xlabel(&quot;time (s)&quot;)
 plt.ylabel(&quot;log Pressure (Pa)&quot;)
@@ -1114,47 +1258,41 @@ plt.ylabel(&quot;log Pressure (Pa)&quot;)
 plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 
 </code></pre>
-
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6c06a49d0&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_66_1.png" /></p>
 <p>Here in the Jupyter environment I had to put them together in one code section.  So if anyone is using Jupyter you will have to do what I just did here.</p>
 <h2 id="fitting">Fitting</h2>
 <p>Now I want to fit a trend line to the section of the data in the effusion regime. To do this I'll use a fitting tool and create a new variable. </p>
-<pre><code class="python">fit=np.polyfit(time[Peff_index:1400],LogP[Peff_index:1400],1)
+<pre><code class="language-python">fit=np.polyfit(time[Peff_index:1400],LogP[Peff_index:1400],1)
 </code></pre>
-
 <p>It is worth having a bit of a think about what this polyfit is doing.  It is a numpy function.  polyfit(x,y, degree of polynomial).</p>
 <p>What is 1400 representing?  Why is that the cut-off?  Maybe take a look at your own lab report.  But the plot here is helpful too I think.</p>
 <p>Now is probably a good time for another print...</p>
-<pre><code class="python">print(fit[0])
+<pre><code class="language-python">print(fit[0])
 print(fit[1])
 </code></pre>
-
 <pre><code>-0.0032100701686121782
 0.8597164594476661
 </code></pre>
 <p>We were fitting a straight line! The fit function returns two values, one is the gradient and one is the intercept, we can make these into their own variable.</p>
-<pre><code class="python">m=fit[0]
+<pre><code class="language-python">m=fit[0]
 c=fit[1]
 </code></pre>
-
 <p>Now we can plot this.</p>
-<pre><code class="python">plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
+<pre><code class="language-python">plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
 </code></pre>
-
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6c07ff050&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_78_1.png" /></p>
 <p>For me, I need to plot it ontop of the existing plots again. </p>
-<pre><code class="python">plt.figure(2)
+<pre><code class="language-python">plt.figure(2)
 plt.plot(time,LogP)
 plt.xlabel(&quot;time (s)&quot;)
 plt.ylabel(&quot;log Pressure (Pa)&quot;)
 plt.plot(time[Peff_index:],LogP[Peff_index:],&quot;r&quot;)
 plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
 </code></pre>
-
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x7fb6d0a1ce50&gt;]
 </code></pre>
 <p><img alt="png" src="../../nb_img/phys221/Single_exp_80_1.png" /></p>
@@ -1162,92 +1300,54 @@ plt.plot(time[Peff_index:1400],time[Peff_index:1400]*m+c, &quot;k--&quot;)
 <h2 id="final-analysis">Final analysis</h2>
 <p>We now can calculate the velocity of the nitrogen from the fit. 
 Which remember, is the reason we’ve done all this work... and let's print it.</p>
-<pre><code class="python">v=-4*V*m/A
+<pre><code class="language-python">v=-4*V*m/A
 print(v)
 </code></pre>
-
 <pre><code>469.5579056720142
 </code></pre>
 <p>Do you get the same?  Does it agree with your lab report?</p>
 <p><em>Download this page <a href="https://github.com/vuw-scps/python-physics/raw/master/notebooks/phys221/Single_exp.ipynb">as a Jupyter notebook</a> or as a <a href="https://github.com/vuw-scps/python-physics/raw/master/scripts/phys221/Single_exp.py">standalone Python script</a>.</em></p>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../Multiplots/" title="Molecular Speeds lab Python data analysis - multiple gas dataset processing" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Molecular Speeds lab Python data analysis - multiple gas dataset processing
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../../phys304/spherical_harmonics/" title="Spherical harmonics" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Spherical harmonics
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
       
